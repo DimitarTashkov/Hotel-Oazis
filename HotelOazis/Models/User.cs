@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using static HotelOazis.Common.Constants.ValidationConstants.UserConstants;
+
 namespace HotelOazis.Models
 {
     public class User
@@ -13,11 +15,11 @@ namespace HotelOazis.Models
         public Guid Id { get; set; } 
 
         [Required]
-        [StringLength(50)]
+        [MaxLength(NameMaxLength)]
         public string Username { get; set; } = null!;
 
         [Required]
-        [StringLength(50)]
+        [MaxLength(PasswordMaxLength)]
         public string Password { get; set; } = null!;
         public int? Age { get; set; }
         [Required]

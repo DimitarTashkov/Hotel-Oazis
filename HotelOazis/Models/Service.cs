@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using static HotelOazis.Common.Constants.ValidationConstants.ServiceConstants;
+
 namespace HotelOazis.Models
 {
     public class Service
@@ -14,10 +16,10 @@ namespace HotelOazis.Models
         public Guid Id { get; set; }
 
         [Required]
-        [StringLength(100)]
+        [MaxLength(NameMaxLength)]
         public string Name { get; set; } = null!;
 
-        [StringLength(500)]
+        [MaxLength(DescriptionMaxLength)]
         public string Description { get; set; } = null!;
         [Required]
         public Guid RoomId { get; set; }

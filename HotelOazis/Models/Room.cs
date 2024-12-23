@@ -19,6 +19,7 @@ namespace HotelOazis.Models
         [Range(0, double.MaxValue)]
         public decimal Price { get; set; }
 
+        [Required]
         public bool IsAvailable { get; set; }
         public virtual HashSet<Service> Services { get; set; }
         = new HashSet<Service>();

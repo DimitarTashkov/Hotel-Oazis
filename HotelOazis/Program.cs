@@ -1,7 +1,10 @@
+using HotelOazis.Forms;
+
 namespace HotelOazis
 {
     internal static class Program
     {
+        public static ApplicationContext AppContext;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -10,8 +13,19 @@ namespace HotelOazis
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            AppContext = new ApplicationContext(new Login());
+            Application.Run(AppContext);
+        }
+        public static void SwitchMainForm(Form newForm)
+        {
+            var oldMainForm = AppContext.MainForm;
+            AppContext.MainForm = newForm;
+            oldMainForm?.Hide();
+            oldMainForm?.Close();
+            newForm.ShowDialog();
         }
     }
 }

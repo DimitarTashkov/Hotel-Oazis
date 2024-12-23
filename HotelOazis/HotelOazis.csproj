@@ -12,7 +12,6 @@
     <Folder Include="Common\Messages\" />
     <Folder Include="Models\DbConfiguration\" />
     <Folder Include="Services\" />
-    <Folder Include="Repositories\" />
     <Folder Include="Utilities\" />
   </ItemGroup>
 

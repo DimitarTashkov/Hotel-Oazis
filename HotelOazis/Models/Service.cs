@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,10 @@ namespace HotelOazis.Models
 
         [StringLength(500)]
         public string Description { get; set; } = null!;
+        [Required]
+        public Guid RoomId { get; set; }
 
-        [Range(0, double.MaxValue)]
-        public decimal Price { get; set; }
+        [ForeignKey(nameof(RoomId))]
+        public virtual Room Room { get; set; }
     }
 }

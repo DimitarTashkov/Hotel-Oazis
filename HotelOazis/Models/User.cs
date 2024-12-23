@@ -24,7 +24,7 @@ namespace HotelOazis.Models
         public string Email { get; set; } = null!;
         [Required]
         public string AvatarUrl { get; set; } = null!;
-        public HashSet<Reservation> Reservations { get; set; }
+        public virtual HashSet<Reservation> Reservations { get; set; }
         = new HashSet<Reservation>();
 
     }

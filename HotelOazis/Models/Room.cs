@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelOazis.Models.Enumerations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,12 +14,13 @@ namespace HotelOazis.Models
         public Guid Id { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Type { get; set; } = null!;
+        public RoomType Type { get; set; }
 
         [Range(0, double.MaxValue)]
         public decimal Price { get; set; }
 
         public bool IsAvailable { get; set; }
+        public virtual HashSet<Service> Services { get; set; }
+        = new HashSet<Service>();
     }
 }

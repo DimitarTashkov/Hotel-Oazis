@@ -1,6 +1,7 @@
 ﻿using HotelOazis.Models.Enumerations;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace HotelOazis.Models
         public decimal Price { get; set; }
 
         [Required]
+        [DefaultValue(true)]
         public bool IsAvailable { get; set; }
         public virtual HashSet<Service> Services { get; set; }
         = new HashSet<Service>();

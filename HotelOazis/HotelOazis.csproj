@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Messages\" />
     <Folder Include="Services\" />
     <Folder Include="Utilities\" />
   </ItemGroup>

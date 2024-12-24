@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Login";
+            formPanel = new Panel();
+            SuspendLayout();
+            // 
+            // formPanel
+            // 
+            formPanel.Location = new Point(231, 44);
+            formPanel.Name = "formPanel";
+            formPanel.Size = new Size(350, 350);
+            formPanel.TabIndex = 0;
+            // 
+            // Login
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.appback;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(800, 450);
+            Controls.Add(formPanel);
+            Name = "Login";
+            Text = "Login";
+            Load += Login_Load;
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel formPanel;
     }
 }

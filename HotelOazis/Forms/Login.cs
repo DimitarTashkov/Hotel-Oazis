@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelOazis.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace HotelOazis.Forms
         public Login()
         {
             InitializeComponent();
+            formPanel.Paint += new PaintEventHandler(LayoutHelper.set_FormBackground);
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

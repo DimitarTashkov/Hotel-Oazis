@@ -16,6 +16,7 @@ namespace HotelOazis.Models
         [Required]
         public RoomType Type { get; set; }
 
+        [Required]
         [Range(0, double.MaxValue)]
         public decimal Price { get; set; }
 

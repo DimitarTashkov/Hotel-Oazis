@@ -14,5 +14,13 @@ namespace HotelOazis.Common.Messages
             public const string PriceIsRequired = "Defining price is required";
             public const string IsAvailableRequired = "Room status is required";
         }
+        public static class UserMessages
+        {
+            public const string UsernameIsRequired = "Username is required ";
+            public const string PasswordIsRequired = "Password is required";
+            public const string EmailIsRequired = "Email is required";
+            public const string AvatarIsRequired = "Profile picture is required";
+
+        }
     }
 }

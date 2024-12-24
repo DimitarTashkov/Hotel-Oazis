@@ -22,8 +22,10 @@ namespace HotelOazis.Models
         [MaxLength(PasswordMaxLength)]
         public string Password { get; set; } = null!;
         public int? Age { get; set; }
+
         [Required]
         public string Email { get; set; } = null!;
+
         [Required]
         public string AvatarUrl { get; set; } = null!;
         public virtual HashSet<Reservation> Reservations { get; set; }

@@ -12,7 +12,7 @@ namespace HotelOazis.DTOs.Room
 {
     public class EditRoomInputModel
     {
-        [Key]
+        [Required]
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = RoomTypeIsRequired)]

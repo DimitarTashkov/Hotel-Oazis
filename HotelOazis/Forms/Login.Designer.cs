@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             formPanel = new Panel();
+            passwordError = new Label();
+            usernameError = new Label();
             register = new Label();
             loginBtn = new Button();
             passwordField = new TextBox();
@@ -36,8 +38,6 @@
             usernameField = new TextBox();
             usernameLabel = new Label();
             logo = new PictureBox();
-            usernameError = new Label();
-            passwordError = new Label();
             formPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             SuspendLayout();
@@ -59,6 +59,32 @@
             formPanel.Size = new Size(350, 350);
             formPanel.TabIndex = 1;
             // 
+            // passwordError
+            // 
+            passwordError.AutoSize = true;
+            passwordError.BackColor = Color.Transparent;
+            passwordError.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            passwordError.ForeColor = Color.Red;
+            passwordError.Location = new Point(7, 227);
+            passwordError.Name = "passwordError";
+            passwordError.Size = new Size(47, 13);
+            passwordError.TabIndex = 8;
+            passwordError.Text = "label1";
+            passwordError.Visible = false;
+            // 
+            // usernameError
+            // 
+            usernameError.AutoSize = true;
+            usernameError.BackColor = Color.Transparent;
+            usernameError.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            usernameError.ForeColor = Color.Red;
+            usernameError.Location = new Point(7, 144);
+            usernameError.Name = "usernameError";
+            usernameError.Size = new Size(47, 13);
+            usernameError.TabIndex = 7;
+            usernameError.Text = "label1";
+            usernameError.Visible = false;
+            // 
             // register
             // 
             register.AutoSize = true;
@@ -71,6 +97,9 @@
             register.Size = new Size(62, 14);
             register.TabIndex = 6;
             register.Text = "Register";
+            register.Click += register_Click;
+            register.MouseLeave += register_leave;
+            register.MouseHover += login_hover;
             // 
             // loginBtn
             // 
@@ -82,7 +111,9 @@
             loginBtn.TabIndex = 5;
             loginBtn.Text = "Login";
             loginBtn.UseVisualStyleBackColor = false;
-            loginBtn.Click += button1_Click;
+            loginBtn.Click += login_Click;
+            loginBtn.MouseLeave += login_leave;
+            loginBtn.MouseHover += login_hover;
             // 
             // passwordField
             // 
@@ -134,32 +165,6 @@
             logo.Size = new Size(101, 94);
             logo.TabIndex = 0;
             logo.TabStop = false;
-            // 
-            // usernameError
-            // 
-            usernameError.AutoSize = true;
-            usernameError.BackColor = Color.Transparent;
-            usernameError.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            usernameError.ForeColor = Color.Red;
-            usernameError.Location = new Point(7, 144);
-            usernameError.Name = "usernameError";
-            usernameError.Size = new Size(47, 13);
-            usernameError.TabIndex = 7;
-            usernameError.Text = "label1";
-            usernameError.Visible = false;
-            // 
-            // passwordError
-            // 
-            passwordError.AutoSize = true;
-            passwordError.BackColor = Color.Transparent;
-            passwordError.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            passwordError.ForeColor = Color.Red;
-            passwordError.Location = new Point(7, 227);
-            passwordError.Name = "passwordError";
-            passwordError.Size = new Size(47, 13);
-            passwordError.TabIndex = 8;
-            passwordError.Text = "label1";
-            passwordError.Visible = false;
             // 
             // Login
             // 

@@ -1,5 +1,9 @@
-﻿using HotelOazis.Common.Constants;
+﻿using Fitness.Utilities;
+using HotelOazis.Common.Constants;
+using HotelOazis.Common.Messages;
+using HotelOazis.DTOs.User;
 using HotelOazis.Models.DbConfiguration;
+using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -19,8 +23,10 @@ namespace HotelOazis.Forms
 {
     public partial class Login : Form
     {
-        public Login(HotelContext dbContext)
+        private readonly IUserService userService;
+        public Login(IUserService userService)
         {
+            this.userService = userService;
             InitializeComponent();
             formPanel.Paint += new PaintEventHandler(LayoutHelper.set_FormBackground);
         }
@@ -62,13 +68,64 @@ namespace HotelOazis.Forms
         }
         private async void login_Click(object sender, EventArgs e)
         {
+            List<TextBox> inputs = new List<TextBox>()
+            {
+                usernameField
+                ,passwordField
+            };
 
+            bool areInputValid = ValidationHelper.ValidateUserInputs(inputs);
+            if (!areInputValid)
+            {
+                MessageBox.Show(InputsMessages.EmptyInputData, "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+            string username = usernameField.Text.Trim();
+            string password = passwordField.Text.Trim();
+
+            var loginModel = new LoginUserInputModel
+            {
+                Username = username,
+                Password = password
+            };
+
+            var (isValid, errors) = await userService.ValidateLoginAsync(loginModel);
+
+            if (!isValid)
+            {
+                foreach (var error in errors)
+                {
+                    if (error.MemberNames.Contains(nameof(loginModel.Username)))
+                    {
+                        usernameError.Text = error.ErrorMessage;
+                        usernameError.Visible = true;
+                    }
+
+                    if (error.MemberNames.Contains(nameof(loginModel.Password)))
+                    {
+                        passwordError.Text = error.ErrorMessage;
+                        passwordError.Visible = true;
+                    }
+                }
+                usernameField.Text = "";
+                passwordField.Text = "";
+                return;
+            }
+
+            bool isAuthenticated = await userService.AuthenticateUserAsync(username, password);
+
+            if (isAuthenticated)
+            {
+                Index indexForm = new Index();
+                Program.SwitchMainForm(indexForm);
+            }
+            else
+            {
+                MessageBox.Show(UserMessages.InvalidUserCredentials, "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-        private void clearInputs_click(object sender, EventArgs e)
-        {
-            TextBox textbox = sender as TextBox;
-            textbox.Text = "";
-        }
+
         private void input_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;

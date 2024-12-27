@@ -1,4 +1,5 @@
 ﻿using HotelOazis.DTOs.User;
+using HotelOazis.Models;
 using HotelOazis.Models.DbConfiguration;
 using HotelOazis.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,22 @@ namespace HotelOazis.Services
         {
             return await _dbContext.Users
                 .AnyAsync(u => u.Username == username && u.Password == password);
+        }
+
+        public async Task RegisterUserAsync(RegisterUserInputModel registrationModel)
+        {
+            var user = new User
+            {
+                Id = Guid.NewGuid(),
+                Username = registrationModel.Username,
+                Password = registrationModel.Password, 
+                Age = registrationModel.Age,
+                Email = registrationModel.Email,
+                AvatarUrl = registrationModel.AvatarUrl
+            };
+
+            _dbContext.Users.Add(user);
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task<(bool IsValid, List<ValidationResult> Errors)> ValidateLoginAsync(LoginUserInputModel loginModel)

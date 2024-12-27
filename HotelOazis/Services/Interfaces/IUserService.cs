@@ -12,5 +12,6 @@ namespace HotelOazis.Services.Interfaces
     {
         public Task<(bool IsValid, List<ValidationResult> Errors)> ValidateLoginAsync(LoginUserInputModel loginModel);
         public Task<bool> AuthenticateUserAsync(string username, string password);
+        public Task RegisterUserAsync(RegisterUserInputModel registrationModel);
     }
 }

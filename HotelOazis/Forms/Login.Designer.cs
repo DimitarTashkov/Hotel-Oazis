@@ -99,7 +99,7 @@
             register.Text = "Register";
             register.Click += register_Click;
             register.MouseLeave += register_leave;
-            register.MouseHover += login_hover;
+            register.MouseHover += register_hover;
             // 
             // loginBtn
             // 

@@ -108,8 +108,6 @@ namespace HotelOazis.Forms
                         passwordError.Visible = true;
                     }
                 }
-                usernameField.Text = "";
-                passwordField.Text = "";
                 return;
             }
 

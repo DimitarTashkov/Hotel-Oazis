@@ -1,4 +1,5 @@
 ﻿using HotelOazis.Common.Constants;
+using HotelOazis.Models.DbConfiguration;
 using HotelOazis.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -18,7 +19,7 @@ namespace HotelOazis.Forms
 {
     public partial class Login : Form
     {
-        public Login()
+        public Login(HotelContext dbContext)
         {
             InitializeComponent();
             formPanel.Paint += new PaintEventHandler(LayoutHelper.set_FormBackground);

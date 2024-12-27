@@ -42,13 +42,13 @@ namespace HotelOazis.Services
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<(bool IsValid, List<ValidationResult> Errors)> ValidateLoginAsync(LoginUserInputModel loginModel)
+        public async Task<(bool IsValid, List<ValidationResult> Errors)> ValidateModelAsync<TModel>(TModel model)
         {
             return await Task.Run(() =>
             {
                 var validationResults = new List<ValidationResult>();
-                var validationContext = new ValidationContext(loginModel);
-                bool isValid = Validator.TryValidateObject(loginModel, validationContext, validationResults, true);
+                var validationContext = new ValidationContext(model);
+                bool isValid = Validator.TryValidateObject(model, validationContext, validationResults, true);
                 return (isValid, validationResults);
             });
         }

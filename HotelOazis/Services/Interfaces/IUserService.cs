@@ -10,7 +10,7 @@ namespace HotelOazis.Services.Interfaces
 {
     public interface IUserService
     {
-        public Task<(bool IsValid, List<ValidationResult> Errors)> ValidateLoginAsync(LoginUserInputModel loginModel);
+        public Task<(bool IsValid, List<ValidationResult> Errors)> ValidateModelAsync<TModel>(TModel model);
         public Task<bool> AuthenticateUserAsync(string username, string password);
         public Task RegisterUserAsync(RegisterUserInputModel registrationModel);
     }

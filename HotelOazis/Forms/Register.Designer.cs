@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             formPanel = new Panel();
+            pfpErrorMessages = new Label();
+            ageErrors = new Label();
+            emailErrors = new Label();
+            passwordErrors = new Label();
+            usernameErrors = new Label();
             disclaimer = new Label();
             navigationButton = new Button();
             profilePicture = new Fitness.Utilities.RoundPictureBox();
@@ -52,6 +57,11 @@
             // formPanel
             // 
             formPanel.BackColor = SystemColors.Control;
+            formPanel.Controls.Add(pfpErrorMessages);
+            formPanel.Controls.Add(ageErrors);
+            formPanel.Controls.Add(emailErrors);
+            formPanel.Controls.Add(passwordErrors);
+            formPanel.Controls.Add(usernameErrors);
             formPanel.Controls.Add(disclaimer);
             formPanel.Controls.Add(navigationButton);
             formPanel.Controls.Add(profilePicture);
@@ -71,6 +81,71 @@
             formPanel.Name = "formPanel";
             formPanel.Size = new Size(659, 400);
             formPanel.TabIndex = 1;
+            // 
+            // pfpErrorMessages
+            // 
+            pfpErrorMessages.AutoSize = true;
+            pfpErrorMessages.BackColor = Color.Transparent;
+            pfpErrorMessages.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            pfpErrorMessages.ForeColor = Color.Red;
+            pfpErrorMessages.Location = new Point(444, 248);
+            pfpErrorMessages.Name = "pfpErrorMessages";
+            pfpErrorMessages.Size = new Size(47, 13);
+            pfpErrorMessages.TabIndex = 23;
+            pfpErrorMessages.Text = "label1";
+            pfpErrorMessages.Visible = false;
+            // 
+            // ageErrors
+            // 
+            ageErrors.AutoSize = true;
+            ageErrors.BackColor = Color.Transparent;
+            ageErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            ageErrors.ForeColor = Color.Red;
+            ageErrors.Location = new Point(115, 295);
+            ageErrors.Name = "ageErrors";
+            ageErrors.Size = new Size(47, 13);
+            ageErrors.TabIndex = 22;
+            ageErrors.Text = "label1";
+            ageErrors.Visible = false;
+            // 
+            // emailErrors
+            // 
+            emailErrors.AutoSize = true;
+            emailErrors.BackColor = Color.Transparent;
+            emailErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            emailErrors.ForeColor = Color.Red;
+            emailErrors.Location = new Point(115, 226);
+            emailErrors.Name = "emailErrors";
+            emailErrors.Size = new Size(47, 13);
+            emailErrors.TabIndex = 21;
+            emailErrors.Text = "label1";
+            emailErrors.Visible = false;
+            // 
+            // passwordErrors
+            // 
+            passwordErrors.AutoSize = true;
+            passwordErrors.BackColor = Color.Transparent;
+            passwordErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            passwordErrors.ForeColor = Color.Red;
+            passwordErrors.Location = new Point(115, 158);
+            passwordErrors.Name = "passwordErrors";
+            passwordErrors.Size = new Size(47, 13);
+            passwordErrors.TabIndex = 20;
+            passwordErrors.Text = "label1";
+            passwordErrors.Visible = false;
+            // 
+            // usernameErrors
+            // 
+            usernameErrors.AutoSize = true;
+            usernameErrors.BackColor = Color.Transparent;
+            usernameErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            usernameErrors.ForeColor = Color.Red;
+            usernameErrors.Location = new Point(115, 90);
+            usernameErrors.Name = "usernameErrors";
+            usernameErrors.Size = new Size(47, 13);
+            usernameErrors.TabIndex = 19;
+            usernameErrors.Text = "label1";
+            usernameErrors.Visible = false;
             // 
             // disclaimer
             // 
@@ -94,6 +169,7 @@
             navigationButton.TabIndex = 17;
             navigationButton.Text = "Return to login";
             navigationButton.UseVisualStyleBackColor = false;
+            navigationButton.Click += navigationButton_Click;
             // 
             // profilePicture
             // 
@@ -114,6 +190,9 @@
             registerButton.TabIndex = 15;
             registerButton.Text = "Register";
             registerButton.UseVisualStyleBackColor = false;
+            registerButton.Click += btnRegister_Click;
+            registerButton.MouseLeave += register_leave;
+            registerButton.MouseHover += register_hover;
             // 
             // uploadButton
             // 
@@ -124,6 +203,7 @@
             uploadButton.TabIndex = 13;
             uploadButton.Text = "Upload pfp";
             uploadButton.UseVisualStyleBackColor = true;
+            uploadButton.Click += uploadImage_click;
             // 
             // ageField
             // 
@@ -268,5 +348,10 @@
         private Label usernameLabel;
         private PictureBox logo;
         private Label register_label;
+        private Label usernameErrors;
+        private Label ageErrors;
+        private Label emailErrors;
+        private Label passwordErrors;
+        private Label pfpErrorMessages;
     }
 }

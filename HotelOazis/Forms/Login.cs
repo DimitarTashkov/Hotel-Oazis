@@ -47,7 +47,7 @@ namespace HotelOazis.Forms
         private void register_Click(object sender, EventArgs e)
         {
             register.ForeColor = Color.BlueViolet;
-            Register registerForm = new Register();
+            Register registerForm = new Register(userService);
             Program.SwitchMainForm(registerForm);
         }
 
@@ -85,7 +85,7 @@ namespace HotelOazis.Forms
                 Password = password
             };
 
-            var (isValid, errors) = await userService.ValidateLoginAsync(loginModel);
+            var (isValid, errors) = await userService.ValidateModelAsync(loginModel);
 
             if (!isValid)
             {

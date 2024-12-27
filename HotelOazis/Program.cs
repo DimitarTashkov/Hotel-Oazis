@@ -32,8 +32,8 @@ namespace HotelOazis
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var dbContext = serviceProvider.GetRequiredService<HotelContext>();
-            AppContext = new ApplicationContext(new Login(dbContext));
+            var userService = serviceProvider.GetRequiredService<IUserService>();
+            AppContext = new ApplicationContext(new Login(userService));
             Application.Run(AppContext);
         }
         public static void SwitchMainForm(Form newForm)

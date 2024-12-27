@@ -16,11 +16,16 @@ namespace HotelOazis.Common.Messages
         }
         public static class UserMessages
         {
-            public const string UsernameIsRequired = "Username is required ";
+            public const string UsernameIsRequired = "Username is required";
             public const string PasswordIsRequired = "Password is required";
             public const string EmailIsRequired = "Email is required";
             public const string AvatarIsRequired = "Profile picture is required";
+            public const string InvalidUserCredentials = "Invalid username or password!";
 
+        }
+        public static class InputsMessages
+        {
+            public const string EmptyInputData = "Please fill in all input fields!";
         }
     }
 }

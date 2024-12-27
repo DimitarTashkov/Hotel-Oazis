@@ -160,9 +160,12 @@
             // logo
             // 
             logo.BackColor = Color.Transparent;
+            logo.BackgroundImage = Properties.Resources.applogo1;
+            logo.BackgroundImageLayout = ImageLayout.Stretch;
+            logo.Image = Properties.Resources.applogo1;
             logo.Location = new Point(-21, -16);
             logo.Name = "logo";
-            logo.Size = new Size(101, 94);
+            logo.Size = new Size(150, 150);
             logo.TabIndex = 0;
             logo.TabStop = false;
             // 
@@ -176,7 +179,6 @@
             Controls.Add(formPanel);
             Name = "Login";
             Text = "Login";
-            Load += Login_Load;
             formPanel.ResumeLayout(false);
             formPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();

@@ -28,12 +28,205 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Index";
+            footer = new Button();
+            supplementsButton = new Button();
+            workoutsButton = new Button();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            menu = new MenuStrip();
+            Rooms = new ToolStripMenuItem();
+            Services = new ToolStripMenuItem();
+            Reviews = new ToolStripMenuItem();
+            Users = new ToolStripMenuItem();
+            Profile = new ToolStripMenuItem();
+            Reservations = new ToolStripMenuItem();
+            languageToolStripMenuItem = new ToolStripMenuItem();
+            englishToolStripMenuItem = new ToolStripMenuItem();
+            bulgarianToolStripMenuItem = new ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            menu.SuspendLayout();
+            SuspendLayout();
+            // 
+            // footer
+            // 
+            footer.BackColor = Color.Transparent;
+            footer.BackgroundImageLayout = ImageLayout.Stretch;
+            footer.Font = new Font("Verdana", 11.25F, FontStyle.Italic);
+            footer.Location = new Point(0, 409);
+            footer.Name = "footer";
+            footer.Size = new Size(815, 39);
+            footer.TabIndex = 18;
+            footer.Text = "Ⓒ Oazis 2024";
+            footer.UseVisualStyleBackColor = false;
+            // 
+            // supplementsButton
+            // 
+            supplementsButton.BackColor = SystemColors.ButtonFace;
+            supplementsButton.BackgroundImageLayout = ImageLayout.Stretch;
+            supplementsButton.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
+            supplementsButton.Location = new Point(529, 328);
+            supplementsButton.Name = "supplementsButton";
+            supplementsButton.Size = new Size(203, 50);
+            supplementsButton.TabIndex = 16;
+            supplementsButton.Text = "Check out our latest supplements collection ";
+            supplementsButton.UseVisualStyleBackColor = false;
+            // 
+            // workoutsButton
+            // 
+            workoutsButton.BackColor = SystemColors.ButtonFace;
+            workoutsButton.BackgroundImageLayout = ImageLayout.Stretch;
+            workoutsButton.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
+            workoutsButton.Location = new Point(83, 327);
+            workoutsButton.Name = "workoutsButton";
+            workoutsButton.Size = new Size(185, 50);
+            workoutsButton.TabIndex = 15;
+            workoutsButton.Text = "Check out our latest workouts collection ";
+            workoutsButton.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(-7, 86);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(402, 235);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 14;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(401, 87);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(395, 235);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 13;
+            pictureBox1.TabStop = false;
+            // 
+            // menu
+            // 
+            menu.BackColor = SystemColors.ScrollBar;
+            menu.BackgroundImageLayout = ImageLayout.Stretch;
+            menu.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            menu.Items.AddRange(new ToolStripItem[] { Rooms, Services, Reviews, Users, Profile, Reservations, languageToolStripMenuItem });
+            menu.Location = new Point(0, 0);
+            menu.Name = "menu";
+            menu.Padding = new Padding(6, 1, 0, 5);
+            menu.Size = new Size(800, 33);
+            menu.TabIndex = 11;
+            menu.Text = "Menu";
+            // 
+            // Rooms
+            // 
+            Rooms.ForeColor = SystemColors.ActiveCaptionText;
+            Rooms.Name = "Rooms";
+            Rooms.Padding = new Padding(4, 0, 4, 5);
+            Rooms.Size = new Size(80, 27);
+            Rooms.Text = "Rooms";
+            // 
+            // Services
+            // 
+            Services.ForeColor = SystemColors.ActiveCaptionText;
+            Services.Name = "Services";
+            Services.Padding = new Padding(4, 0, 4, 5);
+            Services.Size = new Size(93, 27);
+            Services.Text = "Services";
+            // 
+            // Reviews
+            // 
+            Reviews.BackgroundImageLayout = ImageLayout.Center;
+            Reviews.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Strikeout);
+            Reviews.ForeColor = SystemColors.ActiveCaptionText;
+            Reviews.Name = "Reviews";
+            Reviews.Padding = new Padding(4, 0, 4, 5);
+            Reviews.Size = new Size(94, 27);
+            Reviews.Text = "Reviews";
+            // 
+            // Users
+            // 
+            Users.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Strikeout);
+            Users.ForeColor = SystemColors.MenuText;
+            Users.Name = "Users";
+            Users.Padding = new Padding(4, 0, 4, 5);
+            Users.Size = new Size(70, 27);
+            Users.Text = "Users";
+            // 
+            // Profile
+            // 
+            Profile.ForeColor = SystemColors.ActiveCaptionText;
+            Profile.Name = "Profile";
+            Profile.Padding = new Padding(4, 0, 4, 5);
+            Profile.Size = new Size(106, 27);
+            Profile.Text = "My profile";
+            // 
+            // Reservations
+            // 
+            Reservations.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            Reservations.ForeColor = SystemColors.ActiveCaptionText;
+            Reservations.Name = "Reservations";
+            Reservations.Padding = new Padding(4, 0, 4, 5);
+            Reservations.Size = new Size(160, 27);
+            Reservations.Text = "My reservations";
+            // 
+            // languageToolStripMenuItem
+            // 
+            languageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { englishToolStripMenuItem, bulgarianToolStripMenuItem });
+            languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            languageToolStripMenuItem.Size = new Size(107, 27);
+            languageToolStripMenuItem.Text = "Language";
+            // 
+            // englishToolStripMenuItem
+            // 
+            englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            englishToolStripMenuItem.Size = new Size(180, 22);
+            englishToolStripMenuItem.Text = "English";
+            // 
+            // bulgarianToolStripMenuItem
+            // 
+            bulgarianToolStripMenuItem.Name = "bulgarianToolStripMenuItem";
+            bulgarianToolStripMenuItem.Size = new Size(180, 22);
+            bulgarianToolStripMenuItem.Text = "Bulgarian";
+            // 
+            // Index
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.gradient_img__4_;
+            BackgroundImageLayout = ImageLayout.Center;
+            ClientSize = new Size(800, 450);
+            Controls.Add(footer);
+            Controls.Add(supplementsButton);
+            Controls.Add(workoutsButton);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
+            Controls.Add(menu);
+            DoubleBuffered = true;
+            Name = "Index";
+            Text = "Index";
+            Load += Index_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            menu.ResumeLayout(false);
+            menu.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button footer;
+        private Button supplementsButton;
+        private Button workoutsButton;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private MenuStrip menu;
+        private ToolStripMenuItem Rooms;
+        private ToolStripMenuItem Services;
+        private ToolStripMenuItem Reviews;
+        private ToolStripMenuItem Users;
+        private ToolStripMenuItem Profile;
+        private ToolStripMenuItem Reservations;
+        private ToolStripMenuItem languageToolStripMenuItem;
+        private ToolStripMenuItem englishToolStripMenuItem;
+        private ToolStripMenuItem bulgarianToolStripMenuItem;
     }
 }

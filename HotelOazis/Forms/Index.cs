@@ -16,5 +16,10 @@ namespace HotelOazis.Forms
         {
             InitializeComponent();
         }
+
+        private void Index_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

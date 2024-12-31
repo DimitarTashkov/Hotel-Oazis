@@ -86,5 +86,25 @@ namespace HotelOazis.Services
                 return (isValid, validationResults);
             });
         }
+        public async Task<EditProfileInputModel?> GetUserForEditAsync()
+        {
+            if (_loggedInUser == null) return null;
+
+
+            var user = await _dbContext.Users
+                .Select(u => new EditProfileInputModel
+                {
+                    Id = u.Id,
+                    Username = u.Username,
+                    Password = u.Password,
+                    Age = u.Age,
+                    Email = u.Email,
+                    AvatarUrl = u.AvatarUrl
+                })
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Id == _loggedInUser.Id);
+
+            return user;
+        }
     }
 }

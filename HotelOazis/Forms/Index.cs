@@ -1,7 +1,6 @@
 ﻿using HotelOazis.Common.Constants;
 using HotelOazis.Models;
 using HotelOazis.Services.Interfaces;
-using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,16 +77,16 @@ namespace HotelOazis.Forms
                     form = new Reviews();
                     break;
                 case "Profile":
-                    form = new Profile(activeUser);
+                    form = new Profile(userService);
                     break;
-                case "Comments":
-                    form = new Comments();
+                case "Users":
+                    form = new Users(userService);
                     break;
-                case "Orders":
-                    form = new Orders(activeUser);
+                case "MyReservations":
+                    form = new UserReservations();
                     break;
                 default:
-                    form = new Index();
+                    form = new Index(userService);
                     break;
             }
             Program.SwitchMainForm(form);

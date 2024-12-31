@@ -39,11 +39,11 @@
             Reviews = new ToolStripMenuItem();
             Users = new ToolStripMenuItem();
             Reservations = new ToolStripMenuItem();
-            languageToolStripMenuItem = new ToolStripMenuItem();
+            MyReservations = new ToolStripMenuItem();
+            Languages = new ToolStripMenuItem();
             englishToolStripMenuItem = new ToolStripMenuItem();
             bulgarianToolStripMenuItem = new ToolStripMenuItem();
             roundPictureBox1 = new Fitness.Utilities.RoundPictureBox();
-            reservationsToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menu.SuspendLayout();
@@ -117,7 +117,7 @@
             menu.BackColor = SystemColors.ScrollBar;
             menu.BackgroundImageLayout = ImageLayout.Stretch;
             menu.Font = new Font("Verdana", 12F, FontStyle.Bold);
-            menu.Items.AddRange(new ToolStripItem[] { Rooms, Services, Reviews, Users, reservationsToolStripMenuItem, Reservations, languageToolStripMenuItem });
+            menu.Items.AddRange(new ToolStripItem[] { Rooms, Services, Reviews, Users, Reservations, MyReservations, Languages });
             menu.Location = new Point(0, 0);
             menu.Name = "menu";
             menu.Padding = new Padding(6, 1, 0, 5);
@@ -162,30 +162,36 @@
             // 
             // Reservations
             // 
-            Reservations.Font = new Font("Verdana", 12F, FontStyle.Bold);
-            Reservations.ForeColor = SystemColors.ActiveCaptionText;
             Reservations.Name = "Reservations";
-            Reservations.Padding = new Padding(4, 0, 4, 5);
-            Reservations.Size = new Size(160, 27);
-            Reservations.Text = "My reservations";
+            Reservations.Size = new Size(135, 27);
+            Reservations.Text = "Reservations";
             // 
-            // languageToolStripMenuItem
+            // MyReservations
             // 
-            languageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { englishToolStripMenuItem, bulgarianToolStripMenuItem });
-            languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            languageToolStripMenuItem.Size = new Size(107, 27);
-            languageToolStripMenuItem.Text = "Language";
+            MyReservations.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            MyReservations.ForeColor = SystemColors.ActiveCaptionText;
+            MyReservations.Name = "MyReservations";
+            MyReservations.Padding = new Padding(4, 0, 4, 5);
+            MyReservations.Size = new Size(160, 27);
+            MyReservations.Text = "My reservations";
+            // 
+            // Languages
+            // 
+            Languages.DropDownItems.AddRange(new ToolStripItem[] { englishToolStripMenuItem, bulgarianToolStripMenuItem });
+            Languages.Name = "Languages";
+            Languages.Size = new Size(107, 27);
+            Languages.Text = "Language";
             // 
             // englishToolStripMenuItem
             // 
             englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            englishToolStripMenuItem.Size = new Size(159, 22);
+            englishToolStripMenuItem.Size = new Size(180, 22);
             englishToolStripMenuItem.Text = "English";
             // 
             // bulgarianToolStripMenuItem
             // 
             bulgarianToolStripMenuItem.Name = "bulgarianToolStripMenuItem";
-            bulgarianToolStripMenuItem.Size = new Size(159, 22);
+            bulgarianToolStripMenuItem.Size = new Size(180, 22);
             bulgarianToolStripMenuItem.Text = "Bulgarian";
             // 
             // roundPictureBox1
@@ -197,12 +203,6 @@
             roundPictureBox1.TabIndex = 19;
             roundPictureBox1.TabStop = false;
             roundPictureBox1.Click += roundPictureBox1_Click;
-            // 
-            // reservationsToolStripMenuItem
-            // 
-            reservationsToolStripMenuItem.Name = "reservationsToolStripMenuItem";
-            reservationsToolStripMenuItem.Size = new Size(135, 27);
-            reservationsToolStripMenuItem.Text = "Reservations";
             // 
             // Index
             // 
@@ -243,11 +243,11 @@
         private ToolStripMenuItem Services;
         private ToolStripMenuItem Reviews;
         private ToolStripMenuItem Users;
-        private ToolStripMenuItem Reservations;
-        private ToolStripMenuItem languageToolStripMenuItem;
+        private ToolStripMenuItem MyReservations;
+        private ToolStripMenuItem Languages;
         private ToolStripMenuItem englishToolStripMenuItem;
         private ToolStripMenuItem bulgarianToolStripMenuItem;
         private Fitness.Utilities.RoundPictureBox roundPictureBox1;
-        private ToolStripMenuItem reservationsToolStripMenuItem;
+        private ToolStripMenuItem Reservations;
     }
 }

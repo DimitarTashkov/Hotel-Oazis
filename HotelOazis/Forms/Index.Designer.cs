@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             footer = new Button();
-            supplementsButton = new Button();
-            workoutsButton = new Button();
+            serviceButton = new Button();
+            roomsButton = new Button();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             menu = new MenuStrip();
@@ -38,14 +38,16 @@
             Services = new ToolStripMenuItem();
             Reviews = new ToolStripMenuItem();
             Users = new ToolStripMenuItem();
-            Profile = new ToolStripMenuItem();
             Reservations = new ToolStripMenuItem();
             languageToolStripMenuItem = new ToolStripMenuItem();
             englishToolStripMenuItem = new ToolStripMenuItem();
             bulgarianToolStripMenuItem = new ToolStripMenuItem();
+            roundPictureBox1 = new Fitness.Utilities.RoundPictureBox();
+            reservationsToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)roundPictureBox1).BeginInit();
             SuspendLayout();
             // 
             // footer
@@ -60,32 +62,39 @@
             footer.Text = "Ⓒ Oazis 2024";
             footer.UseVisualStyleBackColor = false;
             // 
-            // supplementsButton
+            // serviceButton
             // 
-            supplementsButton.BackColor = SystemColors.ButtonFace;
-            supplementsButton.BackgroundImageLayout = ImageLayout.Stretch;
-            supplementsButton.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
-            supplementsButton.Location = new Point(529, 328);
-            supplementsButton.Name = "supplementsButton";
-            supplementsButton.Size = new Size(203, 50);
-            supplementsButton.TabIndex = 16;
-            supplementsButton.Text = "Check out our latest supplements collection ";
-            supplementsButton.UseVisualStyleBackColor = false;
+            serviceButton.BackColor = SystemColors.ButtonFace;
+            serviceButton.BackgroundImageLayout = ImageLayout.Stretch;
+            serviceButton.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
+            serviceButton.Location = new Point(529, 328);
+            serviceButton.Name = "serviceButton";
+            serviceButton.Size = new Size(203, 50);
+            serviceButton.TabIndex = 16;
+            serviceButton.Text = "Check out our latest services";
+            serviceButton.UseVisualStyleBackColor = false;
+            serviceButton.Click += servicesButton_Click;
+            serviceButton.MouseLeave += buttons_Leave;
+            serviceButton.MouseHover += buttons_Hover;
             // 
-            // workoutsButton
+            // roomsButton
             // 
-            workoutsButton.BackColor = SystemColors.ButtonFace;
-            workoutsButton.BackgroundImageLayout = ImageLayout.Stretch;
-            workoutsButton.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
-            workoutsButton.Location = new Point(83, 327);
-            workoutsButton.Name = "workoutsButton";
-            workoutsButton.Size = new Size(185, 50);
-            workoutsButton.TabIndex = 15;
-            workoutsButton.Text = "Check out our latest workouts collection ";
-            workoutsButton.UseVisualStyleBackColor = false;
+            roomsButton.BackColor = SystemColors.ButtonFace;
+            roomsButton.BackgroundImageLayout = ImageLayout.Stretch;
+            roomsButton.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
+            roomsButton.Location = new Point(83, 327);
+            roomsButton.Name = "roomsButton";
+            roomsButton.Size = new Size(185, 50);
+            roomsButton.TabIndex = 15;
+            roomsButton.Text = "Check out our latest rooms ";
+            roomsButton.UseVisualStyleBackColor = false;
+            roomsButton.Click += roomsButton_Click;
+            roomsButton.MouseLeave += buttons_Leave;
+            roomsButton.MouseHover += buttons_Hover;
             // 
             // pictureBox2
             // 
+            pictureBox2.Image = Properties.Resources.rooms;
             pictureBox2.Location = new Point(-7, 86);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(402, 235);
@@ -95,6 +104,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = Properties.Resources.services;
             pictureBox1.Location = new Point(401, 87);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(395, 235);
@@ -107,7 +117,7 @@
             menu.BackColor = SystemColors.ScrollBar;
             menu.BackgroundImageLayout = ImageLayout.Stretch;
             menu.Font = new Font("Verdana", 12F, FontStyle.Bold);
-            menu.Items.AddRange(new ToolStripItem[] { Rooms, Services, Reviews, Users, Profile, Reservations, languageToolStripMenuItem });
+            menu.Items.AddRange(new ToolStripItem[] { Rooms, Services, Reviews, Users, reservationsToolStripMenuItem, Reservations, languageToolStripMenuItem });
             menu.Location = new Point(0, 0);
             menu.Name = "menu";
             menu.Padding = new Padding(6, 1, 0, 5);
@@ -150,14 +160,6 @@
             Users.Size = new Size(70, 27);
             Users.Text = "Users";
             // 
-            // Profile
-            // 
-            Profile.ForeColor = SystemColors.ActiveCaptionText;
-            Profile.Name = "Profile";
-            Profile.Padding = new Padding(4, 0, 4, 5);
-            Profile.Size = new Size(106, 27);
-            Profile.Text = "My profile";
-            // 
             // Reservations
             // 
             Reservations.Font = new Font("Verdana", 12F, FontStyle.Bold);
@@ -177,14 +179,30 @@
             // englishToolStripMenuItem
             // 
             englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            englishToolStripMenuItem.Size = new Size(180, 22);
+            englishToolStripMenuItem.Size = new Size(159, 22);
             englishToolStripMenuItem.Text = "English";
             // 
             // bulgarianToolStripMenuItem
             // 
             bulgarianToolStripMenuItem.Name = "bulgarianToolStripMenuItem";
-            bulgarianToolStripMenuItem.Size = new Size(180, 22);
+            bulgarianToolStripMenuItem.Size = new Size(159, 22);
             bulgarianToolStripMenuItem.Text = "Bulgarian";
+            // 
+            // roundPictureBox1
+            // 
+            roundPictureBox1.Location = new Point(746, 0);
+            roundPictureBox1.Name = "roundPictureBox1";
+            roundPictureBox1.Size = new Size(50, 40);
+            roundPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            roundPictureBox1.TabIndex = 19;
+            roundPictureBox1.TabStop = false;
+            roundPictureBox1.Click += roundPictureBox1_Click;
+            // 
+            // reservationsToolStripMenuItem
+            // 
+            reservationsToolStripMenuItem.Name = "reservationsToolStripMenuItem";
+            reservationsToolStripMenuItem.Size = new Size(135, 27);
+            reservationsToolStripMenuItem.Text = "Reservations";
             // 
             // Index
             // 
@@ -193,9 +211,10 @@
             BackgroundImage = Properties.Resources.gradient_img__4_;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(800, 450);
+            Controls.Add(roundPictureBox1);
             Controls.Add(footer);
-            Controls.Add(supplementsButton);
-            Controls.Add(workoutsButton);
+            Controls.Add(serviceButton);
+            Controls.Add(roomsButton);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(menu);
@@ -207,6 +226,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             menu.ResumeLayout(false);
             menu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)roundPictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -214,8 +234,8 @@
         #endregion
 
         private Button footer;
-        private Button supplementsButton;
-        private Button workoutsButton;
+        private Button serviceButton;
+        private Button roomsButton;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private MenuStrip menu;
@@ -223,10 +243,11 @@
         private ToolStripMenuItem Services;
         private ToolStripMenuItem Reviews;
         private ToolStripMenuItem Users;
-        private ToolStripMenuItem Profile;
         private ToolStripMenuItem Reservations;
         private ToolStripMenuItem languageToolStripMenuItem;
         private ToolStripMenuItem englishToolStripMenuItem;
         private ToolStripMenuItem bulgarianToolStripMenuItem;
+        private Fitness.Utilities.RoundPictureBox roundPictureBox1;
+        private ToolStripMenuItem reservationsToolStripMenuItem;
     }
 }

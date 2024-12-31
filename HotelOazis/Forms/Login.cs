@@ -110,7 +110,7 @@ namespace HotelOazis.Forms
 
             if (isAuthenticated)
             {
-                Index indexForm = new Index();
+                Index indexForm = new Index(userService);
                 Program.SwitchMainForm(indexForm);
             }
             else

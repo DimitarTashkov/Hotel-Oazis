@@ -16,7 +16,8 @@ namespace HotelOazis.Services.Interfaces
         public Task RegisterUserAsync(RegisterUserInputModel registrationModel);
         public Task<bool> UpdateUserAsync(EditProfileInputModel user);
         public User? GetLoggedInUserAsync();
-        public Task<EditProfileInputModel?> GetUserForEditAsync();
+        public Task<bool> DeleteUserAsync();
+        public void LogoutUser();
 
     }
 }

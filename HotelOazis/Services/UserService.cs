@@ -86,25 +86,23 @@ namespace HotelOazis.Services
                 return (isValid, validationResults);
             });
         }
-        public async Task<EditProfileInputModel?> GetUserForEditAsync()
+        public async Task<bool> DeleteUserAsync()
         {
-            if (_loggedInUser == null) return null;
+            if (_loggedInUser == null) return false;
 
+            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == _loggedInUser.Id);
+            if (user == null) return false;
 
-            var user = await _dbContext.Users
-                .Select(u => new EditProfileInputModel
-                {
-                    Id = u.Id,
-                    Username = u.Username,
-                    Password = u.Password,
-                    Age = u.Age,
-                    Email = u.Email,
-                    AvatarUrl = u.AvatarUrl
-                })
-                .AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Id == _loggedInUser.Id);
+            _dbContext.Users.Remove(user);
+            await _dbContext.SaveChangesAsync();
 
-            return user;
+            _loggedInUser = null; 
+            return true;
         }
+        public void LogoutUser()
+        {
+            _loggedInUser = null; 
+        }
+
     }
 }

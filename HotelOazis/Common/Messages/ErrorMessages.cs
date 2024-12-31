@@ -26,6 +26,8 @@ namespace HotelOazis.Common.Messages
         public static class InputsMessages
         {
             public const string EmptyInputData = "Please fill in all input fields!";
+            public const string EmptyOrInvalidImage = "An error occured while processing your image!";
+
         }
     }
 }

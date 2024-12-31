@@ -22,5 +22,9 @@ namespace HotelOazis.Common.Constants
             public const int PasswordMaxLength = 50;
             public const int PasswordMinLength = 5;
         }
+        public static class InputConstants
+        {
+            public const string DialogFilter = "jpg files(*.jpg)|*.jpg| png files(*.png)|*.png| All files(*.*)|*.*";
+        }
     }
 }

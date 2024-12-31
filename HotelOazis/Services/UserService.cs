@@ -52,7 +52,7 @@ namespace HotelOazis.Services
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<User?> GetLoggedInUserAsync()
+        public User? GetLoggedInUserAsync()
         {
             return _loggedInUser;
         }

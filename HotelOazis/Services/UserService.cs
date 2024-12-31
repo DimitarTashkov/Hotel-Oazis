@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace HotelOazis.Services
@@ -16,14 +15,25 @@ namespace HotelOazis.Services
     {
         private readonly HotelContext _dbContext;
 
+        private User? _loggedInUser;
+
         public UserService(HotelContext dbContext)
         {
             _dbContext = dbContext;
         }
+
         public async Task<bool> AuthenticateUserAsync(string username, string password)
         {
-            return await _dbContext.Users
-                .AnyAsync(u => u.Username == username && u.Password == password);
+            var user = await _dbContext.Users
+                .FirstOrDefaultAsync(u => u.Username == username && u.Password == password);
+
+            if (user != null)
+            {
+                _loggedInUser = user; 
+                return true;
+            }
+
+            return false;
         }
 
         public async Task RegisterUserAsync(RegisterUserInputModel registrationModel)
@@ -32,7 +42,7 @@ namespace HotelOazis.Services
             {
                 Id = Guid.NewGuid(),
                 Username = registrationModel.Username,
-                Password = registrationModel.Password, 
+                Password = registrationModel.Password,
                 Age = registrationModel.Age,
                 Email = registrationModel.Email,
                 AvatarUrl = registrationModel.AvatarUrl
@@ -40,6 +50,30 @@ namespace HotelOazis.Services
 
             _dbContext.Users.Add(user);
             await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<User?> GetLoggedInUserAsync()
+        {
+            return _loggedInUser;
+        }
+
+        public async Task<bool> UpdateUserAsync(EditProfileInputModel userModel)
+        {
+            if (_loggedInUser == null) return false;
+
+            var user = await _dbContext.Users.FindAsync(_loggedInUser.Id);
+            if (user == null) return false;
+
+            user.Username = userModel.Username;
+            user.Email = userModel.Email;
+            user.Age = userModel.Age;
+            user.AvatarUrl = userModel.AvatarUrl;
+
+            _dbContext.Users.Update(user);
+            await _dbContext.SaveChangesAsync();
+
+            _loggedInUser = user; 
+            return true;
         }
 
         public async Task<(bool IsValid, List<ValidationResult> Errors)> ValidateModelAsync<TModel>(TModel model)

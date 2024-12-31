@@ -1,4 +1,5 @@
 ﻿using HotelOazis.DTOs.User;
+using HotelOazis.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,5 +14,7 @@ namespace HotelOazis.Services.Interfaces
         public Task<(bool IsValid, List<ValidationResult> Errors)> ValidateModelAsync<TModel>(TModel model);
         public Task<bool> AuthenticateUserAsync(string username, string password);
         public Task RegisterUserAsync(RegisterUserInputModel registrationModel);
+        public Task<bool> UpdateUserAsync(EditProfileInputModel user);
+        public Task<User?> GetLoggedInUserAsync();
     }
 }

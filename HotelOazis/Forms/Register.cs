@@ -12,7 +12,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using static HotelOazis.Common.Messages.ResultMessages.UserMessages;
 using static HotelOazis.Common.Messages.ErrorMessages;
+using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
+using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
 
 namespace HotelOazis.Forms
 {
@@ -61,7 +65,7 @@ namespace HotelOazis.Forms
             try
             {
                 OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = "jpg files(*.jpg)|*.jpg| png files(*.png)|*.png| All files(*.*)|*.*";
+                dialog.Filter = DialogFilter;
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -72,7 +76,7 @@ namespace HotelOazis.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(EmptyOrInvalidImage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -155,7 +159,7 @@ namespace HotelOazis.Forms
 
             await userService.RegisterUserAsync(registrationModel);
 
-            MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(ProfileRegisteredSuccessfully, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Login login = new Login(userService);
             Program.SwitchMainForm(login);
         }

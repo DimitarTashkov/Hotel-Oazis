@@ -28,12 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Rooms";
+            navigationButton = new Button();
+            addSupplement = new Button();
+            mainContainer = new FlowLayoutPanel();
+            SuspendLayout();
+            // 
+            // navigationButton
+            // 
+            navigationButton.BackColor = Color.DarkOrange;
+            navigationButton.Font = new Font("Verdana", 11.25F, FontStyle.Bold | FontStyle.Italic);
+            navigationButton.ForeColor = SystemColors.ControlText;
+            navigationButton.Location = new Point(3, 0);
+            navigationButton.Name = "navigationButton";
+            navigationButton.Size = new Size(148, 29);
+            navigationButton.TabIndex = 7;
+            navigationButton.Text = "Return to main";
+            navigationButton.UseVisualStyleBackColor = false;
+            // 
+            // addSupplement
+            // 
+            addSupplement.BackColor = Color.LightGreen;
+            addSupplement.Font = new Font("Verdana", 11.25F, FontStyle.Bold | FontStyle.Italic | FontStyle.Strikeout);
+            addSupplement.Location = new Point(327, 0);
+            addSupplement.Name = "addSupplement";
+            addSupplement.Size = new Size(148, 29);
+            addSupplement.TabIndex = 4;
+            addSupplement.Text = "Add";
+            addSupplement.UseVisualStyleBackColor = false;
+            // 
+            // mainContainer
+            // 
+            mainContainer.AutoScroll = true;
+            mainContainer.Location = new Point(38, 46);
+            mainContainer.Name = "mainContainer";
+            mainContainer.Size = new Size(723, 391);
+            mainContainer.TabIndex = 5;
+            // 
+            // Rooms
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.appback;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(800, 450);
+            Controls.Add(navigationButton);
+            Controls.Add(addSupplement);
+            Controls.Add(mainContainer);
+            Name = "Rooms";
+            Text = "Rooms";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button navigationButton;
+        private Button addSupplement;
+        private FlowLayoutPanel mainContainer;
     }
 }

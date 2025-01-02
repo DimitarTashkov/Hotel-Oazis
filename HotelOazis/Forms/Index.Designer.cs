@@ -166,6 +166,7 @@
             // 
             // Reservations
             // 
+            Reservations.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Strikeout, GraphicsUnit.Point, 0);
             Reservations.Name = "Reservations";
             Reservations.Size = new Size(135, 27);
             Reservations.Text = "Reservations";

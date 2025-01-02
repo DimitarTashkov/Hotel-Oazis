@@ -132,6 +132,7 @@
             Rooms.Padding = new Padding(4, 0, 4, 5);
             Rooms.Size = new Size(80, 27);
             Rooms.Text = "Rooms";
+            Rooms.Click += menu_ItemClicked;
             // 
             // Services
             // 
@@ -140,6 +141,7 @@
             Services.Padding = new Padding(4, 0, 4, 5);
             Services.Size = new Size(93, 27);
             Services.Text = "Services";
+            Services.Click += menu_ItemClicked;
             // 
             // Reviews
             // 
@@ -150,6 +152,7 @@
             Reviews.Padding = new Padding(4, 0, 4, 5);
             Reviews.Size = new Size(94, 27);
             Reviews.Text = "Reviews";
+            Reviews.Click += menu_ItemClicked;
             // 
             // Users
             // 
@@ -159,12 +162,14 @@
             Users.Padding = new Padding(4, 0, 4, 5);
             Users.Size = new Size(70, 27);
             Users.Text = "Users";
+            Users.Click += menu_ItemClicked;
             // 
             // Reservations
             // 
             Reservations.Name = "Reservations";
             Reservations.Size = new Size(135, 27);
             Reservations.Text = "Reservations";
+            Reservations.Click += menu_ItemClicked;
             // 
             // MyReservations
             // 
@@ -174,6 +179,7 @@
             MyReservations.Padding = new Padding(4, 0, 4, 5);
             MyReservations.Size = new Size(160, 27);
             MyReservations.Text = "My reservations";
+            MyReservations.Click += menu_ItemClicked;
             // 
             // Languages
             // 
@@ -198,7 +204,7 @@
             // 
             roundPictureBox1.Location = new Point(746, 0);
             roundPictureBox1.Name = "roundPictureBox1";
-            roundPictureBox1.Size = new Size(50, 40);
+            roundPictureBox1.Size = new Size(50, 35);
             roundPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             roundPictureBox1.TabIndex = 19;
             roundPictureBox1.TabStop = false;

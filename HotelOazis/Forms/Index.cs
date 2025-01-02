@@ -58,6 +58,7 @@ namespace HotelOazis.Forms
             Services servicesForm = new Services();
             Program.SwitchMainForm(servicesForm);
         }
+
         private void menu_ItemClicked(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
@@ -91,5 +92,7 @@ namespace HotelOazis.Forms
             }
             Program.SwitchMainForm(form);
         }
+
     }
 }
+

@@ -18,5 +18,6 @@ namespace HotelOazis.DTOs.Room
 
         public decimal Price { get; set; }
         public bool IsAvailable { get; set; }
+        public string PictureLocation { get; set; } = null!;
     }
 }

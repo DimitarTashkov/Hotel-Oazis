@@ -13,23 +13,23 @@ namespace HotelOazis.Services
 {
     public class UserService : IUserService
     {
-        private readonly HotelContext _dbContext;
+        private readonly HotelContext dbContext;
 
-        private User? _loggedInUser;
+        private User? loggedInUser;
 
         public UserService(HotelContext dbContext)
         {
-            _dbContext = dbContext;
+            this.dbContext = dbContext;
         }
 
         public async Task<bool> AuthenticateUserAsync(string username, string password)
         {
-            var user = await _dbContext.Users
+            var user = await dbContext.Users
                 .FirstOrDefaultAsync(u => u.Username == username && u.Password == password);
 
             if (user != null)
             {
-                _loggedInUser = user; 
+                loggedInUser = user; 
                 return true;
             }
 
@@ -48,20 +48,20 @@ namespace HotelOazis.Services
                 AvatarUrl = registrationModel.AvatarUrl
             };
 
-            _dbContext.Users.Add(user);
-            await _dbContext.SaveChangesAsync();
+            dbContext.Users.Add(user);
+            await dbContext.SaveChangesAsync();
         }
 
         public User? GetLoggedInUserAsync()
         {
-            return _loggedInUser;
+            return loggedInUser;
         }
 
         public async Task<bool> UpdateUserAsync(EditProfileInputModel userModel)
         {
-            if (_loggedInUser == null) return false;
+            if (loggedInUser == null) return false;
 
-            var user = await _dbContext.Users.FindAsync(_loggedInUser.Id);
+            var user = await dbContext.Users.FindAsync(loggedInUser.Id);
             if (user == null) return false;
 
             user.Username = userModel.Username;
@@ -69,10 +69,10 @@ namespace HotelOazis.Services
             user.Age = userModel.Age;
             user.AvatarUrl = userModel.AvatarUrl;
 
-            _dbContext.Users.Update(user);
-            await _dbContext.SaveChangesAsync();
+            dbContext.Users.Update(user);
+            await dbContext.SaveChangesAsync();
 
-            _loggedInUser = user; 
+            loggedInUser = user; 
             return true;
         }
 
@@ -88,20 +88,25 @@ namespace HotelOazis.Services
         }
         public async Task<bool> DeleteUserAsync()
         {
-            if (_loggedInUser == null) return false;
+            if (loggedInUser == null) return false;
 
-            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == _loggedInUser.Id);
+            var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == loggedInUser.Id);
             if (user == null) return false;
 
-            _dbContext.Users.Remove(user);
-            await _dbContext.SaveChangesAsync();
+            dbContext.Users.Remove(user);
+            await dbContext.SaveChangesAsync();
 
-            _loggedInUser = null; 
+            loggedInUser = null; 
             return true;
+        }
+        public async Task<bool> IsUserAdminAsync(Guid userId)
+        {
+            return await dbContext.UsersRoles
+                .AnyAsync(ur => ur.UserId == userId && ur.Role.Name == "Admin");
         }
         public void LogoutUser()
         {
-            _loggedInUser = null; 
+            loggedInUser = null; 
         }
 
     }

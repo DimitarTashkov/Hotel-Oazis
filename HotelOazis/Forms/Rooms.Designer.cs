@@ -76,6 +76,7 @@
             Controls.Add(mainContainer);
             Name = "Rooms";
             Text = "Rooms";
+            Load += Rooms_Load;
             ResumeLayout(false);
         }
 

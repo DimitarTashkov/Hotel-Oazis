@@ -12,17 +12,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static HotelOazis.Common.Messages.ErrorMessages;
 using System.Xml.Linq;
+using HotelOazis.Extensions;
 
 namespace HotelOazis.Forms
 {
     public partial class Index : Form
     {
         private readonly IUserService userService;
+        private readonly IRoomService roomService;
         private User activeUser;
         public Index(IUserService userService)
         {
             this.userService = userService;
             activeUser = userService.GetLoggedInUserAsync();
+            roomService = ServiceLocator.GetService<IRoomService>();
+
             InitializeComponent();
         }
 
@@ -49,7 +53,7 @@ namespace HotelOazis.Forms
         }
         private void roomsButton_Click(object sender, EventArgs e)
         {
-            Rooms roomsForm = new Rooms();
+            Rooms roomsForm = new Rooms(roomService,userService);
             Program.SwitchMainForm(roomsForm);
         }
 
@@ -69,7 +73,7 @@ namespace HotelOazis.Forms
             switch (formName)
             {
                 case "Rooms":
-                    form = new Rooms();
+                    form = new Rooms(roomService,userService);
                     break;
                 case "Services":
                     form = new Services();

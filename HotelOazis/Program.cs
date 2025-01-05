@@ -1,3 +1,4 @@
+using HotelOazis.Extensions;
 using HotelOazis.Forms;
 using HotelOazis.Models.DbConfiguration;
 using HotelOazis.Services;
@@ -17,22 +18,20 @@ namespace HotelOazis
         static void Main()
         {
             var services = new ServiceCollection();
-
-            // Configure DbContext
-            services.AddDbContext<HotelContext>(options =>
-                options.UseSqlServer(Configuration.ConnectionString));
-
-            // Register services
-            services.AddScoped<IUserService, UserService>();
+            services.AddHotelServices();
 
             var serviceProvider = services.BuildServiceProvider();
+
+            ServiceLocator.Initialize(serviceProvider);
+
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var userService = serviceProvider.GetRequiredService<IUserService>();
+            var userService = ServiceLocator.GetService<IUserService>();
+
             AppContext = new ApplicationContext(new Login(userService));
             Application.Run(AppContext);
         }

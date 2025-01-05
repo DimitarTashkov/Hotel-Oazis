@@ -44,6 +44,7 @@
             navigationButton.TabIndex = 7;
             navigationButton.Text = "Return to main";
             navigationButton.UseVisualStyleBackColor = false;
+            navigationButton.Click += navigationButton_Click;
             // 
             // addSupplement
             // 
@@ -55,6 +56,7 @@
             addSupplement.TabIndex = 4;
             addSupplement.Text = "Add";
             addSupplement.UseVisualStyleBackColor = false;
+            addSupplement.Click += addSupplement_Click;
             // 
             // mainContainer
             // 

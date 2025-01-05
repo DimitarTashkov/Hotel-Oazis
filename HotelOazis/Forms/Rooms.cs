@@ -199,5 +199,17 @@ namespace HotelOazis.Forms
 
             await PopulateRoomsPanelAsync(mainContainer, loggedInUser);
         }
+
+        private void navigationButton_Click(object sender, EventArgs e)
+        {
+            Index indexForm = new Index(userService);
+            Program.SwitchMainForm(indexForm);
+        }
+
+        private void addSupplement_Click(object sender, EventArgs e)
+        {
+            CreateRoom createRoomForm = new CreateRoom(roomService);
+            Program.SwitchMainForm(createRoomForm);
+        }
     }
 }

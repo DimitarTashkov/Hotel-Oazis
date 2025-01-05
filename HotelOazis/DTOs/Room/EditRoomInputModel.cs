@@ -23,6 +23,10 @@ namespace HotelOazis.DTOs.Room
         public decimal Price { get; set; }
         [Required(ErrorMessage = IsAvailableRequired)]
         public bool IsAvailable { get; set; }
+        [Required(ErrorMessage = RoomPictureRequired)]
+        public string PictureLocation { get; set; } = null!;
+        public string? Description { get; set; }
+
 
     }
 }

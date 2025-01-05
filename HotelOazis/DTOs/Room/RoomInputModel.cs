@@ -18,6 +18,10 @@ namespace HotelOazis.DTOs.Room
         [Required(ErrorMessage = PriceIsRequired)]
         [Range(0, double.MaxValue)]
         public decimal Price { get; set; }
- 
+
+        [Required(ErrorMessage = RoomPictureRequired)]
+        public string PictureLocation { get; set; } = null!;
+        public string? Description { get; set; }
+
     }
 }

@@ -21,10 +21,6 @@ namespace HotelOazis.Models
 
         [MaxLength(DescriptionMaxLength)]
         public string Description { get; set; } = null!;
-        [Required]
-        public Guid RoomId { get; set; }
 
-        [ForeignKey(nameof(RoomId))]
-        public virtual Room Room { get; set; }
     }
 }

@@ -14,8 +14,15 @@ namespace HotelOazis.Common.Messages
             public const string ProfileUpdatedSuccessfully = "Profile updated successfully!";
             public const string ProfileUpdateFailed = "Failed to update profile! Please try again!";
             public const string ProfileDeleteWarning = "Are you sure you want to delete your account? This action cannot be undone!";
-            public const string ProfileDeletionSuccessful = "Your account has been successfully deleted!";
+            public const string ProfileDeletionSuccessful = "Your account has been deleted successfully!";
             public const string ProfileDeletionFailed = "Failed to delete the account! Please try again!";
+        }
+        public static class RoomMessages
+        {
+            public const string RoomUpdatedSuccessfully = "Room updated successfully!";
+            public const string RoomUpdateFailed = "Failed to update room! Please try again!";
+            public const string RoomDeletionSuccessful = "Your room has been deleted successfully!";
+            public const string RoomDeletionFailed = "Failed to delete the room! Please try again!";
         }
     }
 }

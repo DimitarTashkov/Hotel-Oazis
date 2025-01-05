@@ -13,6 +13,7 @@ namespace HotelOazis.Common.Messages
             public const string RoomTypeIsRequired = "Selecting room type is required";
             public const string PriceIsRequired = "Defining price is required";
             public const string IsAvailableRequired = "Room status is required";
+            public const string RoomPictureRequired = "Room picture is required";
         }
         public static class UserMessages
         {
@@ -27,6 +28,11 @@ namespace HotelOazis.Common.Messages
         {
             public const string EmptyInputData = "Please fill in all input fields!";
             public const string EmptyOrInvalidImage = "An error occured while processing your image!";
+
+        }
+        public static class ReservationMessages
+        {
+            public const string RoomIsAlreadyReservated = "This room is unavailable currently!";
 
         }
     }

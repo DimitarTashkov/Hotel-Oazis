@@ -27,6 +27,7 @@ namespace HotelOazis.Forms
         private User activeUser;
         private readonly IUserService userService;
 
+
         public Profile(IUserService userService)
         {
             InitializeComponent();

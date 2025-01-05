@@ -23,6 +23,7 @@ namespace HotelOazis.Forms
     public partial class Register : Form
     {
         private readonly IUserService userService;
+
         public Register(IUserService userService)
         {
             InitializeComponent();

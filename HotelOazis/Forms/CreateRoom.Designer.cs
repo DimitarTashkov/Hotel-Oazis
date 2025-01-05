@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             formPanel = new Panel();
+            imageErrors = new Label();
+            priceErrors = new Label();
+            typeErrors = new Label();
+            roomTypes = new ComboBox();
             navigationButton = new Button();
             roomPicture = new PictureBox();
             uploadRoom = new Button();
@@ -40,7 +44,6 @@
             typeLabel = new Label();
             logo = new PictureBox();
             roomLabel = new Label();
-            comboBox1 = new ComboBox();
             formPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)roomPicture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
@@ -49,7 +52,10 @@
             // formPanel
             // 
             formPanel.BackColor = SystemColors.Control;
-            formPanel.Controls.Add(comboBox1);
+            formPanel.Controls.Add(imageErrors);
+            formPanel.Controls.Add(priceErrors);
+            formPanel.Controls.Add(typeErrors);
+            formPanel.Controls.Add(roomTypes);
             formPanel.Controls.Add(navigationButton);
             formPanel.Controls.Add(roomPicture);
             formPanel.Controls.Add(uploadRoom);
@@ -66,6 +72,54 @@
             formPanel.Size = new Size(659, 400);
             formPanel.TabIndex = 2;
             // 
+            // imageErrors
+            // 
+            imageErrors.AutoSize = true;
+            imageErrors.BackColor = Color.Transparent;
+            imageErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            imageErrors.ForeColor = Color.Red;
+            imageErrors.Location = new Point(451, 255);
+            imageErrors.Name = "imageErrors";
+            imageErrors.Size = new Size(47, 13);
+            imageErrors.TabIndex = 22;
+            imageErrors.Text = "label1";
+            imageErrors.Visible = false;
+            // 
+            // priceErrors
+            // 
+            priceErrors.AutoSize = true;
+            priceErrors.BackColor = Color.Transparent;
+            priceErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            priceErrors.ForeColor = Color.Red;
+            priceErrors.Location = new Point(115, 158);
+            priceErrors.Name = "priceErrors";
+            priceErrors.Size = new Size(47, 13);
+            priceErrors.TabIndex = 21;
+            priceErrors.Text = "label1";
+            priceErrors.Visible = false;
+            // 
+            // typeErrors
+            // 
+            typeErrors.AutoSize = true;
+            typeErrors.BackColor = Color.Transparent;
+            typeErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            typeErrors.ForeColor = Color.Red;
+            typeErrors.Location = new Point(115, 87);
+            typeErrors.Name = "typeErrors";
+            typeErrors.Size = new Size(47, 13);
+            typeErrors.TabIndex = 20;
+            typeErrors.Text = "label1";
+            typeErrors.Visible = false;
+            // 
+            // roomTypes
+            // 
+            roomTypes.Font = new Font("Verdana", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            roomTypes.FormattingEnabled = true;
+            roomTypes.Location = new Point(115, 61);
+            roomTypes.Name = "roomTypes";
+            roomTypes.Size = new Size(244, 24);
+            roomTypes.TabIndex = 19;
+            // 
             // navigationButton
             // 
             navigationButton.BackColor = Color.DarkOrange;
@@ -74,8 +128,9 @@
             navigationButton.Name = "navigationButton";
             navigationButton.Size = new Size(200, 45);
             navigationButton.TabIndex = 18;
-            navigationButton.Text = "Return to catalog";
+            navigationButton.Text = "Return to rooms";
             navigationButton.UseVisualStyleBackColor = false;
+            navigationButton.Click += navigationButton_Click;
             // 
             // roomPicture
             // 
@@ -97,6 +152,7 @@
             uploadRoom.TabIndex = 15;
             uploadRoom.Text = "Create";
             uploadRoom.UseVisualStyleBackColor = false;
+            uploadRoom.Click += createButton_Click;
             // 
             // uploadImage
             // 
@@ -107,6 +163,7 @@
             uploadImage.TabIndex = 13;
             uploadImage.Text = "Upload image";
             uploadImage.UseVisualStyleBackColor = true;
+            uploadImage.Click += uploadImage_click;
             // 
             // descriptionField
             // 
@@ -184,15 +241,6 @@
             roomLabel.TabIndex = 0;
             roomLabel.Text = "Room info";
             // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Single", "Double", "Triple", "Quad", "Family" });
-            comboBox1.Location = new Point(115, 61);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(244, 23);
-            comboBox1.TabIndex = 19;
-            // 
             // CreateRoom
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -203,6 +251,7 @@
             Controls.Add(formPanel);
             Name = "CreateRoom";
             Text = "CreateRoom";
+            Load += CreateRoom_Load;
             formPanel.ResumeLayout(false);
             formPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)roomPicture).EndInit();
@@ -224,6 +273,9 @@
         private Label typeLabel;
         private PictureBox logo;
         private Label roomLabel;
-        private ComboBox comboBox1;
+        private ComboBox roomTypes;
+        private Label imageErrors;
+        private Label priceErrors;
+        private Label typeErrors;
     }
 }

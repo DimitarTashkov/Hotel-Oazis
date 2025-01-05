@@ -99,10 +99,10 @@ namespace HotelOazis.Services
             loggedInUser = null; 
             return true;
         }
-        public async Task<bool> IsUserAdminAsync(Guid userId)
+        public async Task<bool> IsUserAdminAsync(User user)
         {
             return await dbContext.UsersRoles
-                .AnyAsync(ur => ur.UserId == userId && ur.Role.Name == "Admin");
+                .AnyAsync(ur => ur.UserId == user.Id && ur.Role.Name == "Admin");
         }
         public void LogoutUser()
         {

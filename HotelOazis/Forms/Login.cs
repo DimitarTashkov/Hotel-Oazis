@@ -24,6 +24,7 @@ namespace HotelOazis.Forms
     public partial class Login : Form
     {
         private readonly IUserService userService;
+
         public Login(IUserService userService)
         {
             this.userService = userService;
@@ -33,7 +34,8 @@ namespace HotelOazis.Forms
             usernameField.Click += EventsEffects.clearInputs_click;
             passwordField.TextChanged += EventsEffects.input_TextChanged;
             passwordField.Click += EventsEffects.clearInputs_click;
-
+            usernameField.Text = "\"foulcoast\"";
+            passwordField.Text = "\"mitko123\"";
         }
         private void register_hover(object sender, EventArgs e)
         {

@@ -19,6 +19,8 @@ namespace HotelOazis.Common.Messages
         }
         public static class RoomMessages
         {
+            public const string RoomCreatedSuccessfully = "Room created successfully!";
+            public const string RoomCreationFailed = "Failed to create room! Please try again!";
             public const string RoomUpdatedSuccessfully = "Room updated successfully!";
             public const string RoomUpdateFailed = "Failed to update room! Please try again!";
             public const string RoomDeletionSuccessful = "Your room has been deleted successfully!";

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HotelOazis.Services
 {
-    public class UserService : IUserService
+    public class UserService : BaseService ,IUserService
     {
         private readonly HotelContext dbContext;
 
@@ -76,16 +76,6 @@ namespace HotelOazis.Services
             return true;
         }
 
-        public async Task<(bool IsValid, List<ValidationResult> Errors)> ValidateModelAsync<TModel>(TModel model)
-        {
-            return await Task.Run(() =>
-            {
-                var validationResults = new List<ValidationResult>();
-                var validationContext = new ValidationContext(model);
-                bool isValid = Validator.TryValidateObject(model, validationContext, validationResults, true);
-                return (isValid, validationResults);
-            });
-        }
         public async Task<bool> DeleteUserAsync()
         {
             if (loggedInUser == null) return false;
@@ -108,6 +98,6 @@ namespace HotelOazis.Services
         {
             loggedInUser = null; 
         }
-
+       
     }
 }

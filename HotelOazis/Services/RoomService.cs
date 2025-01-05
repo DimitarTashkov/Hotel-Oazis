@@ -3,8 +3,10 @@ using HotelOazis.Models.DbConfiguration;
 using HotelOazis.Models;
 using HotelOazis.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using HotelOazis.Services;
 
-public class RoomService : IRoomService
+public class RoomService : BaseService, IRoomService
 {
     private readonly HotelContext context;
 
@@ -95,4 +97,5 @@ public class RoomService : IRoomService
         }
         return false;
     }
+
 }

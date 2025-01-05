@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HotelOazis.Services.Interfaces
 {
-    public interface IRoomService
+    public interface IRoomService : IValidateModel
     {
         Task<List<RoomViewModel>> GetRoomsAsync();
 

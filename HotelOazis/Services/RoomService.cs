@@ -73,7 +73,8 @@ public class RoomService : BaseService, IRoomService
             Type = newRoom.Type,
             Price = newRoom.Price,
             Picture = newRoom.PictureLocation,
-            Description = newRoom.Description
+            Description = newRoom.Description,
+            IsAvailable = true,
         };
 
         context.Rooms.Add(room);

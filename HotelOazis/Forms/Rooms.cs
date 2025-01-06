@@ -1,7 +1,9 @@
 ﻿using HotelOazis.Common.Constants;
 using HotelOazis.DTOs.Room;
 using HotelOazis.Models;
+using HotelOazis.Properties;
 using HotelOazis.Services.Interfaces;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,7 +52,8 @@ namespace HotelOazis.Forms
                 Text = "Read more",
                 BackColor = Color.LightPink,
                 Size = new Size(112, 29),
-                Location = new Point(0, 215)
+                Location = new Point(0, 215),
+                Font = FontsPicker.DetailsFont,
             };
             readMoreButton.Click += (s, e) =>
             {
@@ -73,7 +76,9 @@ namespace HotelOazis.Forms
                 Text = "Reserve",
                 BackColor = Color.LightGreen,
                 Size = new Size(112, 29),
-                Location = new Point(112, 215)
+                Location = new Point(112, 215),
+                Font = FontsPicker.DetailsFont,
+
             };
             reserveButton.Click += async (s, e) =>
             {
@@ -82,9 +87,10 @@ namespace HotelOazis.Forms
                     Reservate reservateForm = new Reservate();
                     Program.SwitchMainForm(reservateForm);
                 }
-                MessageBox.Show(RoomIsAlreadyReservated, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-
+                else
+                {
+                    MessageBox.Show(RoomIsAlreadyReservated, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             };
             container.Controls.Add(reserveButton);
 
@@ -95,11 +101,13 @@ namespace HotelOazis.Forms
                     Text = "Edit",
                     BackColor = Color.LightGray,
                     Size = new Size(112, 29),
-                    Location = new Point(0, 244)
+                    Location = new Point(0, 244),
+                    Font = FontsPicker.DetailsFont,
+
                 };
                 editButton.Click += (s, e) =>
                 {
-                    EditRoomInputModel model = new EditRoomInputModel()
+                    EditRoomInputModel model = new EditRoomInputModel
                     {
                         Id = room.Id,
                         Type = room.Type,
@@ -119,25 +127,27 @@ namespace HotelOazis.Forms
                     Text = "Delete",
                     BackColor = Color.Red,
                     Size = new Size(112, 29),
-                    Location = new Point(112, 244)
+                    Location = new Point(112, 244),
+                    Font = FontsPicker.DetailsFont,
+
                 };
                 deleteButton.Click += async (s, e) =>
                 {
                     var success = await roomService.DeleteRoomAsync(room.Id);
                     if (success)
                     {
-                        MessageBox.Show(RoomDeletionSuccessful, "Successed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(RoomDeletionSuccessful, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         await PopulateRoomsPanelAsync(container, activeUser);
                     }
                     else
                     {
-                        MessageBox.Show(RoomDeletionFailed, "Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
+                        MessageBox.Show(RoomDeletionFailed, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 };
                 container.Controls.Add(deleteButton);
             }
         }
+
 
         private async Task PopulateRoomsPanelAsync(Panel mainContainer, User activeUser)
         {
@@ -155,17 +165,47 @@ namespace HotelOazis.Forms
                 };
 
                 // Add labels and image box
-                var typeLabel = CreateLabel($"typeLabel{index}", room.Type.ToString(), FontsPicker.BaseFont, new Point(78, 166));
+                var typeLabel = CreateLabel($"typeLabel{index}", $"Type: { room.Type.ToString()}", FontsPicker.BaseFont, new Point(60, 166));
                 var priceLabel = CreateLabel($"priceLabel{index}", $"{room.Price:f2}lv", FontsPicker.DetailsFont, new Point(30, 190));
-                var availabilityLabel = CreateLabel($"availabilityLabel{index}", room.IsAvailable ? "Available" : "Not Available", FontsPicker.DetailsFont, new Point(130, 190));
+                var availabilityLabel = CreateLabel($"availabilityLabel{index}","Available:", FontsPicker.DetailsFont, new Point(110, 190));
 
                 PictureBox image = new PictureBox()
                 {
                     Name = $"pictureBox{index}"
                      ,
-                    ImageLocation = room.PictureLocation
+                    ImageLocation = room.PictureLocation,
+                    Size = new Size(151, 151),
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Location = new Point(container.Location.X + 37, container.Location.Y),
                 };
+                var typeIcon = CreateIconPictureBox
+                    (
+                    name: $"infoIcon{index}",
+                    image: Properties.Resources.type_icon, 
+                    size: new Size(16, 16), 
+                    location: new Point(typeLabel.Location.X - 20, typeLabel.Location.Y + 3) 
+                    );
 
+                var costIcon = CreateIconPictureBox
+                    (
+                    name: $"costIcon{index}",
+                    image: Properties.Resources.cost_icon,
+                    size: new Size(16, 16),
+                    location: new Point(priceLabel.Location.X - 20, priceLabel.Location.Y + 3)
+                    );
+                var availabilityImage = room.IsAvailable ? Resources.tick_icon : Resources.cross_icon;
+
+                var availabilityIcon = CreateIconPictureBox
+                    (
+                    name: $"availabiityIcon{index}",
+                    image: availabilityImage,
+                    size: new Size(16, 16),
+                    location: new Point(container.Size.Width - 30, availabilityLabel.Location.Y + 3)
+                    );
+
+                container.Controls.Add(typeIcon);
+                container.Controls.Add(costIcon);
+                container.Controls.Add(availabilityIcon);
                 container.Controls.Add(typeLabel);
                 container.Controls.Add(priceLabel);
                 container.Controls.Add(availabilityLabel);
@@ -178,7 +218,7 @@ namespace HotelOazis.Forms
                 index++;
             }
         }
-
+   
         private Label CreateLabel(string name, string text, Font font, Point location)
         {
             return new Label
@@ -187,7 +227,20 @@ namespace HotelOazis.Forms
                 Text = text,
                 Font = font,
                 Location = location,
-                AutoSize = true
+                AutoSize = true,
+
+            };
+        }
+        private PictureBox CreateIconPictureBox(string name, Image image, Size size, Point location)
+        {
+            return new PictureBox
+            {
+                Name = name,
+                Image = image,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = size,
+                Location = location,
+                BackColor = Color.Transparent // Make background transparent
             };
         }
 

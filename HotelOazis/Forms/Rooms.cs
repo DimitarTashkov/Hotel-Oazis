@@ -166,7 +166,7 @@ namespace HotelOazis.Forms
 
                 // Add labels and image box
                 var typeLabel = CreateLabel($"typeLabel{index}", $"Type: { room.Type.ToString()}", FontsPicker.BaseFont, new Point(60, 166));
-                var priceLabel = CreateLabel($"priceLabel{index}", $"{room.Price:f2}lv", FontsPicker.DetailsFont, new Point(30, 190));
+                var priceLabel = CreateLabel($"priceLabel{index}", $"{room.Price:f2} lv", FontsPicker.DetailsFont, new Point(30, 190));
                 var availabilityLabel = CreateLabel($"availabilityLabel{index}","Available:", FontsPicker.DetailsFont, new Point(110, 190));
 
                 PictureBox image = new PictureBox()

@@ -138,6 +138,7 @@ namespace HotelOazis.Forms
         private void CreateRoom_Load(object sender, EventArgs e)
         {
             roomTypes.DataSource = Enum.GetValues(typeof(RoomType));
+            roomTypes.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
     }

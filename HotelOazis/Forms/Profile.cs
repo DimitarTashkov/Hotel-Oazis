@@ -19,6 +19,7 @@ using static HotelOazis.Common.Messages.ResultMessages.UserMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
 using Microsoft.EntityFrameworkCore;
+using static HotelOazis.Common.Messages.ErrorMessages;
 
 namespace HotelOazis.Forms
 {
@@ -30,6 +31,8 @@ namespace HotelOazis.Forms
 
         public Profile(IUserService userService)
         {
+            ActiveControl = usernameLabel;
+
             InitializeComponent();
             activeUser = userService.GetLoggedInUserAsync();
             this.userService = userService;
@@ -62,6 +65,19 @@ namespace HotelOazis.Forms
 
         private async void saveButton_Click(object sender, EventArgs e)
         {
+            List<TextBox> inputs = new List<TextBox>
+            {
+                usernameField,
+                passwordField,
+                emailField
+            };
+            bool areInputsValid = ValidationHelper.ValidateUserInputs(inputs, profilePicture);
+            if (!areInputsValid)
+            {
+                MessageBox.Show(InputsMessages.EmptyInputData, "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
             var editModel = new EditProfileInputModel()
             {
                 Username = usernameField.Text.Trim(),

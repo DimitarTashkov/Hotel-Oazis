@@ -18,6 +18,6 @@ namespace HotelOazis.Services.Interfaces
 
         Task<bool> AddRoomAsync(RoomInputModel newRoom);
 
-        Task<bool> EditRoomAsync(Guid roomId, EditRoomInputModel updatedRoom);
+        Task<bool> EditRoomAsync(EditRoomInputModel updatedRoom);
     }
 }

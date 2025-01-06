@@ -82,9 +82,9 @@ public class RoomService : BaseService, IRoomService
         return true;
     }
 
-    public async Task<bool> EditRoomAsync(Guid roomId, EditRoomInputModel updatedRoom)
+    public async Task<bool> EditRoomAsync(EditRoomInputModel updatedRoom)
     {
-        var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
+        var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == updatedRoom.Id);
         if (room != null)
         {
             room.Type = updatedRoom.Type;

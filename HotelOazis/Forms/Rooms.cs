@@ -3,6 +3,7 @@ using HotelOazis.DTOs.Room;
 using HotelOazis.Models;
 using HotelOazis.Properties;
 using HotelOazis.Services.Interfaces;
+using HotelOazis.Utilities;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
@@ -32,19 +33,6 @@ namespace HotelOazis.Forms
             this.roomService = roomService;
             this.userService = userService;
         }
-        private async Task InitializeAuthorizationStatusAsync()
-        {
-            var loggedInUser = userService.GetLoggedInUserAsync();
-            if (loggedInUser != null)
-            {
-                _isAuthorized = await userService.IsUserAdminAsync(loggedInUser);
-            }
-            else
-            {
-                _isAuthorized = false;
-            }
-        }
-
         private async Task CreateRoomButtons(RoomViewModel room, Panel container, User activeUser)
         {
             var readMoreButton = new Button
@@ -240,13 +228,13 @@ namespace HotelOazis.Forms
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Size = size,
                 Location = location,
-                BackColor = Color.Transparent // Make background transparent
+                BackColor = Color.Transparent 
             };
         }
 
         private async void Rooms_Load(object sender, EventArgs e)
         {
-            await InitializeAuthorizationStatusAsync();
+           _isAuthorized =  await AuthorizationHelper.InitializeAuthorizationStatusAsync(userService);
 
             var loggedInUser = userService.GetLoggedInUserAsync();
 

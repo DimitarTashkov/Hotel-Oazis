@@ -20,12 +20,14 @@ namespace HotelOazis.Forms
     {
         private readonly IUserService userService;
         private readonly IRoomService roomService;
+        private readonly IFacilityService facilityService;
         private User activeUser;
         public Index(IUserService userService)
         {
             this.userService = userService;
             activeUser = userService.GetLoggedInUserAsync();
             roomService = ServiceLocator.GetService<IRoomService>();
+            facilityService = ServiceLocator.GetService<IFacilityService>();
 
             InitializeComponent();
         }
@@ -59,7 +61,7 @@ namespace HotelOazis.Forms
 
         private void servicesButton_Click(object sender, EventArgs e)
         {
-            Services servicesForm = new Services();
+            Services servicesForm = new Services(facilityService, userService);
             Program.SwitchMainForm(servicesForm);
         }
 
@@ -76,7 +78,7 @@ namespace HotelOazis.Forms
                     form = new Rooms(roomService,userService);
                     break;
                 case "Services":
-                    form = new Services();
+                    form = new Services(facilityService, userService);
                     break;
                 case "Reviews":
                     form = new Reviews();

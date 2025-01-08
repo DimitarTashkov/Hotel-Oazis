@@ -139,7 +139,7 @@ namespace HotelOazis.Forms
             }
             else
             {
-                MessageBox.Show(UpdateFailed, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format(UpdateFailed, nameof(Room)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

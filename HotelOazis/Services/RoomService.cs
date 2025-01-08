@@ -27,6 +27,7 @@ public class RoomService : BaseService, IRoomService
                 Price = r.Price,
                 Description = r.Description,
             })
+            .AsNoTracking()
             .ToListAsync();
     }
 

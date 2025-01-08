@@ -20,6 +20,7 @@ namespace HotelOazis.Extensions
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IRoomService, RoomService>();
+            services.AddScoped<IFacilityService, FacilityService>();
             return services;
         }
     }

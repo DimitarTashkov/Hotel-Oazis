@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using static HotelOazis.Common.Messages.ErrorMessages.ReservationMessages;
-using static HotelOazis.Common.Messages.ResultMessages.RoomMessages;
+using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 
 
 namespace HotelOazis.Forms
@@ -124,12 +124,12 @@ namespace HotelOazis.Forms
                     var success = await roomService.DeleteRoomAsync(room.Id);
                     if (success)
                     {
-                        MessageBox.Show(RoomDeletionSuccessful, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(DeletionSuccessful, nameof(Room)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         await PopulateRoomsPanelAsync(container, activeUser);
                     }
                     else
                     {
-                        MessageBox.Show(RoomDeletionFailed, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(string.Format(DeletionFailed, nameof(Room)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 };
                 container.Controls.Add(deleteButton);
@@ -152,7 +152,6 @@ namespace HotelOazis.Forms
                     BackColor = Color.NavajoWhite
                 };
 
-                // Add labels and image box
                 var typeLabel = CreateLabel($"typeLabel{index}", $"Type: { room.Type.ToString()}", FontsPicker.BaseFont, new Point(60, 166));
                 var priceLabel = CreateLabel($"priceLabel{index}", $"{room.Price:f2} lv", FontsPicker.DetailsFont, new Point(30, 190));
                 var availabilityLabel = CreateLabel($"availabilityLabel{index}","Available:", FontsPicker.DetailsFont, new Point(110, 190));

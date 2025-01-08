@@ -15,10 +15,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using static HotelOazis.Common.Messages.ResultMessages.RoomMessages;
+using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
 using Fitness.Utilities;
+using HotelOazis.Models;
 
 
 
@@ -128,13 +129,13 @@ namespace HotelOazis.Forms
             bool success = await roomService.EditRoomAsync(editModel);
             if (success)
             {
-                MessageBox.Show(RoomUpdatedSuccessfully, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format(UpdatedSuccessfully, nameof(Room)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 EditRoom editForm = new EditRoom(roomService, editModel);
                 Program.SwitchMainForm(editForm);
             }
             else
             {
-                MessageBox.Show(RoomUpdateFailed, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format(UpdateFailed, nameof(Room)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

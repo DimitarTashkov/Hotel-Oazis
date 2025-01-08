@@ -1,4 +1,5 @@
 ﻿using HotelOazis.DTOs.Room;
+using HotelOazis.Migrations;
 using HotelOazis.Models;
 using HotelOazis.Properties;
 using HotelOazis.Services.Interfaces;
@@ -16,7 +17,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 
 using static HotelOazis.Common.Messages.ErrorMessages.ReservationMessages;
-using static HotelOazis.Common.Messages.ResultMessages.RoomMessages;
+using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 
 namespace HotelOazis.Forms
 {
@@ -48,6 +49,8 @@ namespace HotelOazis.Forms
             roomPrice.Text = roomPrice.Text + " " + $"{model.Price.ToString():f2} lv";
             roomAvaialability.Text = roomAvaialability.Text + " " + availabilityMessage;
             roomDescription.Text = roomDescription.Text + " " + model.Description;
+            roomDescription.MaximumSize = new Size(roomDataContainer.Size.Width, 50);
+            roomDescription.AutoSize = true;
             roomImage.ImageLocation = model.Picture;
             var typeIcon = CreateIconPictureBox
                    (
@@ -136,7 +139,7 @@ namespace HotelOazis.Forms
             }
             else
             {
-                MessageBox.Show(RoomUpdateFailed, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(UpdateFailed, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

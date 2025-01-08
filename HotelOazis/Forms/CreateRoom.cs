@@ -16,8 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using static HotelOazis.Common.Messages.ErrorMessages;
-using static HotelOazis.Common.Messages.ResultMessages.RoomMessages;
+using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
 
@@ -98,13 +97,13 @@ namespace HotelOazis.Forms
             bool isCreated = await roomService.AddRoomAsync(roomInputModel);
             if (isCreated)
             {
-                MessageBox.Show(RoomCreatedSuccessfully, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(CreatedSuccessfully, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Rooms roomsForm = new Rooms(roomService, userService);
                 Program.SwitchMainForm(roomsForm);
             }
             else
             {
-                MessageBox.Show(RoomCreationFailed, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(CreationFailed, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

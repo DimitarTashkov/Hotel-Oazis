@@ -31,6 +31,7 @@
             navigationButton = new Button();
             addSupplement = new Button();
             mainContainer = new FlowLayoutPanel();
+            servicesLabel = new Label();
             SuspendLayout();
             // 
             // navigationButton
@@ -49,8 +50,8 @@
             // addSupplement
             // 
             addSupplement.BackColor = Color.LightGreen;
-            addSupplement.Font = new Font("Verdana", 11.25F, FontStyle.Bold | FontStyle.Italic | FontStyle.Strikeout);
-            addSupplement.Location = new Point(327, 0);
+            addSupplement.Font = new Font("Verdana", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            addSupplement.Location = new Point(649, 0);
             addSupplement.Name = "addSupplement";
             addSupplement.Size = new Size(148, 29);
             addSupplement.TabIndex = 4;
@@ -66,6 +67,18 @@
             mainContainer.Size = new Size(723, 391);
             mainContainer.TabIndex = 5;
             // 
+            // servicesLabel
+            // 
+            servicesLabel.AutoSize = true;
+            servicesLabel.BackColor = Color.Transparent;
+            servicesLabel.Font = new Font("Verdana", 15.75F, FontStyle.Bold | FontStyle.Italic);
+            servicesLabel.ForeColor = Color.Black;
+            servicesLabel.Location = new Point(351, 9);
+            servicesLabel.Name = "servicesLabel";
+            servicesLabel.Size = new Size(90, 25);
+            servicesLabel.TabIndex = 8;
+            servicesLabel.Text = "Rooms";
+            // 
             // Rooms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -73,6 +86,7 @@
             BackgroundImage = Properties.Resources.appback;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(servicesLabel);
             Controls.Add(navigationButton);
             Controls.Add(addSupplement);
             Controls.Add(mainContainer);
@@ -80,6 +94,7 @@
             Text = "Rooms";
             Load += Rooms_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -87,5 +102,6 @@
         private Button navigationButton;
         private Button addSupplement;
         private FlowLayoutPanel mainContainer;
+        private Label servicesLabel;
     }
 }

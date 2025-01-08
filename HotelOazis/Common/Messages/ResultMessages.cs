@@ -17,14 +17,15 @@ namespace HotelOazis.Common.Messages
             public const string ProfileDeletionSuccessful = "Your account has been deleted successfully!";
             public const string ProfileDeletionFailed = "Failed to delete the account! Please try again!";
         }
-        public static class RoomMessages
+        public static class ActionMessages
         {
-            public const string RoomCreatedSuccessfully = "Room created successfully!";
-            public const string RoomCreationFailed = "Failed to create room! Please try again!";
-            public const string RoomUpdatedSuccessfully = "Room updated successfully!";
-            public const string RoomUpdateFailed = "Failed to update room! Please try again!";
-            public const string RoomDeletionSuccessful = "Your room has been deleted successfully!";
-            public const string RoomDeletionFailed = "Failed to delete the room! Please try again!";
+            public const string CreatedSuccessfully = "{0} created successfully!";
+            public const string CreationFailed = "Failed to create {0}! Please try again!";
+            public const string UpdatedSuccessfully = "{0} updated successfully!";
+            public const string UpdateFailed = "Failed to update {0}! Please try again!";
+            public const string DeletionSuccessful = "{0} has been deleted successfully!";
+            public const string DeletionFailed = "Failed to delete the {0}! Please try again!";
         }
+
     }
 }

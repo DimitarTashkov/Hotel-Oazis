@@ -35,5 +35,12 @@ namespace HotelOazis.Common.Messages
             public const string RoomIsAlreadyReservated = "This room is unavailable currently!";
 
         }
+        public static class ServicesMessages
+        {
+            public const string ServiceNameIsRequired = "Service name is required";
+            public const string ServiceDescriptionIsRequired = "Service description is required";
+
+
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using static HotelOazis.Common.Constants.ValidationConstants.ServiceConstants;
+using static HotelOazis.Common.Messages.ErrorMessages.ServicesMessages;
 
 
 namespace HotelOazis.DTOs.Service
@@ -15,10 +16,11 @@ namespace HotelOazis.DTOs.Service
         [Required]
         public Guid Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = ServiceNameIsRequired)]
         [MaxLength(NameMaxLength)]
         public string Name { get; set; } = null!;
 
+        [Required(ErrorMessage = ServiceDescriptionIsRequired)]
         [MaxLength(DescriptionMaxLength)]
         public string Description { get; set; } = null!;
     }

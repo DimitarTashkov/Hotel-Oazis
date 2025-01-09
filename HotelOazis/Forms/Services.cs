@@ -102,6 +102,8 @@ namespace HotelOazis.Forms
                 Font = FontsPicker.DetailsFont
                 ,
                 Location = new Point(serviceIcon.Location.X + 50, serviceIcon.Location.Y + 20)
+                ,
+                AutoSize = true
 
             };
 
@@ -115,11 +117,11 @@ namespace HotelOazis.Forms
                 ,
                 Margin = new Padding(0, 5, 0, 0)
                 ,
-                Location = new Point(serviceName.Size.Width + 130, serviceIcon.Location.Y + 10)
+                Location = new Point(serviceName.Size.Width + 180, serviceIcon.Location.Y + 10)
                 ,
                 AutoSize = true
                 ,
-                Size = new Size(serviceCredentials.Size.Width - 450, serviceIcon.Location.Y + 30)
+                Size = new Size(serviceCredentials.Size.Width - 500, serviceIcon.Location.Y + 30)
                 ,
                 Multiline = true
                 ,

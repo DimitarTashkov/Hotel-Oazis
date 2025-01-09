@@ -1,5 +1,6 @@
 ﻿using Fitness.Utilities;
 using HotelOazis.Common.Constants;
+using HotelOazis.DTOs.Room;
 using HotelOazis.DTOs.Service;
 using HotelOazis.Models;
 using HotelOazis.Properties;
@@ -16,6 +17,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+
+using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
+
 
 namespace HotelOazis.Forms
 {
@@ -42,6 +47,7 @@ namespace HotelOazis.Forms
         }
         private async Task PopulateServicesAsync()
         {
+            servicesContainer.Controls.Clear();
             int index = 1;
             List<ServiceViewModel> services = await facilityService.GetServicesAsync();
             foreach (var service in services)
@@ -59,11 +65,18 @@ namespace HotelOazis.Forms
             {
                 Name = $"serviceContainer{index}"
                     ,
-                Size = new Size(725, 80)
+                Size = new Size(725, 100)
                     ,
                 Margin = new Padding(8, 8, 8, 8)
                     ,
                 BackColor = Color.RosyBrown
+            };
+            Panel serviceCredentials = new Panel
+            {
+                Name = $"userCredentials{index}"
+                    ,
+                Size = new Size(725, 100)
+
             };
 
             RoundPictureBox serviceIcon = new RoundPictureBox
@@ -74,43 +87,102 @@ namespace HotelOazis.Forms
                 ,
                 Image = Resources.service_icon
                 ,
-                Location = new Point(serviceContainer.Location.X + 20, serviceContainer.Location.Y + 15)
+                Location = new Point(serviceContainer.Location.X, serviceContainer.Location.Y + 15)
                 ,
                 SizeMode = PictureBoxSizeMode.StretchImage
-
+                ,
             };
 
             Label serviceName = new Label
             {
                 Name = $"serviceName{index}"
                 ,
-                Text = service.Name
+                Text = "Name:" + " " + service.Name
                 ,
                 Font = FontsPicker.DetailsFont
                 ,
-                Location = new Point(serviceIcon.Location.X + 50, serviceIcon.Location.Y + 25)
+                Location = new Point(serviceIcon.Location.X + 50, serviceIcon.Location.Y + 20)
 
             };
 
-            Label serviceDescription = new Label
+            TextBox serviceDescription = new TextBox
             {
                 Name = $"serviceDescription{index}"
                 ,
-                Text = service.Description
+                Text = "Description:" + " " + service.Description
                 ,
                 Font = FontsPicker.DetailsFont
                 ,
                 Margin = new Padding(0, 5, 0, 0)
                 ,
-                Location = new Point(serviceIcon.Location.X + 80, serviceIcon.Location.Y)
+                Location = new Point(serviceName.Size.Width + 130, serviceIcon.Location.Y + 10)
                 ,
                 AutoSize = true
                 ,
+                Size = new Size(serviceCredentials.Size.Width - 450, serviceIcon.Location.Y + 30)
+                ,
+                Multiline = true
+                ,
+                ScrollBars = ScrollBars.Vertical
+                ,
+                ReadOnly = true
+                ,
             };
-            serviceContainer.Controls.Add(serviceIcon);
-            serviceContainer.Controls.Add(serviceName);
-            serviceContainer.Controls.Add(serviceDescription);
+            if (isAuthorized)
+            {
+                var editButton = new Button
+                {
+                    Text = $"Edit",
+                    BackColor = Color.LightGray,
+                    Size = new Size(80, 29),
+                    Font = FontsPicker.DetailsFont,
+                    Location = new Point(serviceCredentials.Size.Width - 200, serviceIcon.Location.Y + 20)
 
+                };
+                editButton.Click += (s, e) =>
+                {
+                    EditServiceInputModel model = new EditServiceInputModel
+                    {
+                        Id = service.Id,
+                        Name = service.Name,
+                        Description = service.Description
+                    };
+
+                    EditService editServiceForm = new EditService(facilityService, model);
+                    Program.SwitchMainForm(editServiceForm);
+                };
+
+                serviceCredentials.Controls.Add(editButton);
+
+                var deleteButton = new Button
+                {
+                    Text = "Delete",
+                    BackColor = Color.Red,
+                    Size = new Size(80, 29),
+                    Font = FontsPicker.DetailsFont,
+                    Location = new Point(serviceCredentials.Size.Width - 100, serviceIcon.Location.Y + 20)
+
+                };
+                deleteButton.Click += async (s, e) =>
+                {
+                    var success = await facilityService.DeleteServiceAsync(service.Id);
+                    if (success)
+                    {
+                        MessageBox.Show(string.Format(DeletionSuccessful, nameof(Service)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        await PopulateServicesAsync();
+                    }
+                    else
+                    {
+                        MessageBox.Show(string.Format(DeletionFailed, nameof(Service)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                };
+                serviceCredentials.Controls.Add(deleteButton);
+            }
+            serviceCredentials.Controls.Add(serviceIcon);
+            serviceCredentials.Controls.Add(serviceName);
+            serviceCredentials.Controls.Add(serviceDescription);
+
+            serviceContainer.Controls.Add(serviceCredentials);
             servicesContainer.Controls.Add(serviceContainer);
         }
 

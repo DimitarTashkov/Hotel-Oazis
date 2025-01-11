@@ -22,6 +22,7 @@ namespace HotelOazis.Common.Messages
             public const string EmailIsRequired = "Email is required";
             public const string AvatarIsRequired = "Profile picture is required";
             public const string InvalidUserCredentials = "Invalid username or password!";
+            public const string UsernameExists = "Such username already exists!";
 
         }
         public static class InputsMessages

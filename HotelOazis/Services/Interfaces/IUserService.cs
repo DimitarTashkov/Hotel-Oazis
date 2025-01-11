@@ -18,6 +18,8 @@ namespace HotelOazis.Services.Interfaces
         public Task<bool> DeleteUserAsync();
         public void LogoutUser();
         Task<bool> IsUserAdminAsync(User user);
+        public Task<bool> IsUsernameTaken(string username);
+
 
     }
 }

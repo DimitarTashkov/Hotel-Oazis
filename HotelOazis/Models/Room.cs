@@ -13,6 +13,9 @@ namespace HotelOazis.Models
     {
         [Key]
         public Guid Id { get; set; }
+        [Required]
+        
+        public int Number { get; set; }
 
         [Required]
         public RoomType Type { get; set; }

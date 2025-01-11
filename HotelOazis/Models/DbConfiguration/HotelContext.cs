@@ -29,5 +29,14 @@ namespace HotelOazis.Models.DbConfiguration
         {
             optionsBuilder.UseSqlServer(Configuration.ConnectionString);
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Room>()
+                .HasIndex(r => r.Number)
+                .IsUnique();
+            builder.Entity<User>()
+                .HasIndex(u => u.Username)
+                .IsUnique();
+        }
     }
 }

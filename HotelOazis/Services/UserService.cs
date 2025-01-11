@@ -98,6 +98,10 @@ namespace HotelOazis.Services
         {
             loggedInUser = null; 
         }
-       
+        public async Task<bool> IsUsernameTaken(string username)
+        {
+            return await dbContext.Users.AnyAsync(u => u.Username == username);
+        }
+
     }
 }

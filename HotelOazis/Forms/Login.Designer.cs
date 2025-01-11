@@ -63,7 +63,7 @@
             // 
             passwordError.AutoSize = true;
             passwordError.BackColor = Color.Transparent;
-            passwordError.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            passwordError.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic);
             passwordError.ForeColor = Color.Red;
             passwordError.Location = new Point(7, 227);
             passwordError.Name = "passwordError";
@@ -76,7 +76,7 @@
             // 
             usernameError.AutoSize = true;
             usernameError.BackColor = Color.Transparent;
-            usernameError.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            usernameError.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic);
             usernameError.ForeColor = Color.Red;
             usernameError.Location = new Point(7, 144);
             usernameError.Name = "usernameError";

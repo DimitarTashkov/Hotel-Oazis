@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using static HotelOazis.Common.Messages.ResultMessages.UserMessages;
-using static HotelOazis.Common.Messages.ErrorMessages;
+using static HotelOazis.Common.Messages.ErrorMessages.UserMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
 
@@ -78,6 +78,7 @@ namespace HotelOazis.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(EmptyOrInvalidImage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
         }
@@ -109,9 +110,10 @@ namespace HotelOazis.Forms
             bool areInputsValid = ValidationHelper.ValidateUserInputs(inputs, profilePicture);
             if (!areInputsValid)
             {
-                MessageBox.Show(InputsMessages.EmptyInputData, "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MessageBox.Show(EmptyInputData, "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
 
             string username = usernameField.Text.Trim();
             string password = passwordField.Text.Trim();
@@ -155,6 +157,11 @@ namespace HotelOazis.Forms
                         pfpErrorMessages.Visible = true;
                     }
                 }
+                return;
+            }
+            if (await userService.IsUsernameTaken(username))
+            {
+                MessageBox.Show(UsernameExists, "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

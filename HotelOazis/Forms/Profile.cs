@@ -75,7 +75,7 @@ namespace HotelOazis.Forms
             if (!areInputsValid)
             {
                 MessageBox.Show(InputsMessages.EmptyInputData, "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                return;
             }
 
             var editModel = new EditProfileInputModel()
@@ -146,6 +146,7 @@ namespace HotelOazis.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(EmptyOrInvalidImage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
         }

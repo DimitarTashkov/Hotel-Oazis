@@ -75,7 +75,7 @@ namespace HotelOazis.Forms
             if (!areInputValid)
             {
                 MessageBox.Show(InputsMessages.EmptyInputData, "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                return;
             }
 
             string username = usernameField.Text.Trim();

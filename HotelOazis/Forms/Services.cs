@@ -59,8 +59,6 @@ namespace HotelOazis.Forms
         }
         private async Task CreateServiceControls(ServiceViewModel service, int index)
         {
-            //TODO: Add panel to enable positioning
-            //TODO: Add edit and delete buttons
             FlowLayoutPanel serviceContainer = new FlowLayoutPanel
             {
                 Name = $"serviceContainer{index}"

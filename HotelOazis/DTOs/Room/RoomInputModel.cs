@@ -12,6 +12,7 @@ namespace HotelOazis.DTOs.Room
 {
     public class RoomInputModel
     {
+        //TODO: Add the number property 
         [Required(ErrorMessage = RoomTypeIsRequired)]
         public RoomType Type { get; set; }
 

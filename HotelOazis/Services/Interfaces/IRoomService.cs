@@ -22,6 +22,10 @@ namespace HotelOazis.Services.Interfaces
         Task<bool> EditRoomAsync(EditRoomInputModel updatedRoom);
         public Task<bool> IsRoomNumberUnique(int roomNumber);
         public Task<int> GenerateUniqueRoomNumber();
+        public Task<List<ReservationsViewModel>> GetReservationsAsync();
+        public Task<bool> CancelReservationAsync(Guid reservationId);
+
+
 
     }
 }

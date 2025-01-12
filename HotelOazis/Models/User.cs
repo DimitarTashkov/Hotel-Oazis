@@ -30,6 +30,8 @@ namespace HotelOazis.Models
         public string AvatarUrl { get; set; } = null!;
         public virtual HashSet<Reservation> Reservations { get; set; }
         = new HashSet<Reservation>();
+        public virtual HashSet<Review> Reviews { get; set; }
+        = new HashSet<Review>();
         public HashSet<UserRole> UsersRoles { get; set; }
         = new HashSet<UserRole>();
 

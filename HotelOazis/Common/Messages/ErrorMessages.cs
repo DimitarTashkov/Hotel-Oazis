@@ -44,8 +44,10 @@ namespace HotelOazis.Common.Messages
         {
             public const string ServiceNameIsRequired = "Service name is required";
             public const string ServiceDescriptionIsRequired = "Service description is required";
-
-
+        }
+        public static class ReviewsMessages
+        {
+            public const string MessageIsRequired = "Message is required for reviews!";
         }
     }
 }

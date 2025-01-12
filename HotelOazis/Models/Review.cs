@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using static HotelOazis.Common.Constants.ValidationConstants.ReviewConstants;
+
 namespace HotelOazis.Models
 {
     public class Review
@@ -14,11 +16,11 @@ namespace HotelOazis.Models
         [Key]
         public Guid Id { get; set; }
         [Required]
-        [MaxLength(100)]
+        [MaxLength(MessageMaxLength)]
         public string Message { get; set; } = null!;
 
         [Required]
-        [Range(0,5)]
+        [Range(RatingMinRange,RatingMaxRange)]
         public int Rating { get; set; }
         [Required]
         public FeedbackStatus MessageStatus { get; set; }

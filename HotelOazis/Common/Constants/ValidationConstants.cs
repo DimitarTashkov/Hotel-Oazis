@@ -26,5 +26,12 @@ namespace HotelOazis.Common.Constants
         {
             public const string DialogFilter = "jpg files(*.jpg)|*.jpg| png files(*.png)|*.png| All files(*.*)|*.*";
         }
+        public static class ReviewConstants
+        {
+            public const int MessageMinLength = 5;
+            public const int MessageMaxLength = 100;
+            public const int RatingMinRange = 0;
+            public const int RatingMaxRange = 5;
+        }
     }
 }

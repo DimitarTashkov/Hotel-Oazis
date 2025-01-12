@@ -1,4 +1,5 @@
 ﻿using HotelOazis.Common.Constants;
+using HotelOazis.DTOs.Reservation;
 using HotelOazis.DTOs.Room;
 using HotelOazis.Models;
 using HotelOazis.Properties;
@@ -73,7 +74,13 @@ namespace HotelOazis.Forms
             {
                 if (room.IsAvailable)
                 {
-                    Reservate reservateForm = new Reservate();
+                    ReservationInputModel reservationModel = new ReservationInputModel()
+                    {
+                        UserId = activeUser.Id,
+                        RoomId = room.Id,
+                    };
+
+                    Reservate reservateForm = new Reservate(roomService, reservationModel);
                     Program.SwitchMainForm(reservateForm);
                 }
                 else

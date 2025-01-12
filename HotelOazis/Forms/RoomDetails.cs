@@ -1,4 +1,5 @@
-﻿using HotelOazis.DTOs.Room;
+﻿using HotelOazis.DTOs.Reservation;
+using HotelOazis.DTOs.Room;
 using HotelOazis.Migrations;
 using HotelOazis.Models;
 using HotelOazis.Properties;
@@ -76,11 +77,17 @@ namespace HotelOazis.Forms
             Program.SwitchMainForm(roomsForm);
         }
 
-        private void reservateBtn_Click(object sender, EventArgs e)
+        private async void reservateBtn_Click(object sender, EventArgs e)
         {
             if (model.IsAvailable)
             {
-                Reservate reservateForm = new Reservate();
+                ReservationInputModel reservationModel = new ReservationInputModel()
+                {
+                    UserId = userService.GetLoggedInUserAsync().Id,
+                    RoomId = model.Id,
+                };
+
+                Reservate reservateForm = new Reservate(roomService, reservationModel);
                 Program.SwitchMainForm(reservateForm);
             }
             MessageBox.Show(RoomIsAlreadyReservated, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

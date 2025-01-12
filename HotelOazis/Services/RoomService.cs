@@ -5,6 +5,7 @@ using HotelOazis.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using HotelOazis.Services;
+using HotelOazis.DTOs.Reservation;
 
 public class RoomService : BaseService, IRoomService
 {
@@ -32,24 +33,31 @@ public class RoomService : BaseService, IRoomService
             .ToListAsync();
     }
 
-    public async Task<bool> ReserveRoomAsync(Guid roomId, User activeUser)
+    public async Task<bool> ReserveRoomAsync(ReservationInputModel reservationModel)
     {
-        //!!!!Pass view model 
-        var reservationExists = await context.Reservations.AnyAsync(r => r.RoomId == roomId);
+        if (reservationModel == null) return false;
+
+        var reservationExists = await context.Reservations.AnyAsync(r =>
+            r.RoomId == reservationModel.RoomId &&
+            ((r.CheckInDate <= reservationModel.CheckOutDate && r.CheckInDate >= reservationModel.CheckInDate) ||
+             (r.CheckOutDate >= reservationModel.CheckInDate && r.CheckOutDate <= reservationModel.CheckOutDate)));
 
         if (!reservationExists)
         {
             var reservation = new Reservation
             {
-                RoomId = roomId,
-                UserId = activeUser.Id,
-                CheckInDate = DateTime.UtcNow
+                Id = Guid.NewGuid(),
+                UserId = reservationModel.UserId,
+                RoomId = reservationModel.RoomId,
+                CheckInDate = reservationModel.CheckInDate,
+                CheckOutDate = reservationModel.CheckOutDate
             };
 
             context.Reservations.Add(reservation);
             await context.SaveChangesAsync();
             return true;
         }
+
         return false;
     }
 

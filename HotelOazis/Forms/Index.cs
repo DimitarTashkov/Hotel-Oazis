@@ -90,7 +90,7 @@ namespace HotelOazis.Forms
                     form = new Users(userService);
                     break;
                 case "MyReservations":
-                    form = new UserReservations();
+                    form = new Reservations(userService,roomService);
                     break;
                 default:
                     form = new Index(userService);

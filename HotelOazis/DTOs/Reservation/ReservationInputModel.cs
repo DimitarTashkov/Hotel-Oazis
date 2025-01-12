@@ -10,8 +10,6 @@ namespace HotelOazis.DTOs.Reservation
     public class ReservationInputModel
     {
         [Required]
-        public Guid Id { get; set; }
-        [Required]
         public Guid UserId { get; set; }
         [Required]
         public Guid RoomId { get; set; }

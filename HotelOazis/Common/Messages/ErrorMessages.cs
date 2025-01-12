@@ -37,6 +37,7 @@ namespace HotelOazis.Common.Messages
         public static class ReservationMessages
         {
             public const string RoomIsAlreadyReservated = "This room is unavailable currently!";
+            public const string InvalidCheckOutDate = "Check-out date must be later than check-in date.";
 
         }
         public static class ServicesMessages

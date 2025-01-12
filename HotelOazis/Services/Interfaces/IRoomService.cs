@@ -1,4 +1,5 @@
-﻿using HotelOazis.DTOs.Room;
+﻿using HotelOazis.DTOs.Reservation;
+using HotelOazis.DTOs.Room;
 using HotelOazis.Models;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace HotelOazis.Services.Interfaces
     {
         Task<List<RoomViewModel>> GetRoomsAsync();
 
-        Task<bool> ReserveRoomAsync(Guid roomId, User activeUser);
+        Task<bool> ReserveRoomAsync(ReservationInputModel reservationModel);
 
         Task<bool> DeleteRoomAsync(Guid roomId);
 

@@ -13,9 +13,8 @@ namespace HotelOazis.DTOs.Room
     public class RoomViewModel
     {
         public Guid Id { get; set; }
-
+        public int RoomNumber { get; set; }
         public RoomType Type { get; set; }
-
         public decimal Price { get; set; }
         public bool IsAvailable { get; set; }
         public string PictureLocation { get; set; } = null!;

@@ -19,5 +19,8 @@ namespace HotelOazis.Services.Interfaces
         Task<bool> AddRoomAsync(RoomInputModel newRoom);
 
         Task<bool> EditRoomAsync(EditRoomInputModel updatedRoom);
+        public Task<bool> IsRoomNumberUnique(int roomNumber);
+        public Task<int> GenerateUniqueRoomNumber();
+
     }
 }

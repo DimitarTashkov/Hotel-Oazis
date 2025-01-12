@@ -21,6 +21,7 @@ public class RoomService : BaseService, IRoomService
             .Select(r => new RoomViewModel
             {
                 Id = r.Id,
+                RoomNumber = r.Number,
                 Type = r.Type,
                 IsAvailable = r.IsAvailable,
                 PictureLocation = r.Picture,
@@ -71,6 +72,7 @@ public class RoomService : BaseService, IRoomService
         var room = new Room
         {
             Id = Guid.NewGuid(),
+            Number = newRoom.RoomNumber,
             Type = newRoom.Type,
             Price = newRoom.Price,
             Picture = newRoom.PictureLocation,
@@ -89,6 +91,7 @@ public class RoomService : BaseService, IRoomService
         if (room != null)
         {
             room.Type = updatedRoom.Type;
+            room.Number = updatedRoom.RoomNumber;
             room.IsAvailable = updatedRoom.IsAvailable;
             room.Picture = updatedRoom.PictureLocation;
             room.Price = updatedRoom.Price;
@@ -98,6 +101,22 @@ public class RoomService : BaseService, IRoomService
             return true;
         }
         return false;
+    }
+    public async Task<bool> IsRoomNumberUnique(int roomNumber)
+    {
+
+        return !context.Rooms.Any(r => r.Number == roomNumber);
+    }
+    public async Task<int> GenerateUniqueRoomNumber()
+    {
+        int newRoomNumber = 1;
+
+        while (!await IsRoomNumberUnique(newRoomNumber))
+        {
+            newRoomNumber++;
+        }
+
+        return newRoomNumber;
     }
 
 }

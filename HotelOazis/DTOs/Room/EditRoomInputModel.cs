@@ -15,6 +15,9 @@ namespace HotelOazis.DTOs.Room
         [Required]
         public Guid Id { get; set; }
 
+        [Required(ErrorMessage = RoomNumberRequired)]
+        public int RoomNumber { get; set; }
+
         [Required(ErrorMessage = RoomTypeIsRequired)]
         public RoomType Type { get; set; }
 

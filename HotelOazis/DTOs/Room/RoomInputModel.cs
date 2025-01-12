@@ -15,6 +15,8 @@ namespace HotelOazis.DTOs.Room
         //TODO: Add the number property 
         [Required(ErrorMessage = RoomTypeIsRequired)]
         public RoomType Type { get; set; }
+        [Required(ErrorMessage = RoomNumberRequired)]
+        public int RoomNumber { get; set; }
 
         [Required(ErrorMessage = PriceIsRequired)]
         [Range(0, double.MaxValue)]

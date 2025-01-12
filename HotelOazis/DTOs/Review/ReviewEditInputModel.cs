@@ -15,6 +15,9 @@ namespace HotelOazis.DTOs.Review
 {
     public class ReviewEditInputModel
     {
+        [Required]
+        public Guid Id { get; set; }
+
         [Required(ErrorMessage = MessageIsRequired)]
         [MinLength(MessageMinLength)]
         [MaxLength(MessageMaxLength)]

@@ -17,6 +17,7 @@ using System.Windows.Forms;
 
 using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
+using static HotelOazis.Common.Messages.ErrorMessages.RoomMessages;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
 using Fitness.Utilities;
 using HotelOazis.Models;
@@ -43,6 +44,8 @@ namespace HotelOazis.Forms
             priceField.Click += EventsEffects.clearInputs_click;
             descriptionField.TextChanged += EventsEffects.input_TextChanged;
             descriptionField.Click += EventsEffects.clearInputs_click;
+            roomNumberField.TextChanged += EventsEffects.input_TextChanged;
+            roomNumberField.Click += EventsEffects.clearInputs_click;
 
         }
 
@@ -51,6 +54,7 @@ namespace HotelOazis.Forms
             roomTypes.DataSource = Enum.GetValues(typeof(RoomType));
 
             roomTypes.SelectedItem = model.Type;
+            roomNumberField.Text = model.RoomNumber.ToString();
             priceField.Text = model.Price.ToString();
             roomPicture.ImageLocation = model.PictureLocation;
             descriptionField.Text = model.Description;
@@ -60,11 +64,13 @@ namespace HotelOazis.Forms
             priceField.ForeColor = Color.DimGray;
             descriptionField.ForeColor = Color.DimGray;
             statusBox.ForeColor = Color.DimGray;
+            roomNumberField.ForeColor = Color.DimGray;
 
             roomTypes.Font = FontsPicker.DetailsFont;
             priceField.Font = FontsPicker.DetailsFont;
             descriptionField.Font = FontsPicker.DetailsFont;
             statusBox.Font = FontsPicker.DetailsFont;
+            roomNumberField.Font = FontsPicker.DetailsFont;
 
             roomTypes.DropDownStyle = ComboBoxStyle.DropDownList;
             statusBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -76,6 +82,7 @@ namespace HotelOazis.Forms
             {
                 priceField,
                 descriptionField,
+                roomNumberField
             };
             bool areInputsValid = ValidationHelper.ValidateUserInputs(inputs, roomPicture);
             if (!areInputsValid ||
@@ -85,11 +92,21 @@ namespace HotelOazis.Forms
                 return;
             }
 
+            bool isNumberValid = int.TryParse(roomNumberField.Text, out int roomNumber);
+            roomNumber = isNumberValid ? roomNumber : await roomService.GenerateUniqueRoomNumber();
+
+            if (!await roomService.IsRoomNumberUnique(roomNumber))
+            {
+                MessageBox.Show(RoomNumberExists, "Room Creation Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             decimal unparsePrice = decimal.TryParse(priceField.Text, out var price) ? price : 0;
 
             var editModel = new EditRoomInputModel()
             {
                 Id = model.Id,
+                RoomNumber = roomNumber,
                 Type = (RoomType)roomTypes.SelectedItem,
                 Price = price,
                 PictureLocation = roomPicture.ImageLocation,
@@ -102,6 +119,11 @@ namespace HotelOazis.Forms
             {
                 foreach (var error in errors)
                 {
+                    if (error.MemberNames.Contains(nameof(editModel.RoomNumber)))
+                    {
+                        roomNumberErrors.Text = error.ErrorMessage;
+                        roomNumberErrors.Visible = true;
+                    }
                     if (error.MemberNames.Contains(nameof(editModel.Type)))
                     {
                         typeErrors.Text = error.ErrorMessage;

@@ -31,7 +31,5 @@ namespace HotelOazis.Models
         [Required]
         public string Picture { get; set; } = null!;
         public string? Description { get; set; }
-        public virtual HashSet<Service> Services { get; set; }
-        = new HashSet<Service>();
     }
 }

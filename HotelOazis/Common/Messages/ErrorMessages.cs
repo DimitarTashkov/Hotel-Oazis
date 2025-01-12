@@ -14,6 +14,9 @@ namespace HotelOazis.Common.Messages
             public const string PriceIsRequired = "Defining price is required";
             public const string IsAvailableRequired = "Room status is required";
             public const string RoomPictureRequired = "Room picture is required";
+            public const string RoomNumberRequired = "Room number is required";
+            public const string RoomNumberExists = "Such room number already exists";
+
         }
         public static class UserMessages
         {

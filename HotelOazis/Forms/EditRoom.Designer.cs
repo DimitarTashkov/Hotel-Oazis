@@ -47,6 +47,9 @@
             typeLabel = new Label();
             logo = new PictureBox();
             roomLabel = new Label();
+            roomNumberErrors = new Label();
+            roomNumberField = new TextBox();
+            roomNumber = new Label();
             formPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)roomPicture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
@@ -55,6 +58,9 @@
             // formPanel
             // 
             formPanel.BackColor = SystemColors.Control;
+            formPanel.Controls.Add(roomNumberErrors);
+            formPanel.Controls.Add(roomNumberField);
+            formPanel.Controls.Add(roomNumber);
             formPanel.Controls.Add(statusErrors);
             formPanel.Controls.Add(statusBox);
             formPanel.Controls.Add(statusLabel);
@@ -106,7 +112,7 @@
             statusLabel.AutoSize = true;
             statusLabel.BackColor = Color.Transparent;
             statusLabel.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
-            statusLabel.Location = new Point(181, 251);
+            statusLabel.Location = new Point(193, 251);
             statusLabel.Name = "statusLabel";
             statusLabel.Size = new Size(86, 18);
             statusLabel.TabIndex = 23;
@@ -131,7 +137,7 @@
             priceErrors.BackColor = Color.Transparent;
             priceErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             priceErrors.ForeColor = Color.Red;
-            priceErrors.Location = new Point(115, 158);
+            priceErrors.Location = new Point(115, 183);
             priceErrors.Name = "priceErrors";
             priceErrors.Size = new Size(47, 13);
             priceErrors.TabIndex = 21;
@@ -144,7 +150,7 @@
             typeErrors.BackColor = Color.Transparent;
             typeErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             typeErrors.ForeColor = Color.Red;
-            typeErrors.Location = new Point(115, 87);
+            typeErrors.Location = new Point(115, 121);
             typeErrors.Name = "typeErrors";
             typeErrors.Size = new Size(47, 13);
             typeErrors.TabIndex = 20;
@@ -155,7 +161,7 @@
             // 
             roomTypes.Font = new Font("Verdana", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             roomTypes.FormattingEnabled = true;
-            roomTypes.Location = new Point(115, 61);
+            roomTypes.Location = new Point(115, 94);
             roomTypes.Name = "roomTypes";
             roomTypes.Size = new Size(244, 24);
             roomTypes.TabIndex = 19;
@@ -220,7 +226,7 @@
             descriptionLabel.AutoSize = true;
             descriptionLabel.BackColor = Color.Transparent;
             descriptionLabel.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
-            descriptionLabel.Location = new Point(181, 176);
+            descriptionLabel.Location = new Point(193, 198);
             descriptionLabel.Name = "descriptionLabel";
             descriptionLabel.Size = new Size(106, 18);
             descriptionLabel.TabIndex = 11;
@@ -231,7 +237,7 @@
             priceField.BackColor = Color.LightGray;
             priceField.Font = new Font("Verdana", 9.75F, FontStyle.Bold | FontStyle.Italic);
             priceField.ForeColor = Color.DimGray;
-            priceField.Location = new Point(115, 132);
+            priceField.Location = new Point(115, 157);
             priceField.Name = "priceField";
             priceField.Size = new Size(244, 23);
             priceField.TabIndex = 8;
@@ -241,7 +247,7 @@
             priceLabel.AutoSize = true;
             priceLabel.BackColor = Color.Transparent;
             priceLabel.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
-            priceLabel.Location = new Point(193, 106);
+            priceLabel.Location = new Point(193, 136);
             priceLabel.Name = "priceLabel";
             priceLabel.Size = new Size(94, 18);
             priceLabel.TabIndex = 7;
@@ -252,7 +258,7 @@
             typeLabel.AutoSize = true;
             typeLabel.BackColor = Color.Transparent;
             typeLabel.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
-            typeLabel.Location = new Point(193, 40);
+            typeLabel.Location = new Point(193, 73);
             typeLabel.Name = "typeLabel";
             typeLabel.Size = new Size(63, 18);
             typeLabel.TabIndex = 5;
@@ -275,11 +281,45 @@
             roomLabel.AutoSize = true;
             roomLabel.BackColor = Color.Transparent;
             roomLabel.Font = new Font("Verdana", 15.75F, FontStyle.Bold | FontStyle.Italic);
-            roomLabel.Location = new Point(270, 0);
+            roomLabel.Location = new Point(285, 0);
             roomLabel.Name = "roomLabel";
             roomLabel.Size = new Size(130, 25);
             roomLabel.TabIndex = 0;
             roomLabel.Text = "Room info";
+            // 
+            // roomNumberErrors
+            // 
+            roomNumberErrors.AutoSize = true;
+            roomNumberErrors.BackColor = Color.Transparent;
+            roomNumberErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            roomNumberErrors.ForeColor = Color.Red;
+            roomNumberErrors.Location = new Point(115, 63);
+            roomNumberErrors.Name = "roomNumberErrors";
+            roomNumberErrors.Size = new Size(47, 13);
+            roomNumberErrors.TabIndex = 28;
+            roomNumberErrors.Text = "label1";
+            roomNumberErrors.Visible = false;
+            // 
+            // roomNumberField
+            // 
+            roomNumberField.BackColor = Color.LightGray;
+            roomNumberField.Font = new Font("Verdana", 9.75F, FontStyle.Bold | FontStyle.Italic);
+            roomNumberField.ForeColor = Color.DimGray;
+            roomNumberField.Location = new Point(115, 37);
+            roomNumberField.Name = "roomNumberField";
+            roomNumberField.Size = new Size(244, 23);
+            roomNumberField.TabIndex = 27;
+            // 
+            // roomNumber
+            // 
+            roomNumber.AutoSize = true;
+            roomNumber.BackColor = Color.Transparent;
+            roomNumber.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
+            roomNumber.Location = new Point(190, 16);
+            roomNumber.Name = "roomNumber";
+            roomNumber.Size = new Size(89, 18);
+            roomNumber.TabIndex = 26;
+            roomNumber.Text = "*Number";
             // 
             // EditRoom
             // 
@@ -320,5 +360,8 @@
         private Label statusErrors;
         private ComboBox statusBox;
         private Label statusLabel;
+        private Label roomNumberErrors;
+        private TextBox roomNumberField;
+        private Label roomNumber;
     }
 }

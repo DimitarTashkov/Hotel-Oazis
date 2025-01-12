@@ -48,6 +48,7 @@ namespace HotelOazis.Forms
                 RoomDetailsViewModel model = new RoomDetailsViewModel
                 {
                     Id = room.Id,
+                    RoomNumber = room.RoomNumber,
                     Type = room.Type,
                     Price = room.Price,
                     IsAvailable = room.IsAvailable,
@@ -98,6 +99,7 @@ namespace HotelOazis.Forms
                     EditRoomInputModel model = new EditRoomInputModel
                     {
                         Id = room.Id,
+                        RoomNumber = room.RoomNumber,
                         Type = room.Type,
                         IsAvailable = room.IsAvailable,
                         PictureLocation = room.PictureLocation,
@@ -151,7 +153,7 @@ namespace HotelOazis.Forms
                     Size = new Size(225, 272),
                     BackColor = Color.NavajoWhite
                 };
-
+                var numberLabel = CreateLabel($"numberLabel{index}", $"Room: {room.RoomNumber.ToString()}", FontsPicker.BaseFont, new Point(80, 151));
                 var typeLabel = CreateLabel($"typeLabel{index}", $"Type: { room.Type.ToString()}", FontsPicker.BaseFont, new Point(60, 166));
                 var priceLabel = CreateLabel($"priceLabel{index}", $"{room.Price:f2} lv", FontsPicker.DetailsFont, new Point(30, 190));
                 var availabilityLabel = CreateLabel($"availabilityLabel{index}","Available:", FontsPicker.DetailsFont, new Point(110, 190));
@@ -165,6 +167,14 @@ namespace HotelOazis.Forms
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     Location = new Point(container.Location.X + 37, container.Location.Y),
                 };
+                var numberIcon = CreateIconPictureBox
+                   (
+                   name: $"numberIcon{index}",
+                   image: Properties.Resources.room_number,
+                   size: new Size(16, 16),
+                   location: new Point(container.Location.X + 60, image.Size.Height)
+                   );
+
                 var typeIcon = CreateIconPictureBox
                     (
                     name: $"infoIcon{index}",
@@ -190,9 +200,11 @@ namespace HotelOazis.Forms
                     location: new Point(container.Size.Width - 30, availabilityLabel.Location.Y + 3)
                     );
 
+                container.Controls.Add(numberIcon);
                 container.Controls.Add(typeIcon);
                 container.Controls.Add(costIcon);
                 container.Controls.Add(availabilityIcon);
+                container.Controls.Add(numberLabel);
                 container.Controls.Add(typeLabel);
                 container.Controls.Add(priceLabel);
                 container.Controls.Add(availabilityLabel);

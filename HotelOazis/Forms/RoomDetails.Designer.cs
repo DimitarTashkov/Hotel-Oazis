@@ -41,6 +41,7 @@
             roomPrice = new Label();
             roomType = new Label();
             navigationButton = new Button();
+            roomNumber = new Label();
             mainContainer.SuspendLayout();
             roomContainer.SuspendLayout();
             supplementVisualsContainer.SuspendLayout();
@@ -118,6 +119,7 @@
             // roomDataContainer
             // 
             roomDataContainer.BackColor = Color.BlanchedAlmond;
+            roomDataContainer.Controls.Add(roomNumber);
             roomDataContainer.Controls.Add(editRoomBtn);
             roomDataContainer.Controls.Add(roomDescription);
             roomDataContainer.Controls.Add(roomAvaialability);
@@ -195,6 +197,16 @@
             navigationButton.UseVisualStyleBackColor = false;
             navigationButton.Click += navigationButton_Click;
             // 
+            // roomNumber
+            // 
+            roomNumber.AutoSize = true;
+            roomNumber.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            roomNumber.Location = new Point(180, 10);
+            roomNumber.Name = "roomNumber";
+            roomNumber.Size = new Size(64, 18);
+            roomNumber.TabIndex = 5;
+            roomNumber.Text = "Room:";
+            // 
             // RoomDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -231,5 +243,6 @@
         private Label roomPrice;
         private Label roomType;
         private Button navigationButton;
+        private Label roomNumber;
     }
 }

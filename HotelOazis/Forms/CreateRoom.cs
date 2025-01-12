@@ -18,7 +18,9 @@ using System.Windows.Forms;
 
 using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
+using static HotelOazis.Common.Messages.ErrorMessages.RoomMessages;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
+using HotelOazis.Models;
 
 namespace HotelOazis.Forms
 {
@@ -39,6 +41,8 @@ namespace HotelOazis.Forms
             priceField.Click += EventsEffects.clearInputs_click;
             descriptionField.TextChanged += EventsEffects.input_TextChanged;
             descriptionField.Click += EventsEffects.clearInputs_click;
+            roomNumberField.TextChanged += EventsEffects.input_TextChanged;
+            roomNumberField.Click += EventsEffects.clearInputs_click;
 
         }
 
@@ -49,13 +53,24 @@ namespace HotelOazis.Forms
             List<TextBox> inputs = new List<TextBox>
             {
                 priceField,
+                roomNumberField
             };
+
             bool areInputsValid = ValidationHelper.ValidateUserInputs(inputs, roomPicture);
             if (!areInputsValid || roomTypes.SelectedIndex == 0)
             {
                 MessageBox.Show(EmptyInputData, "Room Creation Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            bool isNumberValid = int.TryParse(roomNumberField.Text, out int roomNumber);
+            roomNumber = isNumberValid ? roomNumber : await roomService.GenerateUniqueRoomNumber();
+
+            if (!await roomService.IsRoomNumberUnique(roomNumber))
+            {
+                MessageBox.Show(RoomNumberExists, "Room Creation Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             RoomType roomType = (RoomType)roomTypes.SelectedItem;
             decimal unparsePrice = decimal.TryParse(priceField.Text, out var price) ? price : -1;
             string pictureLocation = roomPicture.ImageLocation;
@@ -63,6 +78,7 @@ namespace HotelOazis.Forms
 
             RoomInputModel roomInputModel = new RoomInputModel
             {
+                RoomNumber = roomNumber,
                 Type = roomType,
                 Price = price,
                 PictureLocation = pictureLocation,
@@ -75,6 +91,11 @@ namespace HotelOazis.Forms
             {
                 foreach (var error in errors)
                 {
+                    if (error.MemberNames.Contains(nameof(roomInputModel.RoomNumber)))
+                    {
+                        roomNumberErrors.Text = error.ErrorMessage;
+                        roomNumberErrors.Visible = true;
+                    }
                     if (error.MemberNames.Contains(nameof(roomInputModel.Type)))
                     {
                         typeErrors.Text = error.ErrorMessage;
@@ -97,13 +118,13 @@ namespace HotelOazis.Forms
             bool isCreated = await roomService.AddRoomAsync(roomInputModel);
             if (isCreated)
             {
-                MessageBox.Show(CreatedSuccessfully, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format(CreatedSuccessfully, nameof(Room)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Rooms roomsForm = new Rooms(roomService, userService);
                 Program.SwitchMainForm(roomsForm);
             }
             else
             {
-                MessageBox.Show(CreationFailed, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format(CreationFailed, nameof(Room)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -140,5 +161,6 @@ namespace HotelOazis.Forms
             roomTypes.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
+        
     }
 }

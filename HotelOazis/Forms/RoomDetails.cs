@@ -44,51 +44,18 @@ namespace HotelOazis.Forms
             {
                 editRoomBtn.Visible = true;
             }
+
             string availabilityMessage = model.IsAvailable ? "Available" : "Not Available";
             roomType.Text = roomType.Text + " " + model.Type.ToString();
+            roomNumber.Text = roomNumber.Text + " " + model.RoomNumber.ToString();
             roomPrice.Text = roomPrice.Text + " " + $"{model.Price.ToString():f2} lv";
             roomAvaialability.Text = roomAvaialability.Text + " " + availabilityMessage;
             roomDescription.Text = roomDescription.Text + " " + model.Description;
             roomDescription.MaximumSize = new Size(roomDataContainer.Size.Width, 50);
             roomDescription.AutoSize = true;
             roomImage.ImageLocation = model.Picture;
-            var typeIcon = CreateIconPictureBox
-                   (
-                   name: $"infoIcon",
-                   image: Properties.Resources.type_icon,
-                   size: new Size(16, 16),
-                   location: new Point(roomType.Location.X - 20, roomType.Location.Y + 3)
-                   );
 
-            var costIcon = CreateIconPictureBox
-                (
-                name: $"costIcon",
-                image: Properties.Resources.cost_icon,
-                size: new Size(16, 16),
-                location: new Point(roomPrice.Location.X - 20, roomPrice.Location.Y + 3)
-                );
-
-            var availabilityImage = model.IsAvailable ? Resources.tick_icon : Resources.cross_icon;
-
-            var availabilityIcon = CreateIconPictureBox
-                (
-            name: $"availabiityIcon",
-            image: availabilityImage,
-                size: new Size(16, 16),
-                location: new Point(roomAvaialability.Location.X - 20, roomAvaialability.Location.Y + 3)
-            );
-            var descriptionIcon = CreateIconPictureBox
-                (
-                name: $"descriptionIcon",
-                image: Properties.Resources.read_more_icon,
-                size: new Size(16, 16),
-                location: new Point(roomDescription.Location.X - 20, roomDescription.Location.Y + 3)
-                );
-
-            roomDataContainer.Controls.Add(typeIcon);
-            roomDataContainer.Controls.Add(costIcon);
-            roomDataContainer.Controls.Add(availabilityIcon);
-            roomDataContainer.Controls.Add(descriptionIcon);
+            CreateIconControls();
         }
         private PictureBox CreateIconPictureBox(string name, Image image, Size size, Point location)
         {
@@ -141,6 +108,55 @@ namespace HotelOazis.Forms
             {
                 MessageBox.Show(string.Format(UpdateFailed, nameof(Room)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void CreateIconControls()
+        {
+            var numberIcon = CreateIconPictureBox
+                   (
+                   name: $"numberIcon",
+                   image: Properties.Resources.room_number,
+                   size: new Size(16, 16),
+                   location: new Point(roomNumber.Location.X - 20, roomNumber.Location.Y + 3)
+                   );
+
+            var typeIcon = CreateIconPictureBox
+                   (
+                   name: $"typeIcon",
+                   image: Properties.Resources.type_icon,
+                   size: new Size(16, 16),
+                   location: new Point(roomType.Location.X - 20, roomType.Location.Y + 3)
+                   );
+
+            var costIcon = CreateIconPictureBox
+                (
+                name: $"costIcon",
+                image: Properties.Resources.cost_icon,
+                size: new Size(16, 16),
+                location: new Point(roomPrice.Location.X - 20, roomPrice.Location.Y + 3)
+                );
+
+            var availabilityImage = model.IsAvailable ? Resources.tick_icon : Resources.cross_icon;
+
+            var availabilityIcon = CreateIconPictureBox
+                (
+            name: $"availabiityIcon",
+            image: availabilityImage,
+                size: new Size(16, 16),
+                location: new Point(roomAvaialability.Location.X - 20, roomAvaialability.Location.Y + 3)
+            );
+            var descriptionIcon = CreateIconPictureBox
+                (
+                name: $"descriptionIcon",
+                image: Properties.Resources.read_more_icon,
+                size: new Size(16, 16),
+                location: new Point(roomDescription.Location.X - 20, roomDescription.Location.Y + 3)
+                );
+
+            roomDataContainer.Controls.Add(numberIcon);
+            roomDataContainer.Controls.Add(typeIcon);
+            roomDataContainer.Controls.Add(costIcon);
+            roomDataContainer.Controls.Add(availabilityIcon);
+            roomDataContainer.Controls.Add(descriptionIcon);
         }
     }
 }

@@ -21,6 +21,7 @@ namespace HotelOazis.Forms
         private readonly IUserService userService;
         private readonly IRoomService roomService;
         private readonly IFacilityService facilityService;
+        private readonly IReviewService reviewService;
         private User activeUser;
         public Index(IUserService userService)
         {
@@ -28,6 +29,7 @@ namespace HotelOazis.Forms
             activeUser = userService.GetLoggedInUserAsync();
             roomService = ServiceLocator.GetService<IRoomService>();
             facilityService = ServiceLocator.GetService<IFacilityService>();
+            reviewService = ServiceLocator.GetService<IReviewService>();
 
             InitializeComponent();
         }
@@ -81,7 +83,7 @@ namespace HotelOazis.Forms
                     form = new Services(facilityService, userService);
                     break;
                 case "Reviews":
-                    form = new Reviews();
+                    form = new Reviews(reviewService, userService);
                     break;
                 case "Profile":
                     form = new Profile(userService);

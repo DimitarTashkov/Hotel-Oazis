@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Fitness.Services;
 
 namespace HotelOazis.Extensions
 {
@@ -21,6 +22,8 @@ namespace HotelOazis.Extensions
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IRoomService, RoomService>();
             services.AddScoped<IFacilityService, FacilityService>();
+            services.AddScoped<IReviewService, ReviewService>();
+
             return services;
         }
     }

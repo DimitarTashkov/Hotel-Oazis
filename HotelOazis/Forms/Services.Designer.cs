@@ -47,7 +47,7 @@
             servicesLabel.AutoSize = true;
             servicesLabel.BackColor = Color.Transparent;
             servicesLabel.Font = new Font("Verdana", 15.75F, FontStyle.Bold | FontStyle.Italic);
-            servicesLabel.ForeColor = Color.Black;
+            servicesLabel.ForeColor = Color.White;
             servicesLabel.Location = new Point(351, 9);
             servicesLabel.Name = "servicesLabel";
             servicesLabel.Size = new Size(110, 25);

@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace Fitness.Services
 {
-    public class ReviewsService : BaseService, IReviewService
+    public class ReviewService : BaseService, IReviewService
     {
         private readonly HotelContext _context;
 
-        public ReviewsService(HotelContext context)
+        public ReviewService(HotelContext context)
         {
             _context = context;
         }

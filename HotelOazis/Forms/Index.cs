@@ -57,7 +57,7 @@ namespace HotelOazis.Forms
         }
         private void roomsButton_Click(object sender, EventArgs e)
         {
-            Rooms roomsForm = new Rooms(roomService,userService);
+            Rooms roomsForm = new Rooms(roomService, userService);
             Program.SwitchMainForm(roomsForm);
         }
 
@@ -77,7 +77,7 @@ namespace HotelOazis.Forms
             switch (formName)
             {
                 case "Rooms":
-                    form = new Rooms(roomService,userService);
+                    form = new Rooms(roomService, userService);
                     break;
                 case "Services":
                     form = new Services(facilityService, userService);
@@ -92,7 +92,13 @@ namespace HotelOazis.Forms
                     form = new Users(userService);
                     break;
                 case "MyReservations":
-                    form = new Reservations(userService,roomService);
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Reservations":
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Home":
+                    form = new Index(userService);
                     break;
                 default:
                     form = new Index(userService);
@@ -100,7 +106,6 @@ namespace HotelOazis.Forms
             }
             Program.SwitchMainForm(form);
         }
-
     }
 }
 

@@ -49,9 +49,9 @@
             ordersLabel.ForeColor = Color.White;
             ordersLabel.Location = new Point(331, 15);
             ordersLabel.Name = "ordersLabel";
-            ordersLabel.Size = new Size(136, 25);
+            ordersLabel.Size = new Size(110, 25);
             ordersLabel.TabIndex = 8;
-            ordersLabel.Text = "Comments";
+            ordersLabel.Text = "Reviews";
             // 
             // navigationButton
             // 

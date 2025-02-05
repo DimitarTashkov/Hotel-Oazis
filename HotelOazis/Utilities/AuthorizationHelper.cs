@@ -10,6 +10,7 @@ namespace HotelOazis.Utilities
 {
     public class AuthorizationHelper
     {
+        private static bool isAuthorized;
         public static async Task<bool> InitializeAuthorizationStatusAsync(IUserService userService)
         {
             bool _isAuthorized;
@@ -22,7 +23,13 @@ namespace HotelOazis.Utilities
             {
                 _isAuthorized = false;
             }
+            isAuthorized = _isAuthorized;
             return _isAuthorized;
         }
+        public static bool IsAuthorized()
+        {
+            return isAuthorized;
+        }
     }
+    
 }

@@ -102,6 +102,67 @@ namespace HotelOazis.Services
         {
             return await dbContext.Users.AnyAsync(u => u.Username == username);
         }
+        public async Task<IEnumerable<UserDataViewModel>> GetUsersAsync()
+        {
+            var users = await dbContext.Users.ToListAsync();
+            return users.Select(user => new UserDataViewModel
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Email = user.Email,
+                Age = user.Age,
+                AvatarUrl = user.AvatarUrl,
+            });
+        }
+        public async Task<bool> MakeUserAdminAsync(Guid userId)
+        {
+            var user = await dbContext.Users.FindAsync(userId);
+            if (user == null)
+            {
+                return false;
+            }
+
+            var adminRole = await dbContext.Roles.FirstOrDefaultAsync(r => r.Name == "Administrator");
+            if (adminRole == null)
+            {
+                return false;
+            }
+
+            if(dbContext.UsersRoles.Any(ur => ur.UserId == userId && ur.RoleId == adminRole.Id))
+            {
+                return false;
+            }
+
+            var userRole = new UserRole
+            {
+                UserId = userId,
+                RoleId = adminRole.Id
+            };
+
+            dbContext.UsersRoles.Add(userRole);
+            await dbContext.SaveChangesAsync();
+            return true;
+        }
+        public async Task<bool> RemoveAdminRoleAsync(Guid userId)
+        {
+            var adminRole = await dbContext.Roles.FirstOrDefaultAsync(r => r.Name == "Administrator");
+            if (adminRole == null)
+            {
+                return false;
+            }
+
+            var userRole = await dbContext.UsersRoles
+                .FirstOrDefaultAsync(ur => ur.UserId == userId && ur.RoleId == adminRole.Id);
+
+            if (userRole == null)
+            {
+                return false;
+            }
+
+            dbContext.UsersRoles.Remove(userRole);
+            await dbContext.SaveChangesAsync();
+            return true;
+        }
 
     }
 }

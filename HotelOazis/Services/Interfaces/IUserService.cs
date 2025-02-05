@@ -19,7 +19,9 @@ namespace HotelOazis.Services.Interfaces
         public void LogoutUser();
         Task<bool> IsUserAdminAsync(User user);
         public Task<bool> IsUsernameTaken(string username);
-
+        public Task<IEnumerable<UserDataViewModel>> GetUsersAsync();
+        public Task<bool> MakeUserAdminAsync(Guid userId);
+        public Task<bool> RemoveAdminRoleAsync(Guid userId);
 
     }
 }

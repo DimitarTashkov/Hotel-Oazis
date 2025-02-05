@@ -48,6 +48,7 @@ namespace Fitness.Services
                     Rating = c.Rating,
                     MessageStatus = c.MessageStatus,
                     PublishedOn = c.PublishedOn,
+                    UserId = c.UserId,
                     Username = c.User.Username,
                     ProfilePicture = c.User.AvatarUrl
                 })

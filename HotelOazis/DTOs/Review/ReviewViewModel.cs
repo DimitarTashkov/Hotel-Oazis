@@ -15,6 +15,7 @@ namespace HotelOazis.DTOs.Review
         public int Rating { get; set; }
         public FeedbackStatus MessageStatus { get; set; }
         public DateTime PublishedOn { get; set; }
+        public Guid UserId { get; set; }
         public string Username { get; set; } = null!;
         public string ProfilePicture { get; set; } = null!;
     }

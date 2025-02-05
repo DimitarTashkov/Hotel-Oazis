@@ -122,7 +122,7 @@ namespace HotelOazis.Services
                 return false;
             }
 
-            var adminRole = await dbContext.Roles.FirstOrDefaultAsync(r => r.Name == "Administrator");
+            var adminRole = await dbContext.Roles.FirstOrDefaultAsync(r => r.Name == "Admin");
             if (adminRole == null)
             {
                 return false;
@@ -145,7 +145,7 @@ namespace HotelOazis.Services
         }
         public async Task<bool> RemoveAdminRoleAsync(Guid userId)
         {
-            var adminRole = await dbContext.Roles.FirstOrDefaultAsync(r => r.Name == "Administrator");
+            var adminRole = await dbContext.Roles.FirstOrDefaultAsync(r => r.Name == "Admin");
             if (adminRole == null)
             {
                 return false;

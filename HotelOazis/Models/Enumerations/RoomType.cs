@@ -8,6 +8,7 @@ namespace HotelOazis.Models.Enumerations
 {
     public enum RoomType
     {
+        Type,
         Single,
         Double,
         Triple,

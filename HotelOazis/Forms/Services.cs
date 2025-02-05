@@ -1,7 +1,9 @@
-﻿using Fitness.Utilities;
+﻿using Fitness.Services;
+using Fitness.Utilities;
 using HotelOazis.Common.Constants;
 using HotelOazis.DTOs.Room;
 using HotelOazis.DTOs.Service;
+using HotelOazis.Extensions;
 using HotelOazis.Models;
 using HotelOazis.Properties;
 using HotelOazis.Services.Interfaces;
@@ -28,21 +30,36 @@ namespace HotelOazis.Forms
     {
         private readonly IFacilityService facilityService;
         private readonly IUserService userService;
+        private readonly IReviewService reviewService;
+        private readonly IRoomService roomService;
         private static bool isAuthorized;
+        private User activeUser;
+
         public Services(IFacilityService facilityService, IUserService userService)
         {
+            activeUser = userService.GetLoggedInUserAsync();
             this.facilityService = facilityService;
             this.userService = userService;
+            this.reviewService = ServiceLocator.GetService<IReviewService>();
+            this.roomService = ServiceLocator.GetService<IRoomService>();
             InitializeComponent();
         }
 
         private async void Services_Load(object sender, EventArgs e)
         {
-            isAuthorized = await AuthorizationHelper.InitializeAuthorizationStatusAsync(userService);
-            if (isAuthorized)
+            bool isAdmin = AuthorizationHelper.IsAuthorized();
+
+            if (isAdmin)
             {
+                Users.Visible = true;
+                Reservations.Visible = true;
                 addService.Visible = true;
             }
+
+            roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
+
+            isAuthorized = isAdmin;
+
             await PopulateServicesAsync();
         }
         private async Task PopulateServicesAsync()
@@ -196,6 +213,50 @@ namespace HotelOazis.Forms
         {
             Index indexForm = new Index(userService);
             Program.SwitchMainForm(indexForm);
+        }
+        private void menu_ItemClicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            string formName = item.Text;
+            Form form = new Form();
+
+            switch (formName)
+            {
+                case "Rooms":
+                    form = new Rooms(roomService, userService);
+                    break;
+                case "Services":
+                    form = new Services(facilityService, userService);
+                    break;
+                case "Reviews":
+                    form = new Reviews(reviewService, userService);
+                    break;
+                case "Profile":
+                    form = new Profile(userService);
+                    break;
+                case "Users":
+                    form = new Users(userService);
+                    break;
+                case "My reservations":
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Reservations":
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Home":
+                    form = new Index(userService);
+                    break;
+                default:
+                    form = new Index(userService);
+                    break;
+            }
+            Program.SwitchMainForm(form);
+        }
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile(userService);
+            Program.SwitchMainForm(profileForm);
         }
     }
 }

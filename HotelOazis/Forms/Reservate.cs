@@ -1,4 +1,5 @@
-﻿using HotelOazis.DTOs.Reservation;
+﻿using Fitness.Services;
+using HotelOazis.DTOs.Reservation;
 using HotelOazis.DTOs.Room;
 using HotelOazis.Extensions;
 using HotelOazis.Models;
@@ -22,14 +23,20 @@ namespace HotelOazis.Forms
 {
     public partial class Reservate : Form
     {
-        private readonly IRoomService roomService;
+        private readonly IFacilityService facilityService;
         private readonly IUserService userService;
+        private readonly IReviewService reviewService;
+        private readonly IRoomService roomService;
         private readonly ReservationInputModel model;
+        private User activeUser;
         public Reservate(IRoomService roomService, ReservationInputModel model)
         {
-            this.roomService = roomService;
             this.model = model;
+            this.roomService = roomService;
             this.userService = ServiceLocator.GetService<IUserService>();
+            this.facilityService = ServiceLocator.GetService<IFacilityService>();
+            this.reviewService = ServiceLocator.GetService<IReviewService>();
+            activeUser = userService.GetLoggedInUserAsync();
             InitializeComponent();
             formPanel.Paint += new PaintEventHandler(LayoutHelper.set_FormBackground);
 
@@ -65,6 +72,63 @@ namespace HotelOazis.Forms
         {
             Rooms roomsForm = new Rooms(roomService, userService);
             Program.SwitchMainForm(roomsForm);
+        }
+
+        private void Reservate_Load(object sender, EventArgs e)
+        {
+            bool isAdmin = AuthorizationHelper.IsAuthorized();
+
+            if (isAdmin)
+            {
+                Users.Visible = true;
+                Reservations.Visible = true;
+            }
+
+            roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
+        }
+        private void menu_ItemClicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            string formName = item.Text;
+            Form form = new Form();
+
+            switch (formName)
+            {
+                case "Rooms":
+                    form = new Rooms(roomService, userService);
+                    break;
+                case "Services":
+                    form = new Services(facilityService, userService);
+                    break;
+                case "Reviews":
+                    form = new Reviews(reviewService, userService);
+                    break;
+                case "Profile":
+                    form = new Profile(userService);
+                    break;
+                case "Users":
+                    form = new Users(userService);
+                    break;
+                case "My reservations":
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Reservations":
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Home":
+                    form = new Index(userService);
+                    break;
+                default:
+                    form = new Index(userService);
+                    break;
+            }
+            Program.SwitchMainForm(form);
+        }
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile(userService);
+            Program.SwitchMainForm(profileForm);
         }
     }
 }

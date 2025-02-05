@@ -19,6 +19,7 @@ using System.Windows.Forms;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
 using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 using HotelOazis.Common.Constants;
+using Fitness.Services;
 
 namespace HotelOazis.Forms
 {
@@ -26,12 +27,19 @@ namespace HotelOazis.Forms
     {
         private readonly IFacilityService facilityService;
         private readonly IUserService userService;
+        private readonly IReviewService reviewService;
+        private readonly IRoomService roomService;
         private readonly EditServiceInputModel model;
+        private User activeUser;
         public EditService(IFacilityService facilityService, EditServiceInputModel model)
         {
-            this.facilityService = facilityService;
             this.model = model;
+            this.facilityService = facilityService;
             this.userService = ServiceLocator.GetService<IUserService>();
+            this.reviewService = ServiceLocator.GetService<IReviewService>();
+            this.roomService = ServiceLocator.GetService<IRoomService>();
+            activeUser = userService.GetLoggedInUserAsync();
+
             InitializeComponent();
 
             formPanel.Paint += new PaintEventHandler(LayoutHelper.set_FormBackground);
@@ -103,6 +111,15 @@ namespace HotelOazis.Forms
 
         private void EditService_Load(object sender, EventArgs e)
         {
+            bool isAdmin = AuthorizationHelper.IsAuthorized();
+
+            if (isAdmin)
+            {
+                Users.Visible = true;
+                Reservations.Visible = true;
+            }
+
+            roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
             nameField.Text = model.Name;
             descriptionField.Text = model.Description;
 
@@ -111,6 +128,50 @@ namespace HotelOazis.Forms
 
             nameField.Font = FontsPicker.DetailsFont;
             descriptionField.Font = FontsPicker.DetailsFont;
+        }
+        private void menu_ItemClicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            string formName = item.Text;
+            Form form = new Form();
+
+            switch (formName)
+            {
+                case "Rooms":
+                    form = new Rooms(roomService, userService);
+                    break;
+                case "Services":
+                    form = new Services(facilityService, userService);
+                    break;
+                case "Reviews":
+                    form = new Reviews(reviewService, userService);
+                    break;
+                case "Profile":
+                    form = new Profile(userService);
+                    break;
+                case "Users":
+                    form = new Users(userService);
+                    break;
+                case "My reservations":
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Reservations":
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Home":
+                    form = new Index(userService);
+                    break;
+                default:
+                    form = new Index(userService);
+                    break;
+            }
+            Program.SwitchMainForm(form);
+        }
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile(userService);
+            Program.SwitchMainForm(profileForm);
         }
     }
 }

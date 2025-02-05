@@ -1,8 +1,11 @@
-﻿using HotelOazis.Common.Constants;
+﻿using Fitness.Services;
+using HotelOazis.Common.Constants;
 using HotelOazis.DTOs.Reservation;
 using HotelOazis.DTOs.Room;
+using HotelOazis.Extensions;
 using HotelOazis.Models;
 using HotelOazis.Properties;
+using HotelOazis.Services;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -26,13 +29,19 @@ namespace HotelOazis.Forms
     {
         private readonly IRoomService roomService;
         private readonly IUserService userService;
+        private readonly IFacilityService facilityService;
+        private readonly IReviewService reviewService;
         private static bool _isAuthorized;
+        private User activeUser;
 
         public Rooms(IRoomService roomService, IUserService userService)
         {
             InitializeComponent();
+            activeUser = userService.GetLoggedInUserAsync();
             this.roomService = roomService;
             this.userService = userService;
+            this.facilityService = ServiceLocator.GetService<IFacilityService>();
+            this.reviewService = ServiceLocator.GetService<IReviewService>();
         }
         private async Task CreateRoomButtons(RoomViewModel room, Panel container, User activeUser)
         {
@@ -133,12 +142,12 @@ namespace HotelOazis.Forms
                     var success = await roomService.DeleteRoomAsync(room.Id);
                     if (success)
                     {
-                        MessageBox.Show(string.Format(DeletionSuccessful, nameof(Room)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(DeletionSuccessful, nameof(Models.Room)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         await PopulateRoomsPanelAsync(container, activeUser);
                     }
                     else
                     {
-                        MessageBox.Show(string.Format(DeletionFailed, nameof(Room)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(string.Format(DeletionFailed, nameof(Models.Room)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 };
                 container.Controls.Add(deleteButton);
@@ -252,7 +261,18 @@ namespace HotelOazis.Forms
 
         private async void Rooms_Load(object sender, EventArgs e)
         {
-           _isAuthorized =  await AuthorizationHelper.InitializeAuthorizationStatusAsync(userService);
+            bool isAdmin = AuthorizationHelper.IsAuthorized();
+
+            if (isAdmin)
+            {
+                addRoom.Visible = true;
+                Users.Visible = true;
+                Reservations.Visible = true;
+            }
+
+            roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
+
+            _isAuthorized = isAdmin;
 
             var loggedInUser = userService.GetLoggedInUserAsync();
 
@@ -269,6 +289,50 @@ namespace HotelOazis.Forms
         {
             CreateRoom createRoomForm = new CreateRoom(roomService);
             Program.SwitchMainForm(createRoomForm);
+        }
+        private void menu_ItemClicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            string formName = item.Text;
+            Form form = new Form();
+
+            switch (formName)
+            {
+                case "Rooms":
+                    form = new Rooms(roomService, userService);
+                    break;
+                case "Services":
+                    form = new Services(facilityService, userService);
+                    break;
+                case "Reviews":
+                    form = new Reviews(reviewService, userService);
+                    break;
+                case "Profile":
+                    form = new Profile(userService);
+                    break;
+                case "Users":
+                    form = new Users(userService);
+                    break;
+                case "My reservations":
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Reservations":
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Home":
+                    form = new Index(userService);
+                    break;
+                default:
+                    form = new Index(userService);
+                    break;
+            }
+            Program.SwitchMainForm(form);
+        }
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile(userService);
+            Program.SwitchMainForm(profileForm);
         }
     }
 }

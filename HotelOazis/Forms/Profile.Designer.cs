@@ -50,9 +50,20 @@
             emailErrors = new Label();
             passwordErrors = new Label();
             usernameErrors = new Label();
+            roundPictureBox1 = new Fitness.Utilities.RoundPictureBox();
+            menu = new MenuStrip();
+            Home = new ToolStripMenuItem();
+            Room = new ToolStripMenuItem();
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            Reviews = new ToolStripMenuItem();
+            Users = new ToolStripMenuItem();
+            Reservations = new ToolStripMenuItem();
+            MyReservations = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)profilePicture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             formPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)roundPictureBox1).BeginInit();
+            menu.SuspendLayout();
             SuspendLayout();
             // 
             // logoutButton
@@ -100,7 +111,7 @@
             navigationButton.Name = "navigationButton";
             navigationButton.Size = new Size(160, 41);
             navigationButton.TabIndex = 17;
-            navigationButton.Text = "Return to main";
+            navigationButton.Text = "Return to home";
             navigationButton.UseVisualStyleBackColor = false;
             navigationButton.Click += navigationButton_Click;
             // 
@@ -279,7 +290,7 @@
             formPanel.Controls.Add(usernameLabel);
             formPanel.Controls.Add(logo);
             formPanel.Controls.Add(profileLabel);
-            formPanel.Location = new Point(71, 25);
+            formPanel.Location = new Point(70, 40);
             formPanel.Name = "formPanel";
             formPanel.Size = new Size(659, 400);
             formPanel.TabIndex = 2;
@@ -336,6 +347,95 @@
             usernameErrors.Text = "label1";
             usernameErrors.Visible = false;
             // 
+            // roundPictureBox1
+            // 
+            roundPictureBox1.Location = new Point(750, 0);
+            roundPictureBox1.Name = "roundPictureBox1";
+            roundPictureBox1.Size = new Size(50, 35);
+            roundPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            roundPictureBox1.TabIndex = 25;
+            roundPictureBox1.TabStop = false;
+            roundPictureBox1.Click += roundPictureBox1_Click;
+            // 
+            // menu
+            // 
+            menu.BackColor = SystemColors.ScrollBar;
+            menu.BackgroundImageLayout = ImageLayout.Stretch;
+            menu.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            menu.Items.AddRange(new ToolStripItem[] { Home, Room, toolStripMenuItem1, Reviews, Users, Reservations, MyReservations });
+            menu.Location = new Point(0, 0);
+            menu.Name = "menu";
+            menu.Padding = new Padding(6, 1, 0, 5);
+            menu.Size = new Size(800, 33);
+            menu.TabIndex = 24;
+            menu.Text = "Menu";
+            // 
+            // Home
+            // 
+            Home.Name = "Home";
+            Home.Size = new Size(71, 27);
+            Home.Text = "Home";
+            Home.Click += menu_ItemClicked;
+            // 
+            // Room
+            // 
+            Room.ForeColor = SystemColors.ActiveCaptionText;
+            Room.Name = "Room";
+            Room.Padding = new Padding(4, 0, 4, 5);
+            Room.Size = new Size(80, 27);
+            Room.Text = "Rooms";
+            Room.Click += menu_ItemClicked;
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.ForeColor = SystemColors.ActiveCaptionText;
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Padding = new Padding(4, 0, 4, 5);
+            toolStripMenuItem1.Size = new Size(93, 27);
+            toolStripMenuItem1.Text = "Services";
+            toolStripMenuItem1.Click += menu_ItemClicked;
+            // 
+            // Reviews
+            // 
+            Reviews.BackgroundImageLayout = ImageLayout.Center;
+            Reviews.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Reviews.ForeColor = SystemColors.ActiveCaptionText;
+            Reviews.Name = "Reviews";
+            Reviews.Padding = new Padding(4, 0, 4, 5);
+            Reviews.Size = new Size(94, 27);
+            Reviews.Text = "Reviews";
+            Reviews.Click += menu_ItemClicked;
+            // 
+            // Users
+            // 
+            Users.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Users.ForeColor = SystemColors.MenuText;
+            Users.Name = "Users";
+            Users.Padding = new Padding(4, 0, 4, 5);
+            Users.Size = new Size(70, 27);
+            Users.Text = "Users";
+            Users.Visible = false;
+            Users.Click += menu_ItemClicked;
+            // 
+            // Reservations
+            // 
+            Reservations.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Reservations.Name = "Reservations";
+            Reservations.Size = new Size(135, 27);
+            Reservations.Text = "Reservations";
+            Reservations.Visible = false;
+            Reservations.Click += menu_ItemClicked;
+            // 
+            // MyReservations
+            // 
+            MyReservations.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            MyReservations.ForeColor = SystemColors.ActiveCaptionText;
+            MyReservations.Name = "MyReservations";
+            MyReservations.Padding = new Padding(4, 0, 4, 5);
+            MyReservations.Size = new Size(160, 27);
+            MyReservations.Text = "My reservations";
+            MyReservations.Click += menu_ItemClicked;
+            // 
             // Profile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -343,6 +443,8 @@
             BackgroundImage = Properties.Resources.appback;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(roundPictureBox1);
+            Controls.Add(menu);
             Controls.Add(formPanel);
             Name = "Profile";
             Text = "Profile";
@@ -351,7 +453,11 @@
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             formPanel.ResumeLayout(false);
             formPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)roundPictureBox1).EndInit();
+            menu.ResumeLayout(false);
+            menu.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -378,5 +484,14 @@
         private Label emailErrors;
         private Label passwordErrors;
         private Label usernameErrors;
+        private Fitness.Utilities.RoundPictureBox roundPictureBox1;
+        private MenuStrip menu;
+        private ToolStripMenuItem Home;
+        private ToolStripMenuItem Room;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem Reviews;
+        private ToolStripMenuItem Users;
+        private ToolStripMenuItem Reservations;
+        private ToolStripMenuItem MyReservations;
     }
 }

@@ -151,7 +151,7 @@
             // Reviews
             // 
             Reviews.BackgroundImageLayout = ImageLayout.Center;
-            Reviews.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Strikeout);
+            Reviews.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Reviews.ForeColor = SystemColors.ActiveCaptionText;
             Reviews.Name = "Reviews";
             Reviews.Padding = new Padding(4, 0, 4, 5);
@@ -161,20 +161,22 @@
             // 
             // Users
             // 
-            Users.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Strikeout);
+            Users.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Users.ForeColor = SystemColors.MenuText;
             Users.Name = "Users";
             Users.Padding = new Padding(4, 0, 4, 5);
             Users.Size = new Size(70, 27);
             Users.Text = "Users";
+            Users.Visible = false;
             Users.Click += menu_ItemClicked;
             // 
             // Reservations
             // 
-            Reservations.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Strikeout, GraphicsUnit.Point, 0);
+            Reservations.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Reservations.Name = "Reservations";
             Reservations.Size = new Size(135, 27);
             Reservations.Text = "Reservations";
+            Reservations.Visible = false;
             Reservations.Click += menu_ItemClicked;
             // 
             // MyReservations

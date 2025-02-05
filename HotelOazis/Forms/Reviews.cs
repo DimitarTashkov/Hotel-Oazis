@@ -2,10 +2,13 @@
 using Fitness.Utilities;
 using HotelOazis.Common.Constants;
 using HotelOazis.DTOs.Review;
+using HotelOazis.Extensions;
 using HotelOazis.Models;
 using HotelOazis.Models.Enumerations;
 using HotelOazis.Properties;
+using HotelOazis.Services;
 using HotelOazis.Services.Interfaces;
+using HotelOazis.Utilities;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
@@ -23,7 +26,10 @@ namespace HotelOazis.Forms
     {
         private readonly IReviewService reviewService;
         private readonly IUserService userService;
+        private readonly IFacilityService facilityService;
+        private readonly IRoomService roomService;
         private readonly User activeUser;
+        private bool _isAuthorized;
 
         private int index = 1;
 
@@ -33,6 +39,8 @@ namespace HotelOazis.Forms
             InitializeComponent();
             this.userService = userService;
             activeUser = userService.GetLoggedInUserAsync();
+            this.roomService = ServiceLocator.GetService<IRoomService>();
+            this.facilityService = ServiceLocator.GetService<IFacilityService>();
         }
         private void AddReviewToContainer(ReviewViewModel review)
         {
@@ -74,7 +82,7 @@ namespace HotelOazis.Forms
                 Cursor = Cursors.Default,
                 Location = new Point(reviewContainer.Location.X + 560, reviewContainer.Location.Y + 10),
                 SelectedItem = review.MessageStatus.ToString(),
-                Enabled = true
+                Enabled = _isAuthorized
             };
 
             reviewStatus.Items.AddRange(Enum.GetNames(typeof(FeedbackStatus)));
@@ -98,54 +106,60 @@ namespace HotelOazis.Forms
             reviewUsername.Location = new Point(reviewContainer.Location.X + 85, reviewContainer.Location.Y + 10);
             reviewTextArea.Location = new Point(reviewContainer.Location.X + 80, reviewContainer.Location.Y + 35);
 
-            Button editReview = new Button
+            if (_isAuthorized || review.UserId == activeUser.Id)
             {
-                Name = $"editBtn{index}",
-                Text = "Edit",
-                BackColor = Color.LightGray,
-                Font = FontsPicker.DetailsFont,
-                Location = new Point(reviewContainer.Location.X + 560, reviewContainer.Location.Y + 40),
-                Size = new Size(65, 40)
-            };
-            editReview.Click += (s, e) =>
-            {
-                reviewTextArea.Enabled = true;
-                ActiveControl = reviewTextArea;
-            };
 
-            reviewTextArea.MouseUp += async (s, e) =>
-            {
-                reviewTextArea.Enabled = false;
-                review.Messages = reviewTextArea.Text;
-                await reviewService.EditReviewAsync(new ReviewEditInputModel
+                Button editReview = new Button
                 {
-                    Id = review.Id,
-                    Message = review.Messages,
-                    PublishedOn = DateTime.Now,
-                    Rating = review.Rating,
-                    MessageStatus = review.MessageStatus,
-                    UserId = activeUser.Id
-                });
+                    Name = $"editBtn{index}",
+                    Text = "Edit",
+                    BackColor = Color.LightGray,
+                    Font = FontsPicker.DetailsFont,
+                    Location = new Point(reviewContainer.Location.X + 560, reviewContainer.Location.Y + 40),
+                    Size = new Size(65, 40)
+                };
+                editReview.Click += (s, e) =>
+                {
+                    reviewTextArea.Enabled = true;
+                    ActiveControl = reviewTextArea;
+                };
 
-                date.Text = $"On: {DateTime.Now:yyyy/MM/dd}  At: {DateTime.Now:HH:mm}";
-            };
+                reviewTextArea.MouseUp += async (s, e) =>
+                {
+                    reviewTextArea.Enabled = false;
+                    review.Messages = reviewTextArea.Text;
+                    await reviewService.EditReviewAsync(new ReviewEditInputModel
+                    {
+                        Id = review.Id,
+                        Message = review.Messages,
+                        PublishedOn = DateTime.Now,
+                        Rating = review.Rating,
+                        MessageStatus = review.MessageStatus,
+                        UserId = activeUser.Id
+                    });
 
-            Button deleteReview = new Button
-            {
-                Name = $"deleteBtn{index}",
-                Text = "Delete",
-                BackColor = Color.Red,
-                Font = FontsPicker.DetailsFont,
-                Location = new Point(reviewContainer.Location.X + 630, reviewContainer.Location.Y + 40),
-                Size = new Size(65, 40)
-            };
+                    date.Text = $"On: {DateTime.Now:yyyy/MM/dd}  At: {DateTime.Now:HH:mm}";
+                };
 
-            deleteReview.Click += async (s, e) =>
-            {
-                await reviewService.DeleteReviewAsync(review.Id);
-                MessageBox.Show("Review deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                reviewsContainer.Controls.Remove(reviewContainer);
-            };
+                Button deleteReview = new Button
+                {
+                    Name = $"deleteBtn{index}",
+                    Text = "Delete",
+                    BackColor = Color.Red,
+                    Font = FontsPicker.DetailsFont,
+                    Location = new Point(reviewContainer.Location.X + 630, reviewContainer.Location.Y + 40),
+                    Size = new Size(65, 40)
+                };
+
+                deleteReview.Click += async (s, e) =>
+                {
+                    await reviewService.DeleteReviewAsync(review.Id);
+                    MessageBox.Show("Review deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    reviewsContainer.Controls.Remove(reviewContainer);
+                };
+                reviewContainer.Controls.Add(editReview);
+                reviewContainer.Controls.Add(deleteReview);
+            }
 
             reviewContainer.Controls.Add(userPfp);
             reviewContainer.Controls.Add(reviewUsername);
@@ -153,8 +167,7 @@ namespace HotelOazis.Forms
             reviewContainer.Controls.Add(reviewState);
             reviewContainer.Controls.Add(reviewStatus);
             reviewContainer.Controls.Add(reviewTextArea);
-            reviewContainer.Controls.Add(editReview);
-            reviewContainer.Controls.Add(deleteReview);
+
 
             reviewsContainer.Controls.Add(reviewContainer);
         }
@@ -216,6 +229,18 @@ namespace HotelOazis.Forms
 
         private async void Reviews_Load(object sender, EventArgs e)
         {
+            bool isAdmin = AuthorizationHelper.IsAuthorized();
+
+            if (isAdmin)
+            {
+                Users.Visible = true;
+                Reservations.Visible = true;
+            }
+
+            _isAuthorized = isAdmin;
+
+            roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
+
             reviewsContainer.Padding = new Padding(5, 30, 5, 5);
             reviewsContainer.AutoScroll = true;
 
@@ -270,6 +295,50 @@ namespace HotelOazis.Forms
                 MinimumSize = new Size(475, 44),
                 ForeColor = Color.DimGray
             };
+        }
+        private void menu_ItemClicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            string formName = item.Text;
+            Form form = new Form();
+
+            switch (formName)
+            {
+                case "Rooms":
+                    form = new Rooms(roomService, userService);
+                    break;
+                case "Services":
+                    form = new Services(facilityService, userService);
+                    break;
+                case "Reviews":
+                    form = new Reviews(reviewService, userService);
+                    break;
+                case "Profile":
+                    form = new Profile(userService);
+                    break;
+                case "Users":
+                    form = new Users(userService);
+                    break;
+                case "My reservations":
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Reservations":
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Home":
+                    form = new Index(userService);
+                    break;
+                default:
+                    form = new Index(userService);
+                    break;
+            }
+            Program.SwitchMainForm(form);
+        }
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile(userService);
+            Program.SwitchMainForm(profileForm);
         }
     }
 }

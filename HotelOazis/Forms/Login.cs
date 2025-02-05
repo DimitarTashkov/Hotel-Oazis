@@ -110,6 +110,10 @@ namespace HotelOazis.Forms
 
             bool isAuthenticated = await userService.AuthenticateUserAsync(username, password);
 
+            //Not necessary here but it sets the private property so that we dont need to execute it later.
+            //It can be executed in the Index form too
+            bool isAdmin = await AuthorizationHelper.InitializeAuthorizationStatusAsync(userService);
+
             if (isAuthenticated)
             {
                 Index indexForm = new Index(userService);

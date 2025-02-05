@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using static HotelOazis.Common.Messages.ErrorMessages;
 using System.Xml.Linq;
 using HotelOazis.Extensions;
+using HotelOazis.Utilities;
 
 namespace HotelOazis.Forms
 {
@@ -37,6 +38,13 @@ namespace HotelOazis.Forms
         private void Index_Load(object sender, EventArgs e)
         {
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
+            bool isAdmin = AuthorizationHelper.IsAuthorized();
+
+            if (isAdmin)
+            {
+                Users.Visible = true;
+                Reservations.Visible = true;
+            }
 
         }
 
@@ -71,7 +79,7 @@ namespace HotelOazis.Forms
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
-            string formName = item.Name;
+            string formName = item.Text;
             Form form = new Form();
 
             switch (formName)
@@ -91,7 +99,7 @@ namespace HotelOazis.Forms
                 case "Users":
                     form = new Users(userService);
                     break;
-                case "MyReservations":
+                case "My reservations":
                     form = new Reservations(userService, roomService);
                     break;
                 case "Reservations":

@@ -1,8 +1,11 @@
-﻿using HotelOazis.DTOs.Reservation;
+﻿using Fitness.Services;
+using HotelOazis.DTOs.Reservation;
 using HotelOazis.DTOs.Room;
+using HotelOazis.Extensions;
 using HotelOazis.Migrations;
 using HotelOazis.Models;
 using HotelOazis.Properties;
+using HotelOazis.Services;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -24,27 +27,39 @@ namespace HotelOazis.Forms
 {
     public partial class RoomDetails : Form
     {
-        private readonly IRoomService roomService;
+        private readonly IFacilityService facilityService;
         private readonly IUserService userService;
+        private readonly IReviewService reviewService;
+        private readonly IRoomService roomService;
         private readonly RoomDetailsViewModel model;
         private bool _isAuthorized;
+
+        private User activeUser;
 
         public RoomDetails(IRoomService roomService, IUserService userService, RoomDetailsViewModel model)
         {
             this.roomService = roomService;
             this.userService = userService;
+            this.facilityService = ServiceLocator.GetService<IFacilityService>();
+            this.reviewService = ServiceLocator.GetService<IReviewService>();
             this.model = model;
+            activeUser = userService.GetLoggedInUserAsync();
             InitializeComponent();
         }
 
         private async void RoomDetails_Load(object sender, EventArgs e)
         {
-            _isAuthorized = await AuthorizationHelper.InitializeAuthorizationStatusAsync(userService);
+            bool isAdmin = AuthorizationHelper.IsAuthorized();
 
-            if (_isAuthorized)
+            if (isAdmin)
             {
+                Users.Visible = true;
+                Reservations.Visible = true;
                 editRoomBtn.Visible = true;
             }
+
+            roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
+            _isAuthorized = isAdmin;
 
             string availabilityMessage = model.IsAvailable ? "Available" : "Not Available";
             roomType.Text = roomType.Text + " " + model.Type.ToString();
@@ -70,13 +85,6 @@ namespace HotelOazis.Forms
                 BackColor = Color.Transparent
             };
         }
-
-        private void navigationButton_Click(object sender, EventArgs e)
-        {
-            Rooms roomsForm = new Rooms(roomService, userService);
-            Program.SwitchMainForm(roomsForm);
-        }
-
         private async void reservateBtn_Click(object sender, EventArgs e)
         {
             if (model.IsAvailable)
@@ -164,6 +172,50 @@ namespace HotelOazis.Forms
             roomDataContainer.Controls.Add(costIcon);
             roomDataContainer.Controls.Add(availabilityIcon);
             roomDataContainer.Controls.Add(descriptionIcon);
+        }
+        private void menu_ItemClicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            string formName = item.Text;
+            Form form = new Form();
+
+            switch (formName)
+            {
+                case "Rooms":
+                    form = new Rooms(roomService, userService);
+                    break;
+                case "Services":
+                    form = new Services(facilityService, userService);
+                    break;
+                case "Reviews":
+                    form = new Reviews(reviewService, userService);
+                    break;
+                case "Profile":
+                    form = new Profile(userService);
+                    break;
+                case "Users":
+                    form = new Users(userService);
+                    break;
+                case "My reservations":
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Reservations":
+                    form = new Reservations(userService, roomService);
+                    break;
+                case "Home":
+                    form = new Index(userService);
+                    break;
+                default:
+                    form = new Index(userService);
+                    break;
+            }
+            Program.SwitchMainForm(form);
+        }
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile(userService);
+            Program.SwitchMainForm(profileForm);
         }
     }
 }

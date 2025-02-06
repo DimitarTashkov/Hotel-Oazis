@@ -38,7 +38,6 @@ namespace HotelOazis.Forms
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
 
             User loggedInUser = userService.GetLoggedInUserAsync();
-            usersContainer.Controls.Clear();
             var users = await userService.GetUsersAsync();
             int index = 0;
 

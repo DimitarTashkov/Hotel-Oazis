@@ -17,7 +17,7 @@ namespace HotelOazis.Utilities
             var loggedInUser = userService.GetLoggedInUserAsync();
             if (loggedInUser != null)
             {
-                _isAuthorized = await userService.IsUserAdminAsync(loggedInUser);
+                _isAuthorized = await userService.IsUserAdminAsync(loggedInUser.Id);
             }
             else
             {

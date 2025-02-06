@@ -136,7 +136,7 @@ public class RoomService : BaseService, IRoomService
             throw new InvalidOperationException("No user is currently logged in.");
         }
 
-        bool isAdmin = await userService.IsUserAdminAsync(loggedInUser);
+        bool isAdmin = await userService.IsUserAdminAsync(loggedInUser.Id);
 
         var query = isAdmin
             ? context.Reservations.Include(r => r.User).Include(r => r.Room) 

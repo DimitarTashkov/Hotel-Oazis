@@ -98,7 +98,7 @@ namespace HotelOazis.Forms
                 Reservate reservateForm = new Reservate(roomService, reservationModel);
                 Program.SwitchMainForm(reservateForm);
             }
-            MessageBox.Show(RoomIsAlreadyReservated, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(RoomIsUnavailable, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 

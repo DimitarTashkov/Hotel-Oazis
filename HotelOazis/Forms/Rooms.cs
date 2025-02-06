@@ -94,7 +94,7 @@ namespace HotelOazis.Forms
                 }
                 else
                 {
-                    MessageBox.Show(RoomIsAlreadyReservated, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(RoomIsUnavailable, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             };
             container.Controls.Add(reserveButton);

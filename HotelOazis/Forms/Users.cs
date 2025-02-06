@@ -24,6 +24,7 @@ namespace HotelOazis.Forms
         private readonly IReviewService reviewService;
         private readonly IRoomService roomService;
         private User activeUser;
+        private bool _isAuthorized;
         public Users(IUserService userService)
         {
             InitializeComponent();
@@ -94,13 +95,16 @@ namespace HotelOazis.Forms
                     Margin = new Padding(0, 5, 0, 0)
                 };
 
+                _isAuthorized = await userService.IsUserAdminAsync(activeUser.Id);
                 ComboBox isAdminBox = new ComboBox
                 {
                     Name = $"isAuthorized{index}",
                     Font = FontsPicker.DetailsFont,
                     Margin = new Padding(0, 5, 20, 0),
                 };
-                isAdminBox.Items.AddRange(new object[] { "False", "True" });
+
+                isAdminBox.Items.AddRange(new object[] { "True", "False" });
+                isAdminBox.SelectedIndex = _isAuthorized ? 0 : 1;
 
                 isAdminBox.SelectedIndexChanged += async (s, e) =>
                 {

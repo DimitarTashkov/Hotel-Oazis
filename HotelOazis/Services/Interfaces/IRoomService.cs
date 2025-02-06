@@ -24,7 +24,7 @@ namespace HotelOazis.Services.Interfaces
         public Task<int> GenerateUniqueRoomNumber();
         public Task<List<ReservationsViewModel>> GetReservationsAsync();
         public Task<bool> CancelReservationAsync(Guid reservationId);
-
+        public Task<bool> IsRoomReservedBetweenDatesAsync(Guid roomId, DateTime startDate, DateTime endDate);
 
 
     }

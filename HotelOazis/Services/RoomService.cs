@@ -172,4 +172,10 @@ public class RoomService : BaseService, IRoomService
         return true; 
 
     }
+    public async Task<bool> IsRoomReservedBetweenDatesAsync(Guid roomId, DateTime startDate, DateTime endDate)
+    {
+        return await context.Reservations
+            .AnyAsync(r => r.RoomId == roomId &&
+                          !(r.CheckOutDate <= startDate || r.CheckInDate >= endDate));
+    }
 }

@@ -47,6 +47,14 @@ namespace HotelOazis.Forms
             DateTime checkInDate = checkInDatePicker.Value;
             DateTime checkOutDate = checkOutDatePicker.Value;
 
+            bool isReserved = await roomService.IsRoomReservedBetweenDatesAsync(model.RoomId, checkInDate, checkOutDate);
+            if (isReserved)
+            {
+                MessageBox.Show(RoomIsAlreadyReservated, "Reservation failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             if (checkInDate >= checkOutDate)
             {
                 MessageBox.Show(InvalidCheckOutDate, "Reservation failed", MessageBoxButtons.OK, MessageBoxIcon.Error);

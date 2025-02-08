@@ -93,6 +93,16 @@ namespace HotelOazis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bgFlag {
+            get {
+                object obj = ResourceManager.GetObject("bgFlag", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cost_icon {
             get {
                 object obj = ResourceManager.GetObject("cost_icon", resourceCulture);
@@ -113,6 +123,26 @@ namespace HotelOazis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EnFlag {
+            get {
+                object obj = ResourceManager.GetObject("EnFlag", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flagBG {
+            get {
+                object obj = ResourceManager.GetObject("flagBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gradient_img__4_ {
             get {
                 object obj = ResourceManager.GetObject("gradient_img (4)", resourceCulture);
@@ -126,6 +156,16 @@ namespace HotelOazis.Properties {
         internal static System.Drawing.Bitmap key {
             get {
                 object obj = ResourceManager.GetObject("key", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap languages {
+            get {
+                object obj = ResourceManager.GetObject("languages", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

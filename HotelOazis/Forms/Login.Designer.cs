@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             formPanel = new Panel();
+            bgFlagBox = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -51,12 +52,18 @@
             usernameLabel = new Label();
             logo = new PictureBox();
             label3 = new Label();
+            engFlagBox = new PictureBox();
+            label9 = new Label();
+            pictureBox5 = new PictureBox();
             formPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)bgFlagBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)engFlagBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // formPanel
@@ -64,6 +71,10 @@
             formPanel.BackColor = Color.White;
             formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
             formPanel.BackgroundImageLayout = ImageLayout.Stretch;
+            formPanel.Controls.Add(pictureBox5);
+            formPanel.Controls.Add(label9);
+            formPanel.Controls.Add(engFlagBox);
+            formPanel.Controls.Add(bgFlagBox);
             formPanel.Controls.Add(pictureBox4);
             formPanel.Controls.Add(pictureBox3);
             formPanel.Controls.Add(pictureBox2);
@@ -88,6 +99,19 @@
             formPanel.Name = "formPanel";
             formPanel.Size = new Size(700, 350);
             formPanel.TabIndex = 1;
+            // 
+            // bgFlagBox
+            // 
+            bgFlagBox.BackColor = Color.Transparent;
+            bgFlagBox.BackgroundImage = Properties.Resources.flagBG;
+            bgFlagBox.BackgroundImageLayout = ImageLayout.Stretch;
+            bgFlagBox.Image = Properties.Resources.bgFlag;
+            bgFlagBox.Location = new Point(139, 313);
+            bgFlagBox.Name = "bgFlagBox";
+            bgFlagBox.Size = new Size(40, 29);
+            bgFlagBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            bgFlagBox.TabIndex = 22;
+            bgFlagBox.TabStop = false;
             // 
             // pictureBox4
             // 
@@ -341,6 +365,45 @@
             label3.Size = new Size(100, 23);
             label3.TabIndex = 11;
             // 
+            // engFlagBox
+            // 
+            engFlagBox.BackColor = Color.Transparent;
+            engFlagBox.BackgroundImage = Properties.Resources.EnFlag;
+            engFlagBox.BackgroundImageLayout = ImageLayout.Stretch;
+            engFlagBox.Image = Properties.Resources.EnFlag;
+            engFlagBox.Location = new Point(196, 313);
+            engFlagBox.Name = "engFlagBox";
+            engFlagBox.Size = new Size(40, 29);
+            engFlagBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            engFlagBox.TabIndex = 23;
+            engFlagBox.TabStop = false;
+            // 
+            // label9
+            // 
+            label9.AllowDrop = true;
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.Goldenrod;
+            label9.Location = new Point(41, 315);
+            label9.MaximumSize = new Size(300, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(92, 21);
+            label9.TabIndex = 24;
+            label9.Text = "Languages:";
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.Transparent;
+            pictureBox5.BackgroundImage = Properties.Resources.languages;
+            pictureBox5.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox5.Image = Properties.Resources.languages;
+            pictureBox5.Location = new Point(18, 317);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(24, 24);
+            pictureBox5.TabIndex = 25;
+            pictureBox5.TabStop = false;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -351,17 +414,19 @@
             Controls.Add(formPanel);
             Controls.Add(label3);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            ImeMode = ImeMode.NoControl;
             Name = "Login";
             Text = "Login";
             Load += Login_Load;
             formPanel.ResumeLayout(false);
             formPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)bgFlagBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)engFlagBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
         }
 
@@ -389,5 +454,9 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private PictureBox pictureBox4;
+        private PictureBox bgFlagBox;
+        private PictureBox engFlagBox;
+        private Label label9;
+        private PictureBox pictureBox5;
     }
 }

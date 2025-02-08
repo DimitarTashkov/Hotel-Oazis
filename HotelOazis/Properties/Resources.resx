@@ -142,11 +142,20 @@
   <data name="cost_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cost_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bgFlag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bgFlag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="type_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\type_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EnFlag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnFlag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="room_number" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\room_number.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="applogo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\applogo1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,13 +169,16 @@
   <data name="lightbulb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lightbulb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="flagBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flagBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tick_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tick_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cross_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cross_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="key" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="languages" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\languages.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -95,7 +95,7 @@ namespace HotelOazis.Forms
                     Margin = new Padding(0, 5, 0, 0)
                 };
 
-                _isAuthorized = await userService.IsUserAdminAsync(activeUser.Id);
+                _isAuthorized = await userService.IsUserAdminAsync(user.Id);
                 ComboBox isAdminBox = new ComboBox
                 {
                     Name = $"isAuthorized{index}",

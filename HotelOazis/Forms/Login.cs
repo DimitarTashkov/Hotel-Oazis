@@ -29,7 +29,6 @@ namespace HotelOazis.Forms
         {
             this.userService = userService;
             InitializeComponent();
-            formPanel.Paint += new PaintEventHandler(LayoutHelper.set_FormBackground);
             usernameField.TextChanged += EventsEffects.input_TextChanged;
             usernameField.Click += EventsEffects.clearInputs_click;
             passwordField.TextChanged += EventsEffects.input_TextChanged;
@@ -132,6 +131,9 @@ namespace HotelOazis.Forms
             textBox.Font = FontsPicker.BaseFont;
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

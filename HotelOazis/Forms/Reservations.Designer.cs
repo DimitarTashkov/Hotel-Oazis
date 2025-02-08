@@ -45,9 +45,11 @@
             // reservationsContainer
             // 
             reservationsContainer.AutoScroll = true;
-            reservationsContainer.Location = new Point(20, 40);
+            reservationsContainer.BackgroundImage = Properties.Resources.gradient_img__4_;
+            reservationsContainer.BackgroundImageLayout = ImageLayout.Stretch;
+            reservationsContainer.Location = new Point(75, 40);
             reservationsContainer.Name = "reservationsContainer";
-            reservationsContainer.Size = new Size(760, 400);
+            reservationsContainer.Size = new Size(650, 400);
             reservationsContainer.TabIndex = 6;
             // 
             // roundPictureBox1

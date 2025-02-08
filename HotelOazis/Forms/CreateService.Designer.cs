@@ -57,6 +57,8 @@
             // formPanel
             // 
             formPanel.BackColor = Color.White;
+            formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
+            formPanel.BackgroundImageLayout = ImageLayout.Stretch;
             formPanel.Controls.Add(navigationButton);
             formPanel.Controls.Add(descriptionErrors);
             formPanel.Controls.Add(nameErrors);

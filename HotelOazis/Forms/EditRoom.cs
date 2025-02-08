@@ -47,8 +47,6 @@ namespace HotelOazis.Forms
 
             InitializeComponent();
 
-            formPanel.Paint += new PaintEventHandler(LayoutHelper.set_FormBackground);
-
             priceField.TextChanged += EventsEffects.input_TextChanged;
             priceField.Click += EventsEffects.clearInputs_click;
             descriptionField.TextChanged += EventsEffects.input_TextChanged;

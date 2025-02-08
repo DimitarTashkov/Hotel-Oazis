@@ -54,6 +54,8 @@
             // formPanel
             // 
             formPanel.BackColor = Color.White;
+            formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
+            formPanel.BackgroundImageLayout = ImageLayout.Stretch;
             formPanel.Controls.Add(checkOutDatePicker);
             formPanel.Controls.Add(checkInDatePicker);
             formPanel.Controls.Add(cancel);

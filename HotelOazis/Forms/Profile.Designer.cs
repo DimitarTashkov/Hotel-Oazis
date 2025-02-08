@@ -269,6 +269,8 @@
             // formPanel
             // 
             formPanel.BackColor = SystemColors.Control;
+            formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
+            formPanel.BackgroundImageLayout = ImageLayout.Stretch;
             formPanel.Controls.Add(pfpErrors);
             formPanel.Controls.Add(emailErrors);
             formPanel.Controls.Add(passwordErrors);

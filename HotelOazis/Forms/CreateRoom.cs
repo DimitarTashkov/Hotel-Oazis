@@ -37,7 +37,6 @@ namespace HotelOazis.Forms
         public CreateRoom(IRoomService roomService)
         {
             InitializeComponent();
-            formPanel.Paint += new PaintEventHandler(LayoutHelper.set_FormBackground);
 
             this.roomService = roomService;
             userService = ServiceLocator.GetService<IUserService>();

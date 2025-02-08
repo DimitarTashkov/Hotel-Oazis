@@ -57,7 +57,6 @@ namespace HotelOazis.Forms
             }
 
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
-            formPanel.Paint += new PaintEventHandler(LayoutHelper.set_FormBackground);
 
             usernameField.Text = activeUser.Username;
             foreach (var character in activeUser.Password)

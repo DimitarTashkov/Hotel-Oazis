@@ -56,6 +56,8 @@
             // usersContainer
             // 
             usersContainer.AutoScroll = true;
+            usersContainer.BackgroundImage = Properties.Resources.gradient_img__4_;
+            usersContainer.BackgroundImageLayout = ImageLayout.Stretch;
             usersContainer.Controls.Add(usersHeaders);
             usersContainer.Location = new Point(20, 40);
             usersContainer.Name = "usersContainer";

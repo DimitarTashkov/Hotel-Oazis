@@ -46,6 +46,8 @@
             // servicesContainer
             // 
             servicesContainer.AutoScroll = true;
+            servicesContainer.BackgroundImage = Properties.Resources.gradient_img__4_;
+            servicesContainer.BackgroundImageLayout = ImageLayout.Stretch;
             servicesContainer.Location = new Point(20, 70);
             servicesContainer.Name = "servicesContainer";
             servicesContainer.Size = new Size(760, 372);

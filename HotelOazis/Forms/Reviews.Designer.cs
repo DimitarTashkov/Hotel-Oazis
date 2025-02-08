@@ -45,6 +45,8 @@
             // reviewsContainer
             // 
             reviewsContainer.AutoScroll = true;
+            reviewsContainer.BackgroundImage = Properties.Resources.gradient_img__4_;
+            reviewsContainer.BackgroundImageLayout = ImageLayout.Stretch;
             reviewsContainer.Location = new Point(20, 40);
             reviewsContainer.Name = "reviewsContainer";
             reviewsContainer.Size = new Size(760, 400);

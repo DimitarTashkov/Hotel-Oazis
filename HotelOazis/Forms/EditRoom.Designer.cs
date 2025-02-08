@@ -69,6 +69,8 @@
             // formPanel
             // 
             formPanel.BackColor = SystemColors.Control;
+            formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
+            formPanel.BackgroundImageLayout = ImageLayout.Stretch;
             formPanel.Controls.Add(roomNumberErrors);
             formPanel.Controls.Add(roomNumberField);
             formPanel.Controls.Add(roomNumber);

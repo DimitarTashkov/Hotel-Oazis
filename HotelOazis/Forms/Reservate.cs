@@ -38,7 +38,6 @@ namespace HotelOazis.Forms
             this.reviewService = ServiceLocator.GetService<IReviewService>();
             activeUser = userService.GetLoggedInUserAsync();
             InitializeComponent();
-            formPanel.Paint += new PaintEventHandler(LayoutHelper.set_FormBackground);
 
         }
 

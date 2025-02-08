@@ -27,7 +27,6 @@ namespace HotelOazis.Forms
         public Register(IUserService userService)
         {
             InitializeComponent();
-            formPanel.Paint += new PaintEventHandler(LayoutHelper.set_FormBackground);
             this.userService = userService;
 
             usernameField.TextChanged += EventsEffects.input_TextChanged;

@@ -59,7 +59,9 @@
             // mainContainer
             // 
             mainContainer.AutoScroll = true;
-            mainContainer.Location = new Point(40, 71);
+            mainContainer.BackgroundImage = Properties.Resources.gradient_img__4_;
+            mainContainer.BackgroundImageLayout = ImageLayout.Stretch;
+            mainContainer.Location = new Point(40, 67);
             mainContainer.Name = "mainContainer";
             mainContainer.Size = new Size(724, 377);
             mainContainer.TabIndex = 5;

@@ -57,6 +57,8 @@
             // formPanel
             // 
             formPanel.BackColor = SystemColors.Control;
+            formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
+            formPanel.BackgroundImageLayout = ImageLayout.Stretch;
             formPanel.Controls.Add(pfpErrorMessages);
             formPanel.Controls.Add(ageErrors);
             formPanel.Controls.Add(emailErrors);

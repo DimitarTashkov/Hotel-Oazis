@@ -20,6 +20,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
+
 namespace HotelOazis.Forms
 {
     public partial class Reviews : Form
@@ -60,7 +62,7 @@ namespace HotelOazis.Forms
             {
                 Name = $"date{index}",
                 Font = FontsPicker.DetailsFont,
-                Text = $"On: {review.PublishedOn:yyyy/MM/dd}  At: {review.PublishedOn:HH:mm}",
+                Text = $"{WritenOn} {review.PublishedOn:yyyy/MM/dd}  {WritenAt} {review.PublishedOn:HH:mm}",
                 Location = new Point(reviewContainer.Location.X + 190, reviewContainer.Location.Y + 10),
                 BackColor = Color.Transparent,
                 AutoSize = true
@@ -112,11 +114,11 @@ namespace HotelOazis.Forms
                 Button editReview = new Button
                 {
                     Name = $"editBtn{index}",
-                    Text = "Edit",
+                    Text = UpdateReview,
                     BackColor = Color.LightGray,
                     Font = FontsPicker.DetailsFont,
-                    Location = new Point(reviewContainer.Location.X + 560, reviewContainer.Location.Y + 40),
-                    Size = new Size(65, 40)
+                    Location = new Point(reviewContainer.Location.X + 555, reviewContainer.Location.Y + 40),
+                    Size = new Size(80, 40)
                 };
                 editReview.Click += (s, e) =>
                 {
@@ -138,17 +140,17 @@ namespace HotelOazis.Forms
                         UserId = activeUser.Id
                     });
 
-                    date.Text = $"On: {DateTime.Now:yyyy/MM/dd}  At: {DateTime.Now:HH:mm}";
+                    date.Text = $"{WritenOn} {DateTime.Now:yyyy/MM/dd}  {WritenAt} {DateTime.Now:HH:mm}";
                 };
 
                 Button deleteReview = new Button
                 {
                     Name = $"deleteBtn{index}",
-                    Text = "Delete",
+                    Text = Delete,
                     BackColor = Color.Red,
                     Font = FontsPicker.DetailsFont,
-                    Location = new Point(reviewContainer.Location.X + 630, reviewContainer.Location.Y + 40),
-                    Size = new Size(65, 40)
+                    Location = new Point(reviewContainer.Location.X + 635, reviewContainer.Location.Y + 40),
+                    Size = new Size(75, 40)
                 };
 
                 deleteReview.Click += async (s, e) =>
@@ -198,10 +200,10 @@ namespace HotelOazis.Forms
             Button sendReview = new Button
             {
                 Name = "sendReview",
-                Text = "Send",
+                Text = SendReview,
                 Font = FontsPicker.DetailsFont,
                 BackColor = Color.LightGreen,
-                Size = new Size(80, 40),
+                Size = new Size(90, 40),
                 Location = new Point(writeReviewContainer.Location.X + 560, writeReviewContainer.Location.Y + 40)
             };
 
@@ -290,7 +292,7 @@ namespace HotelOazis.Forms
             return new TextBox
             {
                 Name = $"reviewTextArea{index}",
-                Text = "Write your review here...",
+                Text = WriteReviewPlaceholder,
                 Font = FontsPicker.DetailsFont,
                 MinimumSize = new Size(475, 44),
                 ForeColor = Color.DimGray
@@ -300,7 +302,7 @@ namespace HotelOazis.Forms
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
-            string formName = item.Text;
+            string formName = item.Name;
             Form form = new Form();
 
             switch (formName)
@@ -311,7 +313,7 @@ namespace HotelOazis.Forms
                 case "Services":
                     form = new Services(facilityService, userService);
                     break;
-                case "Reviews":
+                case "Review":
                     form = new Reviews(reviewService, userService);
                     break;
                 case "Profile":
@@ -320,7 +322,7 @@ namespace HotelOazis.Forms
                 case "Users":
                     form = new Users(userService);
                     break;
-                case "My reservations":
+                case "MyReservations":
                     form = new Reservations(userService, roomService);
                     break;
                 case "Reservations":

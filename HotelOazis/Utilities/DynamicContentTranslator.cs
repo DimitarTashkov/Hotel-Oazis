@@ -14,6 +14,11 @@ namespace HotelOazis.Utilities
             public static string ReadMore => LanguageChanger.GetLanguage() == BgLanguage ? "Прочети повече" : "Read more";
             public static string ItemName => LanguageChanger.GetLanguage() == BgLanguage ? "Име:" : "Name:";
             public static string ItemDescription => LanguageChanger.GetLanguage() == BgLanguage ? "Описание:" : "Description:";
+            public static string WriteReviewPlaceholder => LanguageChanger.GetLanguage() == BgLanguage ? "Напиши своето ревю тук..." : "Write your review here...";
+            public static string WritenOn => LanguageChanger.GetLanguage() == BgLanguage ? "На:" : "On:";
+            public static string WritenAt => LanguageChanger.GetLanguage() == BgLanguage ? "В:" : "At:";
+            public static string UpdateReview => LanguageChanger.GetLanguage() == BgLanguage ? "Обнови" : "Edit";
+            public static string SendReview => LanguageChanger.GetLanguage() == BgLanguage ? "Изпрати" : "Send";
 
             public static string Reserve => LanguageChanger.GetLanguage() == BgLanguage ? "Резервирай" : "Reserve";
             public static string Edit => LanguageChanger.GetLanguage() == BgLanguage ? "Редактирай" : "Edit";

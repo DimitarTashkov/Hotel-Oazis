@@ -12,6 +12,9 @@ namespace HotelOazis.Utilities
         public static class EntitiesTranslation
         {
             public static string ReadMore => LanguageChanger.GetLanguage() == BgLanguage ? "Прочети повече" : "Read more";
+            public static string ItemName => LanguageChanger.GetLanguage() == BgLanguage ? "Име:" : "Name:";
+            public static string ItemDescription => LanguageChanger.GetLanguage() == BgLanguage ? "Описание:" : "Description:";
+
             public static string Reserve => LanguageChanger.GetLanguage() == BgLanguage ? "Резервирай" : "Reserve";
             public static string Edit => LanguageChanger.GetLanguage() == BgLanguage ? "Редактирай" : "Edit";
             public static string Delete => LanguageChanger.GetLanguage() == BgLanguage ? "Изтрий" : "Delete";

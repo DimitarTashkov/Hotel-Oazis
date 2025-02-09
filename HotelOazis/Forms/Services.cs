@@ -21,7 +21,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 
 namespace HotelOazis.Forms
@@ -112,7 +112,7 @@ namespace HotelOazis.Forms
             {
                 Name = $"serviceName{index}"
                 ,
-                Text = "Name:" + " " + service.Name
+                Text = $"{ItemName}" + " " + service.Name
                 ,
                 Font = FontsPicker.DetailsFont
                 ,
@@ -126,7 +126,7 @@ namespace HotelOazis.Forms
             {
                 Name = $"serviceDescription{index}"
                 ,
-                Text = "Description:" + " " + service.Description
+                Text = $"{ItemDescription}" + " " + service.Description
                 ,
                 Font = FontsPicker.DetailsFont
                 ,
@@ -149,11 +149,11 @@ namespace HotelOazis.Forms
             {
                 var editButton = new Button
                 {
-                    Text = $"Edit",
+                    Text = Edit,
                     BackColor = Color.LightGray,
-                    Size = new Size(80, 29),
+                    Size = new Size(120, 29),
                     Font = FontsPicker.DetailsFont,
-                    Location = new Point(serviceCredentials.Size.Width - 200, serviceIcon.Location.Y + 20)
+                    Location = new Point(serviceCredentials.Size.Width - 220, serviceIcon.Location.Y + 20)
 
                 };
                 editButton.Click += (s, e) =>
@@ -173,9 +173,9 @@ namespace HotelOazis.Forms
 
                 var deleteButton = new Button
                 {
-                    Text = "Delete",
+                    Text = Delete,
                     BackColor = Color.Red,
-                    Size = new Size(80, 29),
+                    Size = new Size(100, 29),
                     Font = FontsPicker.DetailsFont,
                     Location = new Point(serviceCredentials.Size.Width - 100, serviceIcon.Location.Y + 20)
 

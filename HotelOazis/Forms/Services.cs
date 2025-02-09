@@ -185,12 +185,12 @@ namespace HotelOazis.Forms
                     var success = await facilityService.DeleteServiceAsync(service.Id);
                     if (success)
                     {
-                        MessageBox.Show(string.Format(DeletionSuccessful, nameof(Service)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(DeletionSuccessful, nameof(Models.Service)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         await PopulateServicesAsync();
                     }
                     else
                     {
-                        MessageBox.Show(string.Format(DeletionFailed, nameof(Service)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(string.Format(DeletionFailed, nameof(Models.Service)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 };
                 serviceCredentials.Controls.Add(deleteButton);
@@ -218,7 +218,7 @@ namespace HotelOazis.Forms
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
-            string formName = item.Text;
+            string formName = item.Name;
             Form form = new Form();
 
             switch (formName)
@@ -226,7 +226,7 @@ namespace HotelOazis.Forms
                 case "Rooms":
                     form = new Rooms(roomService, userService);
                     break;
-                case "Services":
+                case "Service":
                     form = new Services(facilityService, userService);
                     break;
                 case "Reviews":
@@ -238,7 +238,7 @@ namespace HotelOazis.Forms
                 case "Users":
                     form = new Users(userService);
                     break;
-                case "My reservations":
+                case "MyReservations":
                     form = new Reservations(userService, roomService);
                     break;
                 case "Reservations":

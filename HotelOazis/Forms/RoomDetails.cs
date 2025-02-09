@@ -22,7 +22,7 @@ using System.Xml.Linq;
 
 using static HotelOazis.Common.Messages.ErrorMessages.ReservationMessages;
 using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
-using static HotelOazis.Utilities.DynamicContentTranslator.RoomsTranslator;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 namespace HotelOazis.Forms
 {

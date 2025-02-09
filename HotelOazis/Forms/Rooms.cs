@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using static HotelOazis.Common.Messages.ErrorMessages.ReservationMessages;
-using static HotelOazis.Utilities.DynamicContentTranslator.RoomsTranslator;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 
 namespace HotelOazis.Forms

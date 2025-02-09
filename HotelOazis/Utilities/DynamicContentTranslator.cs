@@ -9,7 +9,7 @@ namespace HotelOazis.Utilities
 {
     public static class DynamicContentTranslator
     {
-        public static class RoomsTranslator
+        public static class EntitiesTranslation
         {
             public static string ReadMore => LanguageChanger.GetLanguage() == BgLanguage ? "Прочети повече" : "Read more";
             public static string Reserve => LanguageChanger.GetLanguage() == BgLanguage ? "Резервирай" : "Reserve";

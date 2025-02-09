@@ -19,7 +19,7 @@ using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.RoomMessages;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
-using static HotelOazis.Utilities.DynamicContentTranslator.RoomsTranslator;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 using Fitness.Utilities;
 using HotelOazis.Models;
 using Fitness.Services;

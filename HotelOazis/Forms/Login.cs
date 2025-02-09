@@ -135,5 +135,19 @@ namespace HotelOazis.Forms
         {
 
         }
+
+        private void bgFlagBox_Click(object sender, EventArgs e)
+        {
+            LanguageChanger.ChangeLanguage("bg-BG");
+            Login loginForm = new Login(userService);
+            Program.SwitchMainForm(loginForm);
+        }
+
+        private void engFlagBox_Click(object sender, EventArgs e)
+        {
+            LanguageChanger.ChangeLanguage("en-US");
+            Login loginForm = new Login(userService);
+            Program.SwitchMainForm(loginForm);
+        }
     }
 }

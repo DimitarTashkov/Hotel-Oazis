@@ -5,6 +5,7 @@ using HotelOazis.Services;
 using HotelOazis.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Globalization;
 
 namespace HotelOazis
 {
@@ -25,6 +26,8 @@ namespace HotelOazis
             ServiceLocator.Initialize(serviceProvider);
 
 
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("bg-BG");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("bg-BG");
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             Application.EnableVisualStyles();

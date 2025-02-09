@@ -294,12 +294,12 @@ namespace HotelOazis.Forms
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
-            string formName = item.Text;
+            string formName = item.Name;
             Form form = new Form();
 
             switch (formName)
             {
-                case "Rooms":
+                case "Room":
                     form = new Rooms(roomService, userService);
                     break;
                 case "Services":

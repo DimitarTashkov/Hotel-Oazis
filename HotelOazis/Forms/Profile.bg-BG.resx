@@ -175,6 +175,12 @@
   <data name="Home.Text" xml:space="preserve">
     <value>Начало</value>
   </data>
+  <data name="Rooms.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 27</value>
+  </data>
+  <data name="Rooms.Text" xml:space="preserve">
+    <value>Стаи</value>
+  </data>
   <data name="Services.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 27</value>
   </data>

@@ -117,63 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="logoutButton.Text" xml:space="preserve">
-    <value>Излез от акаунт</value>
+  <data name="footer.Text" xml:space="preserve">
+    <value>© Оазис 2025</value>
   </data>
-  <data name="saveButton.Text" xml:space="preserve">
-    <value>Запази</value>
+  <data name="serviceButton.Text" xml:space="preserve">
+    <value>Разгледайте нашите услуги</value>
   </data>
-  <data name="deleteButton.Text" xml:space="preserve">
-    <value>Изтрий акаунт</value>
-  </data>
-  <data name="navigationButton.Text" xml:space="preserve">
-    <value>Назад</value>
-  </data>
-  <data name="editButton.Text" xml:space="preserve">
-    <value>Редактирай</value>
-  </data>
-  <data name="uploadButton.Text" xml:space="preserve">
-    <value>Качи снимка</value>
+  <data name="roomsButton.Text" xml:space="preserve">
+    <value>Разгледайте нашите стаи</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ageLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 18</value>
-  </data>
-  <data name="ageLabel.Text" xml:space="preserve">
-    <value>Възраст</value>
-  </data>
-  <data name="emailLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 18</value>
-  </data>
-  <data name="emailLabel.Text" xml:space="preserve">
-    <value>*Имейл</value>
-  </data>
-  <data name="passwordLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 18</value>
-  </data>
-  <data name="passwordLabel.Text" xml:space="preserve">
-    <value>*Парола</value>
-  </data>
-  <data name="usernameLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 18</value>
-  </data>
-  <data name="usernameLabel.Text" xml:space="preserve">
-    <value>*Потребителско име</value>
-  </data>
-  <data name="profileLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>181, 0</value>
-  </data>
-  <data name="profileLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>362, 25</value>
-  </data>
-  <data name="profileLabel.Text" xml:space="preserve">
-    <value>Информация за потребителя</value>
-  </data>
   <data name="Home.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 27</value>
   </data>
   <data name="Home.Text" xml:space="preserve">
     <value>Начало</value>
+  </data>
+  <data name="Rooms.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 27</value>
+  </data>
+  <data name="Rooms.Text" xml:space="preserve">
+    <value>Стаи</value>
   </data>
   <data name="Services.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 27</value>
@@ -194,19 +158,19 @@
     <value>Потребители</value>
   </data>
   <data name="Reservations.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 27</value>
+    <value>129, 27</value>
   </data>
   <data name="Reservations.Text" xml:space="preserve">
     <value>Резервации</value>
   </data>
   <data name="MyReservations.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 27</value>
+    <value>170, 27</value>
   </data>
   <data name="MyReservations.Text" xml:space="preserve">
-    <value>Мои резервации</value>
+    <value>Мои Резервации</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 1, 0, 5</value>
+    <value>3, 1, 0, 5</value>
   </data>
 </root>

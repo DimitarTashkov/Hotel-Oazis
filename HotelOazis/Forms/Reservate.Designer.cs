@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reservate));
             formPanel = new Panel();
             checkOutDatePicker = new DateTimePicker();
             checkInDatePicker = new DateTimePicker();
@@ -39,8 +40,8 @@
             roundPictureBox1 = new Fitness.Utilities.RoundPictureBox();
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
-            Room = new ToolStripMenuItem();
-            toolStripMenuItem1 = new ToolStripMenuItem();
+            Rooms = new ToolStripMenuItem();
+            Services = new ToolStripMenuItem();
             Reviews = new ToolStripMenuItem();
             Users = new ToolStripMenuItem();
             Reservations = new ToolStripMenuItem();
@@ -53,9 +54,9 @@
             // 
             // formPanel
             // 
+            resources.ApplyResources(formPanel, "formPanel");
             formPanel.BackColor = Color.White;
             formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
-            formPanel.BackgroundImageLayout = ImageLayout.Stretch;
             formPanel.Controls.Add(checkOutDatePicker);
             formPanel.Controls.Add(checkInDatePicker);
             formPanel.Controls.Add(cancel);
@@ -63,184 +64,129 @@
             formPanel.Controls.Add(toLabel);
             formPanel.Controls.Add(fromLabel);
             formPanel.Controls.Add(logo);
-            formPanel.Location = new Point(225, 50);
             formPanel.Name = "formPanel";
-            formPanel.Size = new Size(350, 350);
-            formPanel.TabIndex = 2;
             // 
             // checkOutDatePicker
             // 
-            checkOutDatePicker.Location = new Point(78, 203);
+            resources.ApplyResources(checkOutDatePicker, "checkOutDatePicker");
             checkOutDatePicker.Name = "checkOutDatePicker";
-            checkOutDatePicker.Size = new Size(200, 23);
-            checkOutDatePicker.TabIndex = 8;
             // 
             // checkInDatePicker
             // 
-            checkInDatePicker.Location = new Point(78, 140);
+            resources.ApplyResources(checkInDatePicker, "checkInDatePicker");
             checkInDatePicker.Name = "checkInDatePicker";
-            checkInDatePicker.Size = new Size(200, 23);
-            checkInDatePicker.TabIndex = 7;
             // 
             // cancel
             // 
-            cancel.AutoSize = true;
+            resources.ApplyResources(cancel, "cancel");
             cancel.BackColor = Color.Transparent;
             cancel.Cursor = Cursors.Hand;
-            cancel.Font = new Font("Verdana", 9F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
             cancel.ForeColor = Color.Blue;
-            cancel.Location = new Point(146, 315);
             cancel.Name = "cancel";
-            cancel.Size = new Size(52, 14);
-            cancel.TabIndex = 6;
-            cancel.Text = "Cancel";
             cancel.Click += cancel_Click;
             // 
             // reservateBtn
             // 
+            resources.ApplyResources(reservateBtn, "reservateBtn");
             reservateBtn.BackColor = Color.LightGreen;
-            reservateBtn.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
-            reservateBtn.Location = new Point(90, 260);
             reservateBtn.Name = "reservateBtn";
-            reservateBtn.Size = new Size(160, 41);
-            reservateBtn.TabIndex = 5;
-            reservateBtn.Text = "Reservate";
             reservateBtn.UseVisualStyleBackColor = false;
             reservateBtn.Click += reservateBtn_Click;
             // 
             // toLabel
             // 
-            toLabel.AutoSize = true;
+            resources.ApplyResources(toLabel, "toLabel");
             toLabel.BackColor = Color.Transparent;
-            toLabel.Font = new Font("Berlin Sans FB", 15.75F);
-            toLabel.Location = new Point(102, 177);
             toLabel.Name = "toLabel";
-            toLabel.Size = new Size(148, 23);
-            toLabel.TabIndex = 3;
-            toLabel.Text = "Check out date:";
             // 
             // fromLabel
             // 
-            fromLabel.AutoSize = true;
+            resources.ApplyResources(fromLabel, "fromLabel");
             fromLabel.BackColor = Color.Transparent;
-            fromLabel.Font = new Font("Berlin Sans FB", 15.75F);
-            fromLabel.Location = new Point(102, 105);
             fromLabel.Name = "fromLabel";
-            fromLabel.Size = new Size(133, 23);
-            fromLabel.TabIndex = 1;
-            fromLabel.Text = "Check in date:";
             // 
             // logo
             // 
+            resources.ApplyResources(logo, "logo");
             logo.BackColor = Color.Transparent;
             logo.BackgroundImage = Properties.Resources.applogo1;
-            logo.BackgroundImageLayout = ImageLayout.Stretch;
-            logo.Location = new Point(-21, -16);
             logo.Name = "logo";
-            logo.Size = new Size(150, 150);
-            logo.TabIndex = 0;
             logo.TabStop = false;
             // 
             // roundPictureBox1
             // 
-            roundPictureBox1.Location = new Point(750, 0);
+            resources.ApplyResources(roundPictureBox1, "roundPictureBox1");
             roundPictureBox1.Name = "roundPictureBox1";
-            roundPictureBox1.Size = new Size(50, 35);
-            roundPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            roundPictureBox1.TabIndex = 37;
             roundPictureBox1.TabStop = false;
             // 
             // menu
             // 
+            resources.ApplyResources(menu, "menu");
             menu.BackColor = SystemColors.ScrollBar;
-            menu.BackgroundImageLayout = ImageLayout.Stretch;
-            menu.Font = new Font("Verdana", 12F, FontStyle.Bold);
-            menu.Items.AddRange(new ToolStripItem[] { Home, Room, toolStripMenuItem1, Reviews, Users, Reservations, MyReservations });
-            menu.Location = new Point(0, 0);
+            menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, Users, Reservations, MyReservations });
             menu.Name = "menu";
-            menu.Padding = new Padding(6, 1, 0, 5);
-            menu.Size = new Size(800, 33);
-            menu.TabIndex = 36;
-            menu.Text = "Menu";
             // 
             // Home
             // 
+            resources.ApplyResources(Home, "Home");
             Home.Name = "Home";
-            Home.Size = new Size(71, 27);
-            Home.Text = "Home";
             Home.Click += menu_ItemClicked;
             // 
-            // Room
+            // Rooms
             // 
-            Room.ForeColor = SystemColors.ActiveCaptionText;
-            Room.Name = "Room";
-            Room.Padding = new Padding(4, 0, 4, 5);
-            Room.Size = new Size(80, 27);
-            Room.Text = "Rooms";
-            Room.Click += menu_ItemClicked;
+            resources.ApplyResources(Rooms, "Rooms");
+            Rooms.ForeColor = SystemColors.ActiveCaptionText;
+            Rooms.Name = "Rooms";
+            Rooms.Padding = new Padding(4, 0, 4, 5);
+            Rooms.Click += menu_ItemClicked;
             // 
-            // toolStripMenuItem1
+            // Services
             // 
-            toolStripMenuItem1.ForeColor = SystemColors.ActiveCaptionText;
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Padding = new Padding(4, 0, 4, 5);
-            toolStripMenuItem1.Size = new Size(93, 27);
-            toolStripMenuItem1.Text = "Services";
-            toolStripMenuItem1.Click += menu_ItemClicked;
+            resources.ApplyResources(Services, "Services");
+            Services.ForeColor = SystemColors.ActiveCaptionText;
+            Services.Name = "Services";
+            Services.Padding = new Padding(4, 0, 4, 5);
+            Services.Click += menu_ItemClicked;
             // 
             // Reviews
             // 
-            Reviews.BackgroundImageLayout = ImageLayout.Center;
-            Reviews.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            resources.ApplyResources(Reviews, "Reviews");
             Reviews.ForeColor = SystemColors.ActiveCaptionText;
             Reviews.Name = "Reviews";
             Reviews.Padding = new Padding(4, 0, 4, 5);
-            Reviews.Size = new Size(94, 27);
-            Reviews.Text = "Reviews";
             Reviews.Click += menu_ItemClicked;
             // 
             // Users
             // 
-            Users.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            resources.ApplyResources(Users, "Users");
             Users.ForeColor = SystemColors.MenuText;
             Users.Name = "Users";
             Users.Padding = new Padding(4, 0, 4, 5);
-            Users.Size = new Size(70, 27);
-            Users.Text = "Users";
-            Users.Visible = false;
             Users.Click += menu_ItemClicked;
             // 
             // Reservations
             // 
-            Reservations.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            resources.ApplyResources(Reservations, "Reservations");
             Reservations.Name = "Reservations";
-            Reservations.Size = new Size(135, 27);
-            Reservations.Text = "Reservations";
-            Reservations.Visible = false;
             Reservations.Click += menu_ItemClicked;
             // 
             // MyReservations
             // 
-            MyReservations.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            resources.ApplyResources(MyReservations, "MyReservations");
             MyReservations.ForeColor = SystemColors.ActiveCaptionText;
             MyReservations.Name = "MyReservations";
             MyReservations.Padding = new Padding(4, 0, 4, 5);
-            MyReservations.Size = new Size(160, 27);
-            MyReservations.Text = "My reservations";
             MyReservations.Click += menu_ItemClicked;
             // 
             // Reservate
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.appback;
-            BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 450);
             Controls.Add(roundPictureBox1);
             Controls.Add(menu);
             Controls.Add(formPanel);
             Name = "Reservate";
-            Text = "Reservate";
             Load += Reservate_Load;
             formPanel.ResumeLayout(false);
             formPanel.PerformLayout();
@@ -265,8 +211,8 @@
         private Fitness.Utilities.RoundPictureBox roundPictureBox1;
         private MenuStrip menu;
         private ToolStripMenuItem Home;
-        private ToolStripMenuItem Room;
-        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem Rooms;
+        private ToolStripMenuItem Services;
         private ToolStripMenuItem Reviews;
         private ToolStripMenuItem Users;
         private ToolStripMenuItem Reservations;

@@ -1,31 +1,31 @@
-﻿using System;
+﻿using HotelOazis.Common.Constants;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static HotelOazis.Common.Constants.GlobalConstants;
 
 namespace HotelOazis.Utilities
 {
     public static class LanguageChanger
     {
-        private static string _bgLanguage = "bg-BG";
-        private static string _enLanguage = "en-US";
-        private static string _currentLanguage = "bg-BG";
+        private static string _currentLanguage = BgLanguage;
 
         public static void ChangeLanguage(string language)
         {
-            if (language == _bgLanguage)
+            if (language == BgLanguage)
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo(_bgLanguage);
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo(_bgLanguage);
-                _currentLanguage = _bgLanguage;
+                Thread.CurrentThread.CurrentCulture = new CultureInfo(BgLanguage);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(BgLanguage);
+                _currentLanguage = BgLanguage;
             }
-            else if (language == _enLanguage)
+            else if (language == EnLanguage)
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo(_enLanguage);
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo(_enLanguage);
-                _currentLanguage = _enLanguage;
+                Thread.CurrentThread.CurrentCulture = new CultureInfo(EnLanguage);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(EnLanguage);
+                _currentLanguage = EnLanguage;
             }
         }
         public static string GetLanguage() 

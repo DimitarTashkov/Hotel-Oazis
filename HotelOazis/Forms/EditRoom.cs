@@ -19,6 +19,7 @@ using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.RoomMessages;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
+using static HotelOazis.Utilities.DynamicContentTranslator.RoomsTranslator;
 using Fitness.Utilities;
 using HotelOazis.Models;
 using Fitness.Services;
@@ -105,7 +106,7 @@ namespace HotelOazis.Forms
             if (!areInputsValid ||
                 roomTypes.SelectedItem == null || statusBox.SelectedItem == null)
             {
-                MessageBox.Show(EmptyInputData, "Room Creation Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(EmptyInputData, EditFailed, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -114,7 +115,7 @@ namespace HotelOazis.Forms
 
             if (!await roomService.IsRoomNumberUnique(roomNumber))
             {
-                MessageBox.Show(RoomNumberExists, "Room Creation Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(RoomNumberExists, EditFailed, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -168,13 +169,13 @@ namespace HotelOazis.Forms
             bool success = await roomService.EditRoomAsync(editModel);
             if (success)
             {
-                MessageBox.Show(string.Format(UpdatedSuccessfully, nameof(Room)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format(UpdatedSuccessfully, nameof(Rooms)), Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 EditRoom editForm = new EditRoom(roomService, editModel);
                 Program.SwitchMainForm(editForm);
             }
             else
             {
-                MessageBox.Show(string.Format(UpdateFailed, nameof(Room)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format(UpdateFailed, nameof(Rooms)), Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -200,7 +201,7 @@ namespace HotelOazis.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(EmptyOrInvalidImage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(EmptyOrInvalidImage, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -208,7 +209,7 @@ namespace HotelOazis.Forms
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
-            string formName = item.Text;
+            string formName = item.Name;
             Form form = new Form();
 
             switch (formName)
@@ -228,7 +229,7 @@ namespace HotelOazis.Forms
                 case "Users":
                     form = new Users(userService);
                     break;
-                case "My reservations":
+                case "MyReservations":
                     form = new Reservations(userService, roomService);
                     break;
                 case "Reservations":

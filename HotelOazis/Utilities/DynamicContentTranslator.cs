@@ -23,8 +23,10 @@ namespace HotelOazis.Utilities
             public static string RoomType => LanguageChanger.GetLanguage() == BgLanguage ? "Тип:" : "Type:";
             public static string Error => LanguageChanger.GetLanguage() == BgLanguage ? "Грешка" : "Error";
             public static string Success => LanguageChanger.GetLanguage() == BgLanguage ? "Успех" : "Success";
-            public static string DeletionSuccessful => LanguageChanger.GetLanguage() == BgLanguage ? "Успешно изтриване на стаята." : "Room deletion successful.";
-            public static string DeletionFailed => LanguageChanger.GetLanguage() == BgLanguage ? "Неуспешно изтриване на стаята." : "Room deletion failed.";
+            public static string DeletionSuccessful => LanguageChanger.GetLanguage() == BgLanguage ? "Успешно изтриване" : "Deletion successful.";
+            public static string DeletionFailed => LanguageChanger.GetLanguage() == BgLanguage ? "Неуспешно изтриване" : "Deletion failed.";
+            public static string EditFailed => LanguageChanger.GetLanguage() == BgLanguage ? "Неуспешно редактиране" : " Edit Failed";
+
         }
     }
 }

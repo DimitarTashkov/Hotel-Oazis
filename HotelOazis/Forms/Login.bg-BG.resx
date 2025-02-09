@@ -118,6 +118,76 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 21</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Езици:</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 42</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Влезте сега и отключете най-доброто от хотела</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 42</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Насладете се на модерен и ефективен интерфейс.</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 42</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Оптимизирайте управлението на хотела с удобен интерфейс.</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 42</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Запазете своята стая само с няколко клика!</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 32</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Добре дошли в хотел "Оазис"</value>
+  </data>
+  <data name="register.Location" type="System.Drawing.Point, System.Drawing">
+    <value>464, 313</value>
+  </data>
+  <data name="register.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 14</value>
+  </data>
+  <data name="register.Text" xml:space="preserve">
+    <value>Регистрирай ме</value>
+  </data>
+  <data name="loginBtn.Text" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="passwordLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 23</value>
+  </data>
+  <data name="passwordLabel.Text" xml:space="preserve">
+    <value>Парола</value>
+  </data>
+  <data name="usernameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>440, 90</value>
+  </data>
+  <data name="usernameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 23</value>
+  </data>
+  <data name="usernameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="usernameLabel.Text" xml:space="preserve">
+    <value>Потребителско име</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIABGlAAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgGAAAAXHKoZgAAAAFv

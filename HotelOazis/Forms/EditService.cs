@@ -131,7 +131,7 @@ namespace HotelOazis.Forms
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
-            string formName = item.Text;
+            string formName = item.Name;
             Form form = new Form();
 
             switch (formName)
@@ -151,7 +151,7 @@ namespace HotelOazis.Forms
                 case "Users":
                     form = new Users(userService);
                     break;
-                case "My reservations":
+                case "MyReservations":
                     form = new Reservations(userService, roomService);
                     break;
                 case "Reservations":

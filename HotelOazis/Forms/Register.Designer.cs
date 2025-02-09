@@ -57,9 +57,9 @@
             // 
             // formPanel
             // 
-            resources.ApplyResources(formPanel, "formPanel");
             formPanel.BackColor = SystemColors.Control;
             formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
+            resources.ApplyResources(formPanel, "formPanel");
             formPanel.Controls.Add(pfpErrorMessages);
             formPanel.Controls.Add(ageErrors);
             formPanel.Controls.Add(emailErrors);
@@ -126,8 +126,8 @@
             // 
             // navigationButton
             // 
-            resources.ApplyResources(navigationButton, "navigationButton");
             navigationButton.BackColor = Color.DarkOrange;
+            resources.ApplyResources(navigationButton, "navigationButton");
             navigationButton.Name = "navigationButton";
             navigationButton.UseVisualStyleBackColor = false;
             navigationButton.Click += navigationButton_Click;
@@ -140,8 +140,8 @@
             // 
             // registerButton
             // 
-            resources.ApplyResources(registerButton, "registerButton");
             registerButton.BackColor = Color.LightGreen;
+            resources.ApplyResources(registerButton, "registerButton");
             registerButton.Name = "registerButton";
             registerButton.UseVisualStyleBackColor = false;
             registerButton.Click += btnRegister_Click;
@@ -157,8 +157,8 @@
             // 
             // ageField
             // 
-            resources.ApplyResources(ageField, "ageField");
             ageField.BackColor = Color.LightGray;
+            resources.ApplyResources(ageField, "ageField");
             ageField.ForeColor = Color.DimGray;
             ageField.Name = "ageField";
             // 
@@ -170,8 +170,8 @@
             // 
             // emailField
             // 
-            resources.ApplyResources(emailField, "emailField");
             emailField.BackColor = Color.LightGray;
+            resources.ApplyResources(emailField, "emailField");
             emailField.ForeColor = Color.DimGray;
             emailField.Name = "emailField";
             // 
@@ -183,8 +183,8 @@
             // 
             // passwordField
             // 
-            resources.ApplyResources(passwordField, "passwordField");
             passwordField.BackColor = Color.LightGray;
+            resources.ApplyResources(passwordField, "passwordField");
             passwordField.ForeColor = Color.DimGray;
             passwordField.Name = "passwordField";
             // 
@@ -196,8 +196,8 @@
             // 
             // usernameField
             // 
-            resources.ApplyResources(usernameField, "usernameField");
             usernameField.BackColor = Color.LightGray;
+            resources.ApplyResources(usernameField, "usernameField");
             usernameField.ForeColor = Color.DimGray;
             usernameField.Name = "usernameField";
             // 
@@ -209,9 +209,9 @@
             // 
             // logo
             // 
-            resources.ApplyResources(logo, "logo");
             logo.BackColor = Color.Transparent;
             logo.BackgroundImage = Properties.Resources.applogo;
+            resources.ApplyResources(logo, "logo");
             logo.Image = Properties.Resources.applogo1;
             logo.Name = "logo";
             logo.TabStop = false;

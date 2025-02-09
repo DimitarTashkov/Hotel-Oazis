@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profile));
             logoutButton = new Button();
             saveButton = new Button();
             deleteButton = new Button();
@@ -68,209 +69,136 @@
             // 
             // logoutButton
             // 
+            resources.ApplyResources(logoutButton, "logoutButton");
             logoutButton.BackColor = Color.Red;
-            logoutButton.Font = new Font("Verdana", 11.25F, FontStyle.Bold | FontStyle.Italic);
-            logoutButton.Location = new Point(383, 359);
             logoutButton.Name = "logoutButton";
-            logoutButton.Size = new Size(160, 41);
-            logoutButton.TabIndex = 21;
-            logoutButton.Text = "Log out";
             logoutButton.UseVisualStyleBackColor = false;
             logoutButton.Click += logoutButton_Click;
             // 
             // saveButton
             // 
+            resources.ApplyResources(saveButton, "saveButton");
             saveButton.BackColor = Color.LightGreen;
-            saveButton.Font = new Font("Verdana", 11.25F, FontStyle.Bold | FontStyle.Italic);
-            saveButton.Location = new Point(308, 318);
             saveButton.Name = "saveButton";
-            saveButton.Size = new Size(160, 41);
-            saveButton.TabIndex = 20;
-            saveButton.Text = "Save data";
             saveButton.UseVisualStyleBackColor = false;
-            saveButton.Visible = false;
             saveButton.Click += saveButton_Click;
             // 
             // deleteButton
             // 
+            resources.ApplyResources(deleteButton, "deleteButton");
             deleteButton.BackColor = Color.Red;
-            deleteButton.Font = new Font("Verdana", 11.25F, FontStyle.Bold | FontStyle.Italic);
-            deleteButton.Location = new Point(474, 318);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(160, 41);
-            deleteButton.TabIndex = 19;
-            deleteButton.Text = "Delete user";
             deleteButton.UseVisualStyleBackColor = false;
             deleteButton.Click += deleteButton_Click;
             // 
             // navigationButton
             // 
+            resources.ApplyResources(navigationButton, "navigationButton");
             navigationButton.BackColor = Color.DarkOrange;
-            navigationButton.Font = new Font("Verdana", 11.25F, FontStyle.Bold | FontStyle.Italic);
-            navigationButton.Location = new Point(0, 318);
             navigationButton.Name = "navigationButton";
-            navigationButton.Size = new Size(160, 41);
-            navigationButton.TabIndex = 17;
-            navigationButton.Text = "Return to home";
             navigationButton.UseVisualStyleBackColor = false;
             navigationButton.Click += navigationButton_Click;
             // 
             // profilePicture
             // 
-            profilePicture.Location = new Point(460, 52);
+            resources.ApplyResources(profilePicture, "profilePicture");
             profilePicture.Name = "profilePicture";
-            profilePicture.Size = new Size(144, 118);
-            profilePicture.SizeMode = PictureBoxSizeMode.StretchImage;
-            profilePicture.TabIndex = 16;
             profilePicture.TabStop = false;
             // 
             // editButton
             // 
+            resources.ApplyResources(editButton, "editButton");
             editButton.BackColor = Color.LightGray;
-            editButton.Font = new Font("Verdana", 11.25F, FontStyle.Bold | FontStyle.Italic);
-            editButton.Location = new Point(308, 318);
             editButton.Name = "editButton";
-            editButton.Size = new Size(160, 41);
-            editButton.TabIndex = 15;
-            editButton.Text = "Edit information";
             editButton.UseVisualStyleBackColor = false;
             editButton.Click += editButton_Click;
             // 
             // uploadButton
             // 
-            uploadButton.Enabled = false;
-            uploadButton.Font = new Font("Verdana", 9F, FontStyle.Bold | FontStyle.Italic);
-            uploadButton.Location = new Point(460, 200);
+            resources.ApplyResources(uploadButton, "uploadButton");
             uploadButton.Name = "uploadButton";
-            uploadButton.Size = new Size(130, 30);
-            uploadButton.TabIndex = 13;
-            uploadButton.Text = "Upload pfp";
             uploadButton.UseVisualStyleBackColor = true;
             // 
             // ageField
             // 
+            resources.ApplyResources(ageField, "ageField");
             ageField.BackColor = Color.LightGray;
-            ageField.Enabled = false;
-            ageField.Font = new Font("Verdana", 9.75F, FontStyle.Bold | FontStyle.Italic);
             ageField.ForeColor = Color.DimGray;
-            ageField.Location = new Point(115, 269);
             ageField.Name = "ageField";
-            ageField.Size = new Size(244, 23);
-            ageField.TabIndex = 12;
             ageField.Click += clearInputs_click;
             ageField.TextChanged += input_TextChanged;
             // 
             // ageLabel
             // 
-            ageLabel.AutoSize = true;
+            resources.ApplyResources(ageLabel, "ageLabel");
             ageLabel.BackColor = Color.Transparent;
-            ageLabel.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
-            ageLabel.Location = new Point(193, 248);
             ageLabel.Name = "ageLabel";
-            ageLabel.Size = new Size(42, 18);
-            ageLabel.TabIndex = 11;
-            ageLabel.Text = "Age";
             // 
             // emailField
             // 
+            resources.ApplyResources(emailField, "emailField");
             emailField.BackColor = Color.LightGray;
-            emailField.Enabled = false;
-            emailField.Font = new Font("Verdana", 9.75F, FontStyle.Bold | FontStyle.Italic);
             emailField.ForeColor = Color.DimGray;
-            emailField.Location = new Point(115, 200);
             emailField.Name = "emailField";
-            emailField.Size = new Size(244, 23);
-            emailField.TabIndex = 10;
             emailField.Click += clearInputs_click;
             emailField.TextChanged += input_TextChanged;
             // 
             // emailLabel
             // 
-            emailLabel.AutoSize = true;
+            resources.ApplyResources(emailLabel, "emailLabel");
             emailLabel.BackColor = Color.Transparent;
-            emailLabel.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
-            emailLabel.Location = new Point(193, 176);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new Size(65, 18);
-            emailLabel.TabIndex = 9;
-            emailLabel.Text = "*Email";
             // 
             // passwordField
             // 
+            resources.ApplyResources(passwordField, "passwordField");
             passwordField.BackColor = Color.LightGray;
-            passwordField.Enabled = false;
-            passwordField.Font = new Font("Verdana", 9.75F, FontStyle.Bold | FontStyle.Italic);
             passwordField.ForeColor = Color.DimGray;
-            passwordField.Location = new Point(115, 132);
             passwordField.Name = "passwordField";
-            passwordField.Size = new Size(244, 23);
-            passwordField.TabIndex = 8;
             passwordField.Click += clearInputs_click;
             passwordField.TextChanged += input_TextChanged;
             // 
             // passwordLabel
             // 
-            passwordLabel.AutoSize = true;
+            resources.ApplyResources(passwordLabel, "passwordLabel");
             passwordLabel.BackColor = Color.Transparent;
-            passwordLabel.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
-            passwordLabel.Location = new Point(193, 106);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new Size(105, 18);
-            passwordLabel.TabIndex = 7;
-            passwordLabel.Text = "*Password";
             // 
             // usernameField
             // 
+            resources.ApplyResources(usernameField, "usernameField");
             usernameField.BackColor = Color.LightGray;
-            usernameField.Enabled = false;
-            usernameField.Font = new Font("Verdana", 9.75F, FontStyle.Bold | FontStyle.Italic);
             usernameField.ForeColor = Color.DimGray;
-            usernameField.Location = new Point(115, 64);
             usernameField.Name = "usernameField";
-            usernameField.Size = new Size(244, 23);
-            usernameField.TabIndex = 6;
             usernameField.Click += clearInputs_click;
             usernameField.TextChanged += input_TextChanged;
             // 
             // usernameLabel
             // 
-            usernameLabel.AutoSize = true;
+            resources.ApplyResources(usernameLabel, "usernameLabel");
             usernameLabel.BackColor = Color.Transparent;
-            usernameLabel.Font = new Font("Verdana", 12F, FontStyle.Bold | FontStyle.Italic);
-            usernameLabel.Location = new Point(193, 40);
             usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new Size(109, 18);
-            usernameLabel.TabIndex = 5;
-            usernameLabel.Text = "*Username";
             // 
             // logo
             // 
+            resources.ApplyResources(logo, "logo");
             logo.BackColor = Color.Transparent;
             logo.BackgroundImage = Properties.Resources.applogo1;
-            logo.BackgroundImageLayout = ImageLayout.Stretch;
             logo.Image = Properties.Resources.applogo1;
-            logo.Location = new Point(-21, -16);
             logo.Name = "logo";
-            logo.Size = new Size(150, 150);
-            logo.TabIndex = 1;
             logo.TabStop = false;
             // 
             // profileLabel
             // 
-            profileLabel.AutoSize = true;
+            resources.ApplyResources(profileLabel, "profileLabel");
             profileLabel.BackColor = Color.Transparent;
-            profileLabel.Font = new Font("Verdana", 15.75F, FontStyle.Bold | FontStyle.Italic);
-            profileLabel.Location = new Point(218, 0);
             profileLabel.Name = "profileLabel";
-            profileLabel.Size = new Size(235, 25);
-            profileLabel.TabIndex = 0;
-            profileLabel.Text = "Profile  Credentials";
             // 
             // formPanel
             // 
+            resources.ApplyResources(formPanel, "formPanel");
             formPanel.BackColor = SystemColors.Control;
             formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
-            formPanel.BackgroundImageLayout = ImageLayout.Stretch;
             formPanel.Controls.Add(pfpErrors);
             formPanel.Controls.Add(emailErrors);
             formPanel.Controls.Add(passwordErrors);
@@ -292,164 +220,111 @@
             formPanel.Controls.Add(usernameLabel);
             formPanel.Controls.Add(logo);
             formPanel.Controls.Add(profileLabel);
-            formPanel.Location = new Point(70, 40);
             formPanel.Name = "formPanel";
-            formPanel.Size = new Size(659, 400);
-            formPanel.TabIndex = 2;
             // 
             // pfpErrors
             // 
-            pfpErrors.AutoSize = true;
+            resources.ApplyResources(pfpErrors, "pfpErrors");
             pfpErrors.BackColor = Color.Transparent;
-            pfpErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             pfpErrors.ForeColor = Color.Red;
-            pfpErrors.Location = new Point(460, 248);
             pfpErrors.Name = "pfpErrors";
-            pfpErrors.Size = new Size(47, 13);
-            pfpErrors.TabIndex = 25;
-            pfpErrors.Text = "label1";
-            pfpErrors.Visible = false;
             // 
             // emailErrors
             // 
-            emailErrors.AutoSize = true;
+            resources.ApplyResources(emailErrors, "emailErrors");
             emailErrors.BackColor = Color.Transparent;
-            emailErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             emailErrors.ForeColor = Color.Red;
-            emailErrors.Location = new Point(115, 226);
             emailErrors.Name = "emailErrors";
-            emailErrors.Size = new Size(47, 13);
-            emailErrors.TabIndex = 24;
-            emailErrors.Text = "label1";
-            emailErrors.Visible = false;
             // 
             // passwordErrors
             // 
-            passwordErrors.AutoSize = true;
+            resources.ApplyResources(passwordErrors, "passwordErrors");
             passwordErrors.BackColor = Color.Transparent;
-            passwordErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             passwordErrors.ForeColor = Color.Red;
-            passwordErrors.Location = new Point(115, 158);
             passwordErrors.Name = "passwordErrors";
-            passwordErrors.Size = new Size(47, 13);
-            passwordErrors.TabIndex = 23;
-            passwordErrors.Text = "label1";
-            passwordErrors.Visible = false;
             // 
             // usernameErrors
             // 
-            usernameErrors.AutoSize = true;
+            resources.ApplyResources(usernameErrors, "usernameErrors");
             usernameErrors.BackColor = Color.Transparent;
-            usernameErrors.Font = new Font("Verdana", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             usernameErrors.ForeColor = Color.Red;
-            usernameErrors.Location = new Point(115, 90);
             usernameErrors.Name = "usernameErrors";
-            usernameErrors.Size = new Size(47, 13);
-            usernameErrors.TabIndex = 22;
-            usernameErrors.Text = "label1";
-            usernameErrors.Visible = false;
             // 
             // roundPictureBox1
             // 
-            roundPictureBox1.Location = new Point(750, 0);
+            resources.ApplyResources(roundPictureBox1, "roundPictureBox1");
             roundPictureBox1.Name = "roundPictureBox1";
-            roundPictureBox1.Size = new Size(50, 35);
-            roundPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            roundPictureBox1.TabIndex = 25;
             roundPictureBox1.TabStop = false;
             roundPictureBox1.Click += roundPictureBox1_Click;
             // 
             // menu
             // 
+            resources.ApplyResources(menu, "menu");
             menu.BackColor = SystemColors.ScrollBar;
-            menu.BackgroundImageLayout = ImageLayout.Stretch;
-            menu.Font = new Font("Verdana", 12F, FontStyle.Bold);
             menu.Items.AddRange(new ToolStripItem[] { Home, Room, toolStripMenuItem1, Reviews, Users, Reservations, MyReservations });
-            menu.Location = new Point(0, 0);
             menu.Name = "menu";
-            menu.Padding = new Padding(6, 1, 0, 5);
-            menu.Size = new Size(800, 33);
-            menu.TabIndex = 24;
-            menu.Text = "Menu";
             // 
             // Home
             // 
+            resources.ApplyResources(Home, "Home");
             Home.Name = "Home";
-            Home.Size = new Size(71, 27);
-            Home.Text = "Home";
             Home.Click += menu_ItemClicked;
             // 
             // Room
             // 
+            resources.ApplyResources(Room, "Room");
             Room.ForeColor = SystemColors.ActiveCaptionText;
             Room.Name = "Room";
             Room.Padding = new Padding(4, 0, 4, 5);
-            Room.Size = new Size(80, 27);
-            Room.Text = "Rooms";
             Room.Click += menu_ItemClicked;
             // 
             // toolStripMenuItem1
             // 
+            resources.ApplyResources(toolStripMenuItem1, "toolStripMenuItem1");
             toolStripMenuItem1.ForeColor = SystemColors.ActiveCaptionText;
             toolStripMenuItem1.Name = "toolStripMenuItem1";
             toolStripMenuItem1.Padding = new Padding(4, 0, 4, 5);
-            toolStripMenuItem1.Size = new Size(93, 27);
-            toolStripMenuItem1.Text = "Services";
             toolStripMenuItem1.Click += menu_ItemClicked;
             // 
             // Reviews
             // 
-            Reviews.BackgroundImageLayout = ImageLayout.Center;
-            Reviews.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            resources.ApplyResources(Reviews, "Reviews");
             Reviews.ForeColor = SystemColors.ActiveCaptionText;
             Reviews.Name = "Reviews";
             Reviews.Padding = new Padding(4, 0, 4, 5);
-            Reviews.Size = new Size(94, 27);
-            Reviews.Text = "Reviews";
             Reviews.Click += menu_ItemClicked;
             // 
             // Users
             // 
-            Users.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            resources.ApplyResources(Users, "Users");
             Users.ForeColor = SystemColors.MenuText;
             Users.Name = "Users";
             Users.Padding = new Padding(4, 0, 4, 5);
-            Users.Size = new Size(70, 27);
-            Users.Text = "Users";
-            Users.Visible = false;
             Users.Click += menu_ItemClicked;
             // 
             // Reservations
             // 
-            Reservations.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            resources.ApplyResources(Reservations, "Reservations");
             Reservations.Name = "Reservations";
-            Reservations.Size = new Size(135, 27);
-            Reservations.Text = "Reservations";
-            Reservations.Visible = false;
             Reservations.Click += menu_ItemClicked;
             // 
             // MyReservations
             // 
-            MyReservations.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            resources.ApplyResources(MyReservations, "MyReservations");
             MyReservations.ForeColor = SystemColors.ActiveCaptionText;
             MyReservations.Name = "MyReservations";
             MyReservations.Padding = new Padding(4, 0, 4, 5);
-            MyReservations.Size = new Size(160, 27);
-            MyReservations.Text = "My reservations";
             MyReservations.Click += menu_ItemClicked;
             // 
             // Profile
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.appback;
-            BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 450);
             Controls.Add(roundPictureBox1);
             Controls.Add(menu);
             Controls.Add(formPanel);
             Name = "Profile";
-            Text = "Profile";
             Load += Profile_Load;
             ((System.ComponentModel.ISupportInitialize)profilePicture).EndInit();
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();

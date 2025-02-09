@@ -22,6 +22,7 @@ using System.Xml.Linq;
 
 using static HotelOazis.Common.Messages.ErrorMessages.ReservationMessages;
 using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
+using static HotelOazis.Utilities.DynamicContentTranslator.RoomsTranslator;
 
 namespace HotelOazis.Forms
 {
@@ -61,7 +62,7 @@ namespace HotelOazis.Forms
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
             _isAuthorized = isAdmin;
 
-            string availabilityMessage = model.IsAvailable ? "Available" : "Not Available";
+            string availabilityMessage = model.IsAvailable ? IsAvailable : IsNotAvailable;
             roomType.Text = roomType.Text + " " + model.Type.ToString();
             roomNumber.Text = roomNumber.Text + " " + model.RoomNumber.ToString();
             roomPrice.Text = roomPrice.Text + " " + $"{model.Price.ToString():f2} lv";
@@ -98,7 +99,7 @@ namespace HotelOazis.Forms
                 Reservate reservateForm = new Reservate(roomService, reservationModel);
                 Program.SwitchMainForm(reservateForm);
             }
-            MessageBox.Show(RoomIsUnavailable, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(RoomIsUnavailable, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -121,7 +122,7 @@ namespace HotelOazis.Forms
             }
             else
             {
-                MessageBox.Show(string.Format(UpdateFailed, nameof(Room)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format(UpdateFailed, nameof(Room)), Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void CreateIconControls()
@@ -177,7 +178,7 @@ namespace HotelOazis.Forms
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
-            string formName = item.Text;
+            string formName = item.Name;
             Form form = new Form();
 
             switch (formName)
@@ -197,7 +198,7 @@ namespace HotelOazis.Forms
                 case "Users":
                     form = new Users(userService);
                     break;
-                case "My reservations":
+                case "MyReservations":
                     form = new Reservations(userService, roomService);
                     break;
                 case "Reservations":

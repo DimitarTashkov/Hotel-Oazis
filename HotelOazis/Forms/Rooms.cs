@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using static HotelOazis.Common.Messages.ErrorMessages.ReservationMessages;
-using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
+using static HotelOazis.Utilities.DynamicContentTranslator.RoomsTranslator;
 
 
 namespace HotelOazis.Forms
@@ -47,7 +47,7 @@ namespace HotelOazis.Forms
         {
             var readMoreButton = new Button
             {
-                Text = "Read more",
+                Text = ReadMore,
                 BackColor = Color.LightPink,
                 Size = new Size(112, 29),
                 Location = new Point(0, 215),
@@ -72,7 +72,7 @@ namespace HotelOazis.Forms
 
             var reserveButton = new Button
             {
-                Text = "Reserve",
+                Text = Reserve,
                 BackColor = Color.LightGreen,
                 Size = new Size(112, 29),
                 Location = new Point(112, 215),
@@ -94,7 +94,7 @@ namespace HotelOazis.Forms
                 }
                 else
                 {
-                    MessageBox.Show(RoomIsUnavailable, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(RoomIsUnavailable, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             };
             container.Controls.Add(reserveButton);
@@ -103,7 +103,7 @@ namespace HotelOazis.Forms
             {
                 var editButton = new Button
                 {
-                    Text = "Edit",
+                    Text = Edit,
                     BackColor = Color.LightGray,
                     Size = new Size(112, 29),
                     Location = new Point(0, 244),
@@ -130,7 +130,7 @@ namespace HotelOazis.Forms
 
                 var deleteButton = new Button
                 {
-                    Text = "Delete",
+                    Text = Delete,
                     BackColor = Color.Red,
                     Size = new Size(112, 29),
                     Location = new Point(112, 244),
@@ -142,12 +142,12 @@ namespace HotelOazis.Forms
                     var success = await roomService.DeleteRoomAsync(room.Id);
                     if (success)
                     {
-                        MessageBox.Show(string.Format(DeletionSuccessful, nameof(Models.Room)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(DeletionSuccessful, nameof(Models.Room)), Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         await PopulateRoomsPanelAsync(container, activeUser);
                     }
                     else
                     {
-                        MessageBox.Show(string.Format(DeletionFailed, nameof(Models.Room)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(string.Format(DeletionFailed, nameof(Models.Room)), Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 };
                 container.Controls.Add(deleteButton);
@@ -169,10 +169,10 @@ namespace HotelOazis.Forms
                     Size = new Size(225, 272),
                     BackColor = Color.NavajoWhite
                 };
-                var numberLabel = CreateLabel($"numberLabel{index}", $"Room: {room.RoomNumber.ToString()}", FontsPicker.BaseFont, new Point(80, 151));
-                var typeLabel = CreateLabel($"typeLabel{index}", $"Type: { room.Type.ToString()}", FontsPicker.BaseFont, new Point(60, 166));
+                var numberLabel = CreateLabel($"numberLabel{index}", $"{RoomNumber} {room.RoomNumber.ToString()}", FontsPicker.BaseFont, new Point(80, 151));
+                var typeLabel = CreateLabel($"typeLabel{index}", $"{RoomType} { room.Type.ToString()}", FontsPicker.BaseFont, new Point(60, 166));
                 var priceLabel = CreateLabel($"priceLabel{index}", $"{room.Price:f2} lv", FontsPicker.DetailsFont, new Point(30, 190));
-                var availabilityLabel = CreateLabel($"availabilityLabel{index}","Available:", FontsPicker.DetailsFont, new Point(110, 190));
+                var availabilityLabel = CreateLabel($"availabilityLabel{index}",$"{Available}", FontsPicker.DetailsFont, new Point(110, 190));
 
                 PictureBox image = new PictureBox()
                 {

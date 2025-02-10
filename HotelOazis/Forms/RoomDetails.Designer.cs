@@ -45,7 +45,7 @@
             roundPictureBox1 = new Fitness.Utilities.RoundPictureBox();
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
-            Room = new ToolStripMenuItem();
+            Rooms = new ToolStripMenuItem();
             Services = new ToolStripMenuItem();
             Reviews = new ToolStripMenuItem();
             Users = new ToolStripMenuItem();
@@ -62,8 +62,8 @@
             // 
             // roomLabel
             // 
-            resources.ApplyResources(roomLabel, "roomLabel");
             roomLabel.BackColor = Color.Transparent;
+            resources.ApplyResources(roomLabel, "roomLabel");
             roomLabel.Name = "roomLabel";
             // 
             // mainContainer
@@ -76,23 +76,23 @@
             // 
             // roomContainer
             // 
-            resources.ApplyResources(roomContainer, "roomContainer");
             roomContainer.Controls.Add(supplementVisualsContainer);
             roomContainer.Controls.Add(roomDataContainer);
+            resources.ApplyResources(roomContainer, "roomContainer");
             roomContainer.Name = "roomContainer";
             // 
             // supplementVisualsContainer
             // 
-            resources.ApplyResources(supplementVisualsContainer, "supplementVisualsContainer");
             supplementVisualsContainer.BackColor = Color.Transparent;
             supplementVisualsContainer.Controls.Add(reservateBtn);
             supplementVisualsContainer.Controls.Add(roomImage);
+            resources.ApplyResources(supplementVisualsContainer, "supplementVisualsContainer");
             supplementVisualsContainer.Name = "supplementVisualsContainer";
             // 
             // reservateBtn
             // 
-            resources.ApplyResources(reservateBtn, "reservateBtn");
             reservateBtn.BackColor = Color.LightGreen;
+            resources.ApplyResources(reservateBtn, "reservateBtn");
             reservateBtn.Name = "reservateBtn";
             reservateBtn.UseVisualStyleBackColor = false;
             reservateBtn.Click += reservateBtn_Click;
@@ -105,7 +105,6 @@
             // 
             // roomDataContainer
             // 
-            resources.ApplyResources(roomDataContainer, "roomDataContainer");
             roomDataContainer.BackColor = Color.BlanchedAlmond;
             roomDataContainer.Controls.Add(roomNumber);
             roomDataContainer.Controls.Add(editRoomBtn);
@@ -113,6 +112,7 @@
             roomDataContainer.Controls.Add(roomAvaialability);
             roomDataContainer.Controls.Add(roomPrice);
             roomDataContainer.Controls.Add(roomType);
+            resources.ApplyResources(roomDataContainer, "roomDataContainer");
             roomDataContainer.Name = "roomDataContainer";
             // 
             // roomNumber
@@ -122,8 +122,8 @@
             // 
             // editRoomBtn
             // 
-            resources.ApplyResources(editRoomBtn, "editRoomBtn");
             editRoomBtn.BackColor = Color.LightGray;
+            resources.ApplyResources(editRoomBtn, "editRoomBtn");
             editRoomBtn.Name = "editRoomBtn";
             editRoomBtn.UseVisualStyleBackColor = false;
             editRoomBtn.Click += editRoomBtn_Click;
@@ -157,31 +157,31 @@
             // 
             // menu
             // 
-            resources.ApplyResources(menu, "menu");
             menu.BackColor = SystemColors.ScrollBar;
-            menu.Items.AddRange(new ToolStripItem[] { Home, Room, Services, Reviews, Users, Reservations, MyReservations });
+            resources.ApplyResources(menu, "menu");
+            menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, Users, Reservations, MyReservations });
             menu.Name = "menu";
             // 
             // Home
             // 
-            resources.ApplyResources(Home, "Home");
             Home.Name = "Home";
+            resources.ApplyResources(Home, "Home");
             Home.Click += menu_ItemClicked;
             // 
-            // Room
+            // Rooms
             // 
-            resources.ApplyResources(Room, "Room");
-            Room.ForeColor = SystemColors.ActiveCaptionText;
-            Room.Name = "Room";
-            Room.Padding = new Padding(4, 0, 4, 5);
-            Room.Click += menu_ItemClicked;
+            Rooms.ForeColor = SystemColors.ActiveCaptionText;
+            Rooms.Name = "Rooms";
+            Rooms.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Rooms, "Rooms");
+            Rooms.Click += menu_ItemClicked;
             // 
             // Services
             // 
-            resources.ApplyResources(Services, "Services");
             Services.ForeColor = SystemColors.ActiveCaptionText;
             Services.Name = "Services";
             Services.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Services, "Services");
             Services.Click += menu_ItemClicked;
             // 
             // Reviews
@@ -255,7 +255,7 @@
         private Fitness.Utilities.RoundPictureBox roundPictureBox1;
         private MenuStrip menu;
         private ToolStripMenuItem Home;
-        private ToolStripMenuItem Room;
+        private ToolStripMenuItem Rooms;
         private ToolStripMenuItem Services;
         private ToolStripMenuItem Reviews;
         private ToolStripMenuItem Users;

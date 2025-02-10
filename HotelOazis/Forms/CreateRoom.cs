@@ -125,13 +125,13 @@ namespace HotelOazis.Forms
             bool isCreated = await roomService.AddRoomAsync(roomInputModel);
             if (isCreated)
             {
-                MessageBox.Show(string.Format(CreatedSuccessfully, nameof(Room)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format(CreatedSuccessfully, nameof(Rooms)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Rooms roomsForm = new Rooms(roomService, userService);
                 Program.SwitchMainForm(roomsForm);
             }
             else
             {
-                MessageBox.Show(string.Format(CreationFailed, nameof(Room)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format(CreationFailed, nameof(Rooms)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -181,7 +181,7 @@ namespace HotelOazis.Forms
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
-            string formName = item.Text;
+            string formName = item.Name;
             Form form = new Form();
 
             switch (formName)
@@ -201,7 +201,7 @@ namespace HotelOazis.Forms
                 case "Users":
                     form = new Users(userService);
                     break;
-                case "My reservations":
+                case "MyReservations":
                     form = new Reservations(userService, roomService);
                     break;
                 case "Reservations":

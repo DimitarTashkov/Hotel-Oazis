@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 namespace HotelOazis.Forms
 {
@@ -43,8 +44,8 @@ namespace HotelOazis.Forms
 
             if (isAdmin)
             {
-                toolStripMenuItem1.Visible = true;
-                toolStripMenuItem2.Visible = true;
+                Users.Visible = true;
+                Reservation.Visible = true;
             }
 
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
@@ -79,33 +80,33 @@ namespace HotelOazis.Forms
                 reservationContainer.Controls.Add(userAvatar);
 
                 reservationContainer.Controls.Add(CreateLabel(
-                    $"Room {reservation.RoomNumber} ({reservation.RoomType})",
+                    $"{RoomNumber} {reservation.RoomNumber} ({reservation.RoomType})",
                     FontsPicker.DetailsFont.Name,
                     FontsPicker.DetailsFont.Size,
                     FontStyle.Bold));
 
                 reservationContainer.Controls.Add(CreateLabel(
-                    $"Days Reserved: {daysReserved}",
+                    $"{DaysReserved} {daysReserved}",
                     FontsPicker.DetailsFont.Name,
                     FontsPicker.DetailsFont.Size));
 
                 reservationContainer.Controls.Add(CreateLabel(
-                    $"Total Price: ${totalPrice}",
+                    $"{Price} ${totalPrice}",
                     FontsPicker.DetailsFont.Name,
                     FontsPicker.DetailsFont.Size));
 
                 reservationContainer.Controls.Add(CreateLabel(
-                    $"Check-in: {reservation.CheckInDate:yyyy-MM-dd} \nCheck-out: {reservation.CheckOutDate:yyyy-MM-dd}",
+                    $"{CheckIn} {reservation.CheckInDate:yyyy-MM-dd} \n{CheckOut} {reservation.CheckOutDate:yyyy-MM-dd}",
                     FontsPicker.DetailsFont.Name,
                     FontsPicker.DetailsFont.Size));
 
                 reservationContainer.Controls.Add(CreateLabel(
-                    $"Reserved by: {reservation.Username}",
+                    $"{ReservedBy} {reservation.Username}",
                     FontsPicker.DetailsFont.Name,
                     FontsPicker.DetailsFont.Size));
 
                 Button cancelReservationButton = CreateButton(
-                    "Cancel",
+                    $"{Cancel}",
                     Color.Red,
                     Color.White,
                     100,
@@ -168,7 +169,7 @@ namespace HotelOazis.Forms
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
-            string formName = item.Text;
+            string formName = item.Name;
             Form form = new Form();
 
             switch (formName)
@@ -188,10 +189,10 @@ namespace HotelOazis.Forms
                 case "Users":
                     form = new Users(userService);
                     break;
-                case "My reservations":
+                case "MyReservations":
                     form = new Reservations(userService, roomService);
                     break;
-                case "Reservations":
+                case "Reservation":
                     form = new Reservations(userService, roomService);
                     break;
                 case "Home":

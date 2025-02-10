@@ -21,6 +21,9 @@ namespace HotelOazis.Utilities
             public static string SendReview => LanguageChanger.GetLanguage() == BgLanguage ? "Изпрати" : "Send";
 
             public static string Reserve => LanguageChanger.GetLanguage() == BgLanguage ? "Резервирай" : "Reserve";
+            public static string ReservedBy => LanguageChanger.GetLanguage() == BgLanguage ? "Резервирано от:" : "Reserved by:";
+            public static string Cancel => LanguageChanger.GetLanguage() == BgLanguage ? "Откажи" : "Cancel";
+
             public static string Edit => LanguageChanger.GetLanguage() == BgLanguage ? "Редактирай" : "Edit";
             public static string Delete => LanguageChanger.GetLanguage() == BgLanguage ? "Изтрий" : "Delete";
             public static string Available => LanguageChanger.GetLanguage() == BgLanguage ? "Налична:" : "Available:";
@@ -28,6 +31,11 @@ namespace HotelOazis.Utilities
             public static string IsNotAvailable => LanguageChanger.GetLanguage() == BgLanguage ? "Не" : "No";
 
             public static string RoomNumber => LanguageChanger.GetLanguage() == BgLanguage ? "Стая:" : "Room:";
+            public static string DaysReserved => LanguageChanger.GetLanguage() == BgLanguage ? "Резервирани дни:" : "Days Reserved:";
+            public static string Price => LanguageChanger.GetLanguage() == BgLanguage ? "Цена:" : "Total price:";
+            public static string CheckIn => LanguageChanger.GetLanguage() == BgLanguage ? "Настаняване:" : "Check in:";
+            public static string CheckOut => LanguageChanger.GetLanguage() == BgLanguage ? "Напускане:" : "Check out:";
+
             public static string RoomType => LanguageChanger.GetLanguage() == BgLanguage ? "Тип:" : "Type:";
             public static string Error => LanguageChanger.GetLanguage() == BgLanguage ? "Грешка" : "Error";
             public static string Success => LanguageChanger.GetLanguage() == BgLanguage ? "Успех" : "Success";

@@ -131,8 +131,9 @@ namespace HotelOazis.Forms
             textBox.Font = FontsPicker.BaseFont;
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private async void Login_Load(object sender, EventArgs e)
         {
+            await SeedAdmin.SeedAdminUserAsync();
 
         }
 

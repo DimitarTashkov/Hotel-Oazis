@@ -14,6 +14,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static HotelOazis.Utilities.DynamicContentTranslator;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 namespace HotelOazis.Forms
 {
@@ -119,9 +121,10 @@ namespace HotelOazis.Forms
                 Button edit = new Button
                 {
                     Name = $"edit{index}",
-                    Text = "Edit",
+                    Text = EntitiesTranslation.Update,
                     Font = FontsPicker.DetailsFont,
                     BackColor = Color.LightGray,
+                    AutoSize = true,
                     Margin = new Padding(330, 0, 0, 0)
                 };
 
@@ -134,9 +137,10 @@ namespace HotelOazis.Forms
                 Button delete = new Button
                 {
                     Name = $"delete{index}",
-                    Text = "Delete",
+                    Text = Delete,
                     Font = FontsPicker.DetailsFont,
                     BackColor = Color.Red,
+                    AutoSize = true,
                     Margin = new Padding(330, 10, 0, 0)
                 };
 
@@ -167,7 +171,7 @@ namespace HotelOazis.Forms
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
-            string formName = item.Text;
+            string formName = item.Name;
             Form form = new Form();
 
             switch (formName)
@@ -184,10 +188,10 @@ namespace HotelOazis.Forms
                 case "Profile":
                     form = new Profile(userService);
                     break;
-                case "Users":
+                case "User":
                     form = new Users(userService);
                     break;
-                case "My reservations":
+                case "MyReservations":
                     form = new Reservations(userService, roomService);
                     break;
                 case "Reservations":

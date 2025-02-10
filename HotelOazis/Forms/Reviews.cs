@@ -114,7 +114,7 @@ namespace HotelOazis.Forms
                 Button editReview = new Button
                 {
                     Name = $"editBtn{index}",
-                    Text = UpdateReview,
+                    Text = DynamicContentTranslator.EntitiesTranslation.Update,
                     BackColor = Color.LightGray,
                     Font = FontsPicker.DetailsFont,
                     Location = new Point(reviewContainer.Location.X + 555, reviewContainer.Location.Y + 40),

@@ -4,6 +4,7 @@ using HotelOazis.Models.DbConfiguration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelOazis.Migrations
 {
     [DbContext(typeof(HotelContext))]
-    partial class HotelContextModelSnapshot : ModelSnapshot
+    [Migration("20250219153830_seedData")]
+    partial class seedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,83 +54,83 @@ namespace HotelOazis.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b12ee2fe-7734-4ce9-89e6-def4db28be77"),
-                            CheckInDate = new DateTime(2025, 2, 20, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(518),
-                            CheckOutDate = new DateTime(2025, 3, 8, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(528),
-                            RoomId = new Guid("2a8738e1-49b3-4bc7-a66c-2b288553a186"),
-                            UserId = new Guid("a751c353-65a2-4071-908f-eaac110f174a")
+                            Id = new Guid("03eb4335-6cde-4615-ab53-9f0e41396b90"),
+                            CheckInDate = new DateTime(2025, 2, 25, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6019),
+                            CheckOutDate = new DateTime(2025, 3, 5, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6029),
+                            RoomId = new Guid("926accff-5d05-458f-a382-b456276bc888"),
+                            UserId = new Guid("16130dfe-44a8-4fcd-9e85-b660abf3bd30")
                         },
                         new
                         {
-                            Id = new Guid("b177b9dc-96e4-4c1d-af1b-55ded58e6cc0"),
-                            CheckInDate = new DateTime(2025, 2, 23, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(534),
-                            CheckOutDate = new DateTime(2025, 3, 8, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(535),
-                            RoomId = new Guid("a29813fb-af91-4a35-94dd-d3a9cd79cbcc"),
-                            UserId = new Guid("a751c353-65a2-4071-908f-eaac110f174a")
+                            Id = new Guid("8e645159-207f-4184-a175-c80edbd4164a"),
+                            CheckInDate = new DateTime(2025, 2, 25, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6033),
+                            CheckOutDate = new DateTime(2025, 3, 6, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6034),
+                            RoomId = new Guid("b4013462-e72b-4372-81e7-a6bb511d7575"),
+                            UserId = new Guid("16130dfe-44a8-4fcd-9e85-b660abf3bd30")
                         },
                         new
                         {
-                            Id = new Guid("1c706a82-6c42-4040-86ba-d5f00d53b3a4"),
-                            CheckInDate = new DateTime(2025, 2, 20, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(537),
-                            CheckOutDate = new DateTime(2025, 3, 10, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(537),
-                            RoomId = new Guid("868e8158-15af-4e66-bfb9-b587bcbd0341"),
-                            UserId = new Guid("7113759c-a0b6-426a-a198-eef3138f180b")
+                            Id = new Guid("a3f0599c-889e-4f5c-96f5-88b940121efd"),
+                            CheckInDate = new DateTime(2025, 2, 26, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6036),
+                            CheckOutDate = new DateTime(2025, 3, 7, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6036),
+                            RoomId = new Guid("687d1abc-8703-4e3b-8fb8-070ff692b652"),
+                            UserId = new Guid("d75bd6bf-9c77-4da2-8a0d-ca8b626634a1")
                         },
                         new
                         {
-                            Id = new Guid("9e631902-41e5-44f1-b60c-c2e251ddaa4b"),
-                            CheckInDate = new DateTime(2025, 2, 25, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(539),
-                            CheckOutDate = new DateTime(2025, 3, 2, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(539),
-                            RoomId = new Guid("41f40c30-c38d-4226-910b-a0732e5f2d7d"),
-                            UserId = new Guid("7113759c-a0b6-426a-a198-eef3138f180b")
+                            Id = new Guid("7d97f290-8721-4eaf-8ff3-506dcf5ae297"),
+                            CheckInDate = new DateTime(2025, 2, 20, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6042),
+                            CheckOutDate = new DateTime(2025, 3, 9, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6043),
+                            RoomId = new Guid("0ecdd12b-ba6a-4543-a24f-7233708a0049"),
+                            UserId = new Guid("d75bd6bf-9c77-4da2-8a0d-ca8b626634a1")
                         },
                         new
                         {
-                            Id = new Guid("3ce15e72-cf24-4625-89b8-70bfb4038f4e"),
-                            CheckInDate = new DateTime(2025, 2, 28, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(541),
-                            CheckOutDate = new DateTime(2025, 3, 5, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(542),
-                            RoomId = new Guid("b7e342e3-78f8-4efa-9220-96057a4a9235"),
-                            UserId = new Guid("f4b02a34-0e59-4cf8-90b6-de80d09f5bf8")
+                            Id = new Guid("7a8303b0-480c-485a-b1bf-4b607605092f"),
+                            CheckInDate = new DateTime(2025, 2, 23, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6045),
+                            CheckOutDate = new DateTime(2025, 3, 3, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6045),
+                            RoomId = new Guid("6a6ab7f8-94d1-4266-b1a2-be52e3492fc0"),
+                            UserId = new Guid("1c2e67d4-af46-43dc-8263-07677ecfcc05")
                         },
                         new
                         {
-                            Id = new Guid("cf0a9a8a-a797-4cad-861f-8f083a2fcae1"),
-                            CheckInDate = new DateTime(2025, 2, 24, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(545),
-                            CheckOutDate = new DateTime(2025, 3, 6, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(545),
-                            RoomId = new Guid("52cd8e0e-157c-4fdd-b58b-ab1a77025328"),
-                            UserId = new Guid("f4b02a34-0e59-4cf8-90b6-de80d09f5bf8")
+                            Id = new Guid("318bb342-0389-4106-8d53-65ce6dccc713"),
+                            CheckInDate = new DateTime(2025, 2, 26, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6048),
+                            CheckOutDate = new DateTime(2025, 3, 10, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6049),
+                            RoomId = new Guid("ad970ff0-5807-4224-bf87-3c819c40a1cf"),
+                            UserId = new Guid("1c2e67d4-af46-43dc-8263-07677ecfcc05")
                         },
                         new
                         {
-                            Id = new Guid("86987b2e-9bc9-416f-992f-876a02c73a5a"),
-                            CheckInDate = new DateTime(2025, 2, 28, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(547),
-                            CheckOutDate = new DateTime(2025, 3, 3, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(548),
-                            RoomId = new Guid("fd7057b0-3173-4830-8d91-60b12588cc5f"),
-                            UserId = new Guid("aa3f6bb0-ce24-41c0-a8a8-23faacf8601b")
+                            Id = new Guid("a0cb3055-6151-4c1b-9862-99ee45285405"),
+                            CheckInDate = new DateTime(2025, 2, 22, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6050),
+                            CheckOutDate = new DateTime(2025, 3, 9, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6051),
+                            RoomId = new Guid("2c2dd768-674f-4521-a9d9-d16fee6c9bb0"),
+                            UserId = new Guid("71fd4d6b-cbd2-4ebb-b5ee-219c3f18f559")
                         },
                         new
                         {
-                            Id = new Guid("6283b8f4-685f-4f1e-ae86-6ed93a3bb1ef"),
-                            CheckInDate = new DateTime(2025, 2, 23, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(553),
-                            CheckOutDate = new DateTime(2025, 3, 2, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(553),
-                            RoomId = new Guid("8850cdd5-0693-4b41-978c-0868310f85bd"),
-                            UserId = new Guid("aa3f6bb0-ce24-41c0-a8a8-23faacf8601b")
+                            Id = new Guid("32ad5279-2006-486c-a2c3-87e89e5629c7"),
+                            CheckInDate = new DateTime(2025, 2, 21, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6053),
+                            CheckOutDate = new DateTime(2025, 3, 6, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6053),
+                            RoomId = new Guid("be9c3511-252e-489b-954f-6acca8b6a99c"),
+                            UserId = new Guid("71fd4d6b-cbd2-4ebb-b5ee-219c3f18f559")
                         },
                         new
                         {
-                            Id = new Guid("ec46bc45-055a-4425-9176-c4eae3950b01"),
-                            CheckInDate = new DateTime(2025, 2, 24, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(555),
-                            CheckOutDate = new DateTime(2025, 3, 7, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(556),
-                            RoomId = new Guid("02ca5ab3-879d-43ee-8011-cfb9645e0eb0"),
-                            UserId = new Guid("bad94b84-51b7-4149-8c7b-47f58cb97216")
+                            Id = new Guid("17400946-4310-4442-9f19-4c2d1ac53f06"),
+                            CheckInDate = new DateTime(2025, 2, 24, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6055),
+                            CheckOutDate = new DateTime(2025, 3, 8, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6056),
+                            RoomId = new Guid("9222ec31-5f3e-42d1-92a3-1a5adb6bd9fa"),
+                            UserId = new Guid("fad98ae2-7f13-4358-8fa3-ff643da319ea")
                         },
                         new
                         {
-                            Id = new Guid("a60929cb-5e8c-4531-8829-51d5a5a5dac7"),
-                            CheckInDate = new DateTime(2025, 2, 21, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(558),
-                            CheckOutDate = new DateTime(2025, 3, 7, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(559),
-                            RoomId = new Guid("1251b1d1-a62c-4e91-80cc-7e3af0d0487f"),
-                            UserId = new Guid("bad94b84-51b7-4149-8c7b-47f58cb97216")
+                            Id = new Guid("007fe70a-dfe1-4c3f-97ae-42581f452258"),
+                            CheckInDate = new DateTime(2025, 2, 28, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6059),
+                            CheckOutDate = new DateTime(2025, 3, 3, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6059),
+                            RoomId = new Guid("761c2528-1422-4af2-a31a-016c7befa34e"),
+                            UserId = new Guid("fad98ae2-7f13-4358-8fa3-ff643da319ea")
                         });
                 });
 
@@ -163,48 +166,48 @@ namespace HotelOazis.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e71b5313-b1f2-4022-9e50-006c8b34a81b"),
+                            Id = new Guid("73dbe979-d1cf-4950-9bdf-0fd924b87f14"),
                             Message = "Amazing stay! AliceSmith had a wonderful experience.",
                             MessageStatus = 0,
-                            PublishedOn = new DateTime(2025, 2, 19, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(622),
+                            PublishedOn = new DateTime(2025, 2, 19, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6128),
                             Rating = 4,
-                            UserId = new Guid("a751c353-65a2-4071-908f-eaac110f174a")
+                            UserId = new Guid("16130dfe-44a8-4fcd-9e85-b660abf3bd30")
                         },
                         new
                         {
-                            Id = new Guid("fff76c67-2d40-40ad-a71d-2d4ad647ae06"),
+                            Id = new Guid("4d900cad-7daa-423e-90d0-bd2222754fcc"),
                             Message = "Amazing stay! BobJohnson had a wonderful experience.",
                             MessageStatus = 0,
-                            PublishedOn = new DateTime(2025, 2, 19, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(627),
-                            Rating = 5,
-                            UserId = new Guid("7113759c-a0b6-426a-a198-eef3138f180b")
+                            PublishedOn = new DateTime(2025, 2, 19, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6138),
+                            Rating = 4,
+                            UserId = new Guid("d75bd6bf-9c77-4da2-8a0d-ca8b626634a1")
                         },
                         new
                         {
-                            Id = new Guid("1ce4f88f-9d45-4449-bb00-50cf2a6212ce"),
+                            Id = new Guid("716acbfc-19c3-479a-b4a7-be7f67a6ca2a"),
                             Message = "Amazing stay! CharlieBrown had a wonderful experience.",
                             MessageStatus = 0,
-                            PublishedOn = new DateTime(2025, 2, 19, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(630),
-                            Rating = 5,
-                            UserId = new Guid("f4b02a34-0e59-4cf8-90b6-de80d09f5bf8")
+                            PublishedOn = new DateTime(2025, 2, 19, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6141),
+                            Rating = 4,
+                            UserId = new Guid("1c2e67d4-af46-43dc-8263-07677ecfcc05")
                         },
                         new
                         {
-                            Id = new Guid("bbc4cf9c-1413-4dd6-a661-d6ebeea961e4"),
+                            Id = new Guid("6dc36277-da5b-4a3c-8bf7-475783c4d645"),
                             Message = "Amazing stay! DianaWhite had a wonderful experience.",
                             MessageStatus = 0,
-                            PublishedOn = new DateTime(2025, 2, 19, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(633),
-                            Rating = 3,
-                            UserId = new Guid("aa3f6bb0-ce24-41c0-a8a8-23faacf8601b")
+                            PublishedOn = new DateTime(2025, 2, 19, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6145),
+                            Rating = 4,
+                            UserId = new Guid("71fd4d6b-cbd2-4ebb-b5ee-219c3f18f559")
                         },
                         new
                         {
-                            Id = new Guid("c818d597-779b-4775-94ea-fc1044c04cba"),
+                            Id = new Guid("a66dee05-14aa-4c0e-a077-b91b11f041a8"),
                             Message = "Amazing stay! EdwardBlack had a wonderful experience.",
                             MessageStatus = 0,
-                            PublishedOn = new DateTime(2025, 2, 19, 16, 6, 1, 266, DateTimeKind.Utc).AddTicks(636),
-                            Rating = 3,
-                            UserId = new Guid("bad94b84-51b7-4149-8c7b-47f58cb97216")
+                            PublishedOn = new DateTime(2025, 2, 19, 15, 38, 29, 893, DateTimeKind.Utc).AddTicks(6148),
+                            Rating = 4,
+                            UserId = new Guid("fad98ae2-7f13-4358-8fa3-ff643da319ea")
                         });
                 });
 
@@ -258,101 +261,101 @@ namespace HotelOazis.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2a8738e1-49b3-4bc7-a66c-2b288553a186"),
+                            Id = new Guid("926accff-5d05-458f-a382-b456276bc888"),
                             Description = "Cozy single room with a city view.",
                             IsAvailable = true,
                             Number = 101,
-                            Picture = "Resources/singleRoom1.jpg",
+                            Picture = "https://example.com/room101.jpg",
                             Price = 80.00m,
                             Type = 1
                         },
                         new
                         {
-                            Id = new Guid("a29813fb-af91-4a35-94dd-d3a9cd79cbcc"),
+                            Id = new Guid("b4013462-e72b-4372-81e7-a6bb511d7575"),
                             Description = "Spacious double room with modern amenities.",
                             IsAvailable = true,
                             Number = 102,
-                            Picture = "Resources/doubleRoom.jpg",
+                            Picture = "https://example.com/room102.jpg",
                             Price = 120.00m,
                             Type = 2
                         },
                         new
                         {
-                            Id = new Guid("868e8158-15af-4e66-bfb9-b587bcbd0341"),
+                            Id = new Guid("687d1abc-8703-4e3b-8fb8-070ff692b652"),
                             Description = "Luxury suite with a king-sized bed and ocean view.",
                             IsAvailable = true,
                             Number = 103,
-                            Picture = "Resources/tripleRoom1.jpg",
+                            Picture = "https://example.com/room103.jpg",
                             Price = 200.00m,
                             Type = 3
                         },
                         new
                         {
-                            Id = new Guid("41f40c30-c38d-4226-910b-a0732e5f2d7d"),
+                            Id = new Guid("0ecdd12b-ba6a-4543-a24f-7233708a0049"),
                             Description = "Comfortable single room with free Wi-Fi.",
                             IsAvailable = true,
                             Number = 104,
-                            Picture = "Resources/singleRoom2.jpg",
+                            Picture = "https://example.com/room104.jpg",
                             Price = 75.00m,
                             Type = 1
                         },
                         new
                         {
-                            Id = new Guid("b7e342e3-78f8-4efa-9220-96057a4a9235"),
+                            Id = new Guid("6a6ab7f8-94d1-4266-b1a2-be52e3492fc0"),
                             Description = "Elegant double room with a balcony.",
                             IsAvailable = true,
                             Number = 105,
-                            Picture = "Resources/doubleRoom2.jpg",
+                            Picture = "https://example.com/room105.jpg",
                             Price = 130.00m,
                             Type = 2
                         },
                         new
                         {
-                            Id = new Guid("52cd8e0e-157c-4fdd-b58b-ab1a77025328"),
+                            Id = new Guid("ad970ff0-5807-4224-bf87-3c819c40a1cf"),
                             Description = "Premium suite with a private hot tub.",
                             IsAvailable = true,
                             Number = 106,
-                            Picture = "Resources/quadRoom.jpg",
+                            Picture = "https://example.com/room106.jpg",
                             Price = 220.00m,
                             Type = 4
                         },
                         new
                         {
-                            Id = new Guid("fd7057b0-3173-4830-8d91-60b12588cc5f"),
+                            Id = new Guid("2c2dd768-674f-4521-a9d9-d16fee6c9bb0"),
                             Description = "Modern single room with a work desk.",
                             IsAvailable = true,
                             Number = 107,
-                            Picture = "Resources/singleRoom3.jpg",
+                            Picture = "https://example.com/room107.jpg",
                             Price = 85.00m,
                             Type = 1
                         },
                         new
                         {
-                            Id = new Guid("8850cdd5-0693-4b41-978c-0868310f85bd"),
+                            Id = new Guid("be9c3511-252e-489b-954f-6acca8b6a99c"),
                             Description = "Stylish double room with a city skyline view.",
                             IsAvailable = true,
                             Number = 108,
-                            Picture = "Resources/doubleRoom3.jpg",
+                            Picture = "https://example.com/room108.jpg",
                             Price = 140.00m,
                             Type = 2
                         },
                         new
                         {
-                            Id = new Guid("02ca5ab3-879d-43ee-8011-cfb9645e0eb0"),
+                            Id = new Guid("9222ec31-5f3e-42d1-92a3-1a5adb6bd9fa"),
                             Description = "Exclusive suite with a private lounge area.",
                             IsAvailable = true,
                             Number = 109,
-                            Picture = "Resources/familyRoom.jpg",
+                            Picture = "https://example.com/room109.jpg",
                             Price = 250.00m,
                             Type = 5
                         },
                         new
                         {
-                            Id = new Guid("1251b1d1-a62c-4e91-80cc-7e3af0d0487f"),
+                            Id = new Guid("761c2528-1422-4af2-a31a-016c7befa34e"),
                             Description = "Charming double room with artistic decor.",
                             IsAvailable = true,
                             Number = 110,
-                            Picture = "Resources/doubleRoom4.jpg",
+                            Picture = "https://example.com/room110.jpg",
                             Price = 135.00m,
                             Type = 2
                         });
@@ -381,61 +384,61 @@ namespace HotelOazis.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6e97adc4-c99e-428c-bc30-b16fb7894225"),
+                            Id = new Guid("5a1a09fc-5f29-45ed-a794-1fad24597abd"),
                             Description = "Relaxing full-body spa experience.",
                             Name = "Spa Treatment"
                         },
                         new
                         {
-                            Id = new Guid("d6c4923e-5106-4cf4-bbc6-1c7df4691566"),
+                            Id = new Guid("ee8f86ba-e261-4fd4-ba5a-6c3b383df3bd"),
                             Description = "Unlimited access to our state-of-the-art fitness center.",
                             Name = "Gym Access"
                         },
                         new
                         {
-                            Id = new Guid("2b4efcc2-43d0-4526-b909-a34c71a6119e"),
+                            Id = new Guid("4167be50-ee86-4e74-b743-8a17b053d02e"),
                             Description = "Convenient transport to and from the airport.",
                             Name = "Airport Shuttle"
                         },
                         new
                         {
-                            Id = new Guid("6e878fa7-45d9-4ab5-b4b2-60eb9678179d"),
+                            Id = new Guid("6bd7de13-2384-4040-ac4d-6f1840085062"),
                             Description = "Delicious breakfast with a variety of options.",
                             Name = "Breakfast Buffet"
                         },
                         new
                         {
-                            Id = new Guid("f7a1a02e-6306-46a1-910e-0a64c95c3d20"),
+                            Id = new Guid("03af2fd6-5231-4ef7-b7ed-c189f9a902c4"),
                             Description = "24/7 room service with gourmet meals.",
                             Name = "Room Service"
                         },
                         new
                         {
-                            Id = new Guid("0ff5f592-9d21-40b5-8aba-e30853ba565b"),
+                            Id = new Guid("9fc7af7d-4e73-430f-9b73-e1f43bcb1d6f"),
                             Description = "Same-day laundry and dry-cleaning services.",
                             Name = "Laundry Service"
                         },
                         new
                         {
-                            Id = new Guid("d66fb193-2365-4183-8906-0c790c00cf59"),
+                            Id = new Guid("f3187c2a-4d47-4378-a7b7-d56afee5980a"),
                             Description = "Guided tour of local attractions.",
                             Name = "City Tour"
                         },
                         new
                         {
-                            Id = new Guid("0a277483-efb7-4a0a-90bc-ea94b67394c2"),
+                            Id = new Guid("aaa107e9-e46f-443e-b0cc-83905fb229fc"),
                             Description = "High-speed internet available in all areas.",
                             Name = "Wi-Fi Access"
                         },
                         new
                         {
-                            Id = new Guid("4145eeed-83a8-4a07-89aa-de1e8bf373f4"),
+                            Id = new Guid("7691ecd6-b65a-47b1-8727-29e5877b10eb"),
                             Description = "Fully equipped meeting and conference facilities.",
                             Name = "Conference Room"
                         },
                         new
                         {
-                            Id = new Guid("602a96fe-cf84-45fe-ae7a-9465112384ba"),
+                            Id = new Guid("ab40bf45-beef-4675-8081-ec6a59a86219"),
                             Description = "Access to our indoor heated pool.",
                             Name = "Swimming Pool"
                         });
@@ -478,45 +481,45 @@ namespace HotelOazis.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a751c353-65a2-4071-908f-eaac110f174a"),
+                            Id = new Guid("16130dfe-44a8-4fcd-9e85-b660abf3bd30"),
                             Age = 28,
-                            AvatarUrl = "Resources/womanAvatar.jpg",
+                            AvatarUrl = "https://example.com/avatar1.jpg",
                             Email = "alice@example.com",
                             Password = "hashedpassword",
                             Username = "AliceSmith"
                         },
                         new
                         {
-                            Id = new Guid("7113759c-a0b6-426a-a198-eef3138f180b"),
+                            Id = new Guid("d75bd6bf-9c77-4da2-8a0d-ca8b626634a1"),
                             Age = 35,
-                            AvatarUrl = "Resources/manAvatar.jpg",
+                            AvatarUrl = "https://example.com/avatar2.jpg",
                             Email = "bob@example.com",
                             Password = "hashedpassword",
                             Username = "BobJohnson"
                         },
                         new
                         {
-                            Id = new Guid("f4b02a34-0e59-4cf8-90b6-de80d09f5bf8"),
+                            Id = new Guid("1c2e67d4-af46-43dc-8263-07677ecfcc05"),
                             Age = 40,
-                            AvatarUrl = "Resources/womanAvatar.jpg",
+                            AvatarUrl = "https://example.com/avatar3.jpg",
                             Email = "charlie@example.com",
                             Password = "hashedpassword",
                             Username = "CharlieBrown"
                         },
                         new
                         {
-                            Id = new Guid("aa3f6bb0-ce24-41c0-a8a8-23faacf8601b"),
+                            Id = new Guid("71fd4d6b-cbd2-4ebb-b5ee-219c3f18f559"),
                             Age = 30,
-                            AvatarUrl = "Resources/womanAvatar.jpg",
+                            AvatarUrl = "https://example.com/avatar4.jpg",
                             Email = "diana@example.com",
                             Password = "hashedpassword",
                             Username = "DianaWhite"
                         },
                         new
                         {
-                            Id = new Guid("bad94b84-51b7-4149-8c7b-47f58cb97216"),
+                            Id = new Guid("fad98ae2-7f13-4358-8fa3-ff643da319ea"),
                             Age = 33,
-                            AvatarUrl = "Resources/manAvatar.jpg",
+                            AvatarUrl = "https://example.com/avatar5.jpg",
                             Email = "edward@example.com",
                             Password = "hashedpassword",
                             Username = "EdwardBlack"

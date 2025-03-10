@@ -16,12 +16,18 @@ namespace HotelOazis.Models.DbConfiguration
             {
                 var adminRole = await context.Roles.FirstOrDefaultAsync(r => r.Name == "Admin");
 
-                if (adminRole != null)
+                if (adminRole == null)
                 {
+                    adminRole = new Role { Id = Guid.NewGuid(), Name = "Admin" };
+                    context.Roles.Add(adminRole);
+                    await context.SaveChangesAsync();
+                }
+
                     var existingAdmin = await context.Users.FirstOrDefaultAsync(u => u.Username == "\"foulcoast\"");
 
-                    if (existingAdmin == null)
-                    {
+                if (existingAdmin == null)
+                {
+
                         var adminUser = new User
                         {
                             Username = "\"foulcoast\"",
@@ -41,9 +47,10 @@ namespace HotelOazis.Models.DbConfiguration
 
                         context.UsersRoles.Add(adminUserRole);
                         await context.SaveChangesAsync();
-                    }
+                    
+                }
+
                 }
             }
         }
     }
-}

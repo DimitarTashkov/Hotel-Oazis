@@ -42,7 +42,7 @@ namespace HotelOazis.Models.DbConfiguration
                 .HasIndex(u => u.Username)
                 .IsUnique();
 
-            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string projectDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\.."));
             string resourcesFolder = Path.Combine(projectDirectory, "Resources");
 
             // Seed Rooms

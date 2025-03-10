@@ -209,6 +209,11 @@ namespace HotelOazis.Forms
 
             sendReview.Click += async (s, e) =>
             {
+                if (writeReviewTextArea.Text == string.Empty || writeReviewTextArea.Text == WriteReviewPlaceholder)
+                {
+                    MessageBox.Show("Please write a review before submitting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 var newReview = new ReviewInputModel
                 {
                     Message = writeReviewTextArea.Text,

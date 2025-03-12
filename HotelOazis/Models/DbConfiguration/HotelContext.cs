@@ -42,8 +42,8 @@ namespace HotelOazis.Models.DbConfiguration
                 .HasIndex(u => u.Username)
                 .IsUnique();
 
-            string projectDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\.."));
-            string resourcesFolder = Path.Combine(projectDirectory, "Resources");
+            string resourcesFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources");
+
 
             // Seed Rooms
             var rooms = new List<Room>

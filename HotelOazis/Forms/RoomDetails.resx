@@ -156,138 +156,6 @@
   <data name="mainContainer.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;roomContainer.Name" xml:space="preserve">
-    <value>roomContainer</value>
-  </data>
-  <data name="&gt;&gt;roomContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;roomContainer.Parent" xml:space="preserve">
-    <value>mainContainer</value>
-  </data>
-  <data name="&gt;&gt;roomContainer.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="mainContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 45</value>
-  </data>
-  <data name="mainContainer.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>30, 0, 0, 0</value>
-  </data>
-  <data name="mainContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 391</value>
-  </data>
-  <data name="mainContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;mainContainer.Name" xml:space="preserve">
-    <value>mainContainer</value>
-  </data>
-  <data name="&gt;&gt;mainContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mainContainer.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;mainContainer.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;supplementVisualsContainer.Name" xml:space="preserve">
-    <value>supplementVisualsContainer</value>
-  </data>
-  <data name="&gt;&gt;supplementVisualsContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;supplementVisualsContainer.Parent" xml:space="preserve">
-    <value>roomContainer</value>
-  </data>
-  <data name="&gt;&gt;supplementVisualsContainer.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;roomDataContainer.Name" xml:space="preserve">
-    <value>roomDataContainer</value>
-  </data>
-  <data name="&gt;&gt;roomDataContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;roomDataContainer.Parent" xml:space="preserve">
-    <value>roomContainer</value>
-  </data>
-  <data name="&gt;&gt;roomDataContainer.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="roomContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 43</value>
-  </data>
-  <data name="roomContainer.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 0, 0</value>
-  </data>
-  <data name="roomContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>717, 300</value>
-  </data>
-  <data name="roomContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;roomContainer.Name" xml:space="preserve">
-    <value>roomContainer</value>
-  </data>
-  <data name="&gt;&gt;roomContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;roomContainer.Parent" xml:space="preserve">
-    <value>mainContainer</value>
-  </data>
-  <data name="&gt;&gt;roomContainer.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;reservateBtn.Name" xml:space="preserve">
-    <value>reservateBtn</value>
-  </data>
-  <data name="&gt;&gt;reservateBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;reservateBtn.Parent" xml:space="preserve">
-    <value>supplementVisualsContainer</value>
-  </data>
-  <data name="&gt;&gt;reservateBtn.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;roomImage.Name" xml:space="preserve">
-    <value>roomImage</value>
-  </data>
-  <data name="&gt;&gt;roomImage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;roomImage.Parent" xml:space="preserve">
-    <value>supplementVisualsContainer</value>
-  </data>
-  <data name="&gt;&gt;roomImage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="supplementVisualsContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 40</value>
-  </data>
-  <data name="supplementVisualsContainer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>20, 40, 3, 3</value>
-  </data>
-  <data name="supplementVisualsContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 240</value>
-  </data>
-  <data name="supplementVisualsContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;supplementVisualsContainer.Name" xml:space="preserve">
-    <value>supplementVisualsContainer</value>
-  </data>
-  <data name="&gt;&gt;supplementVisualsContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;supplementVisualsContainer.Parent" xml:space="preserve">
-    <value>roomContainer</value>
-  </data>
-  <data name="&gt;&gt;supplementVisualsContainer.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="reservateBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 9.75pt, style=Bold, Italic</value>
   </data>
@@ -343,104 +211,29 @@
   <data name="&gt;&gt;roomImage.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;roomNumber.Name" xml:space="preserve">
-    <value>roomNumber</value>
+  <data name="supplementVisualsContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 40</value>
   </data>
-  <data name="&gt;&gt;roomNumber.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="supplementVisualsContainer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 40, 3, 3</value>
   </data>
-  <data name="&gt;&gt;roomNumber.Parent" xml:space="preserve">
-    <value>roomDataContainer</value>
+  <data name="supplementVisualsContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 240</value>
   </data>
-  <data name="&gt;&gt;roomNumber.ZOrder" xml:space="preserve">
+  <data name="supplementVisualsContainer.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;editRoomBtn.Name" xml:space="preserve">
-    <value>editRoomBtn</value>
+  <data name="&gt;&gt;supplementVisualsContainer.Name" xml:space="preserve">
+    <value>supplementVisualsContainer</value>
   </data>
-  <data name="&gt;&gt;editRoomBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;editRoomBtn.Parent" xml:space="preserve">
-    <value>roomDataContainer</value>
-  </data>
-  <data name="&gt;&gt;editRoomBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;roomDescription.Name" xml:space="preserve">
-    <value>roomDescription</value>
-  </data>
-  <data name="&gt;&gt;roomDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;roomDescription.Parent" xml:space="preserve">
-    <value>roomDataContainer</value>
-  </data>
-  <data name="&gt;&gt;roomDescription.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;roomAvaialability.Name" xml:space="preserve">
-    <value>roomAvaialability</value>
-  </data>
-  <data name="&gt;&gt;roomAvaialability.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;roomAvaialability.Parent" xml:space="preserve">
-    <value>roomDataContainer</value>
-  </data>
-  <data name="&gt;&gt;roomAvaialability.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;roomPrice.Name" xml:space="preserve">
-    <value>roomPrice</value>
-  </data>
-  <data name="&gt;&gt;roomPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;roomPrice.Parent" xml:space="preserve">
-    <value>roomDataContainer</value>
-  </data>
-  <data name="&gt;&gt;roomPrice.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;roomType.Name" xml:space="preserve">
-    <value>roomType</value>
-  </data>
-  <data name="&gt;&gt;roomType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;roomType.Parent" xml:space="preserve">
-    <value>roomDataContainer</value>
-  </data>
-  <data name="&gt;&gt;roomType.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="roomDataContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>244, 30</value>
-  </data>
-  <data name="roomDataContainer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>20, 30, 3, 3</value>
-  </data>
-  <data name="roomDataContainer.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>25, 25, 0, 0</value>
-  </data>
-  <data name="roomDataContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>450, 250</value>
-  </data>
-  <data name="roomDataContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;roomDataContainer.Name" xml:space="preserve">
-    <value>roomDataContainer</value>
-  </data>
-  <data name="&gt;&gt;roomDataContainer.Type" xml:space="preserve">
+  <data name="&gt;&gt;supplementVisualsContainer.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;roomDataContainer.Parent" xml:space="preserve">
+  <data name="&gt;&gt;supplementVisualsContainer.Parent" xml:space="preserve">
     <value>roomContainer</value>
   </data>
-  <data name="&gt;&gt;roomDataContainer.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;supplementVisualsContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="roomNumber.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -622,6 +415,81 @@
   <data name="&gt;&gt;roomType.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="roomDataContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>244, 30</value>
+  </data>
+  <data name="roomDataContainer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 30, 3, 3</value>
+  </data>
+  <data name="roomDataContainer.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>25, 25, 0, 0</value>
+  </data>
+  <data name="roomDataContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>450, 250</value>
+  </data>
+  <data name="roomDataContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;roomDataContainer.Name" xml:space="preserve">
+    <value>roomDataContainer</value>
+  </data>
+  <data name="&gt;&gt;roomDataContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;roomDataContainer.Parent" xml:space="preserve">
+    <value>roomContainer</value>
+  </data>
+  <data name="&gt;&gt;roomDataContainer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="roomContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 43</value>
+  </data>
+  <data name="roomContainer.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 0, 0, 0</value>
+  </data>
+  <data name="roomContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>717, 300</value>
+  </data>
+  <data name="roomContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;roomContainer.Name" xml:space="preserve">
+    <value>roomContainer</value>
+  </data>
+  <data name="&gt;&gt;roomContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;roomContainer.Parent" xml:space="preserve">
+    <value>mainContainer</value>
+  </data>
+  <data name="&gt;&gt;roomContainer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="mainContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 45</value>
+  </data>
+  <data name="mainContainer.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>30, 0, 0, 0</value>
+  </data>
+  <data name="mainContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>800, 391</value>
+  </data>
+  <data name="mainContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;mainContainer.Name" xml:space="preserve">
+    <value>mainContainer</value>
+  </data>
+  <data name="&gt;&gt;mainContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mainContainer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;mainContainer.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="roundPictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>750, 0</value>
   </data>
@@ -654,33 +522,6 @@
   </data>
   <data name="menu.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 12pt, style=Bold</value>
-  </data>
-  <data name="menu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="menu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 1, 0, 5</value>
-  </data>
-  <data name="menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 33</value>
-  </data>
-  <data name="menu.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="menu.Text" xml:space="preserve">
-    <value>Menu</value>
-  </data>
-  <data name="&gt;&gt;menu.Name" xml:space="preserve">
-    <value>menu</value>
-  </data>
-  <data name="&gt;&gt;menu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menu.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="Home.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 27</value>
@@ -745,6 +586,33 @@
   <data name="MyReservations.Text" xml:space="preserve">
     <value>My reservations</value>
   </data>
+  <data name="menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 1, 0, 5</value>
+  </data>
+  <data name="menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>800, 33</value>
+  </data>
+  <data name="menu.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="menu.Text" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="&gt;&gt;menu.Name" xml:space="preserve">
+    <value>menu</value>
+  </data>
+  <data name="&gt;&gt;menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menu.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -761,7 +629,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>RoomDetails</value>
+    <value>Room details</value>
   </data>
   <data name="&gt;&gt;Home.Name" xml:space="preserve">
     <value>Home</value>

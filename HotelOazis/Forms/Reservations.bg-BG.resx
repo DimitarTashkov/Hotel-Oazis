@@ -166,4 +166,7 @@
   <data name="MyReservations.Text" xml:space="preserve">
     <value>Мои резервации</value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Резервации</value>
+  </data>
 </root>

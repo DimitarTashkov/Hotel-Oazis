@@ -566,7 +566,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>EditService</value>
+    <value>Edit service</value>
   </data>
   <data name="&gt;&gt;Home.Name" xml:space="preserve">
     <value>Home</value>

@@ -163,10 +163,10 @@
   <data name="Home.Text" xml:space="preserve">
     <value>Начало</value>
   </data>
-  <data name="Room.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Rooms.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 27</value>
   </data>
-  <data name="Room.Text" xml:space="preserve">
+  <data name="Rooms.Text" xml:space="preserve">
     <value>Стаи</value>
   </data>
   <data name="Services.Size" type="System.Drawing.Size, System.Drawing">
@@ -198,5 +198,8 @@
   </data>
   <data name="MyReservations.Text" xml:space="preserve">
     <value>Мои резервации</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Информация за стая</value>
   </data>
 </root>

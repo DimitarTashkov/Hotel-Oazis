@@ -57,9 +57,9 @@
             // 
             // formPanel
             // 
-            resources.ApplyResources(formPanel, "formPanel");
             formPanel.BackColor = Color.White;
             formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
+            resources.ApplyResources(formPanel, "formPanel");
             formPanel.Controls.Add(navigationButton);
             formPanel.Controls.Add(descriptionErrors);
             formPanel.Controls.Add(nameErrors);
@@ -74,8 +74,8 @@
             // 
             // navigationButton
             // 
-            resources.ApplyResources(navigationButton, "navigationButton");
             navigationButton.BackColor = Color.DarkOrange;
+            resources.ApplyResources(navigationButton, "navigationButton");
             navigationButton.ForeColor = SystemColors.ControlText;
             navigationButton.Name = "navigationButton";
             navigationButton.UseVisualStyleBackColor = false;
@@ -103,15 +103,15 @@
             // 
             // descriptionField
             // 
-            resources.ApplyResources(descriptionField, "descriptionField");
             descriptionField.BackColor = Color.LightGray;
+            resources.ApplyResources(descriptionField, "descriptionField");
             descriptionField.ForeColor = Color.DimGray;
             descriptionField.Name = "descriptionField";
             // 
             // createBtn
             // 
-            resources.ApplyResources(createBtn, "createBtn");
             createBtn.BackColor = Color.LightGreen;
+            resources.ApplyResources(createBtn, "createBtn");
             createBtn.Name = "createBtn";
             createBtn.UseVisualStyleBackColor = false;
             createBtn.Click += createBtn_Click;
@@ -124,8 +124,8 @@
             // 
             // nameField
             // 
-            resources.ApplyResources(nameField, "nameField");
             nameField.BackColor = Color.LightGray;
+            resources.ApplyResources(nameField, "nameField");
             nameField.ForeColor = Color.DimGray;
             nameField.Name = "nameField";
             // 
@@ -137,9 +137,9 @@
             // 
             // logo
             // 
-            resources.ApplyResources(logo, "logo");
             logo.BackColor = Color.Transparent;
             logo.BackgroundImage = Properties.Resources.applogo1;
+            resources.ApplyResources(logo, "logo");
             logo.Image = Properties.Resources.applogo1;
             logo.Name = "logo";
             logo.TabStop = false;
@@ -153,31 +153,31 @@
             // 
             // menu
             // 
-            resources.ApplyResources(menu, "menu");
             menu.BackColor = SystemColors.ScrollBar;
+            resources.ApplyResources(menu, "menu");
             menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, Users, Reservations, MyReservations });
             menu.Name = "menu";
             // 
             // Home
             // 
-            resources.ApplyResources(Home, "Home");
             Home.Name = "Home";
+            resources.ApplyResources(Home, "Home");
             Home.Click += menu_ItemClicked;
             // 
             // Rooms
             // 
-            resources.ApplyResources(Rooms, "Rooms");
             Rooms.ForeColor = SystemColors.ActiveCaptionText;
             Rooms.Name = "Rooms";
             Rooms.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Rooms, "Rooms");
             Rooms.Click += menu_ItemClicked;
             // 
             // Services
             // 
-            resources.ApplyResources(Services, "Services");
             Services.ForeColor = SystemColors.ActiveCaptionText;
             Services.Name = "Services";
             Services.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Services, "Services");
             Services.Click += menu_ItemClicked;
             // 
             // Reviews

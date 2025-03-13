@@ -203,6 +203,7 @@
             resources.ApplyResources(descriptionLabel, "descriptionLabel");
             descriptionLabel.BackColor = Color.Transparent;
             descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.Click += descriptionLabel_Click;
             // 
             // priceField
             // 

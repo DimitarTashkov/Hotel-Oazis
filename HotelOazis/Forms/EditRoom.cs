@@ -14,7 +14,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.RoomMessages;
@@ -23,8 +22,6 @@ using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 using Fitness.Utilities;
 using HotelOazis.Models;
 using Fitness.Services;
-
-
 
 namespace HotelOazis.Forms
 {
@@ -36,25 +33,74 @@ namespace HotelOazis.Forms
         private readonly IRoomService roomService;
         private readonly EditRoomInputModel model;
         private User activeUser;
+
         public EditRoom(IRoomService roomService, EditRoomInputModel model)
         {
-            ActiveControl = priceLabel;
+            InitializeComponent();
             this.model = model;
             this.roomService = roomService;
             this.userService = ServiceLocator.GetService<IUserService>();
             this.facilityService = ServiceLocator.GetService<IFacilityService>();
             this.reviewService = ServiceLocator.GetService<IReviewService>();
-            this.activeUser = userService.GetLoggedInUserAsync();
 
-            InitializeComponent();
+            LoadUserDataAsync();
+            ApplyStyles();
+        }
 
-            priceField.TextChanged += EventsEffects.input_TextChanged;
-            priceField.Click += EventsEffects.clearInputs_click;
-            descriptionField.TextChanged += EventsEffects.input_TextChanged;
-            descriptionField.Click += EventsEffects.clearInputs_click;
-            roomNumberField.TextChanged += EventsEffects.input_TextChanged;
-            roomNumberField.Click += EventsEffects.clearInputs_click;
+        private void LoadUserDataAsync()
+        {
+            activeUser = userService.GetLoggedInUserAsync();
+            roundPictureBox1.ImageLocation = activeUser?.AvatarUrl;
+        }
 
+        private void ApplyStyles()
+        {
+            this.BackColor = Color.FromArgb(245, 245, 245);
+
+            // Стилове за бутони
+            uploadRoom.BackColor = Color.FromArgb(39, 174, 96);
+            uploadRoom.ForeColor = Color.White;
+            uploadRoom.FlatStyle = FlatStyle.Flat;
+            uploadRoom.FlatAppearance.BorderSize = 0;
+            uploadRoom.Font = new Font("Segoe UI", 13, FontStyle.Regular);
+            uploadRoom.MouseEnter += (s, e) => uploadRoom.BackColor = Color.FromArgb(33, 154, 82);
+            uploadRoom.MouseLeave += (s, e) => uploadRoom.BackColor = Color.FromArgb(39, 174, 96);
+
+            navigationButton.BackColor = Color.FromArgb(149, 165, 166);
+            navigationButton.ForeColor = Color.White;
+            navigationButton.FlatStyle = FlatStyle.Flat;
+            navigationButton.FlatAppearance.BorderSize = 0;
+            navigationButton.Font = new Font("Segoe UI", 13, FontStyle.Regular);
+            navigationButton.MouseEnter += (s, e) => navigationButton.BackColor = Color.FromArgb(127, 140, 141);
+            navigationButton.MouseLeave += (s, e) => navigationButton.BackColor = Color.FromArgb(149, 165, 166);
+
+            // Стилове за текстови полета
+            priceField.Font = new Font("Segoe UI", 12);
+            descriptionField.Font = new Font("Segoe UI", 12);
+            roomNumberField.Font = new Font("Segoe UI", 12);
+            priceField.BackColor = Color.White;
+            descriptionField.BackColor = Color.White;
+            roomNumberField.BackColor = Color.White;
+            priceField.BorderStyle = BorderStyle.FixedSingle;
+            descriptionField.BorderStyle = BorderStyle.FixedSingle;
+            roomNumberField.BorderStyle = BorderStyle.FixedSingle;
+
+            // Стилове за етикети
+            priceLabel.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+            descriptionLabel.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+            roomNumber.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+            priceLabel.ForeColor = Color.FromArgb(44, 62, 80);
+            descriptionLabel.ForeColor = Color.FromArgb(44, 62, 80);
+            roomNumber.ForeColor = Color.FromArgb(44, 62, 80);
+
+            // Стилове за ComboBox
+            roomTypes.Font = new Font("Segoe UI", 12);
+            roomTypes.DropDownStyle = ComboBoxStyle.DropDownList;
+            roomTypes.BackColor = Color.White;
+
+            statusBox.Font = new Font("Segoe UI", 12);
+            statusBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            statusBox.BackColor = Color.White;
         }
 
         private void EditRoom_Load(object sender, EventArgs e)
@@ -70,7 +116,6 @@ namespace HotelOazis.Forms
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
 
             roomTypes.DataSource = Enum.GetValues(typeof(RoomType));
-
             roomTypes.SelectedItem = model.Type;
             roomNumberField.Text = model.RoomNumber.ToString();
             priceField.Text = model.Price.ToString();
@@ -83,6 +128,8 @@ namespace HotelOazis.Forms
             descriptionField.ForeColor = Color.DimGray;
             statusBox.ForeColor = Color.DimGray;
             roomNumberField.ForeColor = Color.DimGray;
+            roomNumberField.ReadOnly = true;
+            roomNumberField.MouseHover += (s,e) => roomNumberField.Cursor = Cursors.No;
 
             roomTypes.Font = FontsPicker.DetailsFont;
             priceField.Font = FontsPicker.DetailsFont;
@@ -92,8 +139,8 @@ namespace HotelOazis.Forms
 
             roomTypes.DropDownStyle = ComboBoxStyle.DropDownList;
             statusBox.DropDownStyle = ComboBoxStyle.DropDownList;
-
         }
+
         private async void editButton_Click(object sender, EventArgs e)
         {
             List<TextBox> inputs = new List<TextBox>
@@ -103,8 +150,7 @@ namespace HotelOazis.Forms
                 roomNumberField
             };
             bool areInputsValid = ValidationHelper.ValidateUserInputs(inputs, roomPicture);
-            if (!areInputsValid ||
-                roomTypes.SelectedItem == null || statusBox.SelectedItem == null)
+            if (!areInputsValid || roomTypes.SelectedItem == null || statusBox.SelectedItem == null)
             {
                 MessageBox.Show(EmptyInputData, EditFailed, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -113,11 +159,6 @@ namespace HotelOazis.Forms
             bool isNumberValid = int.TryParse(roomNumberField.Text, out int roomNumber);
             roomNumber = isNumberValid ? roomNumber : await roomService.GenerateUniqueRoomNumber();
 
-            if (!await roomService.IsRoomNumberUnique(roomNumber))
-            {
-                MessageBox.Show(RoomNumberExists, EditFailed, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             decimal unparsePrice = decimal.TryParse(priceField.Text, out var price) ? price : 0;
 
@@ -184,6 +225,7 @@ namespace HotelOazis.Forms
             Rooms roomsForm = new Rooms(roomService, userService);
             Program.SwitchMainForm(roomsForm);
         }
+
         private void uploadImage_click(Object sender, EventArgs e)
         {
             String imageLocation = "";
@@ -197,14 +239,13 @@ namespace HotelOazis.Forms
                     imageLocation = dialog.FileName;
                 }
                 roomPicture.ImageLocation = imageLocation;
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(EmptyOrInvalidImage, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
+
         private void menu_ItemClicked(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
@@ -244,11 +285,16 @@ namespace HotelOazis.Forms
             }
             Program.SwitchMainForm(form);
         }
+
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
             Profile profileForm = new Profile(userService);
             Program.SwitchMainForm(profileForm);
         }
 
+        private void descriptionLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -35,6 +35,9 @@ namespace HotelOazis.Utilities
             public static string Price => LanguageChanger.GetLanguage() == BgLanguage ? "Цена:" : "Total price:";
             public static string CheckIn => LanguageChanger.GetLanguage() == BgLanguage ? "Настаняване:" : "Check in:";
             public static string CheckOut => LanguageChanger.GetLanguage() == BgLanguage ? "Напускане:" : "Check out:";
+            public static string Confirmation => LanguageChanger.GetLanguage() == BgLanguage ? "Потвърждение" : "Confirmation";
+            public static string ConfirmationMessage => LanguageChanger.GetLanguage() == BgLanguage ? "Сигурни ли сте, че искате да откажете резервацията?" : "Are you sure you want to cancel your reservation?";
+
 
             public static string RoomType => LanguageChanger.GetLanguage() == BgLanguage ? "Тип:" : "Type:";
             public static string Error => LanguageChanger.GetLanguage() == BgLanguage ? "Грешка" : "Error";

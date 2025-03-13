@@ -28,14 +28,29 @@ namespace HotelOazis.Forms
         private User activeUser;
 
         private static bool isAuthorized;
+
         public Reservations(IUserService userService, IRoomService roomService)
         {
+            InitializeComponent();
             this.userService = userService;
             this.roomService = roomService;
             this.facilityService = ServiceLocator.GetService<IFacilityService>();
             this.reviewService = ServiceLocator.GetService<IReviewService>();
-            activeUser = userService.GetLoggedInUserAsync();
-            InitializeComponent();
+
+            LoadUserDataAsync();
+            ApplyStyles();
+        }
+
+        private  void LoadUserDataAsync()
+        {
+            activeUser =  userService.GetLoggedInUserAsync();
+            roundPictureBox1.ImageLocation = activeUser?.AvatarUrl;
+        }
+
+        private void ApplyStyles()
+        {
+            this.BackColor = Color.FromArgb(245, 245, 245);
+
         }
 
         private async void Reservations_Load(object sender, EventArgs e)
@@ -51,118 +66,124 @@ namespace HotelOazis.Forms
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
             var reservations = await roomService.GetReservationsAsync();
 
+            int yOffset = 70; // Позициониране на първата резервация
+
             foreach (var reservation in reservations)
             {
                 int daysReserved = (reservation.CheckOutDate - reservation.CheckInDate).Days;
                 decimal totalPrice = reservation.PricePerNight * daysReserved;
 
-                FlowLayoutPanel reservationContainer = new FlowLayoutPanel
+                Panel reservationPanel = new Panel
                 {
-                    Name = $"reservationContainer_{reservation.Id}",
-                    Size = new Size(725, 120),
-                    Margin = new Padding(8),
-                    BackColor = Color.RosyBrown,
-                    FlowDirection = FlowDirection.TopDown,
-                    AutoSize = true,
-                    AutoSizeMode = AutoSizeMode.GrowAndShrink,
-                    WrapContents = false
+                    Size = new Size(700, 150),
+                    BackColor = Color.White,
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Location = new Point((this.Width - 700) / 2, yOffset),
+                    Padding = new Padding(10)
                 };
 
                 RoundPictureBox userAvatar = new RoundPictureBox
                 {
-                    Name = $"userAvatar_{reservation.Id}",
                     Size = new Size(50, 50),
                     ImageLocation = reservation.PictureLocation,
                     SizeMode = PictureBoxSizeMode.StretchImage,
-                    Anchor = AnchorStyles.Top | AnchorStyles.Left
+                    Location = new Point(10, 10)
                 };
+                reservationPanel.Controls.Add(userAvatar);
 
-                reservationContainer.Controls.Add(userAvatar);
-
-                reservationContainer.Controls.Add(CreateLabel(
-                    $"{RoomNumber} {reservation.RoomNumber} ({reservation.RoomType})",
-                    FontsPicker.DetailsFont.Name,
-                    FontsPicker.DetailsFont.Size,
-                    FontStyle.Bold));
-
-                reservationContainer.Controls.Add(CreateLabel(
-                    $"{DaysReserved} {daysReserved}",
-                    FontsPicker.DetailsFont.Name,
-                    FontsPicker.DetailsFont.Size));
-
-                reservationContainer.Controls.Add(CreateLabel(
-                    $"{Price} ${totalPrice}",
-                    FontsPicker.DetailsFont.Name,
-                    FontsPicker.DetailsFont.Size));
-
-                reservationContainer.Controls.Add(CreateLabel(
-                    $"{CheckIn} {reservation.CheckInDate:yyyy-MM-dd} \n{CheckOut} {reservation.CheckOutDate:yyyy-MM-dd}",
-                    FontsPicker.DetailsFont.Name,
-                    FontsPicker.DetailsFont.Size));
-
-                reservationContainer.Controls.Add(CreateLabel(
-                    $"{ReservedBy} {reservation.Username}",
-                    FontsPicker.DetailsFont.Name,
-                    FontsPicker.DetailsFont.Size));
-
-                Button cancelReservationButton = CreateButton(
-                    $"{Cancel}",
-                    Color.Red,
-                    Color.White,
-                    100,
-                    30,
-                    $"cancelReservation_{reservation.Id}");
-                cancelReservationButton.Font = FontsPicker.DetailsFont;
-                cancelReservationButton.Anchor = AnchorStyles.None;
-                cancelReservationButton.Margin = new Padding(0);
-
-                cancelReservationButton.Click += async (s, ev) =>
+                Label roomInfoLabel = new Label
                 {
-                    var confirm = MessageBox.Show("Are you sure you want to cancel this reservation?", "Confirm Cancellation", MessageBoxButtons.YesNo);
+                    Text = $"{RoomNumber} {reservation.RoomNumber} ({reservation.RoomType})",
+                    Font = new Font("Segoe UI", 14, FontStyle.Bold),
+                    ForeColor = Color.FromArgb(44, 62, 80),
+                    AutoSize = true,
+                    Location = new Point(70, 10)
+                };
+                reservationPanel.Controls.Add(roomInfoLabel);
+
+                Label daysReservedLabel = new Label
+                {
+                    Text = $"{DaysReserved} {daysReserved}",
+                    Font = new Font("Segoe UI", 12),
+                    ForeColor = Color.FromArgb(44, 62, 80),
+                    AutoSize = true,
+                    Location = new Point(70, 40)
+                };
+                reservationPanel.Controls.Add(daysReservedLabel);
+
+                Label priceLabel = new Label
+                {
+                    Text = $"{Price} ${totalPrice}",
+                    Font = new Font("Segoe UI", 12),
+                    ForeColor = Color.FromArgb(44, 62, 80),
+                    AutoSize = true,
+                    Location = new Point(70, 60)
+                };
+                reservationPanel.Controls.Add(priceLabel);
+
+                Label checkInLabel = new Label
+                {
+                    Text = $"{CheckIn} {reservation.CheckInDate:yyyy-MM-dd}",
+                    Font = new Font("Segoe UI", 12),
+                    ForeColor = Color.FromArgb(44, 62, 80),
+                    AutoSize = true,
+                    Location = new Point(70, 80)
+                };
+                reservationPanel.Controls.Add(checkInLabel);
+
+                Label checkOutLabel = new Label
+                {
+                    Text = $"{CheckOut} {reservation.CheckOutDate:yyyy-MM-dd}",
+                    Font = new Font("Segoe UI", 12),
+                    ForeColor = Color.FromArgb(44, 62, 80),
+                    AutoSize = true,
+                    Location = new Point(70, 100)
+                };
+                reservationPanel.Controls.Add(checkOutLabel);
+
+                Label reservedByLabel = new Label
+                {
+                    Text = $"{ReservedBy} {reservation.Username}",
+                    Font = new Font("Segoe UI", 12),
+                    ForeColor = Color.FromArgb(44, 62, 80),
+                    AutoSize = true,
+                    Location = new Point(70, 120)
+                };
+                reservationPanel.Controls.Add(reservedByLabel);
+
+                Button cancelButton = new Button
+                {
+                    Text = $"{Cancel}",
+                    BackColor = Color.FromArgb(231, 76, 60),
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat,
+                    Font = new Font("Segoe UI", 10),
+                    Size = new Size(100, 30),
+                    Location = new Point(580, 110),
+                    Cursor = Cursors.Hand
+                };
+                cancelButton.Click += async (s, ev) =>
+                {
+                    var confirm = MessageBox.Show(string.Format(ConfirmationMessage), Confirmation, MessageBoxButtons.YesNo);
                     if (confirm == DialogResult.Yes)
                     {
                         bool success = await roomService.CancelReservationAsync(reservation.Id);
                         if (success)
                         {
-                            MessageBox.Show("Reservation canceled successfully.");
-                            reservationsContainer.Controls.Remove(reservationContainer);
+                            MessageBox.Show(string.Format(DeletionSuccessful, nameof(Reservation)), Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            reservationsContainer.Controls.Remove(reservationPanel);
                         }
                         else
                         {
-                            MessageBox.Show("Failed to cancel reservation. Please try again.");
+                            MessageBox.Show(string.Format(DeletionFailed, nameof(Reservation)), Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 };
+                reservationPanel.Controls.Add(cancelButton);
 
-                reservationContainer.Controls.Add(cancelReservationButton);
-
-                reservationsContainer.Controls.Add(reservationContainer);
+                reservationsContainer.Controls.Add(reservationPanel);
+                yOffset += 160; // Увеличаване на отстоянието за следващата резервация
             }
-        }
-        private Label CreateLabel(string text, string fontName, float fontSize, FontStyle fontStyle = FontStyle.Regular)
-        {
-            return new Label
-            {
-                Text = text,
-                Font = new Font(fontName, fontSize, fontStyle),
-                AutoSize = true,
-                Margin = new Padding(5),
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-        }
-
-
-        private Button CreateButton(string text, Color backColor, Color foreColor, int width, int height, string name)
-        {
-            return new Button
-            {
-                Text = text,
-                BackColor = backColor,
-                ForeColor = foreColor,
-                Size = new Size(width, height),
-                Name = name,
-                Margin = new Padding(5)
-            };
         }
 
         private void menu_ItemClicked(object sender, EventArgs e)
@@ -204,6 +225,7 @@ namespace HotelOazis.Forms
             }
             Program.SwitchMainForm(form);
         }
+
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
             Profile profileForm = new Profile(userService);

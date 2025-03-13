@@ -121,9 +121,6 @@
   <data name="reservationsContainer.Location" type="System.Drawing.Point, System.Drawing">
     <value>40, 40</value>
   </data>
-  <data name="reservationsContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>720, 400</value>
-  </data>
   <data name="Home.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 27</value>
   </data>

@@ -63,8 +63,6 @@
             serviceButton.Name = "serviceButton";
             serviceButton.UseVisualStyleBackColor = false;
             serviceButton.Click += servicesButton_Click;
-            serviceButton.MouseLeave += buttons_Leave;
-            serviceButton.MouseHover += buttons_Hover;
             // 
             // roomsButton
             // 
@@ -73,8 +71,6 @@
             roomsButton.Name = "roomsButton";
             roomsButton.UseVisualStyleBackColor = false;
             roomsButton.Click += roomsButton_Click;
-            roomsButton.MouseLeave += buttons_Leave;
-            roomsButton.MouseHover += buttons_Hover;
             // 
             // pictureBox2
             // 

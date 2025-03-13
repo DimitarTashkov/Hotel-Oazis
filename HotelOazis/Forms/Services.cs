@@ -20,9 +20,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-
 using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
-
 
 namespace HotelOazis.Forms
 {
@@ -37,17 +35,38 @@ namespace HotelOazis.Forms
 
         public Services(IFacilityService facilityService, IUserService userService)
         {
-            activeUser = userService.GetLoggedInUserAsync();
+            InitializeComponent();
             this.facilityService = facilityService;
             this.userService = userService;
             this.reviewService = ServiceLocator.GetService<IReviewService>();
             this.roomService = ServiceLocator.GetService<IRoomService>();
-            InitializeComponent();
+
+            LoadUserDataAsync();
+            ApplyStyles();
+        }
+
+        private  void LoadUserDataAsync()
+        {
+            activeUser =  userService.GetLoggedInUserAsync();
+            roundPictureBox1.ImageLocation = activeUser?.AvatarUrl;
+        }
+
+        private void ApplyStyles()
+        {
+            this.BackColor = Color.FromArgb(245, 245, 245);
+
+            addService.BackColor = Color.FromArgb(39, 174, 96);
+            addService.ForeColor = Color.White;
+            addService.FlatStyle = FlatStyle.Flat;
+            addService.FlatAppearance.BorderSize = 0;
+            addService.MouseEnter += (s, e) => addService.BackColor = Color.FromArgb(33, 154, 82);
+            addService.MouseLeave += (s, e) => addService.BackColor = Color.FromArgb(39, 174, 96);
         }
 
         private async void Services_Load(object sender, EventArgs e)
         {
             bool isAdmin = AuthorizationHelper.IsAuthorized();
+            isAuthorized = isAdmin;
 
             if (isAdmin)
             {
@@ -56,105 +75,72 @@ namespace HotelOazis.Forms
                 addService.Visible = true;
             }
 
-            roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
-
-            isAuthorized = isAdmin;
-
             await PopulateServicesAsync();
         }
+
         private async Task PopulateServicesAsync()
         {
             servicesContainer.Controls.Clear();
-            int index = 1;
             List<ServiceViewModel> services = await facilityService.GetServicesAsync();
+
+            int index = 0;
             foreach (var service in services)
             {
                 await CreateServiceControls(service, index);
-
                 index++;
             }
         }
+
         private async Task CreateServiceControls(ServiceViewModel service, int index)
         {
-            FlowLayoutPanel serviceContainer = new FlowLayoutPanel
+            Panel servicePanel = new Panel
             {
-                Name = $"serviceContainer{index}"
-                    ,
-                Size = new Size(725, 100)
-                    ,
-                Margin = new Padding(8, 8, 8, 8)
-                    ,
-                BackColor = Color.RosyBrown
-            };
-            Panel serviceCredentials = new Panel
-            {
-                Name = $"userCredentials{index}"
-                    ,
-                Size = new Size(725, 100)
-
+                Size = new Size(700, 100),
+                BackColor = Color.White,
+                Margin = new Padding(10),
+                Padding = new Padding(15)
             };
 
-            RoundPictureBox serviceIcon = new RoundPictureBox
+            PictureBox serviceIcon = new PictureBox
             {
-                Name = $"serviceIcon{index}"
-                ,
-                Size = new Size(50, 50)
-                ,
-                Image = Resources.service_icon
-                ,
-                Location = new Point(serviceContainer.Location.X, serviceContainer.Location.Y + 15)
-                ,
-                SizeMode = PictureBoxSizeMode.StretchImage
-                ,
+                Image = Resources.service_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(50, 50),
+                Location = new Point(15, 25)
             };
 
             Label serviceName = new Label
             {
-                Name = $"serviceName{index}"
-                ,
-                Text = $"{ItemName}" + " " + service.Name
-                ,
-                Font = FontsPicker.DetailsFont
-                ,
-                Location = new Point(serviceIcon.Location.X + 50, serviceIcon.Location.Y + 20)
-                ,
+                Text = service.Name,
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                ForeColor = Color.FromArgb(44, 62, 80),
+                Location = new Point(80, 20),
                 AutoSize = true
-
             };
 
             TextBox serviceDescription = new TextBox
             {
-                Name = $"serviceDescription{index}"
-                ,
-                Text = $"{ItemDescription}" + " " + service.Description
-                ,
-                Font = FontsPicker.DetailsFont
-                ,
-                Margin = new Padding(0, 5, 0, 0)
-                ,
-                Location = new Point(serviceName.Size.Width + 180, serviceIcon.Location.Y + 10)
-                ,
-                AutoSize = true
-                ,
-                Size = new Size(serviceCredentials.Size.Width - 500, serviceIcon.Location.Y + 30)
-                ,
-                Multiline = true
-                ,
-                ScrollBars = ScrollBars.Vertical
-                ,
-                ReadOnly = true
-                ,
+                Text = service.Description,
+                Font = new Font("Segoe UI", 10),
+                Location = new Point(80, 50),
+                Size = new Size(500, 40),
+                Multiline = true,
+                ReadOnly = true,
+                BorderStyle = BorderStyle.None,
+                BackColor = Color.White
             };
+
             if (isAuthorized)
             {
-                var editButton = new Button
+                Button editButton = new Button
                 {
                     Text = Edit,
-                    BackColor = Color.LightGray,
-                    Size = new Size(120, 29),
-                    Font = FontsPicker.DetailsFont,
-                    Location = new Point(serviceCredentials.Size.Width - 220, serviceIcon.Location.Y + 20)
-
+                    Font = new Font("Segoe UI", 10, FontStyle.Regular),
+                    BackColor = Color.FromArgb(149, 165, 166),
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat,
+                    Size = new Size(100, 30),
+                    Location = new Point(590, 20)
                 };
                 editButton.Click += (s, e) =>
                 {
@@ -164,21 +150,19 @@ namespace HotelOazis.Forms
                         Name = service.Name,
                         Description = service.Description
                     };
-
                     EditService editServiceForm = new EditService(facilityService, model);
                     Program.SwitchMainForm(editServiceForm);
                 };
 
-                serviceCredentials.Controls.Add(editButton);
-
-                var deleteButton = new Button
+                Button deleteButton = new Button
                 {
                     Text = Delete,
-                    BackColor = Color.Red,
-                    Size = new Size(100, 29),
-                    Font = FontsPicker.DetailsFont,
-                    Location = new Point(serviceCredentials.Size.Width - 100, serviceIcon.Location.Y + 20)
-
+                    Font = new Font("Segoe UI", 10, FontStyle.Regular),
+                    BackColor = Color.FromArgb(231, 76, 60),
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat,
+                    Size = new Size(100, 30),
+                    Location = new Point(590, 60)
                 };
                 deleteButton.Click += async (s, e) =>
                 {
@@ -193,14 +177,16 @@ namespace HotelOazis.Forms
                         MessageBox.Show(string.Format(DeletionFailed, nameof(Models.Service)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 };
-                serviceCredentials.Controls.Add(deleteButton);
-            }
-            serviceCredentials.Controls.Add(serviceIcon);
-            serviceCredentials.Controls.Add(serviceName);
-            serviceCredentials.Controls.Add(serviceDescription);
 
-            serviceContainer.Controls.Add(serviceCredentials);
-            servicesContainer.Controls.Add(serviceContainer);
+                servicePanel.Controls.Add(editButton);
+                servicePanel.Controls.Add(deleteButton);
+            }
+
+            servicePanel.Controls.Add(serviceIcon);
+            servicePanel.Controls.Add(serviceName);
+            servicePanel.Controls.Add(serviceDescription);
+
+            servicesContainer.Controls.Add(servicePanel);
         }
 
         private void addService_Click(object sender, EventArgs e)
@@ -214,6 +200,7 @@ namespace HotelOazis.Forms
             Index indexForm = new Index(userService);
             Program.SwitchMainForm(indexForm);
         }
+
         private void menu_ItemClicked(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
@@ -253,6 +240,7 @@ namespace HotelOazis.Forms
             }
             Program.SwitchMainForm(form);
         }
+
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
             Profile profileForm = new Profile(userService);

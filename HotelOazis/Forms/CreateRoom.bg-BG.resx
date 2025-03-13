@@ -152,10 +152,10 @@
     <value>*Тип</value>
   </data>
   <data name="roomLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>181, -2</value>
+    <value>197, -7</value>
   </data>
   <data name="roomLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 25</value>
+    <value>248, 30</value>
   </data>
   <data name="roomLabel.Text" xml:space="preserve">
     <value>Информация за стаята</value>

@@ -66,9 +66,9 @@
             // 
             // formPanel
             // 
+            resources.ApplyResources(formPanel, "formPanel");
             formPanel.BackColor = SystemColors.Control;
             formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
-            resources.ApplyResources(formPanel, "formPanel");
             formPanel.Controls.Add(roomNumberErrors);
             formPanel.Controls.Add(roomNumberField);
             formPanel.Controls.Add(roomNumber);
@@ -98,8 +98,8 @@
             // 
             // roomNumberField
             // 
-            roomNumberField.BackColor = Color.LightGray;
             resources.ApplyResources(roomNumberField, "roomNumberField");
+            roomNumberField.BackColor = Color.LightGray;
             roomNumberField.ForeColor = Color.DimGray;
             roomNumberField.Name = "roomNumberField";
             // 
@@ -138,8 +138,8 @@
             // 
             // navigationButton
             // 
-            navigationButton.BackColor = Color.DarkOrange;
             resources.ApplyResources(navigationButton, "navigationButton");
+            navigationButton.BackColor = Color.DarkOrange;
             navigationButton.Name = "navigationButton";
             navigationButton.UseVisualStyleBackColor = false;
             navigationButton.Click += navigationButton_Click;
@@ -152,8 +152,8 @@
             // 
             // uploadRoom
             // 
-            uploadRoom.BackColor = Color.LightGreen;
             resources.ApplyResources(uploadRoom, "uploadRoom");
+            uploadRoom.BackColor = Color.LightGreen;
             uploadRoom.Name = "uploadRoom";
             uploadRoom.UseVisualStyleBackColor = false;
             uploadRoom.Click += createButton_Click;
@@ -167,8 +167,8 @@
             // 
             // descriptionField
             // 
-            descriptionField.BackColor = Color.LightGray;
             resources.ApplyResources(descriptionField, "descriptionField");
+            descriptionField.BackColor = Color.LightGray;
             descriptionField.ForeColor = Color.DimGray;
             descriptionField.Name = "descriptionField";
             // 
@@ -180,8 +180,8 @@
             // 
             // priceField
             // 
-            priceField.BackColor = Color.LightGray;
             resources.ApplyResources(priceField, "priceField");
+            priceField.BackColor = Color.LightGray;
             priceField.ForeColor = Color.DimGray;
             priceField.Name = "priceField";
             // 
@@ -199,9 +199,9 @@
             // 
             // logo
             // 
+            resources.ApplyResources(logo, "logo");
             logo.BackColor = Color.Transparent;
             logo.BackgroundImage = Properties.Resources.applogo1;
-            resources.ApplyResources(logo, "logo");
             logo.Image = Properties.Resources.applogo1;
             logo.Name = "logo";
             logo.TabStop = false;
@@ -221,31 +221,31 @@
             // 
             // menu
             // 
-            menu.BackColor = SystemColors.ScrollBar;
             resources.ApplyResources(menu, "menu");
+            menu.BackColor = SystemColors.ScrollBar;
             menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, Users, Reservations, MyReservations });
             menu.Name = "menu";
             // 
             // Home
             // 
-            Home.Name = "Home";
             resources.ApplyResources(Home, "Home");
+            Home.Name = "Home";
             Home.Click += menu_ItemClicked;
             // 
             // Rooms
             // 
+            resources.ApplyResources(Rooms, "Rooms");
             Rooms.ForeColor = SystemColors.ActiveCaptionText;
             Rooms.Name = "Rooms";
             Rooms.Padding = new Padding(4, 0, 4, 5);
-            resources.ApplyResources(Rooms, "Rooms");
             Rooms.Click += menu_ItemClicked;
             // 
             // Services
             // 
+            resources.ApplyResources(Services, "Services");
             Services.ForeColor = SystemColors.ActiveCaptionText;
             Services.Name = "Services";
             Services.Padding = new Padding(4, 0, 4, 5);
-            resources.ApplyResources(Services, "Services");
             Services.Click += menu_ItemClicked;
             // 
             // Reviews

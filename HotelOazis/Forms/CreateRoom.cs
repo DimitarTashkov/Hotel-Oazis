@@ -15,8 +15,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.RoomMessages;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
@@ -31,26 +31,70 @@ namespace HotelOazis.Forms
         private readonly IUserService userService;
         private readonly IReviewService reviewService;
         private readonly IRoomService roomService;
-
         private User activeUser;
 
         public CreateRoom(IRoomService roomService)
         {
             InitializeComponent();
-
             this.roomService = roomService;
             userService = ServiceLocator.GetService<IUserService>();
             facilityService = ServiceLocator.GetService<IFacilityService>();
             reviewService = ServiceLocator.GetService<IReviewService>();
-            activeUser = userService.GetLoggedInUserAsync();
 
-            priceField.TextChanged += EventsEffects.input_TextChanged;
-            priceField.Click += EventsEffects.clearInputs_click;
-            descriptionField.TextChanged += EventsEffects.input_TextChanged;
-            descriptionField.Click += EventsEffects.clearInputs_click;
-            roomNumberField.TextChanged += EventsEffects.input_TextChanged;
-            roomNumberField.Click += EventsEffects.clearInputs_click;
+            LoadUserDataAsync();
+            ApplyStyles();
+        }
 
+        private  void LoadUserDataAsync()
+        {
+            activeUser =  userService.GetLoggedInUserAsync();
+            roundPictureBox1.ImageLocation = activeUser?.AvatarUrl;
+        }
+
+        private void ApplyStyles()
+        {
+            this.BackColor = Color.FromArgb(245, 245, 245);
+
+            // Стилове за бутони
+            uploadRoom.BackColor = Color.FromArgb(39, 174, 96);
+            uploadRoom.ForeColor = Color.White;
+            uploadRoom.FlatStyle = FlatStyle.Flat;
+            uploadRoom.FlatAppearance.BorderSize = 0;
+            uploadRoom.Font = new Font("Segoe UI", 13, FontStyle.Regular);
+            uploadRoom.MouseEnter += (s, e) => uploadRoom.BackColor = Color.FromArgb(33, 154, 82);
+            uploadRoom.MouseLeave += (s, e) => uploadRoom.BackColor = Color.FromArgb(39, 174, 96);
+
+            navigationButton.BackColor = Color.FromArgb(149, 165, 166);
+            navigationButton.ForeColor = Color.White;
+            navigationButton.FlatStyle = FlatStyle.Flat;
+            navigationButton.FlatAppearance.BorderSize = 0;
+            navigationButton.Font = new Font("Segoe UI", 13, FontStyle.Regular);
+            navigationButton.MouseEnter += (s, e) => navigationButton.BackColor = Color.FromArgb(127, 140, 141);
+            navigationButton.MouseLeave += (s, e) => navigationButton.BackColor = Color.FromArgb(149, 165, 166);
+
+            // Стилове за текстови полета
+            priceField.Font = new Font("Segoe UI", 12);
+            descriptionField.Font = new Font("Segoe UI", 12);
+            roomNumberField.Font = new Font("Segoe UI", 12);
+            priceField.BackColor = Color.White;
+            descriptionField.BackColor = Color.White;
+            roomNumberField.BackColor = Color.White;
+            priceField.BorderStyle = BorderStyle.FixedSingle;
+            descriptionField.BorderStyle = BorderStyle.FixedSingle;
+            roomNumberField.BorderStyle = BorderStyle.FixedSingle;
+
+            // Стилове за етикети
+            priceLabel.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+            descriptionLabel.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+            roomNumber.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+            priceLabel.ForeColor = Color.FromArgb(44, 62, 80);
+            descriptionLabel.ForeColor = Color.FromArgb(44, 62, 80);
+            roomNumber.ForeColor = Color.FromArgb(44, 62, 80);
+
+            // Стилове за ComboBox
+            roomTypes.Font = new Font("Segoe UI", 12);
+            roomTypes.DropDownStyle = ComboBoxStyle.DropDownList;
+            roomTypes.BackColor = Color.White;
         }
 
         private async void createButton_Click(object sender, EventArgs e)
@@ -69,6 +113,7 @@ namespace HotelOazis.Forms
                 MessageBox.Show(EmptyInputData, "Room Creation Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             bool isNumberValid = int.TryParse(roomNumberField.Text, out int roomNumber);
             roomNumber = isNumberValid ? roomNumber : await roomService.GenerateUniqueRoomNumber();
 
@@ -125,13 +170,13 @@ namespace HotelOazis.Forms
             bool isCreated = await roomService.AddRoomAsync(roomInputModel);
             if (isCreated)
             {
-                MessageBox.Show(string.Format(CreatedSuccessfully, nameof(Rooms)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format(CreatedSuccessfully, nameof(Rooms)), Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Rooms roomsForm = new Rooms(roomService, userService);
                 Program.SwitchMainForm(roomsForm);
             }
             else
             {
-                MessageBox.Show(string.Format(CreationFailed, nameof(Rooms)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format(CreationFailed, nameof(Rooms)), Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -140,6 +185,7 @@ namespace HotelOazis.Forms
             Rooms roomsForm = new Rooms(roomService, userService);
             Program.SwitchMainForm(roomsForm);
         }
+
         private void uploadImage_click(Object sender, EventArgs e)
         {
             String imageLocation = "";
@@ -153,13 +199,11 @@ namespace HotelOazis.Forms
                     imageLocation = dialog.FileName;
                 }
                 roomPicture.ImageLocation = imageLocation;
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(EmptyOrInvalidImage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void CreateRoom_Load(object sender, EventArgs e)
@@ -175,8 +219,8 @@ namespace HotelOazis.Forms
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
             roomTypes.DataSource = Enum.GetValues(typeof(RoomType));
             roomTypes.DropDownStyle = ComboBoxStyle.DropDownList;
-
         }
+
         private void menu_ItemClicked(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
@@ -216,11 +260,11 @@ namespace HotelOazis.Forms
             }
             Program.SwitchMainForm(form);
         }
+
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
             Profile profileForm = new Profile(userService);
             Program.SwitchMainForm(profileForm);
         }
-
     }
 }

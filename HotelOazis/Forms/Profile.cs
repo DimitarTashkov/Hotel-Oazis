@@ -14,7 +14,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using static HotelOazis.Common.Messages.ResultMessages.UserMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
@@ -33,17 +32,85 @@ namespace HotelOazis.Forms
         private readonly IReviewService reviewService;
         private readonly IRoomService roomService;
 
-
         public Profile(IUserService userService)
         {
-            ActiveControl = usernameLabel;
-
             InitializeComponent();
-            activeUser = userService.GetLoggedInUserAsync();
             this.userService = userService;
             this.facilityService = ServiceLocator.GetService<IFacilityService>();
             this.reviewService = ServiceLocator.GetService<IReviewService>();
             this.roomService = ServiceLocator.GetService<IRoomService>();
+
+            LoadUserDataAsync();
+            ApplyStyles();
+        }
+
+        private  void LoadUserDataAsync()
+        {
+            activeUser =  userService.GetLoggedInUserAsync();
+            roundPictureBox1.ImageLocation = activeUser?.AvatarUrl;
+        }
+        private void navigationButton_Click(object sender, EventArgs e)
+        {
+            Index indexForm = new Index(userService);
+            Program.SwitchMainForm(indexForm);
+        }
+
+        private void ApplyStyles()
+        {
+            this.BackColor = Color.FromArgb(245, 245, 245);
+            navigationButton.Font = new Font("Segoe UI", 13, FontStyle.Regular);
+            navigationButton.ForeColor = Color.White;
+
+            // Стилове за текстови полета
+            usernameField.Font = new Font("Segoe UI", 11);
+            passwordField.Font = new Font("Segoe UI", 11);
+            emailField.Font = new Font("Segoe UI", 11);
+            ageField.Font = new Font("Segoe UI", 11);
+            usernameField.BackColor = Color.White;
+            passwordField.BackColor = Color.White;
+            emailField.BackColor = Color.White;
+            ageField.BackColor = Color.White;
+            usernameField.BorderStyle = BorderStyle.FixedSingle;
+            passwordField.BorderStyle = BorderStyle.FixedSingle;
+            emailField.BorderStyle = BorderStyle.FixedSingle;
+            ageField.BorderStyle = BorderStyle.FixedSingle;        
+
+            // Стилове за бутони
+            editButton.BackColor = Color.FromArgb(39, 174, 96);
+            editButton.ForeColor = Color.White;
+            editButton.FlatStyle = FlatStyle.Flat;
+            editButton.FlatAppearance.BorderSize = 0;
+            editButton.Font = new Font("Segoe UI", 13, FontStyle.Regular);
+            editButton.MouseEnter += (s, e) => editButton.BackColor = Color.FromArgb(33, 154, 82);
+            editButton.MouseLeave += (s, e) => editButton.BackColor = Color.FromArgb(39, 174, 96);
+
+            saveButton.BackColor = Color.FromArgb(39, 174, 96);
+            saveButton.ForeColor = Color.White;
+            saveButton.FlatStyle = FlatStyle.Flat;
+            saveButton.FlatAppearance.BorderSize = 0;
+            saveButton.Font = new Font("Segoe UI", 13, FontStyle.Regular);
+            saveButton.MouseEnter += (s, e) => saveButton.BackColor = Color.FromArgb(33, 154, 82);
+            saveButton.MouseLeave += (s, e) => saveButton.BackColor = Color.FromArgb(39, 174, 96);
+            saveButton.Visible = false;
+
+            deleteButton.BackColor = Color.FromArgb(231, 76, 60);
+            deleteButton.ForeColor = Color.White;
+            deleteButton.FlatStyle = FlatStyle.Flat;
+            deleteButton.FlatAppearance.BorderSize = 0;
+            deleteButton.Font = new Font("Segoe UI", 13, FontStyle.Regular);
+            deleteButton.MouseEnter += (s, e) => deleteButton.BackColor = Color.FromArgb(200, 50, 50);
+            deleteButton.MouseLeave += (s, e) => deleteButton.BackColor = Color.FromArgb(231, 76, 60);
+
+            logoutButton.BackColor = Color.FromArgb(149, 165, 166);
+            logoutButton.ForeColor = Color.White;
+            logoutButton.FlatStyle = FlatStyle.Flat;
+            logoutButton.FlatAppearance.BorderSize = 0;
+            logoutButton.Font = new Font("Segoe UI", 13, FontStyle.Regular);
+            logoutButton.MouseEnter += (s, e) => logoutButton.BackColor = Color.FromArgb(127, 140, 141);
+            logoutButton.MouseLeave += (s, e) => logoutButton.BackColor = Color.FromArgb(149, 165, 166);
+
+            uploadButton.Click += uploadImage_click;
+
         }
 
         private void Profile_Load(object sender, EventArgs e)
@@ -59,11 +126,7 @@ namespace HotelOazis.Forms
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
 
             usernameField.Text = activeUser.Username;
-            foreach (var character in activeUser.Password)
-            {
-                passwordField.Text += "*";
-            }
-
+            passwordField.Text = new string('*', activeUser.Password.Length);
             emailField.Text = activeUser.Email;
             ageField.Text = activeUser.Age.ToString();
             profilePicture.ImageLocation = activeUser.AvatarUrl;
@@ -73,10 +136,6 @@ namespace HotelOazis.Forms
             usernameField.ForeColor = Color.DimGray;
             passwordField.ForeColor = Color.DimGray;
 
-            emailField.Font = FontsPicker.DetailsFont;
-            ageField.Font = FontsPicker.DetailsFont;
-            usernameField.Font = FontsPicker.DetailsFont;
-            passwordField.Font = FontsPicker.DetailsFont;
         }
 
         private async void saveButton_Click(object sender, EventArgs e)
@@ -99,7 +158,7 @@ namespace HotelOazis.Forms
                 Username = usernameField.Text.Trim(),
                 Email = emailField.Text.Trim(),
                 AvatarUrl = profilePicture.ImageLocation,
-                Password = passwordField.Text, 
+                Password = passwordField.Text,
                 Age = ValidationHelper.ValidateUserAge(ageField)
             };
 
@@ -144,6 +203,7 @@ namespace HotelOazis.Forms
                 MessageBox.Show(ProfileUpdateFailed, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void uploadImage_click(Object sender, EventArgs e)
         {
             String imageLocation = "";
@@ -157,26 +217,14 @@ namespace HotelOazis.Forms
                     imageLocation = dialog.FileName;
                 }
                 profilePicture.ImageLocation = imageLocation;
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(EmptyOrInvalidImage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
 
-        }
-        private void clearInputs_click(object sender, EventArgs e)
-        {
-            TextBox textbox = sender as TextBox;
-            textbox.Text = "";
-        }
-        private void input_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            textBox.ForeColor = Color.Black;
-            textBox.Font = FontsPicker.BaseFont;
-        }
         private void editButton_Click(object sender, EventArgs e)
         {
             editButton.Visible = false;
@@ -194,26 +242,22 @@ namespace HotelOazis.Forms
             uploadButton.Enabled = true;
 
             ActiveControl = usernameField;
-
         }
+
         private void logoutButton_Click(object sender, EventArgs e)
         {
             userService.LogoutUser();
             Login loginForm = new Login(userService);
             Program.SwitchMainForm(loginForm);
         }
-        private void navigationButton_Click(object sender, EventArgs e)
-        {
-            Index indexForm = new Index(userService);
-            Program.SwitchMainForm(indexForm);
-        }
+
         private async void deleteButton_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show(
-        ProfileDeleteWarning,
-        "Confirm Deletion",
-        MessageBoxButtons.YesNo,
-        MessageBoxIcon.Warning);
+                ProfileDeleteWarning,
+                "Confirm Deletion",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
 
             if (confirmResult == DialogResult.Yes)
             {
@@ -231,6 +275,7 @@ namespace HotelOazis.Forms
                 }
             }
         }
+
         private void menu_ItemClicked(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
@@ -270,6 +315,7 @@ namespace HotelOazis.Forms
             }
             Program.SwitchMainForm(form);
         }
+
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
             Profile profileForm = new Profile(userService);

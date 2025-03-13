@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="logoutButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>474, 356</value>
+  </data>
   <data name="logoutButton.Text" xml:space="preserve">
     <value>Излез от акаунт</value>
   </data>
@@ -132,42 +136,71 @@
   <data name="editButton.Text" xml:space="preserve">
     <value>Редактирай</value>
   </data>
+  <data name="uploadButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt, style=Bold</value>
+  </data>
   <data name="uploadButton.Text" xml:space="preserve">
     <value>Качи снимка</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ageLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 14.25pt, style=Bold</value>
+  </data>
+  <data name="ageLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>152, 241</value>
+  </data>
   <data name="ageLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 18</value>
+    <value>85, 25</value>
   </data>
   <data name="ageLabel.Text" xml:space="preserve">
     <value>Възраст</value>
   </data>
+  <data name="emailLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 14.25pt, style=Bold</value>
+  </data>
+  <data name="emailLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>152, 172</value>
+  </data>
   <data name="emailLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 18</value>
+    <value>84, 25</value>
   </data>
   <data name="emailLabel.Text" xml:space="preserve">
     <value>*Имейл</value>
   </data>
+  <data name="passwordLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 14.25pt, style=Bold</value>
+  </data>
+  <data name="passwordLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>152, 104</value>
+  </data>
   <data name="passwordLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 18</value>
+    <value>91, 25</value>
   </data>
   <data name="passwordLabel.Text" xml:space="preserve">
     <value>*Парола</value>
   </data>
+  <data name="usernameLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 14.25pt, style=Bold</value>
+  </data>
+  <data name="usernameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>152, 36</value>
+  </data>
   <data name="usernameLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 18</value>
+    <value>207, 25</value>
   </data>
   <data name="usernameLabel.Text" xml:space="preserve">
     <value>*Потребителско име</value>
   </data>
+  <data name="profileLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15.75pt, style=Bold</value>
+  </data>
   <data name="profileLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>181, 0</value>
+    <value>279, 0</value>
   </data>
   <data name="profileLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>362, 25</value>
+    <value>97, 30</value>
   </data>
   <data name="profileLabel.Text" xml:space="preserve">
-    <value>Информация за потребителя</value>
+    <value>Профил</value>
   </data>
   <data name="Home.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 27</value>

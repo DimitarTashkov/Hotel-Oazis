@@ -69,32 +69,32 @@
             // 
             // logoutButton
             // 
-            resources.ApplyResources(logoutButton, "logoutButton");
             logoutButton.BackColor = Color.Red;
+            resources.ApplyResources(logoutButton, "logoutButton");
             logoutButton.Name = "logoutButton";
             logoutButton.UseVisualStyleBackColor = false;
             logoutButton.Click += logoutButton_Click;
             // 
             // saveButton
             // 
-            resources.ApplyResources(saveButton, "saveButton");
             saveButton.BackColor = Color.LightGreen;
+            resources.ApplyResources(saveButton, "saveButton");
             saveButton.Name = "saveButton";
             saveButton.UseVisualStyleBackColor = false;
             saveButton.Click += saveButton_Click;
             // 
             // deleteButton
             // 
-            resources.ApplyResources(deleteButton, "deleteButton");
             deleteButton.BackColor = Color.Red;
+            resources.ApplyResources(deleteButton, "deleteButton");
             deleteButton.Name = "deleteButton";
             deleteButton.UseVisualStyleBackColor = false;
             deleteButton.Click += deleteButton_Click;
             // 
             // navigationButton
             // 
-            resources.ApplyResources(navigationButton, "navigationButton");
             navigationButton.BackColor = Color.DarkOrange;
+            resources.ApplyResources(navigationButton, "navigationButton");
             navigationButton.Name = "navigationButton";
             navigationButton.UseVisualStyleBackColor = false;
             navigationButton.Click += navigationButton_Click;
@@ -107,8 +107,8 @@
             // 
             // editButton
             // 
-            resources.ApplyResources(editButton, "editButton");
             editButton.BackColor = Color.LightGray;
+            resources.ApplyResources(editButton, "editButton");
             editButton.Name = "editButton";
             editButton.UseVisualStyleBackColor = false;
             editButton.Click += editButton_Click;
@@ -121,12 +121,10 @@
             // 
             // ageField
             // 
-            resources.ApplyResources(ageField, "ageField");
             ageField.BackColor = Color.LightGray;
+            resources.ApplyResources(ageField, "ageField");
             ageField.ForeColor = Color.DimGray;
             ageField.Name = "ageField";
-            ageField.Click += clearInputs_click;
-            ageField.TextChanged += input_TextChanged;
             // 
             // ageLabel
             // 
@@ -136,12 +134,10 @@
             // 
             // emailField
             // 
-            resources.ApplyResources(emailField, "emailField");
             emailField.BackColor = Color.LightGray;
+            resources.ApplyResources(emailField, "emailField");
             emailField.ForeColor = Color.DimGray;
             emailField.Name = "emailField";
-            emailField.Click += clearInputs_click;
-            emailField.TextChanged += input_TextChanged;
             // 
             // emailLabel
             // 
@@ -151,12 +147,10 @@
             // 
             // passwordField
             // 
-            resources.ApplyResources(passwordField, "passwordField");
             passwordField.BackColor = Color.LightGray;
+            resources.ApplyResources(passwordField, "passwordField");
             passwordField.ForeColor = Color.DimGray;
             passwordField.Name = "passwordField";
-            passwordField.Click += clearInputs_click;
-            passwordField.TextChanged += input_TextChanged;
             // 
             // passwordLabel
             // 
@@ -166,12 +160,10 @@
             // 
             // usernameField
             // 
-            resources.ApplyResources(usernameField, "usernameField");
             usernameField.BackColor = Color.LightGray;
+            resources.ApplyResources(usernameField, "usernameField");
             usernameField.ForeColor = Color.DimGray;
             usernameField.Name = "usernameField";
-            usernameField.Click += clearInputs_click;
-            usernameField.TextChanged += input_TextChanged;
             // 
             // usernameLabel
             // 
@@ -181,9 +173,9 @@
             // 
             // logo
             // 
-            resources.ApplyResources(logo, "logo");
             logo.BackColor = Color.Transparent;
             logo.BackgroundImage = Properties.Resources.applogo1;
+            resources.ApplyResources(logo, "logo");
             logo.Image = Properties.Resources.applogo1;
             logo.Name = "logo";
             logo.TabStop = false;
@@ -196,9 +188,9 @@
             // 
             // formPanel
             // 
-            resources.ApplyResources(formPanel, "formPanel");
             formPanel.BackColor = SystemColors.Control;
             formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
+            resources.ApplyResources(formPanel, "formPanel");
             formPanel.Controls.Add(pfpErrors);
             formPanel.Controls.Add(emailErrors);
             formPanel.Controls.Add(passwordErrors);
@@ -259,31 +251,31 @@
             // 
             // menu
             // 
-            resources.ApplyResources(menu, "menu");
             menu.BackColor = SystemColors.ScrollBar;
+            resources.ApplyResources(menu, "menu");
             menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, Users, Reservations, MyReservations });
             menu.Name = "menu";
             // 
             // Home
             // 
-            resources.ApplyResources(Home, "Home");
             Home.Name = "Home";
+            resources.ApplyResources(Home, "Home");
             Home.Click += menu_ItemClicked;
             // 
             // Rooms
             // 
-            resources.ApplyResources(Rooms, "Rooms");
             Rooms.ForeColor = SystemColors.ActiveCaptionText;
             Rooms.Name = "Rooms";
             Rooms.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Rooms, "Rooms");
             Rooms.Click += menu_ItemClicked;
             // 
             // Services
             // 
-            resources.ApplyResources(Services, "Services");
             Services.ForeColor = SystemColors.ActiveCaptionText;
             Services.Name = "Services";
             Services.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Services, "Services");
             Services.Click += menu_ItemClicked;
             // 
             // Reviews

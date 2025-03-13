@@ -54,9 +54,9 @@
             // 
             // formPanel
             // 
-            resources.ApplyResources(formPanel, "formPanel");
             formPanel.BackColor = Color.White;
             formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
+            resources.ApplyResources(formPanel, "formPanel");
             formPanel.Controls.Add(checkOutDatePicker);
             formPanel.Controls.Add(checkInDatePicker);
             formPanel.Controls.Add(cancel);
@@ -87,8 +87,8 @@
             // 
             // reservateBtn
             // 
-            resources.ApplyResources(reservateBtn, "reservateBtn");
             reservateBtn.BackColor = Color.LightGreen;
+            resources.ApplyResources(reservateBtn, "reservateBtn");
             reservateBtn.Name = "reservateBtn";
             reservateBtn.UseVisualStyleBackColor = false;
             reservateBtn.Click += reservateBtn_Click;
@@ -107,9 +107,9 @@
             // 
             // logo
             // 
-            resources.ApplyResources(logo, "logo");
             logo.BackColor = Color.Transparent;
             logo.BackgroundImage = Properties.Resources.applogo1;
+            resources.ApplyResources(logo, "logo");
             logo.Name = "logo";
             logo.TabStop = false;
             // 
@@ -121,31 +121,31 @@
             // 
             // menu
             // 
-            resources.ApplyResources(menu, "menu");
             menu.BackColor = SystemColors.ScrollBar;
+            resources.ApplyResources(menu, "menu");
             menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, Users, Reservations, MyReservations });
             menu.Name = "menu";
             // 
             // Home
             // 
-            resources.ApplyResources(Home, "Home");
             Home.Name = "Home";
+            resources.ApplyResources(Home, "Home");
             Home.Click += menu_ItemClicked;
             // 
             // Rooms
             // 
-            resources.ApplyResources(Rooms, "Rooms");
             Rooms.ForeColor = SystemColors.ActiveCaptionText;
             Rooms.Name = "Rooms";
             Rooms.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Rooms, "Rooms");
             Rooms.Click += menu_ItemClicked;
             // 
             // Services
             // 
-            resources.ApplyResources(Services, "Services");
             Services.ForeColor = SystemColors.ActiveCaptionText;
             Services.Name = "Services";
             Services.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Services, "Services");
             Services.Click += menu_ItemClicked;
             // 
             // Reviews

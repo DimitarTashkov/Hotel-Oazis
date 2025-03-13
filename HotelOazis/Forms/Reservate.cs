@@ -15,8 +15,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using static HotelOazis.Common.Messages.ErrorMessages.ReservationMessages;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 
 namespace HotelOazis.Forms
@@ -29,16 +29,54 @@ namespace HotelOazis.Forms
         private readonly IRoomService roomService;
         private readonly ReservationInputModel model;
         private User activeUser;
+
         public Reservate(IRoomService roomService, ReservationInputModel model)
         {
+            InitializeComponent();
             this.model = model;
             this.roomService = roomService;
             this.userService = ServiceLocator.GetService<IUserService>();
             this.facilityService = ServiceLocator.GetService<IFacilityService>();
             this.reviewService = ServiceLocator.GetService<IReviewService>();
-            activeUser = userService.GetLoggedInUserAsync();
-            InitializeComponent();
 
+            LoadUserDataAsync();
+            ApplyStyles();
+        }
+
+        private void LoadUserDataAsync()
+        {
+            activeUser = userService.GetLoggedInUserAsync();
+            roundPictureBox1.ImageLocation = activeUser?.AvatarUrl;
+        }
+
+        private void ApplyStyles()
+        {
+            this.BackColor = Color.FromArgb(245, 245, 245);
+
+            // Стилове за DatePicker
+            checkInDatePicker.Font = new Font("Segoe UI", 11);
+            checkOutDatePicker.Font = new Font("Segoe UI", 11);
+
+            // Стилове за бутони
+            reservateBtn.BackColor = Color.FromArgb(39, 174, 96);
+            reservateBtn.ForeColor = Color.White;
+            reservateBtn.FlatStyle = FlatStyle.Flat;
+            reservateBtn.FlatAppearance.BorderSize = 0;
+            reservateBtn.Font = new Font("Segoe UI", 13, FontStyle.Regular);
+            reservateBtn.MouseEnter += (s, e) => reservateBtn.BackColor = Color.FromArgb(33, 154, 82);
+            reservateBtn.MouseLeave += (s, e) => reservateBtn.BackColor = Color.FromArgb(39, 174, 96);
+
+            cancel.BackColor = Color.FromArgb(149, 165, 166);
+            cancel.ForeColor = Color.White;
+            cancel.FlatStyle = FlatStyle.Flat;
+            cancel.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            cancel.MouseEnter += (s, e) => cancel.BackColor = Color.FromArgb(127, 140, 141);
+            cancel.MouseLeave += (s, e) => cancel.BackColor = Color.FromArgb(149, 165, 166);
+        }
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            Rooms roomsForm = new Rooms(roomService, userService);
+            Program.SwitchMainForm(roomsForm);
         }
 
         private async void reservateBtn_Click(object sender, EventArgs e)
@@ -53,7 +91,6 @@ namespace HotelOazis.Forms
                 return;
             }
 
-
             if (checkInDate >= checkOutDate)
             {
                 MessageBox.Show(InvalidCheckOutDate, "Reservation failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -65,17 +102,17 @@ namespace HotelOazis.Forms
             bool isCreated = await roomService.ReserveRoomAsync(model);
             if (isCreated)
             {
-                MessageBox.Show(string.Format(CreatedSuccessfully, nameof(Reservation)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format(CreatedSuccessfully, nameof(Reservation)), Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Reservations roomsForm = new Reservations(userService, roomService);
                 Program.SwitchMainForm(roomsForm);
             }
             else
             {
-                MessageBox.Show(string.Format(CreationFailed, nameof(Reservation)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format(CreationFailed, nameof(Reservation)), Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void cancel_Click(object sender, EventArgs e)
+        private void cancelBtn_Click(object sender, EventArgs e)
         {
             Rooms roomsForm = new Rooms(roomService, userService);
             Program.SwitchMainForm(roomsForm);
@@ -93,6 +130,7 @@ namespace HotelOazis.Forms
 
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
         }
+
         private void menu_ItemClicked(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
@@ -132,6 +170,7 @@ namespace HotelOazis.Forms
             }
             Program.SwitchMainForm(form);
         }
+
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
             Profile profileForm = new Profile(userService);

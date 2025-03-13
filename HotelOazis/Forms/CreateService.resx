@@ -118,349 +118,244 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="formPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="menu.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="navigationButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 11.25pt, style=Bold, Italic</value>
-  </data>
-  <data name="navigationButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="navigationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 313</value>
-  </data>
-  <data name="navigationButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 34</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="navigationButton.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="navigationButton.Text" xml:space="preserve">
-    <value>Back to services</value>
-  </data>
-  <data name="&gt;&gt;navigationButton.Name" xml:space="preserve">
-    <value>navigationButton</value>
-  </data>
-  <data name="&gt;&gt;navigationButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;navigationButton.Parent" xml:space="preserve">
-    <value>formPanel</value>
-  </data>
-  <data name="&gt;&gt;navigationButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="descriptionErrors.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="descriptionErrors.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 8.25pt, style=Bold, Italic</value>
-  </data>
-  <data name="descriptionErrors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 240</value>
-  </data>
-  <data name="descriptionErrors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 13</value>
-  </data>
-  <data name="descriptionErrors.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="descriptionErrors.Text" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="descriptionErrors.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;descriptionErrors.Name" xml:space="preserve">
-    <value>descriptionErrors</value>
-  </data>
-  <data name="&gt;&gt;descriptionErrors.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;descriptionErrors.Parent" xml:space="preserve">
-    <value>formPanel</value>
-  </data>
-  <data name="&gt;&gt;descriptionErrors.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="nameErrors.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="nameErrors.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 8.25pt, style=Bold, Italic</value>
-  </data>
-  <data name="nameErrors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 164</value>
-  </data>
-  <data name="nameErrors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 13</value>
-  </data>
-  <data name="nameErrors.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="nameErrors.Text" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="nameErrors.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;nameErrors.Name" xml:space="preserve">
-    <value>nameErrors</value>
-  </data>
-  <data name="&gt;&gt;nameErrors.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nameErrors.Parent" xml:space="preserve">
-    <value>formPanel</value>
-  </data>
-  <data name="&gt;&gt;nameErrors.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 15.75pt, style=Bold, Italic</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 0</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 25</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Service info</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>formPanel</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="descriptionField.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 12pt</value>
-  </data>
-  <data name="descriptionField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 210</value>
-  </data>
-  <data name="descriptionField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>346, 27</value>
-  </data>
-  <data name="descriptionField.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;descriptionField.Name" xml:space="preserve">
-    <value>descriptionField</value>
-  </data>
-  <data name="&gt;&gt;descriptionField.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;descriptionField.Parent" xml:space="preserve">
-    <value>formPanel</value>
-  </data>
-  <data name="&gt;&gt;descriptionField.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="createBtn.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="nameLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 12pt, style=Bold, Italic</value>
-  </data>
-  <data name="createBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 255</value>
-  </data>
-  <data name="createBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 41</value>
-  </data>
-  <data name="createBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="createBtn.Text" xml:space="preserve">
-    <value>Create</value>
-  </data>
-  <data name="&gt;&gt;createBtn.Name" xml:space="preserve">
-    <value>createBtn</value>
-  </data>
-  <data name="&gt;&gt;createBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;createBtn.Parent" xml:space="preserve">
     <value>formPanel</value>
   </data>
-  <data name="&gt;&gt;createBtn.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="Reviews.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 12pt, style=Bold</value>
   </data>
-  <data name="descriptionLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15.75pt, style=Bold</value>
   </data>
-  <data name="descriptionLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 12pt, style=Bold, Italic</value>
+  <data name="&gt;&gt;navigationButton.Name" xml:space="preserve">
+    <value>navigationButton</value>
   </data>
-  <data name="descriptionLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 182</value>
+  <data name="&gt;&gt;Reservations.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="descriptionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 18</value>
-  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="descriptionLabel.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="descriptionLabel.Text" xml:space="preserve">
-    <value>*Description</value>
+  <data name="&gt;&gt;logo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;descriptionLabel.Name" xml:space="preserve">
-    <value>descriptionLabel</value>
-  </data>
-  <data name="&gt;&gt;descriptionLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;descriptionLabel.Parent" xml:space="preserve">
-    <value>formPanel</value>
-  </data>
-  <data name="&gt;&gt;descriptionLabel.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="nameField.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 12pt</value>
-  </data>
-  <data name="nameField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 134</value>
+  <data name="createBtn.Text" xml:space="preserve">
+    <value>Create</value>
   </data>
   <data name="nameField.Size" type="System.Drawing.Size, System.Drawing">
     <value>346, 27</value>
   </data>
-  <data name="nameField.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;formPanel.Name" xml:space="preserve">
+    <value>formPanel</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Reviews.Text" xml:space="preserve">
+    <value>Reviews</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 450</value>
+  </data>
+  <data name="descriptionField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>346, 27</value>
+  </data>
+  <data name="&gt;&gt;Home.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Services.Name" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>CreateService</value>
+  </data>
+  <data name="&gt;&gt;descriptionErrors.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="nameField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>90, 134</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="roundPictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>750, 0</value>
+  </data>
+  <data name="&gt;&gt;descriptionField.Name" xml:space="preserve">
+    <value>descriptionField</value>
+  </data>
+  <data name="descriptionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 18</value>
+  </data>
+  <data name="nameErrors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 13</value>
+  </data>
+  <data name="&gt;&gt;descriptionLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="nameErrors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>90, 164</value>
+  </data>
+  <data name="&gt;&gt;menu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;navigationButton.Parent" xml:space="preserve">
+    <value>formPanel</value>
+  </data>
+  <data name="&gt;&gt;nameErrors.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nameErrors.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="&gt;&gt;nameField.Name" xml:space="preserve">
     <value>nameField</value>
   </data>
-  <data name="&gt;&gt;nameField.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nameField.Parent" xml:space="preserve">
-    <value>formPanel</value>
-  </data>
-  <data name="&gt;&gt;nameField.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="nameLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="nameLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 12pt, style=Bold, Italic</value>
-  </data>
-  <data name="nameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>225, 103</value>
-  </data>
-  <data name="nameLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 18</value>
-  </data>
-  <data name="nameLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="nameLabel.Text" xml:space="preserve">
-    <value>*Name</value>
-  </data>
-  <data name="&gt;&gt;nameLabel.Name" xml:space="preserve">
-    <value>nameLabel</value>
-  </data>
-  <data name="&gt;&gt;nameLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nameLabel.Parent" xml:space="preserve">
-    <value>formPanel</value>
-  </data>
-  <data name="&gt;&gt;nameLabel.ZOrder" xml:space="preserve">
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="logo.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="&gt;&gt;menu.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="logo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-24, -22</value>
+  <data name="&gt;&gt;createBtn.Name" xml:space="preserve">
+    <value>createBtn</value>
   </data>
-  <data name="logo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 150</value>
-  </data>
-  <data name="logo.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;logo.Name" xml:space="preserve">
-    <value>logo</value>
-  </data>
-  <data name="&gt;&gt;logo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="MyReservations.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 27</value>
   </data>
   <data name="&gt;&gt;logo.Parent" xml:space="preserve">
     <value>formPanel</value>
   </data>
+  <data name="nameField.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 12pt</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Create service</value>
+  </data>
+  <data name="&gt;&gt;Reservations.Name" xml:space="preserve">
+    <value>Reservations</value>
+  </data>
+  <data name="&gt;&gt;descriptionErrors.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="menu.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 12pt, style=Bold</value>
+  </data>
   <data name="&gt;&gt;logo.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="formPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>150, 50</value>
+  <data name="&gt;&gt;nameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="formPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>500, 350</value>
+  <data name="descriptionErrors.Text" xml:space="preserve">
+    <value>label1</value>
   </data>
-  <data name="formPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="nameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>225, 103</value>
   </data>
-  <data name="&gt;&gt;formPanel.Name" xml:space="preserve">
-    <value>formPanel</value>
+  <data name="&gt;&gt;Rooms.Name" xml:space="preserve">
+    <value>Rooms</value>
   </data>
-  <data name="&gt;&gt;formPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="descriptionField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>90, 210</value>
   </data>
-  <data name="&gt;&gt;formPanel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="nameErrors.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;formPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="roundPictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>750, 0</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
   </data>
-  <data name="roundPictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 35</value>
+  <data name="descriptionErrors.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="roundPictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
+  <data name="descriptionErrors.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="roundPictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
+  <data name="descriptionField.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="&gt;&gt;roundPictureBox1.Name" xml:space="preserve">
-    <value>roundPictureBox1</value>
+  <data name="Users.Text" xml:space="preserve">
+    <value>Users</value>
   </data>
-  <data name="&gt;&gt;roundPictureBox1.Type" xml:space="preserve">
-    <value>Fitness.Utilities.RoundPictureBox, HotelOazis, Culture=neutral, PublicKeyToken=null</value>
+  <data name="nameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 18</value>
   </data>
-  <data name="&gt;&gt;roundPictureBox1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;Reviews.Name" xml:space="preserve">
+    <value>Reviews</value>
   </data>
   <data name="&gt;&gt;roundPictureBox1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="menu.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="&gt;&gt;descriptionErrors.Parent" xml:space="preserve">
+    <value>formPanel</value>
+  </data>
+  <data name="&gt;&gt;descriptionLabel.Parent" xml:space="preserve">
+    <value>formPanel</value>
+  </data>
+  <data name="Reviews.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;Services.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="logo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 150</value>
+  </data>
+  <data name="&gt;&gt;descriptionField.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>800, 33</value>
+  </data>
+  <data name="formPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;roundPictureBox1.Type" xml:space="preserve">
+    <value>Fitness.Utilities.RoundPictureBox, HotelOazis, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="Users.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Reviews.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 27</value>
+  </data>
+  <data name="nameErrors.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="descriptionLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>223, 182</value>
+  </data>
+  <data name="logo.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="menu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 12pt, style=Bold</value>
+  <data name="navigationButton.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;nameErrors.Parent" xml:space="preserve">
+    <value>formPanel</value>
+  </data>
+  <data name="&gt;&gt;roundPictureBox1.Name" xml:space="preserve">
+    <value>roundPictureBox1</value>
+  </data>
+  <data name="descriptionErrors.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="menu.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
   </data>
   <data name="Home.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 27</value>
@@ -468,155 +363,263 @@
   <data name="Home.Text" xml:space="preserve">
     <value>Home</value>
   </data>
-  <data name="Rooms.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 27</value>
+  <data name="Services.Text" xml:space="preserve">
+    <value>Services</value>
   </data>
-  <data name="Rooms.Text" xml:space="preserve">
-    <value>Rooms</value>
+  <data name="nameErrors.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;formPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="Services.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 27</value>
   </data>
-  <data name="Services.Text" xml:space="preserve">
-    <value>Services</value>
-  </data>
-  <data name="Reviews.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="Reviews.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 12pt, style=Bold</value>
-  </data>
-  <data name="Reviews.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 27</value>
-  </data>
-  <data name="Reviews.Text" xml:space="preserve">
-    <value>Reviews</value>
-  </data>
-  <data name="Users.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 12pt, style=Bold</value>
-  </data>
-  <data name="Users.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 27</value>
-  </data>
-  <data name="Users.Text" xml:space="preserve">
-    <value>Users</value>
-  </data>
-  <data name="Users.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;descriptionField.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Reservations.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 12pt, style=Bold</value>
   </data>
-  <data name="Reservations.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 27</value>
+  <data name="&gt;&gt;descriptionLabel.Name" xml:space="preserve">
+    <value>descriptionLabel</value>
+  </data>
+  <data name="&gt;&gt;navigationButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Home.Name" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="menu.Text" xml:space="preserve">
+    <value>Menu</value>
   </data>
   <data name="Reservations.Text" xml:space="preserve">
     <value>Reservations</value>
   </data>
-  <data name="Reservations.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;nameField.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nameField.Parent" xml:space="preserve">
+    <value>formPanel</value>
+  </data>
+  <data name="menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="MyReservations.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 12pt, style=Bold</value>
   </data>
-  <data name="MyReservations.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 27</value>
+  <data name="formPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>500, 350</value>
+  </data>
+  <data name="&gt;&gt;Users.Name" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="&gt;&gt;nameLabel.Parent" xml:space="preserve">
+    <value>formPanel</value>
+  </data>
+  <data name="Users.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 27</value>
+  </data>
+  <data name="&gt;&gt;descriptionErrors.Name" xml:space="preserve">
+    <value>descriptionErrors</value>
+  </data>
+  <data name="nameField.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;nameField.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;nameLabel.Name" xml:space="preserve">
+    <value>nameLabel</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;createBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Reviews.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;descriptionLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 0</value>
+  </data>
+  <data name="&gt;&gt;logo.Name" xml:space="preserve">
+    <value>logo</value>
   </data>
   <data name="MyReservations.Text" xml:space="preserve">
     <value>My reservations</value>
   </data>
-  <data name="menu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="navigationButton.Text" xml:space="preserve">
+    <value>Back to services</value>
+  </data>
+  <data name="formPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 50</value>
+  </data>
+  <data name="descriptionErrors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 13</value>
+  </data>
+  <data name="logo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-24, -22</value>
+  </data>
+  <data name="Rooms.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 27</value>
+  </data>
+  <data name="formPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="descriptionLabel.Text" xml:space="preserve">
+    <value>*Description</value>
+  </data>
+  <data name="&gt;&gt;menu.Name" xml:space="preserve">
+    <value>menu</value>
+  </data>
+  <data name="descriptionLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 12pt, style=Bold, Italic</value>
+  </data>
+  <data name="&gt;&gt;MyReservations.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Reservations.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="descriptionField.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 12pt</value>
+  </data>
+  <data name="nameErrors.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 8.25pt, style=Bold, Italic</value>
+  </data>
+  <data name="&gt;&gt;descriptionField.Parent" xml:space="preserve">
+    <value>formPanel</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 30</value>
+  </data>
+  <data name="&gt;&gt;formPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="createBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 255</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Reservations.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 27</value>
+  </data>
+  <data name="descriptionErrors.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 8.25pt, style=Bold, Italic</value>
+  </data>
+  <data name="&gt;&gt;Rooms.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;navigationButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;MyReservations.Name" xml:space="preserve">
+    <value>MyReservations</value>
+  </data>
+  <data name="&gt;&gt;createBtn.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="createBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="&gt;&gt;nameErrors.Name" xml:space="preserve">
+    <value>nameErrors</value>
+  </data>
+  <data name="&gt;&gt;roundPictureBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="nameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="descriptionErrors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>90, 240</value>
+  </data>
+  <data name="roundPictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="roundPictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 35</value>
+  </data>
+  <data name="nameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="navigationButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 34</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>formPanel</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 1, 0, 5</value>
   </data>
-  <data name="menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 33</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Service info</value>
   </data>
-  <data name="menu.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
+  <data name="&gt;&gt;nameLabel.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
-  <data name="menu.Text" xml:space="preserve">
-    <value>Menu</value>
-  </data>
-  <data name="&gt;&gt;menu.Name" xml:space="preserve">
-    <value>menu</value>
-  </data>
-  <data name="&gt;&gt;menu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menu.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="descriptionLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
   </data>
-  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="navigationButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 313</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 450</value>
+  <data name="logo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="createBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 41</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Create service</value>
+  <data name="createBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 12pt, style=Bold, Italic</value>
   </data>
-  <data name="&gt;&gt;Home.Name" xml:space="preserve">
-    <value>Home</value>
-  </data>
-  <data name="&gt;&gt;Home.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Rooms.Name" xml:space="preserve">
-    <value>Rooms</value>
-  </data>
-  <data name="&gt;&gt;Rooms.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Services.Name" xml:space="preserve">
-    <value>Services</value>
-  </data>
-  <data name="&gt;&gt;Services.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Reviews.Name" xml:space="preserve">
-    <value>Reviews</value>
-  </data>
-  <data name="&gt;&gt;Reviews.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Users.Name" xml:space="preserve">
-    <value>Users</value>
+  <data name="navigationButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;Users.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Reservations.Name" xml:space="preserve">
-    <value>Reservations</value>
+  <data name="&gt;&gt;formPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Reservations.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
-  <data name="&gt;&gt;MyReservations.Name" xml:space="preserve">
-    <value>MyReservations</value>
+  <data name="nameErrors.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;MyReservations.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="nameLabel.Text" xml:space="preserve">
+    <value>*Name</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>CreateService</value>
+  <data name="navigationButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 11.25pt, style=Bold, Italic</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Rooms.Text" xml:space="preserve">
+    <value>Rooms</value>
   </data>
+  <data name="roundPictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="Users.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 12pt, style=Bold</value>
+  </data>
+  <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+    <value>bg-BG</value>
+  </metadata>
 </root>

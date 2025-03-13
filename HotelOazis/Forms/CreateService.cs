@@ -11,10 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
-
 using HotelOazis.DTOs.Service;
 using HotelOazis.Models;
 using Fitness.Services;
@@ -30,14 +29,59 @@ namespace HotelOazis.Forms
         private readonly IReviewService reviewService;
         private readonly IRoomService roomService;
         private User activeUser;
+
         public CreateService(IUserService userService, IFacilityService facilityService)
         {
+            InitializeComponent();
             this.userService = userService;
             this.facilityService = facilityService;
             this.reviewService = ServiceLocator.GetService<IReviewService>();
             this.roomService = ServiceLocator.GetService<IRoomService>();
+
+            LoadUserDataAsync();
+            ApplyStyles();
+        }
+
+        private void LoadUserDataAsync()
+        {
             activeUser = userService.GetLoggedInUserAsync();
-            InitializeComponent();
+            roundPictureBox1.ImageLocation = activeUser?.AvatarUrl;
+        }
+
+        private void ApplyStyles()
+        {
+            this.BackColor = Color.FromArgb(245, 245, 245);
+
+            // Стилове за бутони
+            createBtn.BackColor = Color.FromArgb(39, 174, 96);
+            createBtn.ForeColor = Color.White;
+            createBtn.FlatStyle = FlatStyle.Flat;
+            createBtn.FlatAppearance.BorderSize = 0;
+            createBtn.Font = new Font("Segoe UI", 11, FontStyle.Regular);
+            createBtn.MouseEnter += (s, e) => createBtn.BackColor = Color.FromArgb(33, 154, 82);
+            createBtn.MouseLeave += (s, e) => createBtn.BackColor = Color.FromArgb(39, 174, 96);
+
+            navigationButton.BackColor = Color.FromArgb(149, 165, 166);
+            navigationButton.ForeColor = Color.White;
+            navigationButton.FlatStyle = FlatStyle.Flat;
+            navigationButton.FlatAppearance.BorderSize = 0;
+            navigationButton.Font = new Font("Segoe UI", 11, FontStyle.Regular);
+            navigationButton.MouseEnter += (s, e) => navigationButton.BackColor = Color.FromArgb(127, 140, 141);
+            navigationButton.MouseLeave += (s, e) => navigationButton.BackColor = Color.FromArgb(149, 165, 166);
+
+            // Стилове за текстови полета
+            nameField.Font = new Font("Segoe UI", 11);
+            descriptionField.Font = new Font("Segoe UI", 11);
+            nameField.BackColor = Color.White;
+            descriptionField.BackColor = Color.White;
+            nameField.BorderStyle = BorderStyle.FixedSingle;
+            descriptionField.BorderStyle = BorderStyle.FixedSingle;
+
+            // Стилове за етикети
+            nameLabel.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            descriptionLabel.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            nameLabel.ForeColor = Color.FromArgb(44, 62, 80);
+            descriptionLabel.ForeColor = Color.FromArgb(44, 62, 80);
         }
 
         private async void createBtn_Click(object sender, EventArgs e)
@@ -89,13 +133,13 @@ namespace HotelOazis.Forms
             bool isCreated = await facilityService.AddServiceAsync(serviceInputModel);
             if (isCreated)
             {
-                MessageBox.Show(string.Format(CreatedSuccessfully, nameof(Service)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format(CreatedSuccessfully, nameof(Service)), Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Services servicesForm = new Services(facilityService, userService);
                 Program.SwitchMainForm(servicesForm);
             }
             else
             {
-                MessageBox.Show(string.Format(CreationFailed, nameof(Service)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format(CreationFailed, nameof(Service)), Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -117,6 +161,7 @@ namespace HotelOazis.Forms
 
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
         }
+
         private void menu_ItemClicked(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
@@ -156,11 +201,11 @@ namespace HotelOazis.Forms
             }
             Program.SwitchMainForm(form);
         }
+
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
             Profile profileForm = new Profile(userService);
             Program.SwitchMainForm(profileForm);
         }
-
     }
 }

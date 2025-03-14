@@ -112,7 +112,7 @@ namespace HotelOazis.Forms
             Label serviceName = new Label
             {
                 Text = service.Name,
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Font = new Font("Segoe UI", 13, FontStyle.Bold),
                 ForeColor = Color.FromArgb(44, 62, 80),
                 Location = new Point(80, 20),
                 AutoSize = true
@@ -121,7 +121,7 @@ namespace HotelOazis.Forms
             TextBox serviceDescription = new TextBox
             {
                 Text = service.Description,
-                Font = new Font("Segoe UI", 10),
+                Font = new Font("Segoe UI", 12),
                 Location = new Point(80, 50),
                 Size = new Size(500, 40),
                 Multiline = true,
@@ -135,7 +135,7 @@ namespace HotelOazis.Forms
                 Button editButton = new Button
                 {
                     Text = Edit,
-                    Font = new Font("Segoe UI", 10, FontStyle.Regular),
+                    Font = new Font("Segoe UI", 11, FontStyle.Regular),
                     BackColor = Color.FromArgb(149, 165, 166),
                     ForeColor = Color.White,
                     FlatStyle = FlatStyle.Flat,
@@ -157,7 +157,7 @@ namespace HotelOazis.Forms
                 Button deleteButton = new Button
                 {
                     Text = Delete,
-                    Font = new Font("Segoe UI", 10, FontStyle.Regular),
+                    Font = new Font("Segoe UI", 11, FontStyle.Regular),
                     BackColor = Color.FromArgb(231, 76, 60),
                     ForeColor = Color.White,
                     FlatStyle = FlatStyle.Flat,

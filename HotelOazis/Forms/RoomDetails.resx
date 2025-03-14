@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="roomLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 14.25pt, style=Italic</value>
+    <value>Segoe UI, 16.5pt</value>
   </data>
   <data name="roomLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>33, 0</value>
@@ -156,6 +156,13 @@
   <data name="mainContainer.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="mainContainer.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="roomContainer.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
   <data name="reservateBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 9.75pt, style=Bold, Italic</value>
   </data>
@@ -183,7 +190,6 @@
   <data name="&gt;&gt;reservateBtn.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="roomImage.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
@@ -239,13 +245,13 @@
     <value>True</value>
   </data>
   <data name="roomNumber.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 12pt, style=Bold, Italic</value>
+    <value>Segoe UI, 14.25pt, style=Bold, Italic</value>
   </data>
   <data name="roomNumber.Location" type="System.Drawing.Point, System.Drawing">
     <value>180, 10</value>
   </data>
   <data name="roomNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 18</value>
+    <value>68, 25</value>
   </data>
   <data name="roomNumber.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -299,13 +305,13 @@
     <value>True</value>
   </data>
   <data name="roomDescription.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 9.75pt, style=Bold, Italic</value>
+    <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="roomDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>50, 140</value>
   </data>
   <data name="roomDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 16</value>
+    <value>102, 21</value>
   </data>
   <data name="roomDescription.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -329,13 +335,13 @@
     <value>True</value>
   </data>
   <data name="roomAvaialability.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 9.75pt, style=Bold, Italic</value>
+    <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="roomAvaialability.Location" type="System.Drawing.Point, System.Drawing">
     <value>50, 110</value>
   </data>
   <data name="roomAvaialability.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 16</value>
+    <value>102, 21</value>
   </data>
   <data name="roomAvaialability.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -359,13 +365,13 @@
     <value>True</value>
   </data>
   <data name="roomPrice.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 9.75pt, style=Bold, Italic</value>
+    <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="roomPrice.Location" type="System.Drawing.Point, System.Drawing">
     <value>50, 80</value>
   </data>
   <data name="roomPrice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 16</value>
+    <value>52, 21</value>
   </data>
   <data name="roomPrice.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -389,13 +395,13 @@
     <value>True</value>
   </data>
   <data name="roomType.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 9.75pt, style=Bold, Italic</value>
+    <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="roomType.Location" type="System.Drawing.Point, System.Drawing">
     <value>50, 50</value>
   </data>
   <data name="roomType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 16</value>
+    <value>50, 21</value>
   </data>
   <data name="roomType.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -449,7 +455,7 @@
     <value>1, 0, 0, 0</value>
   </data>
   <data name="roomContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>717, 300</value>
+    <value>717, 310</value>
   </data>
   <data name="roomContainer.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>

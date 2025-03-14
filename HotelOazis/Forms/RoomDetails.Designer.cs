@@ -70,16 +70,19 @@
             // 
             resources.ApplyResources(mainContainer, "mainContainer");
             mainContainer.BackColor = SystemColors.InactiveCaption;
+            mainContainer.BackgroundImage = Properties.Resources.gradient_img__4_;
             mainContainer.Controls.Add(roomLabel);
             mainContainer.Controls.Add(roomContainer);
             mainContainer.Name = "mainContainer";
             // 
             // roomContainer
             // 
+            roomContainer.BackgroundImage = Properties.Resources.gradient_img__4_;
+            resources.ApplyResources(roomContainer, "roomContainer");
             roomContainer.Controls.Add(supplementVisualsContainer);
             roomContainer.Controls.Add(roomDataContainer);
-            resources.ApplyResources(roomContainer, "roomContainer");
             roomContainer.Name = "roomContainer";
+            roomContainer.Paint += roomContainer_Paint;
             // 
             // supplementVisualsContainer
             // 

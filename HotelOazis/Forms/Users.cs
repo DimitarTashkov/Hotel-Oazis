@@ -1,21 +1,9 @@
-﻿using Fitness.Services;
-using Fitness.Utilities;
+﻿using Fitness.Utilities;
 using HotelOazis.Common.Constants;
 using HotelOazis.Extensions;
 using HotelOazis.Models;
-using HotelOazis.Services;
 using HotelOazis.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using static HotelOazis.Utilities.DynamicContentTranslator;
-using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 namespace HotelOazis.Forms
 {
@@ -26,7 +14,7 @@ namespace HotelOazis.Forms
         private readonly IReviewService reviewService;
         private readonly IRoomService roomService;
         private User activeUser;
-        private bool _isAuthorized;
+
         public Users(IUserService userService)
         {
             InitializeComponent();
@@ -36,25 +24,25 @@ namespace HotelOazis.Forms
             this.roomService = ServiceLocator.GetService<IRoomService>();
             activeUser = userService.GetLoggedInUserAsync();
         }
+
         private async void Users_Load(object sender, EventArgs e)
         {
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
 
-            User loggedInUser = userService.GetLoggedInUserAsync();
             var users = await userService.GetUsersAsync();
             int index = 0;
 
             foreach (var user in users)
             {
-                FlowLayoutPanel userContainer = new FlowLayoutPanel
+                var userContainer = new FlowLayoutPanel
                 {
                     Name = $"userContainer{index}",
                     Size = new Size(725, 120),
                     Margin = new Padding(8),
-                    BackColor = Color.RosyBrown
+                    BackColor = Color.LightGray
                 };
 
-                RoundPictureBox userAvatar = new RoundPictureBox
+                var userAvatar = new RoundPictureBox
                 {
                     Name = $"userAvatar{index}",
                     Size = new Size(50, 50),
@@ -63,7 +51,7 @@ namespace HotelOazis.Forms
                     SizeMode = PictureBoxSizeMode.StretchImage
                 };
 
-                Label username = new Label
+                var username = new Label
                 {
                     Name = $"username{index}",
                     Text = user.Username,
@@ -71,15 +59,15 @@ namespace HotelOazis.Forms
                     Margin = new Padding(25, 5, 25, 0)
                 };
 
-                Label password = new Label
+                var password = new Label
                 {
                     Name = $"password{index}",
                     Font = FontsPicker.DetailsFont,
                     Margin = new Padding(0, 5, 20, 0),
-                    Text = new string('*', 10) 
+                    Text = new string('*', 10)
                 };
 
-                Label email = new Label
+                var email = new Label
                 {
                     Name = $"email{index}",
                     Text = user.Email,
@@ -89,7 +77,7 @@ namespace HotelOazis.Forms
                     Margin = new Padding(0, 5, 20, 0)
                 };
 
-                Label age = new Label
+                var age = new Label
                 {
                     Name = $"age{index}",
                     Text = user.Age.ToString(),
@@ -97,8 +85,7 @@ namespace HotelOazis.Forms
                     Margin = new Padding(0, 5, 0, 0)
                 };
 
-                _isAuthorized = await userService.IsUserAdminAsync(user.Id);
-                ComboBox isAdminBox = new ComboBox
+                var isAdminBox = new ComboBox
                 {
                     Name = $"isAuthorized{index}",
                     Font = FontsPicker.DetailsFont,
@@ -106,50 +93,53 @@ namespace HotelOazis.Forms
                 };
 
                 isAdminBox.Items.AddRange(new object[] { "True", "False" });
-                isAdminBox.SelectedIndex = _isAuthorized ? 0 : 1;
+                isAdminBox.SelectedIndex = await userService.IsUserAdminAsync(user.Id) ? 0 : 1;
 
                 isAdminBox.SelectedIndexChanged += async (s, e) =>
                 {
                     bool isAdmin = isAdminBox.SelectedItem.ToString() == "True";
-
                     if (isAdmin)
                         await userService.MakeUserAdminAsync(user.Id);
                     else
                         await userService.RemoveAdminRoleAsync(user.Id);
                 };
 
-                Button edit = new Button
+                var edit = new Button
                 {
                     Name = $"edit{index}",
                     Text = EntitiesTranslation.Update,
                     Font = FontsPicker.DetailsFont,
-                    BackColor = Color.LightGray,
+                    BackColor = Color.LightBlue,
                     AutoSize = true,
                     Margin = new Padding(330, 0, 0, 0)
                 };
 
                 edit.Click += (s, e) =>
                 {
-                    Profile profileForm = new Profile(userService);
+                    var profileForm = new Profile(userService);
                     Program.SwitchMainForm(profileForm);
                 };
 
-                Button delete = new Button
+                var delete = new Button
                 {
                     Name = $"delete{index}",
-                    Text = Delete,
+                    Text = "Delete",
                     Font = FontsPicker.DetailsFont,
-                    BackColor = Color.Red,
+                    BackColor = Color.Salmon,
                     AutoSize = true,
                     Margin = new Padding(330, 10, 0, 0)
                 };
 
                 delete.Click += async (s, e) =>
                 {
-                    var success = await userService.DeleteUserAsync();
-                    if (success)
+                    var confirmResult = MessageBox.Show("Are you sure to delete this user?", "Confirm Delete", MessageBoxButtons.YesNo);
+                    if (confirmResult == DialogResult.Yes)
                     {
-                        usersContainer.Controls.Remove(userContainer);
+                        //var success = await userService.DeleteUserAsync(user.Id);
+                        //if (success)
+                        //{
+                        //    usersContainer.Controls.Remove(userContainer);
+                        //}
                     }
                 };
 
@@ -167,48 +157,28 @@ namespace HotelOazis.Forms
                 index++;
             }
         }
+
         private void menu_ItemClicked(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
-
-            string formName = item.Name;
-            Form form = new Form();
-
-            switch (formName)
+            Form form = item?.Name switch
             {
-                case "Rooms":
-                    form = new Rooms(roomService, userService);
-                    break;
-                case "Services":
-                    form = new Services(facilityService, userService);
-                    break;
-                case "Reviews":
-                    form = new Reviews(reviewService, userService);
-                    break;
-                case "Profile":
-                    form = new Profile(userService);
-                    break;
-                case "User":
-                    form = new Users(userService);
-                    break;
-                case "MyReservations":
-                    form = new Reservations(userService, roomService);
-                    break;
-                case "Reservations":
-                    form = new Reservations(userService, roomService);
-                    break;
-                case "Home":
-                    form = new Index(userService);
-                    break;
-                default:
-                    form = new Index(userService);
-                    break;
-            }
+                "Rooms" => new Rooms(roomService, userService),
+                "Services" => new Services(facilityService, userService),
+                "Reviews" => new Reviews(reviewService, userService),
+                "Profile" => new Profile(userService),
+                "User" => new Users(userService),
+                "MyReservations" => new Reservations(userService, roomService),
+                "Reservations" => new Reservations(userService, roomService),
+                "Home" => new Index(userService),
+                _ => new Index(userService),
+            };
             Program.SwitchMainForm(form);
         }
+
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
-            Profile profileForm = new Profile(userService);
+            var profileForm = new Profile(userService);
             Program.SwitchMainForm(profileForm);
         }
     }

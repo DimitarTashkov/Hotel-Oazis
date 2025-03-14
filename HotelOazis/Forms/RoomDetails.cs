@@ -46,6 +46,7 @@ namespace HotelOazis.Forms
             this.model = model;
             activeUser = userService.GetLoggedInUserAsync();
             InitializeComponent();
+            CustomizeUI();
         }
 
         private async void RoomDetails_Load(object sender, EventArgs e)
@@ -63,17 +64,43 @@ namespace HotelOazis.Forms
             _isAuthorized = isAdmin;
 
             string availabilityMessage = model.IsAvailable ? IsAvailable : IsNotAvailable;
-            roomType.Text = roomType.Text + " " + model.Type.ToString();
-            roomNumber.Text = roomNumber.Text + " " + model.RoomNumber.ToString();
-            roomPrice.Text = roomPrice.Text + " " + $"{model.Price.ToString():f2} lv";
-            roomAvaialability.Text = roomAvaialability.Text + " " + availabilityMessage;
-            roomDescription.Text = roomDescription.Text + " " + model.Description;
-            roomDescription.MaximumSize = new Size(roomDataContainer.Size.Width, 50);
-            roomDescription.AutoSize = true;
+            roomNumber.Text = $"{RoomNumber} " + model.RoomNumber;
+            roomType.Text = $"{RoomType} " + model.Type;
+            roomPrice.Text = $"{Price} " + model.Price.ToString("F2") + " lv";
+            roomAvaialability.Text = $"{Available} " + (model.IsAvailable ? $"{Available}" : $"{IsNotAvailable}");
+            roomDescription.Text = $"{ItemDescription} " + model.Description;
             roomImage.ImageLocation = model.Picture;
 
             CreateIconControls();
         }
+        private void CustomizeUI()
+        {
+            this.BackColor = Color.FromArgb(240, 240, 240);
+            roomDataContainer.BackColor = Color.White;
+            roomDataContainer.Padding = new Padding(10);
+            roomDataContainer.BorderStyle = BorderStyle.FixedSingle;
+            roomImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            roomImage.BorderStyle = BorderStyle.Fixed3D;
+
+            reservateBtn.BackColor = Color.FromArgb(0, 123, 255);
+            reservateBtn.ForeColor = Color.White;
+            reservateBtn.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            reservateBtn.FlatStyle = FlatStyle.Flat;
+            reservateBtn.FlatAppearance.BorderSize = 0;
+            reservateBtn.Cursor = Cursors.Hand;
+            reservateBtn.MouseEnter += (s, e) => reservateBtn.BackColor = Color.FromArgb(0, 90, 200);
+            reservateBtn.MouseLeave += (s, e) => reservateBtn.BackColor = Color.FromArgb(0, 123, 255);
+
+            editRoomBtn.BackColor = Color.FromArgb(255, 193, 7);
+            editRoomBtn.ForeColor = Color.White;
+            editRoomBtn.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            editRoomBtn.FlatStyle = FlatStyle.Flat;
+            editRoomBtn.FlatAppearance.BorderSize = 0;
+            editRoomBtn.Cursor = Cursors.Hand;
+            editRoomBtn.MouseEnter += (s, e) => editRoomBtn.BackColor = Color.FromArgb(220, 170, 5);
+            editRoomBtn.MouseLeave += (s, e) => editRoomBtn.BackColor = Color.FromArgb(255, 193, 7);
+        }
+
         private PictureBox CreateIconPictureBox(string name, Image image, Size size, Point location)
         {
             return new PictureBox
@@ -217,6 +244,11 @@ namespace HotelOazis.Forms
         {
             Profile profileForm = new Profile(userService);
             Program.SwitchMainForm(profileForm);
+        }
+
+        private void roomContainer_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

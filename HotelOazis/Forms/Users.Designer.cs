@@ -63,7 +63,6 @@
             // 
             // usersHeaders
             // 
-            resources.ApplyResources(usersHeaders, "usersHeaders");
             usersHeaders.BackColor = Color.Cyan;
             usersHeaders.Controls.Add(usernameHeader);
             usersHeaders.Controls.Add(passwordHeader);
@@ -73,6 +72,7 @@
             usersHeaders.Controls.Add(label1);
             usersHeaders.Controls.Add(dateHeader);
             usersHeaders.Controls.Add(arriveHeader);
+            resources.ApplyResources(usersHeaders, "usersHeaders");
             usersHeaders.Name = "usersHeaders";
             // 
             // usernameHeader
@@ -124,31 +124,31 @@
             // 
             // menu
             // 
-            resources.ApplyResources(menu, "menu");
             menu.BackColor = SystemColors.ScrollBar;
+            resources.ApplyResources(menu, "menu");
             menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, User, Reservations, MyReservations });
             menu.Name = "menu";
             // 
             // Home
             // 
-            resources.ApplyResources(Home, "Home");
             Home.Name = "Home";
+            resources.ApplyResources(Home, "Home");
             Home.Click += menu_ItemClicked;
             // 
             // Rooms
             // 
-            resources.ApplyResources(Rooms, "Rooms");
             Rooms.ForeColor = SystemColors.ActiveCaptionText;
             Rooms.Name = "Rooms";
             Rooms.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Rooms, "Rooms");
             Rooms.Click += menu_ItemClicked;
             // 
             // Services
             // 
-            resources.ApplyResources(Services, "Services");
             Services.ForeColor = SystemColors.ActiveCaptionText;
             Services.Name = "Services";
             Services.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Services, "Services");
             Services.Click += menu_ItemClicked;
             // 
             // Reviews

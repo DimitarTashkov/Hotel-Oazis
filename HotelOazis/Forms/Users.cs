@@ -109,7 +109,7 @@ namespace HotelOazis.Forms
                     Name = $"edit{index}",
                     Text = EntitiesTranslation.Update,
                     Font = FontsPicker.DetailsFont,
-                    BackColor = Color.LightBlue,
+                    BackColor = Color.Cyan,
                     AutoSize = true,
                     Margin = new Padding(330, 0, 0, 0)
                 };
@@ -123,7 +123,7 @@ namespace HotelOazis.Forms
                 var delete = new Button
                 {
                     Name = $"delete{index}",
-                    Text = "Delete",
+                    Text = EntitiesTranslation.Delete,
                     Font = FontsPicker.DetailsFont,
                     BackColor = Color.Salmon,
                     AutoSize = true,

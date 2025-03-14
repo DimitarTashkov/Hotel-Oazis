@@ -67,9 +67,9 @@
             // 
             // formPanel
             // 
-            resources.ApplyResources(formPanel, "formPanel");
             formPanel.BackColor = Color.White;
             formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
+            resources.ApplyResources(formPanel, "formPanel");
             formPanel.Controls.Add(pictureBox5);
             formPanel.Controls.Add(label9);
             formPanel.Controls.Add(engFlagBox);
@@ -97,26 +97,26 @@
             // 
             // pictureBox5
             // 
-            resources.ApplyResources(pictureBox5, "pictureBox5");
             pictureBox5.BackColor = Color.Transparent;
             pictureBox5.BackgroundImage = Properties.Resources.languages;
+            resources.ApplyResources(pictureBox5, "pictureBox5");
             pictureBox5.Image = Properties.Resources.languages;
             pictureBox5.Name = "pictureBox5";
             pictureBox5.TabStop = false;
             // 
             // label9
             // 
-            resources.ApplyResources(label9, "label9");
             label9.AllowDrop = true;
+            resources.ApplyResources(label9, "label9");
             label9.BackColor = Color.Transparent;
             label9.ForeColor = Color.Goldenrod;
             label9.Name = "label9";
             // 
             // engFlagBox
             // 
-            resources.ApplyResources(engFlagBox, "engFlagBox");
             engFlagBox.BackColor = Color.Transparent;
             engFlagBox.BackgroundImage = Properties.Resources.EnFlag;
+            resources.ApplyResources(engFlagBox, "engFlagBox");
             engFlagBox.Image = Properties.Resources.EnFlag;
             engFlagBox.Name = "engFlagBox";
             engFlagBox.TabStop = false;
@@ -124,9 +124,9 @@
             // 
             // bgFlagBox
             // 
-            resources.ApplyResources(bgFlagBox, "bgFlagBox");
             bgFlagBox.BackColor = Color.Transparent;
             bgFlagBox.BackgroundImage = Properties.Resources.flagBG;
+            resources.ApplyResources(bgFlagBox, "bgFlagBox");
             bgFlagBox.Image = Properties.Resources.bgFlag;
             bgFlagBox.Name = "bgFlagBox";
             bgFlagBox.TabStop = false;
@@ -134,76 +134,76 @@
             // 
             // pictureBox4
             // 
-            resources.ApplyResources(pictureBox4, "pictureBox4");
             pictureBox4.BackColor = Color.Transparent;
             pictureBox4.BackgroundImage = Properties.Resources.key;
+            resources.ApplyResources(pictureBox4, "pictureBox4");
             pictureBox4.Image = Properties.Resources.key;
             pictureBox4.Name = "pictureBox4";
             pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
-            resources.ApplyResources(pictureBox3, "pictureBox3");
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.BackgroundImage = Properties.Resources.rocket;
+            resources.ApplyResources(pictureBox3, "pictureBox3");
             pictureBox3.Image = Properties.Resources.rocket;
             pictureBox3.Name = "pictureBox3";
             pictureBox3.TabStop = false;
             // 
             // pictureBox2
             // 
-            resources.ApplyResources(pictureBox2, "pictureBox2");
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.BackgroundImage = Properties.Resources.lightbulb;
+            resources.ApplyResources(pictureBox2, "pictureBox2");
             pictureBox2.Image = Properties.Resources.lightbulb;
             pictureBox2.Name = "pictureBox2";
             pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(pictureBox1, "pictureBox1");
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = Properties.Resources.magic;
+            resources.ApplyResources(pictureBox1, "pictureBox1");
             pictureBox1.Image = Properties.Resources.magic;
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;
             // 
             // label8
             // 
-            resources.ApplyResources(label8, "label8");
             label8.AllowDrop = true;
             label8.BackColor = Color.Transparent;
+            resources.ApplyResources(label8, "label8");
             label8.ForeColor = Color.Goldenrod;
             label8.Name = "label8";
             // 
             // label7
             // 
-            resources.ApplyResources(label7, "label7");
             label7.AllowDrop = true;
+            resources.ApplyResources(label7, "label7");
             label7.BackColor = Color.Transparent;
             label7.ForeColor = Color.Goldenrod;
             label7.Name = "label7";
             // 
             // label4
             // 
-            resources.ApplyResources(label4, "label4");
             label4.AllowDrop = true;
             label4.BackColor = Color.Transparent;
             label4.ForeColor = Color.Goldenrod;
+            resources.ApplyResources(label4, "label4");
             label4.Name = "label4";
             // 
             // label6
             // 
-            resources.ApplyResources(label6, "label6");
             label6.AllowDrop = true;
+            resources.ApplyResources(label6, "label6");
             label6.BackColor = Color.Transparent;
             label6.ForeColor = Color.Goldenrod;
             label6.Name = "label6";
             // 
             // label2
             // 
-            resources.ApplyResources(label2, "label2");
             label2.AllowDrop = true;
+            resources.ApplyResources(label2, "label2");
             label2.BackColor = Color.Transparent;
             label2.ForeColor = Color.Goldenrod;
             label2.Name = "label2";
@@ -241,8 +241,9 @@
             // 
             // loginBtn
             // 
-            resources.ApplyResources(loginBtn, "loginBtn");
             loginBtn.BackColor = Color.SkyBlue;
+            resources.ApplyResources(loginBtn, "loginBtn");
+            loginBtn.ForeColor = Color.Black;
             loginBtn.Name = "loginBtn";
             loginBtn.UseVisualStyleBackColor = false;
             loginBtn.Click += login_Click;
@@ -251,8 +252,8 @@
             // 
             // passwordField
             // 
-            resources.ApplyResources(passwordField, "passwordField");
             passwordField.BackColor = Color.LightGray;
+            resources.ApplyResources(passwordField, "passwordField");
             passwordField.ForeColor = Color.DimGray;
             passwordField.Name = "passwordField";
             // 
@@ -264,8 +265,8 @@
             // 
             // usernameField
             // 
-            resources.ApplyResources(usernameField, "usernameField");
             usernameField.BackColor = Color.LightGray;
+            resources.ApplyResources(usernameField, "usernameField");
             usernameField.ForeColor = Color.DimGray;
             usernameField.Name = "usernameField";
             // 
@@ -277,19 +278,19 @@
             // 
             // logo
             // 
-            resources.ApplyResources(logo, "logo");
             logo.BackColor = Color.Transparent;
             logo.BackgroundImage = Properties.Resources.applogo1;
+            resources.ApplyResources(logo, "logo");
             logo.Image = Properties.Resources.applogo1;
             logo.Name = "logo";
             logo.TabStop = false;
             // 
             // label3
             // 
-            resources.ApplyResources(label3, "label3");
             label3.AllowDrop = true;
             label3.BackColor = Color.Transparent;
             label3.ForeColor = Color.Goldenrod;
+            resources.ApplyResources(label3, "label3");
             label3.Name = "label3";
             // 
             // Login

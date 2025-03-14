@@ -1,24 +1,12 @@
 ﻿using Fitness.Utilities;
-using HotelOazis.DTOs.Room;
-using HotelOazis.Models.Enumerations;
-using HotelOazis.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
-using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
-using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 using HotelOazis.DTOs.Service;
-using HotelOazis.Models;
-using Fitness.Services;
 using HotelOazis.Extensions;
+using HotelOazis.Models;
+using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
+using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
+using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 namespace HotelOazis.Forms
 {

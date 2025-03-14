@@ -1,22 +1,10 @@
 ﻿using Fitness.Utilities;
 using HotelOazis.Common.Constants;
-using HotelOazis.Common.Messages;
 using HotelOazis.DTOs.User;
 using HotelOazis.Models.DbConfiguration;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Microsoft.VisualBasic.Logging;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using static HotelOazis.Common.Messages.ErrorMessages;
 
 namespace HotelOazis.Forms

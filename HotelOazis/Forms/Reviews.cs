@@ -1,24 +1,12 @@
-﻿using Fitness.Services;
-using Fitness.Utilities;
+﻿using Fitness.Utilities;
 using HotelOazis.Common.Constants;
 using HotelOazis.DTOs.Review;
 using HotelOazis.Extensions;
 using HotelOazis.Models;
 using HotelOazis.Models.Enumerations;
 using HotelOazis.Properties;
-using HotelOazis.Services;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 

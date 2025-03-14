@@ -1,21 +1,11 @@
 ﻿using Fitness.Utilities;
-using HotelOazis.Common.Constants;
 using HotelOazis.DTOs.User;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static HotelOazis.Common.Messages.ResultMessages.UserMessages;
-using static HotelOazis.Common.Messages.ErrorMessages.UserMessages;
-using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
+using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
+using static HotelOazis.Common.Messages.ErrorMessages.UserMessages;
+using static HotelOazis.Common.Messages.ResultMessages.UserMessages;
 
 namespace HotelOazis.Forms
 {

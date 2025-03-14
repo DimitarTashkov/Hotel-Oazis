@@ -1,24 +1,10 @@
-﻿using Fitness.Services;
-using HotelOazis.DTOs.Reservation;
+﻿using HotelOazis.DTOs.Reservation;
 using HotelOazis.DTOs.Room;
 using HotelOazis.Extensions;
-using HotelOazis.Migrations;
 using HotelOazis.Models;
 using HotelOazis.Properties;
-using HotelOazis.Services;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
 
 using static HotelOazis.Common.Messages.ErrorMessages.ReservationMessages;
 using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;

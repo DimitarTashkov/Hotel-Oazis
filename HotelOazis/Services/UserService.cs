@@ -76,17 +76,16 @@ namespace HotelOazis.Services
             return true;
         }
 
-        public async Task<bool> DeleteUserAsync()
+        public async Task<bool> DeleteUserAsync(Guid userId)
         {
-            if (loggedInUser == null) return false;
+            if (userId == null) return false;
 
-            var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == loggedInUser.Id);
+            var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (user == null) return false;
 
             dbContext.Users.Remove(user);
             await dbContext.SaveChangesAsync();
 
-            loggedInUser = null; 
             return true;
         }
         public async Task<bool> IsUserAdminAsync(Guid userId)

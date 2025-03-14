@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using static HotelOazis.Common.Messages.ResultMessages.UserMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 using Microsoft.EntityFrameworkCore;
 using static HotelOazis.Common.Messages.ErrorMessages;
 using Fitness.Services;
@@ -194,13 +195,13 @@ namespace HotelOazis.Forms
             bool success = await userService.UpdateUserAsync(editModel);
             if (success)
             {
-                MessageBox.Show(ProfileUpdatedSuccessfully, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ProfileUpdatedSuccessfully, Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Profile profileForm = new Profile(userService);
                 Program.SwitchMainForm(profileForm);
             }
             else
             {
-                MessageBox.Show(ProfileUpdateFailed, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ProfileUpdateFailed, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -220,7 +221,7 @@ namespace HotelOazis.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(EmptyOrInvalidImage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(EmptyOrInvalidImage, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -261,7 +262,7 @@ namespace HotelOazis.Forms
 
             if (confirmResult == DialogResult.Yes)
             {
-                bool isDeleted = await userService.DeleteUserAsync();
+                bool isDeleted = await userService.DeleteUserAsync(activeUser.Id);
 
                 if (isDeleted)
                 {
@@ -271,7 +272,7 @@ namespace HotelOazis.Forms
                 }
                 else
                 {
-                    MessageBox.Show(ProfileDeletionFailed, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ProfileDeletionFailed, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

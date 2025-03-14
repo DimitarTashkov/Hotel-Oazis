@@ -132,14 +132,14 @@ namespace HotelOazis.Forms
 
                 delete.Click += async (s, e) =>
                 {
-                    var confirmResult = MessageBox.Show("Are you sure to delete this user?", "Confirm Delete", MessageBoxButtons.YesNo);
+                    var confirmResult = MessageBox.Show("Are you sure to delete this user?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (confirmResult == DialogResult.Yes)
                     {
-                        //var success = await userService.DeleteUserAsync(user.Id);
-                        //if (success)
-                        //{
-                        //    usersContainer.Controls.Remove(userContainer);
-                        //}
+                        var success = await userService.DeleteUserAsync(user.Id);
+                        if (success)
+                        {
+                            usersContainer.Controls.Remove(userContainer);
+                        }
                     }
                 };
 

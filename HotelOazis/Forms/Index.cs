@@ -2,6 +2,8 @@
 using HotelOazis.Models;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace HotelOazis.Forms
 {
@@ -12,6 +14,7 @@ namespace HotelOazis.Forms
         private readonly IFacilityService facilityService;
         private readonly IReviewService reviewService;
         private User activeUser;
+
         public Index(IUserService userService)
         {
             this.userService = userService;
@@ -21,6 +24,7 @@ namespace HotelOazis.Forms
             reviewService = ServiceLocator.GetService<IReviewService>();
 
             InitializeComponent();
+            ApplyCustomStyles(); // Приложи стилизация
         }
 
         private void Index_Load(object sender, EventArgs e)
@@ -33,7 +37,6 @@ namespace HotelOazis.Forms
                 Users.Visible = true;
                 Reservations.Visible = true;
             }
-
         }
 
         private void roundPictureBox1_Click(object sender, EventArgs e)
@@ -41,16 +44,7 @@ namespace HotelOazis.Forms
             Profile profileForm = new Profile(userService);
             Program.SwitchMainForm(profileForm);
         }
-        private void buttons_Hover(object sender, EventArgs e)
-        {
-            Button button = sender as Button;
-            button.BackColor = SystemColors.ButtonHighlight;
-        }
-        private void buttons_Leave(object sender, EventArgs e)
-        {
-            Button button = sender as Button;
-            button.BackColor = SystemColors.ButtonFace;
-        }
+
         private void roomsButton_Click(object sender, EventArgs e)
         {
             Rooms roomsForm = new Rooms(roomService, userService);
@@ -68,7 +62,7 @@ namespace HotelOazis.Forms
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
             string formName = item.Name;
-            Form form = new Form();
+            Form form;
 
             switch (formName)
             {
@@ -88,20 +82,61 @@ namespace HotelOazis.Forms
                     form = new Users(userService);
                     break;
                 case "MyReservations":
-                    form = new Reservations(userService, roomService);
-                    break;
                 case "Reservations":
                     form = new Reservations(userService, roomService);
                     break;
                 case "Home":
-                    form = new Index(userService);
-                    break;
                 default:
                     form = new Index(userService);
                     break;
             }
             Program.SwitchMainForm(form);
         }
+
+        // === Променен дизайн ===
+        private void ApplyCustomStyles()
+        {
+            this.BackColor = Color.FromArgb(230, 240, 250); // Лек син фон
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Button btn)
+                {
+                    btn.BackColor = Color.FromArgb(70, 130, 180); // Стилен син
+                    btn.ForeColor = Color.White;
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+                    btn.FlatAppearance.BorderSize = 0;
+                    btn.Cursor = Cursors.Hand;
+                    btn.MouseEnter += (s, e) => btn.BackColor = Color.FromArgb(100, 149, 237); // По-светло синьо
+                    btn.MouseLeave += (s, e) => btn.BackColor = Color.FromArgb(70, 130, 180);
+                }
+                else if (ctrl is Label lbl)
+                {
+                    lbl.BackColor = Color.FromArgb(70, 130, 180); // Стилен син
+                    lbl.FlatStyle = FlatStyle.Flat;
+                    lbl.ForeColor = Color.White;
+                    lbl.Cursor = Cursors.Hand;
+                    lbl.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+                    lbl.TextAlign = ContentAlignment.MiddleCenter;
+                    lbl.MouseEnter += (s, e) => lbl.BackColor = Color.FromArgb(100, 149, 237); // По-светло синьо
+                    lbl.MouseLeave += (s, e) => lbl.BackColor = Color.FromArgb(70, 130, 180);
+                }
+            }
+
+
+        }
+
+        private void aboutUs_Click(object sender, EventArgs e)
+        {
+            AboutUs aboutUsForm = new AboutUs();
+            Program.SwitchMainForm(aboutUsForm);
+        }
+
+        private void contactUs_Click(object sender, EventArgs e)
+        {
+            ContactUs contactUsForm = new ContactUs();
+            Program.SwitchMainForm(contactUsForm);
+        }
     }
 }
-

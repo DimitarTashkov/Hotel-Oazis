@@ -43,6 +43,8 @@
             Reservations = new ToolStripMenuItem();
             MyReservations = new ToolStripMenuItem();
             roundPictureBox1 = new Fitness.Utilities.RoundPictureBox();
+            aboutUs = new Label();
+            contactUs = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menu.SuspendLayout();
@@ -51,68 +53,68 @@
             // 
             // footer
             // 
-            resources.ApplyResources(footer, "footer");
             footer.BackColor = Color.Transparent;
+            resources.ApplyResources(footer, "footer");
             footer.Name = "footer";
             footer.UseVisualStyleBackColor = false;
             // 
             // serviceButton
             // 
-            resources.ApplyResources(serviceButton, "serviceButton");
             serviceButton.BackColor = SystemColors.ButtonFace;
+            resources.ApplyResources(serviceButton, "serviceButton");
             serviceButton.Name = "serviceButton";
             serviceButton.UseVisualStyleBackColor = false;
             serviceButton.Click += servicesButton_Click;
             // 
             // roomsButton
             // 
-            resources.ApplyResources(roomsButton, "roomsButton");
             roomsButton.BackColor = SystemColors.ButtonFace;
+            resources.ApplyResources(roomsButton, "roomsButton");
             roomsButton.Name = "roomsButton";
             roomsButton.UseVisualStyleBackColor = false;
             roomsButton.Click += roomsButton_Click;
             // 
             // pictureBox2
             // 
-            resources.ApplyResources(pictureBox2, "pictureBox2");
             pictureBox2.Image = Properties.Resources.rooms;
+            resources.ApplyResources(pictureBox2, "pictureBox2");
             pictureBox2.Name = "pictureBox2";
             pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = Properties.Resources.hotel1;
             resources.ApplyResources(pictureBox1, "pictureBox1");
-            pictureBox1.Image = Properties.Resources.services;
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;
             // 
             // menu
             // 
-            resources.ApplyResources(menu, "menu");
             menu.BackColor = SystemColors.ScrollBar;
+            resources.ApplyResources(menu, "menu");
             menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, Users, Reservations, MyReservations });
             menu.Name = "menu";
             // 
             // Home
             // 
-            resources.ApplyResources(Home, "Home");
             Home.Name = "Home";
+            resources.ApplyResources(Home, "Home");
             Home.Click += menu_ItemClicked;
             // 
             // Rooms
             // 
-            resources.ApplyResources(Rooms, "Rooms");
             Rooms.ForeColor = SystemColors.ActiveCaptionText;
             Rooms.Name = "Rooms";
             Rooms.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Rooms, "Rooms");
             Rooms.Click += menu_ItemClicked;
             // 
             // Services
             // 
-            resources.ApplyResources(Services, "Services");
             Services.ForeColor = SystemColors.ActiveCaptionText;
             Services.Name = "Services";
             Services.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Services, "Services");
             Services.Click += menu_ItemClicked;
             // 
             // Reviews
@@ -152,11 +154,29 @@
             roundPictureBox1.TabStop = false;
             roundPictureBox1.Click += roundPictureBox1_Click;
             // 
+            // aboutUs
+            // 
+            resources.ApplyResources(aboutUs, "aboutUs");
+            aboutUs.BackColor = Color.Transparent;
+            aboutUs.ForeColor = Color.White;
+            aboutUs.Name = "aboutUs";
+            aboutUs.Click += aboutUs_Click;
+            // 
+            // contactUs
+            // 
+            resources.ApplyResources(contactUs, "contactUs");
+            contactUs.BackColor = Color.Transparent;
+            contactUs.ForeColor = Color.White;
+            contactUs.Name = "contactUs";
+            contactUs.Click += contactUs_Click;
+            // 
             // Index
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.gradient_img__4_;
+            Controls.Add(contactUs);
+            Controls.Add(aboutUs);
             Controls.Add(roundPictureBox1);
             Controls.Add(footer);
             Controls.Add(serviceButton);
@@ -192,5 +212,7 @@
         private Fitness.Utilities.RoundPictureBox roundPictureBox1;
         private ToolStripMenuItem Reservations;
         private ToolStripMenuItem Home;
+        private Label aboutUs;
+        private Label contactUs;
     }
 }

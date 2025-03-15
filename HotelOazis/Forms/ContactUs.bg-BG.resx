@@ -178,4 +178,7 @@
 Понеделник - Петък: 08:00 - 22:00
 Събота - Неделя: 09:00 - 20:00</value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Контакти</value>
+  </data>
 </root>

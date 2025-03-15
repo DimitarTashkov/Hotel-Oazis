@@ -45,6 +45,7 @@
             roundPictureBox1 = new Fitness.Utilities.RoundPictureBox();
             aboutUs = new Label();
             contactUs = new Label();
+            welcomeMessage = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menu.SuspendLayout();
@@ -170,11 +171,18 @@
             contactUs.Name = "contactUs";
             contactUs.Click += contactUs_Click;
             // 
+            // welcomeMessage
+            // 
+            welcomeMessage.BackColor = Color.Transparent;
+            resources.ApplyResources(welcomeMessage, "welcomeMessage");
+            welcomeMessage.Name = "welcomeMessage";
+            // 
             // Index
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.gradient_img__4_;
+            Controls.Add(welcomeMessage);
             Controls.Add(contactUs);
             Controls.Add(aboutUs);
             Controls.Add(roundPictureBox1);
@@ -214,5 +222,6 @@
         private ToolStripMenuItem Home;
         private Label aboutUs;
         private Label contactUs;
+        private Label welcomeMessage;
     }
 }

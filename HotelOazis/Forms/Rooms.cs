@@ -23,11 +23,11 @@ namespace HotelOazis.Forms
         public Rooms(IRoomService roomService, IUserService userService)
         {
             InitializeComponent();
-            activeUser = userService.GetLoggedInUserAsync();
             this.roomService = roomService;
             this.userService = userService;
             this.facilityService = ServiceLocator.GetService<IFacilityService>();
             this.reviewService = ServiceLocator.GetService<IReviewService>();
+            activeUser = userService.GetLoggedInUserAsync();
         }
         
         private async Task PopulateRoomsPanelAsync(Panel mainContainer, User activeUser)

@@ -164,26 +164,47 @@
     <value>Резервации</value>
   </data>
   <data name="MyReservations.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 27</value>
+    <value>169, 27</value>
   </data>
   <data name="MyReservations.Text" xml:space="preserve">
-    <value>Мои Резервации</value>
+    <value>Мои резервации</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 1, 0, 5</value>
   </data>
   <data name="aboutUs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 15</value>
+    <value>53, 20</value>
   </data>
   <data name="aboutUs.Text" xml:space="preserve">
     <value>За нас</value>
   </data>
   <data name="contactUs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 15</value>
+    <value>76, 20</value>
   </data>
   <data name="contactUs.Text" xml:space="preserve">
     <value>Контакти</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="welcomeMessage.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="welcomeMessage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15.75pt, style=Bold</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="welcomeMessage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="welcomeMessage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>45, 43</value>
+  </data>
+  <data name="welcomeMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>700, 30</value>
+  </data>
+  <data name="welcomeMessage.Text" xml:space="preserve">
+    <value>Добре дошли в Хотел Оазис – Вашето място за релакс и комфорт!
+</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Начало</value>

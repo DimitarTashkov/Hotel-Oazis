@@ -31,6 +31,10 @@ namespace HotelOazis.Forms
         {
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
             bool isAdmin = AuthorizationHelper.IsAuthorized();
+            welcomeMessage.Font = new Font("Segoe UI", 16, FontStyle.Bold);
+            welcomeMessage.Cursor = Cursors.Default;
+
+
 
             if (isAdmin)
             {

@@ -38,7 +38,6 @@
             Users = new ToolStripMenuItem();
             Reservations = new ToolStripMenuItem();
             MyReservations = new ToolStripMenuItem();
-            label1 = new Label();
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)roundPictureBox1).BeginInit();
             menu.SuspendLayout();
@@ -110,11 +109,6 @@
             MyReservations.Padding = new Padding(4, 0, 4, 5);
             MyReservations.Click += menu_ItemClicked;
             // 
-            // label1
-            // 
-            resources.ApplyResources(label1, "label1");
-            label1.Name = "label1";
-            // 
             // label2
             // 
             resources.ApplyResources(label2, "label2");
@@ -125,9 +119,8 @@
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.gradient_img__4_;
+            BackgroundImage = Properties.Resources.contactPage_resized2;
             Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(roundPictureBox1);
             Controls.Add(menu);
             Name = "ContactUs";
@@ -150,7 +143,6 @@
         private ToolStripMenuItem Users;
         private ToolStripMenuItem Reservations;
         private ToolStripMenuItem MyReservations;
-        private Label label1;
         private Label label2;
     }
 }

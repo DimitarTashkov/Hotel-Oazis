@@ -80,6 +80,12 @@ namespace HotelOazis.Forms
             priceLabel.ForeColor = Color.FromArgb(44, 62, 80);
             descriptionLabel.ForeColor = Color.FromArgb(44, 62, 80);
             roomNumber.ForeColor = Color.FromArgb(44, 62, 80);
+            typeLabel.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+            typeLabel.ForeColor = Color.FromArgb(44, 62, 80);
+            statusLabel.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+            statusLabel.ForeColor = Color.FromArgb(44, 62, 80);
+
+
 
             // Стилове за ComboBox
             roomTypes.Font = new Font("Segoe UI", 12);

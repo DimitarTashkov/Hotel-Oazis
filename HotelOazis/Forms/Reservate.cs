@@ -60,6 +60,11 @@ namespace HotelOazis.Forms
             cancel.Font = new Font("Segoe UI", 10, FontStyle.Regular);
             cancel.MouseEnter += (s, e) => cancel.BackColor = Color.FromArgb(127, 140, 141);
             cancel.MouseLeave += (s, e) => cancel.BackColor = Color.FromArgb(149, 165, 166);
+
+            fromLabel.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+            fromLabel.ForeColor = Color.FromArgb(44, 62, 80);
+            toLabel.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+            toLabel.ForeColor = Color.FromArgb(44, 62, 80);
         }
         private void cancel_Click(object sender, EventArgs e)
         {

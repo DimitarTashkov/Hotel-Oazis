@@ -73,11 +73,13 @@ namespace HotelOazis.Forms
 
             // Стилове за етикети
             priceLabel.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+            typeLabel.Font = new Font("Segoe UI", 13, FontStyle.Bold);           
             descriptionLabel.Font = new Font("Segoe UI", 13, FontStyle.Bold);
             roomNumber.Font = new Font("Segoe UI", 13, FontStyle.Bold);
             priceLabel.ForeColor = Color.FromArgb(44, 62, 80);
             descriptionLabel.ForeColor = Color.FromArgb(44, 62, 80);
             roomNumber.ForeColor = Color.FromArgb(44, 62, 80);
+            typeLabel.ForeColor = Color.FromArgb(44, 62, 80);
 
             // Стилове за ComboBox
             roomTypes.Font = new Font("Segoe UI", 12);

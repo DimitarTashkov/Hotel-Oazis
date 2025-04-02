@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 
 using static HotelOazis.Common.Constants.ValidationConstants.UserConstants;
 using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
-using static HotelOazis.Common.Messages.ErrorMessages;
 
 namespace HotelOazis.Forms
 {
@@ -24,8 +23,7 @@ namespace HotelOazis.Forms
             usernameField.Click += EventsEffects.clearInputs_click;
             passwordField.TextChanged += EventsEffects.input_TextChanged;
             passwordField.Click += EventsEffects.clearInputs_click;
-            usernameField.Text = "\"foulcoast\"";
-            passwordField.Text = "\"mitko123\"";
+            passwordField.PasswordChar = '*';
         }
         private void register_hover(object sender, EventArgs e)
         {
@@ -64,7 +62,7 @@ namespace HotelOazis.Forms
             bool areInputValid = ValidationHelper.ValidateUserInputs(inputs);
             if (!areInputValid)
             {
-                MessageBox.Show(InputsMessages.EmptyInputData, "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(EmptyInputData, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -111,7 +109,7 @@ namespace HotelOazis.Forms
             }
             else
             {
-                MessageBox.Show(UserMessages.InvalidUserCredentials, "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(InvalidUserCredentials, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -28,19 +28,7 @@ namespace HotelOazis.Common.Messages
             public const string UsernameExists = "Such username already exists!";
 
         }
-        public static class InputsMessages
-        {
-            public const string EmptyInputData = "Please fill in all input fields!";
-            public const string EmptyOrInvalidImage = "An error occured while processing your image!";
 
-        }
-        public static class ReservationMessages
-        {
-            public const string RoomIsAlreadyReservated = "The selected room is already reserved for the chosen dates!";
-            public const string RoomIsUnavailable = "The selected room is currently inavailable!";
-            public const string InvalidCheckOutDate = "Check-out date must be later than check-in date!";
-
-        }
         public static class ServicesMessages
         {
             public const string ServiceNameIsRequired = "Service name is required";

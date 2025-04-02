@@ -3,8 +3,6 @@ using HotelOazis.Extensions;
 using HotelOazis.Models;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
-using static HotelOazis.Common.Messages.ErrorMessages.ReservationMessages;
-using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 namespace HotelOazis.Forms
@@ -80,13 +78,13 @@ namespace HotelOazis.Forms
             bool isReserved = await roomService.IsRoomReservedBetweenDatesAsync(model.RoomId, checkInDate, checkOutDate);
             if (isReserved)
             {
-                MessageBox.Show(RoomIsAlreadyReservated, "Reservation failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(RoomIsAlreadyReservated, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (checkInDate >= checkOutDate)
             {
-                MessageBox.Show(InvalidCheckOutDate, "Reservation failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(InvalidCheckOutDate, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             model.CheckInDate = checkInDate;
@@ -95,13 +93,13 @@ namespace HotelOazis.Forms
             bool isCreated = await roomService.ReserveRoomAsync(model);
             if (isCreated)
             {
-                MessageBox.Show(string.Format(CreatedSuccessfully, nameof(Reservation)), Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(CreatedSuccessfully, Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Reservations roomsForm = new Reservations(userService, roomService);
                 Program.SwitchMainForm(roomsForm);
             }
             else
             {
-                MessageBox.Show(string.Format(CreationFailed, nameof(Reservation)), Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(CreateFailed, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

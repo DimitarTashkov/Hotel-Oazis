@@ -5,7 +5,6 @@ using HotelOazis.Models;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
 
-using static HotelOazis.Common.Messages.ErrorMessages.ReservationMessages;
 using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 
@@ -132,12 +131,12 @@ namespace HotelOazis.Forms
                     var success = await roomService.DeleteRoomAsync(room.Id);
                     if (success)
                     {
-                        MessageBox.Show(string.Format(DeletionSuccessful,nameof(Room)), Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(DeletionSuccessful, Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         await PopulateRoomsPanelAsync(mainContainer, activeUser);
                     }
                     else
                     {
-                        MessageBox.Show(string.Format(DeletionFailed, nameof(Room)), Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(DeletionFailed, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 };
 

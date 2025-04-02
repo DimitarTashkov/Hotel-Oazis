@@ -58,7 +58,7 @@ namespace HotelOazis.Forms
 
             foreach (var reservation in reservations)
             {
-                int daysReserved = (reservation.CheckOutDate - reservation.CheckInDate).Days;
+                int daysReserved = (reservation.CheckOutDate - reservation.CheckInDate).Days+1; 
                 decimal totalPrice = reservation.PricePerNight * daysReserved;
 
                 Panel reservationPanel = new Panel
@@ -101,7 +101,7 @@ namespace HotelOazis.Forms
 
                 Label priceLabel = new Label
                 {
-                    Text = $"{Price} ${totalPrice}",
+                    Text = $"{Price} {totalPrice} lv.",
                     Font = new Font("Segoe UI", 12),
                     ForeColor = Color.FromArgb(44, 62, 80),
                     AutoSize = true,
@@ -158,12 +158,12 @@ namespace HotelOazis.Forms
                         bool success = await roomService.CancelReservationAsync(reservation.Id);
                         if (success)
                         {
-                            MessageBox.Show(string.Format(DeletionSuccessful, nameof(Reservation)), Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(DeletionSuccessful, Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reservationsContainer.Controls.Remove(reservationPanel);
                         }
                         else
                         {
-                            MessageBox.Show(string.Format(DeletionFailed, nameof(Reservation)), Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(DeletionFailed, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 };

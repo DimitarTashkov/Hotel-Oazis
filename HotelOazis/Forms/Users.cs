@@ -3,7 +3,8 @@ using HotelOazis.Common.Constants;
 using HotelOazis.Extensions;
 using HotelOazis.Models;
 using HotelOazis.Services.Interfaces;
-using static HotelOazis.Utilities.DynamicContentTranslator;
+using HotelOazis.Utilities;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 namespace HotelOazis.Forms
 {
@@ -107,7 +108,7 @@ namespace HotelOazis.Forms
                 var edit = new Button
                 {
                     Name = $"edit{index}",
-                    Text = EntitiesTranslation.Update,
+                    Text = DynamicContentTranslator.EntitiesTranslation.Update,
                     Font = FontsPicker.DetailsFont,
                     BackColor = Color.Cyan,
                     AutoSize = true,
@@ -123,7 +124,7 @@ namespace HotelOazis.Forms
                 var delete = new Button
                 {
                     Name = $"delete{index}",
-                    Text = EntitiesTranslation.Delete,
+                    Text = Delete,
                     Font = FontsPicker.DetailsFont,
                     BackColor = Color.Salmon,
                     AutoSize = true,
@@ -132,7 +133,7 @@ namespace HotelOazis.Forms
 
                 delete.Click += async (s, e) =>
                 {
-                    var confirmResult = MessageBox.Show("Are you sure to delete this user?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    var confirmResult = MessageBox.Show(ProfileDeleteWarning, Confirmation, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (confirmResult == DialogResult.Yes)
                     {
                         var success = await userService.DeleteUserAsync(user.Id);

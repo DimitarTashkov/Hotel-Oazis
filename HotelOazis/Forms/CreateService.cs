@@ -4,8 +4,6 @@ using HotelOazis.Extensions;
 using HotelOazis.Models;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
-using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
-using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 namespace HotelOazis.Forms
@@ -85,7 +83,7 @@ namespace HotelOazis.Forms
             bool areInputsValid = ValidationHelper.ValidateUserInputs(inputs);
             if (!areInputsValid)
             {
-                MessageBox.Show(EmptyInputData, "Room Creation Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(EmptyInputData, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -121,13 +119,13 @@ namespace HotelOazis.Forms
             bool isCreated = await facilityService.AddServiceAsync(serviceInputModel);
             if (isCreated)
             {
-                MessageBox.Show(string.Format(CreatedSuccessfully, nameof(Service)), Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(CreatedSuccessfully, Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Services servicesForm = new Services(facilityService, userService);
                 Program.SwitchMainForm(servicesForm);
             }
             else
             {
-                MessageBox.Show(string.Format(CreationFailed, nameof(Service)), Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(CreateFailed, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

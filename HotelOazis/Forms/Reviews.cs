@@ -144,7 +144,7 @@ namespace HotelOazis.Forms
                 deleteReview.Click += async (s, e) =>
                 {
                     await reviewService.DeleteReviewAsync(review.Id);
-                    MessageBox.Show("Review deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(DeletionSuccessful,Success ,MessageBoxButtons.OK, MessageBoxIcon.Information);
                     reviewsContainer.Controls.Remove(reviewContainer);
                 };
                 reviewContainer.Controls.Add(editReview);
@@ -199,7 +199,7 @@ namespace HotelOazis.Forms
             {
                 if (writeReviewTextArea.Text == string.Empty || writeReviewTextArea.Text == WriteReviewPlaceholder)
                 {
-                    MessageBox.Show("Please write a review before submitting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(EmptyReviewMessage, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 var newReview = new ReviewInputModel
@@ -212,7 +212,7 @@ namespace HotelOazis.Forms
                 };
 
                 await reviewService.CreateReviewAsync(newReview);
-                MessageBox.Show("Review added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(CreatedSuccessfully, Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Reviews reloadForm = new Reviews(reviewService, userService);
                 Program.SwitchMainForm(reloadForm);

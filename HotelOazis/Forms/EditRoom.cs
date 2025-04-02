@@ -7,8 +7,6 @@ using HotelOazis.Models.Enumerations;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
-using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
-using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 namespace HotelOazis.Forms
@@ -204,13 +202,13 @@ namespace HotelOazis.Forms
             bool success = await roomService.EditRoomAsync(editModel);
             if (success)
             {
-                MessageBox.Show(string.Format(UpdatedSuccessfully, nameof(Rooms)), Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(EditSucceeded, Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 EditRoom editForm = new EditRoom(roomService, editModel);
                 Program.SwitchMainForm(editForm);
             }
             else
             {
-                MessageBox.Show(string.Format(UpdateFailed, nameof(Rooms)), Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(EditFailed, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

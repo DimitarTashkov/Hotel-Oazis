@@ -153,12 +153,12 @@ namespace HotelOazis.Forms
                     var success = await facilityService.DeleteServiceAsync(service.Id);
                     if (success)
                     {
-                        MessageBox.Show(string.Format(DeletionSuccessful, nameof(Models.Service)), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(DeletionSuccessful, Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         await PopulateServicesAsync();
                     }
                     else
                     {
-                        MessageBox.Show(string.Format(DeletionFailed, nameof(Models.Service)), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(DeletionFailed, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 };
 

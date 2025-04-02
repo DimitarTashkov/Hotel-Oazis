@@ -8,9 +8,6 @@ using HotelOazis.Utilities;
 using Microsoft.EntityFrameworkCore;
 using static HotelOazis.Common.Constants.ValidationConstants.UserConstants;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
-using static HotelOazis.Common.Messages.ErrorMessages;
-using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
-using static HotelOazis.Common.Messages.ResultMessages.UserMessages;
 using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 namespace HotelOazis.Forms
@@ -143,7 +140,7 @@ namespace HotelOazis.Forms
             bool areInputsValid = ValidationHelper.ValidateUserInputs(inputs, profilePicture);
             if (!areInputsValid)
             {
-                MessageBox.Show(InputsMessages.EmptyInputData, "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(EmptyInputData, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -255,7 +252,7 @@ namespace HotelOazis.Forms
         {
             var confirmResult = MessageBox.Show(
                 ProfileDeleteWarning,
-                "Confirm Deletion",
+                Confirmation,
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
 
@@ -265,7 +262,7 @@ namespace HotelOazis.Forms
 
                 if (isDeleted)
                 {
-                    MessageBox.Show(ProfileDeletionSuccessful, "Account Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(ProfileDeletionSuccessful, Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Login loginForm = new Login(userService);
                     Program.SwitchMainForm(loginForm);
                 }

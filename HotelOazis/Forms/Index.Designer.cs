@@ -150,6 +150,7 @@
             // 
             // roundPictureBox1
             // 
+            roundPictureBox1.BackColor = Color.Transparent;
             resources.ApplyResources(roundPictureBox1, "roundPictureBox1");
             roundPictureBox1.Name = "roundPictureBox1";
             roundPictureBox1.TabStop = false;

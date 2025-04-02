@@ -4,9 +4,6 @@ using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
 using static HotelOazis.Common.Constants.ValidationConstants.UserConstants;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
-using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
-using static HotelOazis.Common.Messages.ErrorMessages.UserMessages;
-using static HotelOazis.Common.Messages.ResultMessages.UserMessages;
 using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 
@@ -74,10 +71,6 @@ namespace HotelOazis.Forms
         }
         private void Register_Load(object sender, EventArgs e)
         {
-            usernameField.Text = "\"foulcoast\"";
-            passwordField.Text = "\"mitko123\"";
-            emailField.Text = "\"dimitar.tashkov@pmggd.bg\"";
-            ageField.Text = "\"17\"";
 
         }
         private void uploadImage_click(Object sender, EventArgs e)
@@ -96,7 +89,7 @@ namespace HotelOazis.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(EmptyOrInvalidImage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(EmptyOrInvalidImage, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -113,7 +106,7 @@ namespace HotelOazis.Forms
             bool areInputsValid = ValidationHelper.ValidateUserInputs(inputs, profilePicture);
             if (!areInputsValid)
             {
-                MessageBox.Show(EmptyInputData, "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(EmptyInputData, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -163,13 +156,13 @@ namespace HotelOazis.Forms
             }
             if (await userService.IsUsernameTaken(username))
             {
-                MessageBox.Show(UsernameExists, "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(UsernameExists, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             await userService.RegisterUserAsync(registrationModel);
 
-            MessageBox.Show(ProfileRegisteredSuccessfully, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(ProfileRegistered, Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
             Login login = new Login(userService);
             Program.SwitchMainForm(login);
         }

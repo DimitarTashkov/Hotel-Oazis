@@ -6,8 +6,6 @@ using HotelOazis.Properties;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
 
-using static HotelOazis.Common.Messages.ErrorMessages.ReservationMessages;
-using static HotelOazis.Common.Messages.ResultMessages.ActionMessages;
 using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
 namespace HotelOazis.Forms
@@ -135,7 +133,7 @@ namespace HotelOazis.Forms
             }
             else
             {
-                MessageBox.Show(string.Format(UpdateFailed, nameof(Rooms)), Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(EditFailed, Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void CreateIconControls()

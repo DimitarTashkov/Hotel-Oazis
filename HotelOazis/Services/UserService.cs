@@ -61,7 +61,7 @@ namespace HotelOazis.Services
         {
             if (loggedInUser == null) return false;
 
-            var user = await dbContext.Users.FindAsync(loggedInUser.Id);
+            var user = await dbContext.Users.FindAsync(userModel.Id);
             if (user == null) return false;
 
             user.Username = userModel.Username;
@@ -72,7 +72,6 @@ namespace HotelOazis.Services
             dbContext.Users.Update(user);
             await dbContext.SaveChangesAsync();
 
-            loggedInUser = user; 
             return true;
         }
 
@@ -161,6 +160,10 @@ namespace HotelOazis.Services
             dbContext.UsersRoles.Remove(userRole);
             await dbContext.SaveChangesAsync();
             return true;
+        }
+        public async Task<User?> FindUserByIdAsync(Guid userId)
+        {
+            return await dbContext.Users.FindAsync(userId);
         }
 
     }

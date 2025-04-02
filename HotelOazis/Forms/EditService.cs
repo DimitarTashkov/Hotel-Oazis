@@ -173,7 +173,7 @@ namespace HotelOazis.Forms
                     form = new Reviews(reviewService, userService);
                     break;
                 case "Profile":
-                    form = new Profile(userService);
+                    form = new Profile(userService, activeUser.Id);
                     break;
                 case "Users":
                     form = new Users(userService);
@@ -196,7 +196,7 @@ namespace HotelOazis.Forms
 
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
-            Profile profileForm = new Profile(userService);
+            Profile profileForm = new Profile(userService, activeUser.Id);
             Program.SwitchMainForm(profileForm);
         }
     }

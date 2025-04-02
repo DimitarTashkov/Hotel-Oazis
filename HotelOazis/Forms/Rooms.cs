@@ -66,7 +66,7 @@ namespace HotelOazis.Forms
                 lblPrice.ForeColor = Color.DarkGreen;
 
                 // Наличност
-                Label lblAvailability = CreateLabel($"lblAvailability{index}", room.IsAvailable ? $"{Available}" : $"{IsNotAvailable}", new Font("Segoe UI", 10), new Point(10, 200));
+                Label lblAvailability = CreateLabel($"lblAvailability{index}", room.IsAvailable ? $"{AvailableMessage}" : $"{UnavailableMessage}", new Font("Segoe UI", 10), new Point(10, 200));
                 lblAvailability.ForeColor = room.IsAvailable ? Color.Green : Color.Red;
 
                 // Бутон "Резервирай"
@@ -248,7 +248,7 @@ namespace HotelOazis.Forms
                     form = new Reviews(reviewService, userService);
                     break;
                 case "Profile":
-                    form = new Profile(userService);
+                    form = new Profile(userService, activeUser.Id);
                     break;
                 case "Users":
                     form = new Users(userService);
@@ -270,7 +270,7 @@ namespace HotelOazis.Forms
         }
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
-            Profile profileForm = new Profile(userService);
+            Profile profileForm = new Profile(userService, activeUser.Id);
             Program.SwitchMainForm(profileForm);
         }
     }

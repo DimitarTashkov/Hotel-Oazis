@@ -116,7 +116,7 @@ namespace HotelOazis.Forms
 
                 edit.Click += (s, e) =>
                 {
-                    var profileForm = new Profile(userService);
+                    var profileForm = new Profile(userService, user.Id);
                     Program.SwitchMainForm(profileForm);
                 };
 
@@ -166,7 +166,7 @@ namespace HotelOazis.Forms
                 "Rooms" => new Rooms(roomService, userService),
                 "Services" => new Services(facilityService, userService),
                 "Reviews" => new Reviews(reviewService, userService),
-                "Profile" => new Profile(userService),
+                "Profile" => new Profile(userService, activeUser.Id),
                 "User" => new Users(userService),
                 "MyReservations" => new Reservations(userService, roomService),
                 "Reservations" => new Reservations(userService, roomService),
@@ -178,7 +178,7 @@ namespace HotelOazis.Forms
 
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
-            var profileForm = new Profile(userService);
+            var profileForm = new Profile(userService, activeUser.Id);
             Program.SwitchMainForm(profileForm);
         }
     }

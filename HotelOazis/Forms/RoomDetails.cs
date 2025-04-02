@@ -49,11 +49,11 @@ namespace HotelOazis.Forms
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
             _isAuthorized = isAdmin;
 
-            string availabilityMessage = model.IsAvailable ? IsAvailable : IsNotAvailable;
+            string availabilityMessage = model.IsAvailable ? IsAvailableAnswer : IsNotAvailableAnswer;
             roomNumber.Text = $"{RoomNumber} " + model.RoomNumber;
             roomType.Text = $"{RoomType} " + model.Type;
             roomPrice.Text = $"{Price} " + model.Price.ToString("F2") + " lv";
-            roomAvaialability.Text = $"{Available} " + (model.IsAvailable ? $"{Available}" : $"{IsNotAvailable}");
+            roomAvaialability.Text = $"{AvailableMessage}: " + (model.IsAvailable ? $"{IsAvailableAnswer}" : $"{IsNotAvailableAnswer}");
             roomDescription.Text = $"{ItemDescription} " + model.Description;
             roomImage.ImageLocation = model.Picture;
 
@@ -206,7 +206,7 @@ namespace HotelOazis.Forms
                     form = new Reviews(reviewService, userService);
                     break;
                 case "Profile":
-                    form = new Profile(userService);
+                    form = new Profile(userService, activeUser.Id);
                     break;
                 case "Users":
                     form = new Users(userService);
@@ -228,7 +228,7 @@ namespace HotelOazis.Forms
         }
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
-            Profile profileForm = new Profile(userService);
+            Profile profileForm = new Profile(userService, activeUser.Id);
             Program.SwitchMainForm(profileForm);
         }
 

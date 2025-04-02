@@ -18,26 +18,27 @@ namespace HotelOazis.Forms
     public partial class Profile : Form
     {
         private User activeUser;
+        private Guid userId;
         private readonly IFacilityService facilityService;
         private readonly IUserService userService;
         private readonly IReviewService reviewService;
         private readonly IRoomService roomService;
 
-        public Profile(IUserService userService)
+        public Profile(IUserService userService, Guid userId)
         {
             InitializeComponent();
             this.userService = userService;
+            this.userId = userId;
             this.facilityService = ServiceLocator.GetService<IFacilityService>();
             this.reviewService = ServiceLocator.GetService<IReviewService>();
             this.roomService = ServiceLocator.GetService<IRoomService>();
 
-            LoadUserDataAsync();
             ApplyStyles();
         }
 
-        private  void LoadUserDataAsync()
+        private async Task LoadUserDataAsync()
         {
-            activeUser =  userService.GetLoggedInUserAsync();
+            activeUser = await userService.FindUserByIdAsync(userId);
             roundPictureBox1.ImageLocation = activeUser?.AvatarUrl;
         }
         private void navigationButton_Click(object sender, EventArgs e)
@@ -104,8 +105,10 @@ namespace HotelOazis.Forms
 
         }
 
-        private void Profile_Load(object sender, EventArgs e)
+        private async void Profile_Load(object sender, EventArgs e)
         {
+            await LoadUserDataAsync();
+
             bool isAdmin = AuthorizationHelper.IsAuthorized();
 
             if (isAdmin)
@@ -146,6 +149,7 @@ namespace HotelOazis.Forms
 
             var editModel = new EditProfileInputModel()
             {
+                Id = activeUser.Id,
                 Username = usernameField.Text.Trim(),
                 Email = emailField.Text.Trim(),
                 AvatarUrl = profilePicture.ImageLocation,
@@ -186,7 +190,7 @@ namespace HotelOazis.Forms
             if (success)
             {
                 MessageBox.Show(ProfileUpdatedSuccessfully, Success, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Profile profileForm = new Profile(userService);
+                Profile profileForm = new Profile(userService,activeUser.Id);
                 Program.SwitchMainForm(profileForm);
             }
             else
@@ -291,7 +295,7 @@ namespace HotelOazis.Forms
                     form = new Reviews(reviewService, userService);
                     break;
                 case "Profile":
-                    form = new Profile(userService);
+                    form = new Profile(userService,activeUser.Id);
                     break;
                 case "Users":
                     form = new Users(userService);
@@ -314,7 +318,7 @@ namespace HotelOazis.Forms
 
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
-            Profile profileForm = new Profile(userService);
+            Profile profileForm = new Profile(userService, activeUser.Id);
             Program.SwitchMainForm(profileForm);
         }
     }

@@ -2,10 +2,13 @@
 using HotelOazis.DTOs.User;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
+using static HotelOazis.Common.Constants.ValidationConstants.UserConstants;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.UserMessages;
 using static HotelOazis.Common.Messages.ResultMessages.UserMessages;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
+
 
 namespace HotelOazis.Forms
 {
@@ -65,9 +68,9 @@ namespace HotelOazis.Forms
             navigationButton.MouseEnter += (s, e) => navigationButton.BackColor = Color.FromArgb(127, 140, 141);
             navigationButton.MouseLeave += (s, e) => navigationButton.BackColor = Color.FromArgb(149, 165, 166);
 
-           
 
-           
+
+
         }
         private void Register_Load(object sender, EventArgs e)
         {
@@ -137,12 +140,12 @@ namespace HotelOazis.Forms
                 {
                     if (error.MemberNames.Contains(nameof(registrationModel.Username)))
                     {
-                        usernameErrors.Text = error.ErrorMessage;
+                        usernameErrors.Text = string.Format(FieldLength, Username, NameMinLength);
                         usernameErrors.Visible = true;
                     }
                     if (error.MemberNames.Contains(nameof(registrationModel.Password)))
                     {
-                        passwordErrors.Text = error.ErrorMessage;
+                        passwordErrors.Text = string.Format(FieldLength, Password, PasswordMinLength);
                         passwordErrors.Visible = true;
                     }
                     if (error.MemberNames.Contains(nameof(registrationModel.Email)))
@@ -175,6 +178,11 @@ namespace HotelOazis.Forms
         {
             Login loginForm = new Login(userService);
             Program.SwitchMainForm(loginForm);
+        }
+
+        private void formPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

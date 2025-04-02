@@ -11,6 +11,11 @@ namespace HotelOazis.Utilities
     {
         public static class EntitiesTranslation
         {
+            public static string Username => LanguageChanger.GetLanguage() == BgLanguage ? "Потребителско име" : "Username";
+            public static string Password => LanguageChanger.GetLanguage() == BgLanguage ? "Парола" : "Password";
+            public static string ProfilePicture => LanguageChanger.GetLanguage() == BgLanguage ? "Снимката е задължителна" : "Picture is required";
+
+
             public static string ReadMore => LanguageChanger.GetLanguage() == BgLanguage ? "Прочети повече" : "Read more";
             public static string ItemName => LanguageChanger.GetLanguage() == BgLanguage ? "Име:" : "Name:";
             public static string ItemDescription => LanguageChanger.GetLanguage() == BgLanguage ? "Описание:" : "Description:";
@@ -46,6 +51,7 @@ namespace HotelOazis.Utilities
             public static string DeletionFailed => LanguageChanger.GetLanguage() == BgLanguage ? "Неуспешно изтриване" : "Deletion failed.";
             public static string EditFailed => LanguageChanger.GetLanguage() == BgLanguage ? "Неуспешно редактиране" : " Edit Failed";
 
+            public static string FieldLength => LanguageChanger.GetLanguage() == BgLanguage ? "{0} трябва да е минимум {1} символа" : "{0} should be atleast {1} characters long";
         }
     }
 }

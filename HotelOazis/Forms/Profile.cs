@@ -6,6 +6,7 @@ using HotelOazis.Models;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
 using Microsoft.EntityFrameworkCore;
+using static HotelOazis.Common.Constants.ValidationConstants.UserConstants;
 using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
 using static HotelOazis.Common.Messages.ErrorMessages;
 using static HotelOazis.Common.Messages.ErrorMessages.InputsMessages;
@@ -159,22 +160,22 @@ namespace HotelOazis.Forms
                 {
                     if (error.MemberNames.Contains(nameof(editModel.Username)))
                     {
-                        usernameErrors.Text = error.ErrorMessage;
+                        usernameErrors.Text = string.Format(FieldLength, Username, NameMinLength);
                         usernameErrors.Visible = true;
                     }
                     if (error.MemberNames.Contains(nameof(editModel.Password)))
                     {
-                        passwordErrors.Text = error.ErrorMessage;
+                        passwordErrors.Text = string.Format(FieldLength, Password, PasswordMinLength);
                         passwordErrors.Visible = true;
                     }
                     if (error.MemberNames.Contains(nameof(editModel.Email)))
                     {
-                        emailErrors.Text = error.ErrorMessage;
+                        emailErrors.Text = string.Format(FieldLength, Password, PasswordMinLength);
                         emailErrors.Visible = true;
                     }
                     if (error.MemberNames.Contains(nameof(editModel.AvatarUrl)))
                     {
-                        pfpErrors.Text = error.ErrorMessage;
+                        pfpErrors.Text = ProfilePicture;
                         pfpErrors.Visible = true;
                     }
                 }
@@ -225,7 +226,12 @@ namespace HotelOazis.Forms
 
             passwordField.Text = activeUser.Password;
             passwordField.ForeColor = Color.DimGray;
+
+            usernameField.Font = FontsPicker.DetailsFont;
             passwordField.Font = FontsPicker.DetailsFont;
+            emailField.Font = FontsPicker.DetailsFont;
+            ageField.Font = FontsPicker.DetailsFont;
+
 
             emailField.Enabled = true;
             ageField.Enabled = true;

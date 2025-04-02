@@ -5,6 +5,9 @@ using HotelOazis.Models.DbConfiguration;
 using HotelOazis.Services.Interfaces;
 using HotelOazis.Utilities;
 using Microsoft.EntityFrameworkCore;
+
+using static HotelOazis.Common.Constants.ValidationConstants.UserConstants;
+using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
 using static HotelOazis.Common.Messages.ErrorMessages;
 
 namespace HotelOazis.Forms
@@ -82,13 +85,13 @@ namespace HotelOazis.Forms
                 {
                     if (error.MemberNames.Contains(nameof(loginModel.Username)))
                     {
-                        usernameError.Text = error.ErrorMessage;
+                        usernameError.Text = string.Format(FieldLength, Username, NameMinLength);
                         usernameError.Visible = true;
                     }
 
                     if (error.MemberNames.Contains(nameof(loginModel.Password)))
                     {
-                        passwordError.Text = error.ErrorMessage;
+                        passwordError.Text = string.Format(FieldLength, Password, PasswordMinLength);
                         passwordError.Visible = true;
                     }
                 }

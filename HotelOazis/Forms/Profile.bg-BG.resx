@@ -136,14 +136,8 @@
   <data name="editButton.Text" xml:space="preserve">
     <value>Редактирай</value>
   </data>
-  <data name="uploadButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
-  </data>
   <data name="uploadButton.Text" xml:space="preserve">
     <value>Качи снимка</value>
-  </data>
-  <data name="ageLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 14.25pt, style=Bold</value>
   </data>
   <data name="ageLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>152, 241</value>
@@ -154,9 +148,6 @@
   <data name="ageLabel.Text" xml:space="preserve">
     <value>Възраст</value>
   </data>
-  <data name="emailLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 14.25pt, style=Bold</value>
-  </data>
   <data name="emailLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>152, 172</value>
   </data>
@@ -165,9 +156,6 @@
   </data>
   <data name="emailLabel.Text" xml:space="preserve">
     <value>*Имейл</value>
-  </data>
-  <data name="passwordLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 14.25pt, style=Bold</value>
   </data>
   <data name="passwordLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>152, 104</value>
@@ -178,9 +166,6 @@
   <data name="passwordLabel.Text" xml:space="preserve">
     <value>*Парола</value>
   </data>
-  <data name="usernameLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 14.25pt, style=Bold</value>
-  </data>
   <data name="usernameLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>152, 36</value>
   </data>
@@ -190,9 +175,6 @@
   <data name="usernameLabel.Text" xml:space="preserve">
     <value>*Потребителско име</value>
   </data>
-  <data name="profileLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15.75pt, style=Bold</value>
-  </data>
   <data name="profileLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>279, 0</value>
   </data>
@@ -201,6 +183,9 @@
   </data>
   <data name="profileLabel.Text" xml:space="preserve">
     <value>Профил</value>
+  </data>
+  <data name="pfpErrors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>444, 248</value>
   </data>
   <data name="Home.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 27</value>

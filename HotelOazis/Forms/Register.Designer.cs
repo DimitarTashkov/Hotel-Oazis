@@ -81,6 +81,7 @@
             formPanel.Controls.Add(logo);
             formPanel.Controls.Add(register_label);
             formPanel.Name = "formPanel";
+            formPanel.Paint += formPanel_Paint;
             // 
             // pfpErrorMessages
             // 

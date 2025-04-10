@@ -96,15 +96,15 @@ namespace HotelOazis.Forms
                 isAdminBox.Items.AddRange(new object[] { "True", "False" });
                 isAdminBox.SelectedIndex = await userService.IsUserAdminAsync(user.Id) ? 0 : 1;
 
-                isAdminBox.SelectedIndexChanged += async (s, e) =>
-                {
-                    bool isAdmin = isAdminBox.SelectedItem.ToString() == "True";
-                    if (isAdmin)
-                        await userService.MakeUserAdminAsync(user.Id);
-                    else
-                        await userService.RemoveAdminRoleAsync(user.Id);
-                };
-
+                    isAdminBox.DropDownClosed += async (sender, e) =>
+                    {
+                        bool isAdmin = isAdminBox.SelectedItem?.ToString() == "True";
+                        if (isAdmin)
+                            await userService.MakeUserAdminAsync(user.Id);
+                        else
+                            await userService.RemoveAdminRoleAsync(user.Id);
+                    };
+                
                 var edit = new Button
                 {
                     Name = $"edit{index}",

@@ -35,4 +35,4 @@ Relationships:
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/yourusername/hotel-oazis.git
+   gh repo clone DimitarTashkov/Hotel-Oazis

@@ -36,3 +36,35 @@ Relationships:
 1. Clone the repo:
    ```bash
    gh repo clone DimitarTashkov/Hotel-Oazis
+   ```
+
+## Application Previews
+
+Here is a full showcase of the application's user interface and capabilities.
+
+<p align="center">
+  <img src="images/image1.jpeg" width="48%">
+  <img src="images/image2.png" width="48%">
+  <img src="images/image3.png" width="48%">
+  <img src="images/image4.png" width="48%">
+  <img src="images/image5.png" width="48%">
+  <img src="images/image6.png" width="48%">
+  <img src="images/image7.png" width="48%">
+  <img src="images/image8.png" width="48%">
+  <img src="images/image9.png" width="48%">
+  <img src="images/image10.png" width="48%">
+  <img src="images/image11.png" width="48%">
+  <img src="images/image12.png" width="48%">
+  <img src="images/image13.png" width="48%">
+  <img src="images/image14.png" width="48%">
+  <img src="images/image15.png" width="48%">
+  <img src="images/image16.png" width="48%">
+  <img src="images/image17.png" width="48%">
+  <img src="images/image18.png" width="48%">
+  <img src="images/image19.png" width="48%">
+  <img src="images/image20.png" width="48%">
+  <img src="images/image21.png" width="48%">
+  <img src="images/image22.png" width="48%">
+  <img src="images/image23.png" width="48%">
+</p>
+

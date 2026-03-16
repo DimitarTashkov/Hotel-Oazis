@@ -43,10 +43,6 @@ Relationships:
 Here is a full showcase of the application's user interface and capabilities.
 
 <p align="center">
-  <img src="images/image1.jpeg" width="48%">
-  <img src="images/image2.png" width="48%">
-  <img src="images/image3.png" width="48%">
-  <img src="images/image4.png" width="48%">
   <img src="images/image5.png" width="48%">
   <img src="images/image6.png" width="48%">
   <img src="images/image7.png" width="48%">
